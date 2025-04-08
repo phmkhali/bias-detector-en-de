@@ -9,4 +9,5 @@ def translate(text):
     output = model.generate(**input)
     return tokenizer.decode(output[0], skip_special_tokens=True)
 
-print(translate("The surgeon is hard-working.")) 
+sentence="We need to prevent producers falling victim to the cyclical variation of the market."
+print(translate(sentence)) 
