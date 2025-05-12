@@ -1,0 +1,41 @@
+\documentclass[oneside, paper=A4, DIV=15]{scrartcl}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+% Font settings
+\usepackage{libertine}
+\usepackage{libertinust1math}
+\usepackage[T1]{fontenc}
+
+% Math, symbols, units
+\usepackage{siunitx}  
+
+% Typography
+\usepackage[auto]{microtype}
+
+% Author information
+\usepackage{authblk}
+\renewcommand\Authand{, }
+\renewcommand\Authands{, }
+
+% Bibliography
+\usepackage[style=authoryear, maxnames=2, minnames=1, sorting=nyt, backend=biber]{biblatex}
+\addbibresource{references.bib}
+\bibliography{references}
+\nocite{*} 
+
+% PDF settings
+\usepackage[
+pdftitle={},
+pdfsubject={},
+pdfauthor={},
+pdfkeywords={},  
+hidelinks
+]{hyperref}
+
+\usepackage{graphicx}
+\usepackage{amsmath} 
+\usepackage{verbatim}   
+\usepackage{tabularx,booktabs}
+\usepackage{array}    
+\usepackage{pgfgantt}
