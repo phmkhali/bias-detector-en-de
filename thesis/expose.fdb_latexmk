@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber expose"] 1747250249.44038 "expose.bcf" "expose.bbl" "expose" 1747250529.24476 0
-  "expose.bcf" 1747250529.11207 111222 a2059ca43a907453b0c7d3f740daec06 "pdflatex"
+["biber expose"] 1747250249.44038 "expose.bcf" "expose.bbl" "expose" 1747251034.3593 0
+  "expose.bcf" 1747251034.22206 111222 a2059ca43a907453b0c7d3f740daec06 "pdflatex"
   "references.bib" 1747074260.32248 29963 6fa3fccb2e6bc31f815e3e9c4cf9cb5a ""
   (generated)
   "expose.bbl"
   "expose.blg"
   (rewritten before read)
-["pdflatex"] 1747250527.39787 "/Users/khali/Documents/GitHub/bias-detector-en-de/thesis/expose.tex" "expose.pdf" "expose" 1747250529.24498 0
-  "/Users/khali/Documents/GitHub/bias-detector-en-de/thesis/expose.tex" 1747250527.21295 20166 8bf15e646808b313bde3c5387d56aea1 ""
+["pdflatex"] 1747251032.44862 "/Users/khali/Documents/GitHub/bias-detector-en-de/thesis/expose.tex" "expose.pdf" "expose" 1747251034.3595 0
+  "/Users/khali/Documents/GitHub/bias-detector-en-de/thesis/expose.tex" 1747251032.26425 20166 8bf15e646808b313bde3c5387d56aea1 ""
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc" 1741388039 2921 8ca0eb0831f9bc5da080d3697cfe67bf ""
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc" 1741388039 2933 9ad527ce78d7c5fa0a642dead095f172 ""
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc" 1741388039 2934 a4a9158faed2e9e89c771b4e3b7fc12f ""
@@ -246,12 +246,12 @@
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty" 1741388039 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-dist/web2c/texmf.cnf" 1741388039 42151 79f67285bdd95beca4d137b380b4b9e5 ""
   "/opt/homebrew/Cellar/texlive/20250308_1/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1741388039 3346141 1288109d02d1c772df65535881471649 ""
-  "expose.aux" 1747250529.10761 8885 ef25aedd0865ef50f72aecdb39ba7777 "pdflatex"
-  "expose.bbl" 1747250521.33062 66263 e94017ebe78a8f255c992fb15da17143 "biber expose"
-  "expose.out" 1747250528.54408 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "expose.aux" 1747251034.21765 8885 ef25aedd0865ef50f72aecdb39ba7777 "pdflatex"
+  "expose.bbl" 1747251023.9253 66263 e94017ebe78a8f255c992fb15da17143 "biber expose"
+  "expose.out" 1747251033.63138 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   "expose.preambel.tex" 1747156442.66046 694 bc83cac6df36ad60a86025090c3db3da ""
-  "expose.run.xml" 1747250529.11261 2325 c416f9644f0bd52b22efec0408e0dcf4 "pdflatex"
-  "expose.tex" 1747250527.21295 20166 8bf15e646808b313bde3c5387d56aea1 ""
+  "expose.run.xml" 1747251034.22274 2325 c416f9644f0bd52b22efec0408e0dcf4 "pdflatex"
+  "expose.tex" 1747251032.26425 20166 8bf15e646808b313bde3c5387d56aea1 ""
   (generated)
   "expose.aux"
   "expose.bcf"

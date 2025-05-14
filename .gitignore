@@ -7,3 +7,8 @@
 *.synctex.gz
 *.fls
 *.run.xml
+*.fdb_latexmk
+*.lof
+*.lot
+*.toc
+*.pdf
