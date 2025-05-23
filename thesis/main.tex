@@ -12,12 +12,10 @@ bibtotoc,liststotoc,appendixprefix,paper=a4,headings=small]{scrbook} % 'twoside=
   bottom=50mm,
   bindingoffset=10mm]{geometry}		% Seitenränder und Bindungskorrektur einstellen
   
-\usepackage{apacite} 				% Literatur-Referenzen: American Psycholog. Assoc.
-\usepackage{natbib}				
+\usepackage{natbib}		
 
 \setcitestyle{round,aysep={}} 		% Indizierg. in runden Klammern, zw. Autor u. Jahr
 \usepackage[utf8]{inputenc}         % Umlaute im Text
-\usepackage{ngerman}				% Rechtschreibg.
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}				% Schriftfamilie
 \usepackage{microtype}				% für die Mikrotypografie (besseres Schriftbild)
@@ -70,14 +68,12 @@ bibtotoc,liststotoc,appendixprefix,paper=a4,headings=small]{scrbook} % 'twoside=
 
 \frontmatter 
     \include{./Titel/titel} 			% Titelblatt
-    \input{./Kapitel/abstract_deu} 	% Abstract auf Deutsch 
-    \newpage
     \clearpage{\pagestyle{empty}\cleardoublepage}
-    \include{./Kapitel/abstract_eng}
+    \include{./Chapters/abstract}
     \newpage
     
     \clearpage{\pagestyle{empty}\cleardoublepage}
-    \input{./Kapitel/sperrvermerk}      % Sperrvermerk
+    \input{./Chapters/sperrvermerk}      % Sperrvermerk
     \newpage
     
     \clearpage{\pagestyle{empty}\cleardoublepage}
@@ -93,20 +89,17 @@ bibtotoc,liststotoc,appendixprefix,paper=a4,headings=small]{scrbook} % 'twoside=
 
 % -----------------------------------
 \mainmatter 							% die einzelnen Kapitel
-    \input{./Kapitel/einleitung}
-    \clearpage{\pagestyle{empty}\cleardoublepage}		% löscht Kopfzeilen und Seitennummerierung von der letzten Seite eines Kapitels, sofern dort kein Text mehr steht
-    \input{./Kapitel/grundlagen}
-    \input{./Kapitel/eigenanteil}
-    \clearpage{\pagestyle{empty}\cleardoublepage}
-    \input{./Kapitel/ergebnisse}
-    \clearpage{\pagestyle{empty}\cleardoublepage}
-    \input{./Kapitel/fazit}
-    \clearpage{\pagestyle{empty}\cleardoublepage}
+    \input{./Chapters/introduction}
+    \clearpage{\pagestyle{empty}\cleardoublepage}		
+    \input{./Chapters/motivation}
+    \input{./Chapters/problem_statement_and_research_questions}
 
 % -----------------------------------
 \backmatter 
 \bibliographystyle{apalike}		
 \bibliography{./Literatur/references}		% Literaturquellen einbinden 
-\input{./Kapitel/erklaerung} 			% Eidesstattliche Erklärung (nicht bei Seminararb.)
+\clearpage{\pagestyle{empty}\cleardoublepage}		
+\input{./Chapters/appendix}
+\input{./Chapters/erklaerung} 			% Eidesstattliche Erklärung (nicht bei Seminararb.)
 
 \end{document}
