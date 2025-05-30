@@ -1,26 +1,26 @@
 \chapter{Related Work}
 
-This section outlines key findings of related work on gender bias in MT, with a focus on the English-German language pair. The aim is to (1) define the core concept of gender bias in MT, (2) establish the relevance of the topic, (3) identify the research gap, and (4) justify technical design choices. To support this, I examine datasets, model types, and tools used in previous studies.
+This section outlines key findings of related work on gender bias in MT, with a focus on the English-German language pair. The research aims are to (1) define the core concept of gender bias in MT, (2) establish the relevance of the topic, (3) identify the research gap, and (4) justify technical design choices. To support this, I examine datasets, model types, and tools used in previous studies.
 
-This literature review was structured according to the framework for qualitative Information Systems literature reviews developed by \citet{smacchiaDoesAIReflect2024} and further guided by the findings of \citet{shresthaExploringGenderBiases2022}, who conducted a systematic literature review on gender bias in ML and AI. It served as a reference point for identifying key areas of the topic and provided a basis for defining relevant keywords and thematic categories. This process helped identify empirical findings and technical approaches relevant to this thesis and supported the positioning and justification of its methodological choices.
+This review did not follow a fully systematic literature review methodology given the large volume of literature on gender bias in MT. Instead, it employed an iterative and selective search process based on my four specified research goals to remain practical within the scope and timeline of this work. The qualitative Information Systems literature review framework developed by \citet{schryenWritingQualitativeLiterature2015} was used to frame, synthesize and interpret this review. It was then further guided by the findings of \citet{shresthaExploringGenderBiases2022}, who already have conducted a systematic literature review on gender bias in ML and AI. These references helped identify key topic areas, define relevant keywords and thematic categories, and supported the positioning and justification of this thesis’s methodological choices.
 
+\section{Literature Search Process}
 
-\section{Literature Sourcing Methodology}
+\subsection{Search Sources and Tools}
+Sources were primarily searched on \href{https://scholar.google.com/}{Google Scholar} and \href{https://www.perplexity.ai/}{Perplexity}, which served as an additional search engine. Prompts and outputs from Perplexity have been saved and are included in the appendix. To organize and manage the collected sources, \href{https://www.zotero.org/}{Zotero} was used throughout the process.
 
+\subsection{Search Terms and Time Frame}
+Key search terms included \textit{gender bias}, \textit{machine translation}, \textit{AI}, \textit{machine learning}, \textit{German}, and \textit{stereotypes}. The focus was on literature published between 2019 and 2025 to maintain relevance and currency, while foundational and definitional works from earlier periods were selectively included.
 
+\subsection{Citation Tracking}
+Backward citation searching involved reviewing references cited by selected papers, prioritizing frequently cited and foundational works relevant to gender bias in MT. Forward citation searching used Google Scholar's "cited by" function to identify newer research citing those key papers. Filtering with specific terms (e.g., "German," "machine translation") was applied during forward search to maintain focus.
 
-Since Machine Learning (ML) is a rapidly evolving field and older studies may be outdated, only
-publications from 2015 onward are considered. Additionally, only publicly available English sources
-are included. Literature was primarily found using keyword-based searches on Google Scholar. Initial
-search terms such as "gender bias" and "machine translation" yielded over 18,000 results. 
+\subsection{Selection Criteria and Screening Process}
+Titles and abstracts were manually screened to select relevant studies. Inclusion criteria required sources to specifically address gender bias in MT, provide examples or discussions of gender-related errors, or explain the significance of gender bias in this context. Exclusion criteria filtered out studies focusing on general NLP bias without a direct link to MT, non-gender biases without clear gender connection, and highly technical papers lacking contribution to the general understanding of gender bias. Full texts were reviewed after initial screening to confirm relevance and extract insights. Redundant sources not providing new perspectives aligned with the thesis goals were excluded.
 
-- refer to 03 of methodology
+\subsection{Management of Literature}
+The Zotero reference manager was used continuously to collect and organize papers. As of this thesis, 34 sources have been included, while initial searches yielded over 18,000 results.
 
-- Define the review's purpose: synthesis, interpretation, and guidance for future research.
-- Describe databases used (ACL, Google Scholar), search terms, filtering process.
-- Establish inclusion and exclusion criteria for selecting literature.
-- Utilize qualitative data analysis tools (e.g., NVivo) for coding and thematic analysis.
-- Ensure transparency and replicability in the review process.
 
 \section{Gender Bias in Machine Translation}
 
