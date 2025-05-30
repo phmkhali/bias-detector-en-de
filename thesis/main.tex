@@ -18,11 +18,12 @@ bibliography=totoc,listof=totoc,appendixprefix,paper=a4,headings=small]{scrbook}
 \usepackage[utf8]{inputenc}         % Umlaute im Text
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}				% Schriftfamilie
-\usepackage{microtype}				% für die Mikrotypografie (besseres Schriftbild)
 \setkomafont{disposition}{\bfseries}
 
 \usepackage{graphicx} 				% Grafiken einfügen (pdf,png - aber jpg vermeiden)
 \graphicspath{{./Bilder/}}          % Pfad zu den Bildern
+
+\usepackage[final,nopatch=footnote]{microtype}
 
 \usepackage{url}					% URL's formatieren (z.B. in Literatur) 
 \usepackage[colorlinks,linkcolor=black,citecolor=black,urlcolor=black]{hyperref} 				% für Hyperlinks in PDF-Dokumenten   
@@ -43,8 +44,6 @@ bibliography=totoc,listof=totoc,appendixprefix,paper=a4,headings=small]{scrbook}
 \usepackage{setspace} 				% Zeileneinstellung
 \newtheorem{mydef}{Merksatz}  		% Falls Beispiele, Merksätze m. fortl. Nr. gebr. werden
 \newtheorem{bsp}{Beispiel}
-
-\usepackage{todonotes}				% zum Erstellen von ToDos im Editor
 
 \usepackage{lscape}					% zum Rotieren von Seiten
 
