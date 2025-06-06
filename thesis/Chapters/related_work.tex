@@ -1,8 +1,8 @@
 \chapter{Related Work}
 
-This section outlines key findings of related work on gender bias in MT, with a focus on the English-German language pair. The research aims are to (1) define the core concept of gender bias in MT, (2) establish the relevance of the topic, (3) identify the research gap, and (4) justify technical design choices. To support this, I examine datasets, model types, and tools used in previous studies.
+This section outlines key findings of related work on gender bias in MT, with a focus on the English-German language pair to build the theoretical knowledge base. The research aims are to (1) define the core concept of gender bias in MT, (2) establish the relevance of the topic, (3) identify the research gap, and (4) justify technical design choices. To support this, I examine datasets, model types, and tools used in previous studies.
 
-For the literature review I combined incremental and conceptual literature review methods, where each source led to the identification of the next. Based on this progression, I identified key concepts and used them to organize and interpret the literature, aligning with a conceptual approach. The structure followed the qualitative Information Systems framework by \citet{schryenWritingQualitativeLiterature2015} and further informed by \citet{shresthaExploringGenderBiases2022}, who conducted a systematic review on gender bias in ML and AI. 
+For the literature review I combined incremental and conceptual literature review methods, where each source led to the identification of the next. Based on this progression, I identified key concepts and used them to organize and interpret the literature, aligning with a conceptual approach. The structure followed the qualitative Information Systems framework by \citet{schryenWritingQualitativeLiterature2015} and was further informed by \citet{shresthaExploringGenderBiases2022} and \citet{savoldiDecadeGenderBias2025}, who both conducted systematic reviews on gender bias in ML and MT respectively. 
 
 \section{Literature Search Process}
 
@@ -40,25 +40,81 @@ Backward citation searching involved reviewing references cited by selected pape
 \subsection{Selection Criteria and Screening Process}
 Titles and abstracts were manually screened to select relevant studies. Inclusion criteria required sources to specifically address gender bias in MT, provide examples or discussions of gender-related errors, or explain the significance of gender bias in this context. Exclusion criteria filtered out studies focusing on general NLP bias without a direct link to MT, non-gender biases without clear gender connection, and highly technical papers lacking contribution to the general understanding of gender bias. Full texts were reviewed after initial screening to confirm relevance and extract insights. Redundant sources not providing new perspectives aligned with the thesis goals were excluded.
 
-\section{Empirical Evidence}
-% say that it is well documented in MT
-% Summarize how researchers measured bias (benchmarks, manual annotation, templates).
+\section{Foundations of Gender Bias in Natural Language Processing}
+\subsection{Empirical Evidence}
 
+\noindent \textbf{Foundational studies:} The existence of gender bias in MT is well-documented. First mentions of this issue date back to over a decade ago, having been recognized by a paper by \citeauthor{schiebingerScientificResearchMust2014} in 2014. Since then, there has been a general increase in research papers focusing on this topic, especially between 2019 and 2023 \citep{savoldiDecadeGenderBias2025}.
 
-\section{Gender Bias in NLP}
+\citet{pratesAssessingGenderBias2019} conducted a large-scale quantitative study using Google Translate, translating sentences such as "He/She is an engineer" from twelve gender-neutral languages into English. The study revealed a significant overrepresentation of male pronouns, particularly in STEM-related occupations. This skew was not attributable to actual gender distributions in the labor market, suggesting that the bias stemmed from imbalances in the system’s training data. The paper received widespread media coverage, which was followed by a policy change by \citeauthor{googleReducingGenderBias2018} to present both feminine and masculine official translations for ambiguous queries \citep{googleReducingGenderBias2018}, acknowledging that their model inadvertently replicated gender biases (refer to \autoref{fig:gt_prates_example}). 
+
+\citet{stanovskyEvaluatingGenderBias2019} introduced WinoMT, a challenge set designed to evaluate gender bias in translations of English sentences into eight target languages with grammatical gender. The study showed that both commercial and academic MT systems failed to preserve correct gender in non-stereotypical roles, while performing better on stereotypical ones. In line with the findings of \citeauthor{pratesAssessingGenderBias2019}, the study demonstrated a systematic preference for traditional gender roles in translations. This pattern is further supported by \citeauthor{choMeasuringGenderBias2019} (\citeyear{choMeasuringGenderBias2019}), who showed that occupational terms exhibit higher levels of gender bias across systems compared to other semantic categories. 
+
+These foundational studies not only confirm the existence of systematic gender bias in MT outputs, but also lay the groundwork for subsequent research that builds upon their findings to develop more robust evaluation methods and mitigation strategies.
+
+\textbf{Human-Centered Studies:} In addition to analyzing MT outputs directly, some studies have assessed the real-world implications of gender bias by measuring its impact on human effort. \citet{savoldiWhatHarmQuantifying2024} conducted a human-centered evaluation in which approximately 90 participants were tasked with post-editing MT outputs to ensure gender-accurate translations.
+
+The study employed behavioral metrics such as time to edit and the number of edits, measured through human-targeted error rate, to quantify the effort required. The results showed that post-editing feminine translations required nearly twice as much time and four times the number of editing operations compared to masculine counterparts. Consequently this effort gap also translates into higher economic costs, suggesting a measurable quality-of-service disadvantage that disproportionately affects women. \citeauthor{savoldiWhatHarmQuantifying2024} concluded that current automatic bias metrics do not sufficiently capture these human-centered disparities, emphasizing the need for evaluation methods that reflect real user experience.
+
+\subsection{Types of Gender Bias}
+% what is bias
+% what is gender bias - basics
+% types of biases, what counts as it
+% statistics and prove how it affects people
+
+\subsection{Implications}
 % how it manifests
 % how it affects it in this specific case
 % refer to bias because of society
 % how context affects it
 
-\section{Other Approaches}
-% compare how it has been approached with other languages
-% what experiements they used and what systems
-% GERMAN ENGLISH PAPERS
-% - Overview of rule-based, ML-based, and LLM-based approaches.
-    
-\section{Limitations Identified by Prior Research}    
 
+\section{Sources and Manifestations of Bias}
+\subsection{Causes of Gender Bias}
+% ullmann
+% stanczak
+% smacchia
+
+%data ias (coverage. social)
+%algorithmic bias
+
+
+\section{Linguistic Challenges in English-German Translation}
+
+\subsection{Grammatical Gender}
+Although both English and German originate from the Indo-European language family \citep{baldiEnglishIndoEuropeanLanguage2008}, they have different characteristcs. English does not assign grammatical gender to nouns. The article "the" is used universally, independent of what it refers to. On the contrary, German assigns one of three grammatical gendered articles to objects: "der" (m), "die" (f) and "das" (n). The form or ending of a noun may also change depending on its grammatical gender. While English has a few gendered word pairs, such as "actor" (male) and "actress" (female), gender distinctions in German apply broadly across the entire noun system. "Der Student" refers to a male student, whereas "die Studentin" refers to a female student.
+
+\subsection{Gender-Fair Language}
+The English sentence "The students are studying" does not indicate the genders of the individuals involved. There are various ways to translate that sentence into German. The plural forms of the gendered term "student" would be "die Studenten" (multiple male students) and "die Studentinnen" (multiple female students). The problem arises when there is a mix of male and female students or when the genders are unknown. There are four main approaches to gender-fair language (GFL) identified by \citet{lardelliBuildingBridgesDataset2024}. I will not discuss two of them further because they are less common and face greater hurdles for broader public and professional acceptance.
+
+\subsubsection{Gender-neutral rewording}
+This uses neutral terms instead of gendered nouns, e.g. "Die Studierenden lernen". A challenge for this version is that neutral alternatives do not exist for every noun and can therefore not be consistently applied.
+
+\subsubsection{Gender-inclusive characters} 
+This combines masculine and feminine forms using a character like "\*", "\:" or "\_", e.g. "Die Student*innen lernen". This method is consistent, however it may interrupt the reading flow and there is a lack of standardization. 
+
+\subsubsection{The Generic Masculine}
+In both singular and plural contexts, there is a phenomenon known as the \textit{generic masculine} (GM), referring to the default use of the masculine grammatical gender. The example sentence would translate to "Die Studenten lernen", using just the male form to refer to a (potential) mix of genders. The GM is supposed to be gender-neutral, but studies indicate that these forms are semantically much closer to explicitly masculine forms \citep{schmitzGermanAllProfessors2022}. Similarly, \citet{rescignoGenderBiasMachine2023} observed a predominance of masculine forms in translation outputs (approximately 90\% in Google Translate and 85–88\% in DeepL—for) English–Italian and English–German pairs, even when the original sentences contained relatively few masculine references.
+    
+
+
+\section{Mitigation Strategies and Current Limitations}    
+Technical Approaches:
+
+Fine-tuning models with balanced data 9
+
+Context-aware architectures 11
+
+Gender-neutral translation strategies 9
+
+LLM Potential: While promising, current LLMs like ChatGPT often introduce new biases when explicitly prompted for gender alternatives 9.
+
+Persistent Challenges:
+
+English-centric approaches dominating research 4
+
+Disconnect between translation technologies and operational contexts 4
+
+Difficulty handling non-binary identities
 
 \section{Positioning of My Work}    
 % - How your work builds on these findings.
