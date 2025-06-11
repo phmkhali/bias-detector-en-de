@@ -69,13 +69,12 @@ This also contributes to the invisibility of women in professions traditionally 
 On the other hand, research shows that using gender-inclusive language, e.g. "she and he" or "one", can lead to more positive reactions from women when considering job opportunities. It helps reduce stereotype threat and improves how women perceive and engage with different environments \citep{ godsilEffectsGenderRoles2016}. Adopting such language can offer companies both social and competitive advantages.
 
 
-
-
-
-
 \section{Sources and Manifestations of Bias}
+
+To address a problem, one needs to understand its origins. This section outlines how societal bias transfers into data and NLP systems. It looks at different types of bias, with a focus on those that shape model behaviour and outputs.
+
 \subsection{Human Bias Transfer}
-Gender bias is a sociotechnical issue that stems from existing social inequalities and discrimination. Similarly to how humans are shaped by their environemnt, NLP models learn from data they are trained on. Biases therefore get reflected and reinforced in the training data used for ML \citep{stanczakSurveyGenderBias2021,smacchiaDoesAIReflect2024}. 
+Gender bias is a sociotechnical issue that stems from existing social inequalities and discrimination. Similarly to how humans are shaped by their environemnt, ML models learn from data they are trained on. Biases therefore get reflected and reinforced in the training data used for ML \citep{stanczakSurveyGenderBias2021,smacchiaDoesAIReflect2024}. 
 
 
 
@@ -139,6 +138,8 @@ Based on \autoref{tab:types_of_gender_bias}, it can be argued that the definitio
 % Model Overamplification: During training, a system can overly amplify existing representations or distributions in the data, inadvertently magnifying social stereotypes (e.g., if cooking is mostly associated with women, the system might assume only women cook).
 
 \section{Linguistic Challenges in English-German Translation}
+
+Since this thesis focuses on EN-DE translation, it is important to understand how gender works in German. This section will explore the main linguistic features that affect gender expression in German. Then, it will review key studies that examine how these features influence bias in translation.
 
 \subsection{Grammatical Gender}
 Although both English and German originate from the Indo-European language family \citep{baldiEnglishIndoEuropeanLanguage2008}, they have different characteristcs. English does not assign grammatical gender to nouns. The article "the" is used universally, independent of what it refers to. On the contrary, German assigns one of three grammatical gendered articles to nouns: "der" (m), "die" (f) and "das" (n). The form or ending of a noun may also change depending on its grammatical gender. While English has a few gendered word pairs, such as "actor" (m) and "actress" (f), gender distinctions in German apply broadly across the entire noun system. "Der Student" refers to a male student, whereas "die Studentin" refers to a female student. Note that grammatical gender has no connection to societal or biological gender. It is a rule of the language rather than a reflection of identity. For example, the German word Mädchen (girl) is grammatically neuter and takes the article "das". This is not because the referent lacks gender, but because the suffix "-chen" automatically assigns neuter gender. This illustrates that grammatical gender in German follows structural rules, even when they contradict real-world gender associations.
