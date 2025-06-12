@@ -66,7 +66,7 @@ Although gender bias has long been a subject of study linguistically, the growth
 
 This also contributes to the invisibility of women in professions traditionally dominated by men \citep{kapplAreAllSpanish2025}. Studies show that gender bias in machine-generated text, such as children's stories or job advertisements, can \textbf{influence how young people view themselves} \citep{soundararajanInvestigatingGenderBias2024,kapplAreAllSpanish2025}. It may shape their interests, hobbies, and decisions about education and careers. This effect is especially noticeable in Science, Technology, Engineering, and Mathematics (STEM) fields \citep{pratesAssessingGenderBias2019}, where stereotypes are more deeply rooted. When job descriptions or mock interviews use gender-exclusive pronouns, women report feeling less sense of belonging, lower motivation, and weaker identification with the role \citep{godsilEffectsGenderRoles2016}. As a result, they may self-select out of the application process, reducing the pool of female talent available to employers and \textbf{reinforcing existing gender gaps in the workforce}.
 
-On the other hand, research shows that using gender-inclusive language, e.g. "she and he" or "one", can lead to more positive reactions from women when considering job opportunities. It helps reduce stereotype threat and improves how women perceive and engage with different environments \citep{ godsilEffectsGenderRoles2016}. Adopting such language can offer companies both social and competitive advantages.
+On the other hand, research shows that using gender-inclusive language, e.g. "she and he" or "one", can lead to more positive reactions from women when considering job opportunities. It helps reduce stereotype threat and improves how women perceive and engage with different environments \citep{ godsilEffectsGenderRoles2016}. Hence, complying with gender-inclusive langauge may offer companies both social and competitive advantages.
 
 
 \section{Sources and Manifestations of Bias}
@@ -74,56 +74,12 @@ On the other hand, research shows that using gender-inclusive language, e.g. "sh
 To address a problem, one needs to understand its origins. This section outlines how societal bias transfers into data and NLP systems. It looks at different types of bias, with a focus on those that shape model behaviour and outputs.
 
 \subsection{Human Bias Transfer}
-Gender bias is a sociotechnical issue that stems from existing social inequalities and discrimination. Similarly to how humans are shaped by their environemnt, ML models learn from data they are trained on. Biases therefore get reflected and reinforced in the training data used for ML \citep{stanczakSurveyGenderBias2021,smacchiaDoesAIReflect2024}. 
+Stereotypes and gender roles stem from historical and cultural perceptions of men's and women's societal roles, many of which are obsolete but still influential. For example, when men and women often take on different roles at work and at home, it shapes how people think about their personalities and qualities. \textbf{Correspondence bias} can emerge, where people infer attributes from observable behaviours \citep{godsilEffectsGenderRoles2016}. It is a result of the human brain's automatic categorization of stimuli when faced with incomplete information, often a quick and unconscious process. Common groupings are gender, race and age. These associations can be reinforced by popular media, such as TV and advertisements \citep{godsilEffectsGenderRoles2016}, just as much as it can be influenced by modern technology like MT tools. 
+
+Similarly to how humans are shaped by their environemnt, ML models learn from data they are trained on. \textbf{Biases are thus reflected and reinforced in the final models} \citep{stanczakSurveyGenderBias2021,smacchiaDoesAIReflect2024}. That bias can, again, reflect back to humans and create a regressive feedback loop \citep{barclayInvestigatingMarkersDrivers2024a,shresthaExploringGenderBiases2022}. LLMs like GPT-3 were trained on hundreds of billions of words, making it practically impossible to review all of the data, therefore allowing misinformation or offensive content to be reproduced by the system.
 
 
-
-
-
-Research provides different ways 
-Below, I will outline a few types of gender bias that appear in the literature analysed and are central to the discussions in this thesis. 
-
-\renewcommand{\arraystretch}{1.3}
-\begin{table}[ht]
-\centering
-\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{3.5cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
-\hline
-\textbf{Bias Type} & \textbf{Definition} & \textbf{Example} \\
-\hline
-
-Structural Bias & Bias that arises from how sentences are built. Includes patterns like using masculine forms as the default, or assigning a specific gender to terms that are neutral. & Using “he” as a generic pronoun when the person’s gender is unknown, or using “der Lehrer” (male form of “teacher”) to refer to a mixed-gender group in German. \\
-\hline
-
-Contextual Bias & Bias from word choice, tone, or implied meaning. Needs social knowledge to detect. Includes stereotypes. & "Strong" = male, "caring" = female. \\
-\hline
-
-Occupational Bias & Job-related assumptions, often based on gender roles. Extends contextual bias. & "Engineer" translated with male pronouns, "nurse" with female. \\
-\hline
-
-Implicit Bias & Unconscious bias learned from culture and environment, reflected in training data. Influences all other types. & Early associations like "men are leaders". \\
-\hline
-\end{tabularx}
-\caption{Types of Gender Bias. Definitions and examples derived from \citet{stanczakSurveyGenderBias2021,ullmannGenderBiasMachine2022,kapplAreAllSpanish2025,godsilEffectsGenderRoles2016}.}
-\label{tab:types_of_gender_bias}
-\end{table}
-
-Based on \autoref{tab:types_of_gender_bias}, it can be argued that the definitions and examples partially overlap. The categories are closely related and, in some cases, one type of bias may extend another bias definition. It is difficult to draw clear definitional boundaries, which proves the complexity of the issue. What can be more clearly separated, however, is how the bias appears in technical form. 
-
-
-% ullmann 
-% ◦
-% Unsupervised Training Data: Large language models, such as GPT-3, are trained on hundreds of billions of words from internet data. This data lacks diversity and often represents privileged, heteronormative communities. Platforms like Wikipedia and Reddit, common data sources, are male-dominated and contain offensive content and misinformation, which can then be reproduced by the system.
-% ◦
-% Human Bias Transfer: Bias is inherently a human phenomenon, and since AI systems are built by humans, biases are likely to be transferred and exacerbated by technology. This can lead to systems that "systematically and unfairly discriminate against certain individuals or groups of individuals in favor of others".
-% Models such as GPT-3 are trained on hundreds of billions of words from internet data and its impossible to know what it all consists of, not to mention that the itnernet tends to contribute to the exclusion of already marginalised groups. 
-
-
-% stanczak
-% smacchia
-
-%data ias (coverage. social)
-%algorithmic bias
-
+\citet{ullmannGenderBiasMachine2022} notes that the scale of training data (e.g. 175 billion parametres for GPT-3) makes it practically impossible to review all of it, allowing misinformation or offensive content to be reproduced by the system. The author also points out that platforms like Wikipedia and Reddit are male-dominated and often contain harmful or false content, which contribute to gender bias.
 
 \subsection{Types of Data Bias}
 \citet{ullmannGenderBiasMachine2022} derived four types of data biases. 
