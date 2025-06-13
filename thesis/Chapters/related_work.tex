@@ -96,9 +96,28 @@ Similarly to how humans are shaped by their environemnt, ML models learn from da
 \citet{ullmannGenderBiasMachine2022} notes that the scale of training data (e.g., 175 billion parametres for GPT-3) makes it practically impossible to review all of it, allowing misinformation or offensive content to be reproduced by the system. The author also points out that platforms like Wikipedia and Reddit are male-dominated and often contain harmful or false content, which contribute to gender bias.
 
 \subsection{Common Gender Bias Phenomena}
-While the previous sections discussed the sources of gender bias, this section focuses on how such biases appear in MT outputs. Drawing on selected studies, I identify recurring patterns of bias and group them into thematic categories to systematically evaluate model behavior.
+While the previous sections discussed the sources of gender bias, this section focuses on how such biases appear in MT outputs. Drawing on selected studies, I identify recurring patterns of bias and group them into thematic categories to systematically evaluate model behavior. It is important to note that, due to the complex nature of gender bias, clear boundaries between these categories are not always possible. Definitions in the literature often overlap, and some patterns may extend or intersect with others. The classification presented here reflects my synthesis of the existing research, aiming to provide a structured framework for analysis despite these inherent ambiguities.
 
-It is important to note that, due to the complex and multifaceted nature of gender bias, clear boundaries between these categories are not always possible. Definitions in the literature often overlap, and some patterns may extend or intersect with others. The classification presented here reflects my synthesis of the existing research, aiming to provide a structured framework for analysis despite these inherent ambiguities.
+\subsubsection{Stereotype-driven bias}
+
+The majority of gender bias mentioned fall into stereotype-driven categories. Most notably, the persistent use of the \textbf{generic masculine} as default (see subsection \ref{subsection:generic_masculine}) and systematic \textbf{occupational stereotyping}. When translating gender-neutral terms, most systems overwhelmingly favor masculine forms, e.g., translating "doctor" to masculine forms like "el médico" (Spanish) or "der Arzt" (German) even in neutral contexts \citep{smacchiaDoesAIReflect2024,choMeasuringGenderBias2019,pratesAssessingGenderBias2019}. This bias becomes particularly evident in professional contexts, where translation outputs closely mirror societal stereotypes rather than linguistic requirements. \citet{smacchiaDoesAIReflect2024} found that across major commercial systems including Microsoft Azure, DeepL, and Google Translate, male-dominated occupations were translated using masculine forms in \textbf{94\%} of cases.
+
+Stereotype-driven bias extends beyond occupational terms. As demonstrated by \citet{pratesAssessingGenderBias2019}, adjective associations exhibit similar gendered patterns. "Shy" or "desirable" disproportionately trigger feminine pronouns, while "guilty" or "cruel" default to masculine forms. These associations occur independently of professional contexts, revealing deeper linguistic biases embedded in translation systems.
+
+\subsubsection{Contextual analysis}
+
+Current MT systems exhibit fundamental limitations in handling gender context, particularly when compared to human translation capabilities. Where professional translators successfully interpret both linguistic markers (pronouns, grammatical agreements) and extra-linguistic knowledge (cultural norms, real-world contexts) to determine gender \citep{rescignoGenderBiasMachine2023}, automated systems struggle with consistent implementation.
+
+\textbf{Coreference resolution} is the technical process that should leverage contextual cues for gender. In translation, this helps systems use the right gender based on context. But as shown by \citet{choMeasuringGenderBias2019}, many systems still struggle with this, especially when the gender is mentioned earlier in the text or in another sentence. Datasets like WinoMT \citep{stanovskyEvaluatingGenderBias2019} show that translation models often miss these links and ignore gender cues, leading to biased results.
+
+Sometimes models even actively disregard \textit{explicit} gender markers in the immediate sentence. For example:
+\begin{itemize}
+    \item "The doctor asked the nurse to help \textbf{her}" $\rightarrow$ incorrectly translated with masculine "el doctor" (Spanish) despite the feminine pronoun.
+    \item "The doctor finished \textbf{her} shift" $\rightarrow$ rendered as masculine "der Arzt" (German) by Google Translate \citep{stanovskyEvaluatingGenderBias2019}
+\end{itemize}
+
+
+% The comprehensive study by Lardelli et al. quantifies these biases for German translations with particular clarity. Their findings show that when processing isolated words, machine translation systems use masculine forms in \textbf{93-96\%} of cases, with feminine forms limited to stereotypically female roles (2-4\%). Strikingly, gender-neutral or inclusive forms appear in just \textbf{0-2\%} of translations. Even when provided with contextual information, masculine forms remain dominant (85\%), while feminine (1\%) and truly gender-neutral forms (15\%) remain marginal. These results demonstrate that current systems not only reflect existing societal biases but frequently amplify them, creating outputs that are more gendered than their input texts or real-world distributions would warrant.
 
 \begin{table}[ht]
 \centering
@@ -110,18 +129,18 @@ It is important to note that, due to the complex and multifaceted nature of gend
 \midrule
 Occupational Stereotyping & Gender assigned to occupations based on societal stereotypes rather than context & "Engineer" → masculine; "nurse" → feminine, regardless of source \\
 \addlinespace
-Gender Generalisation & Neutral terms assumed to refer to specific gender due to stereotypes & "A researcher must test \textbf{his} model" \\
+Beyond Occupations & Gender bias appears in adjective associations and other non-professional contexts & Shy/desirable" → female pronouns; "guilty/cruel" → male pronouns \\
 \addlinespace
-Male Default & Masculine form used by default in gender-ambiguous cases & "The doctor" → translated as male, even when gender is unclear \\
+Generic Masculine & Masculine form used by default in gender-ambiguous cases & "The students are late" → "Die Studenten (m) sind zu spät". translated as male, even when gender is unclear \\
 \midrule
 \multicolumn{3}{l}{\textbf{Contextual Failures}} \\
 \midrule
-Ignoring Contextual Cues & MT ignores explicit gender markers in source text & "She is a baker" → translated as male baker \\
+Coreference Resolution Failures & MT fails to track gender associations across sentences/phrases & "Anna is a teacher. \textbf{She} teaches math." → "teacher" translated as male \\
 \addlinespace
-Coreference Resolution Failures & MT fails to correctly link pronouns to their referents & "Anna is a teacher. \textbf{She} teaches math." → "teacher" translated as male \\
+Ignoring Contextual Cues & MT actively disregards explicit gender markers in the immediate context & "She is a baker" → translated as male baker \\
 \bottomrule
 \end{tabularx}
-\caption{Common gender bias manifestations in MT systems.}
+\caption{Summary of common gender bias manifestations in MT systems.}
 \label{tab:gender_biases}
 \end{table}
 
@@ -138,7 +157,7 @@ Although both English and German originate from the Indo-European language famil
 
 \subsection{Gender-Fair Language}
 
-\subsubsection{The Generic Masculine}  
+\subsubsection{The Generic Masculine} \label{subsection:generic_masculine}
 In both singular and plural contexts, the \textit{generic masculine} refers to the default use of the masculine grammatical gender. It is commonly used in spoken German \citep{lardelliBuildingBridgesDataset2024,schmitzGermanAllProfessors2022}, although research has consistently shown that the generic masculine creates a male bias in mental representations, leading readers or listeners to think more of male than female examples \citep{sczesnyCanGenderFairLanguage2016}. Similarly, \citet{rescignoGenderBiasMachine2023} observed a predominance of masculine forms in translation outputs (approximately 90\% in Google Translate and 85–88\% in DeepL for EN-IT and EN-DE), even when the original sentences contained relatively few masculine references. These linguistic biases in human language naturally carry over into ML systems. Since most models for NLP are trained on large datasets of human-generated text, they inadvertently learn and reproduce the same sociolinguistic biases present in the data \citep{choMeasuringGenderBias2019}.
 
 \subsubsection{All students are male}
