@@ -17,9 +17,10 @@ Current research on this topic tends to focus more on the quantitative measureme
 A detection system specifically for MT would increase linguistic transparency, because without the development of bias-aware tools, problematic translations are likely to scale without oversight. Therefore, addressing gender bias in MT becomes both a social and ethical necessity.
 
 \section{Problem Statement and Research Questions}
-
+\textbf{DRAFT NEED TO REWRITE AFTER IMPLEMENTATION}
 The core problem boils down to the significant bias towards the masculine form in English-German MTs, sometimes consituting 93-96\% of translations for isolated words \citep{lardelliBuildingBridgesDataset2024}. These outputs often reflect social stereotypes rather than objective translations, yet current systems offer no mechanism to detect or signal when such bias occurs \citep{rescignoGenderBiasMachine2023}. To address this, this thesis deploys a blackbox approach to explore how fine-tuning a pre-trained multilingual BERT model can help detect gender bias in MT outputs. The model takes an input sentence and its corresponding German translation and predicts whether the translation introduces gender bias. It focuses on identifying two common cases: added gendered pronouns and wrongly gendered nouns.
 
+\textbf{DRAFT NEED TO REWRITE AFTER IMPLEMENTATION}
 The translation system used is \href{https://github.com/Helsinki-NLP/Opus-MT?tab=readme-ov-file}{Opus-MT}, an open-source neural MT model. %mention which bert i will use% 
 Translations are passed through BERT, trained on a dataset I have constructed by combining and adapting several existing datasets from other researchers. The classifier is lightweight and efficient, aiming for transparent behavior and easy integration into other tools \citep{devlinBERTPretrainingDeep2019}. Its predictions are used to highlight biased parts in a web-based demo. The goal is not to build a perfect detector, but a working proof of concept that shows how bias can be flagged automatically. This supports more critical use of MT systems and encourages further development of bias-aware translation tools.
 
@@ -27,6 +28,8 @@ The main research question is: \textbf{"How can a NLP-based binary classificatio
 
 \section{Scope and Limitations}
 
+\textbf{DRAFT NEED TO REWRITE AFTER IMPLEMENTATION}
 This thesis focuses only on English-to-German machine translation due to my fluency in both languages, allowing me to evaluate the outputs and datasets directly. Extending the work to other language pairs would require native-level understanding to reliably identify subtle gender patterns and translation errors, which is beyond the current scope. More generally, gender bias in language is a complex issue altogether that goes far beyond simple word associations. It becomes especially difficult to detect when sentences contain multiple subjects, indirect references, or ambiguous pronouns. For example, as \citet{barclayInvestigatingMarkersDrivers2024a} explain, the sentence “He went to see her mother” clearly implies three people, while “He went to see his mother” could refer to either two or three. These types of structures introduce ambiguity that makes annotation and evaluation much harder. Creating a dataset that captures such linguistic complexity would require significant effort and careful control of variables. One broader limitation in building datasets for complex scenarios with multiple subjects is the difficulty of isolating the influence of each gendered entity \citep{lardelliBuildingBridgesDataset2024}. When working with natural language sources, it becomes hard to tell what caused the bias in the translation. Because of this, the focus of this thesis is on simpler sentence structures with a single subject. This makes it easier to identify and explain bias patterns. It also fits the intended use case: translating business texts like job advertisements or reports, which rarely involve multiple nested clauses or ambiguous pronouns.
  
 \section{Overview of Chapters}
+\textbf{DRAFT NEED TO REWRITE AFTER IMPLEMENTATION}
