@@ -25,18 +25,18 @@ Other domains, like facial recognition, have already seen progress in active bia
 
 \section{Problem Statement and Research Questions}
 \textbf{DRAFT NEED TO REWRITE AFTER IMPLEMENTATION}
-The core problem boils down to the significant bias towards the masculine form in English-German MTs, sometimes consituting 93-96\% of translations for isolated words \citep{lardelliBuildingBridgesDataset2024}. These outputs often reflect social stereotypes rather than objective translations, yet current systems offer no mechanism to detect or signal when such bias occurs \citep{rescignoGenderBiasMachine2023}. To address this, this thesis deploys a blackbox approach to explore how fine-tuning a pre-trained multilingual BERT model can help detect gender bias in MT outputs. The model takes an input sentence and its corresponding German translation and predicts whether the translation introduces gender bias. It focuses on identifying two common cases: added gendered pronouns and wrongly gendered nouns.
+This thesis focuses on gender bias in English-to-German (EN-DE) MT. This language pair is widely used in research, with many open datasets and high-quality models available. It also involves a grammatical shift: English has limited gender marking, while German assigns gender to many nouns and pronouns. This structural difference makes gender bias more visible and easier to study in the translation outputs.
 
-\textbf{DRAFT NEED TO REWRITE AFTER IMPLEMENTATION}
-The translation system used is \href{https://github.com/Helsinki-NLP/Opus-MT?tab=readme-ov-file}{Opus-MT}, an open-source neural MT model. %mention which bert i will use% 
-Translations are passed through BERT, trained on a dataset I have constructed by combining and adapting several existing datasets from other researchers. The classifier is lightweight and efficient, aiming for transparent behavior and easy integration into other tools \citep{devlinBERTPretrainingDeep2019}. Its predictions are used to highlight biased parts in a web-based demo. The goal is not to build a perfect detector, but a working proof of concept that shows how bias can be flagged automatically. This supports more critical use of MT systems and encourages further development of bias-aware translation tools.
+The core problem boils down to the significant bias towards the masculine form in EN-DE MTs, sometimes consituting 93-96\% of translations for isolated words \citep{lardelliBuildingBridgesDataset2024}. These outputs often reflect social stereotypes rather than objective translations, yet current systems offer no mechanism to detect or signal when such bias occurs \citep{rescignoGenderBiasMachine2023}. To address this, this thesis deploys a blackbox approach to explore how fine-tuning a pre-trained multilingual BERT model can help detect gender bias in MT outputs. The model takes an input sentence and its corresponding German translation and predicts whether the translation introduces gender bias. 
 
-The main research question is: \textbf{"How can a NLP-based binary classification model detect gender bias in English-German translations?"}. This involves building a suitable training dataset, selecting features that capture bias patterns, and evaluating how well the model generalizes across different domains.
+The translation system used is \href{https://github.com/Helsinki-NLP/Opus-MT?tab=readme-ov-file}{Opus-MT}, an open-source neural MT model. It is widely used in research, supports EN-DE translation, and is trained on real-world corpora, making it suitable for studying translation bias. Translations are then passed through BERT, trained on a dataset I have constructed by combining and adapting several existing datasets from other researchers. The classifier is lightweight and efficient, aiming for transparent behavior and easy integration into other tools \citep{devlinBERTPretrainingDeep2019}. The final tool highlights biased parts in a simple web demo. The goal is not a perfect classifier but a working prototype that shows how such detection could be integrated into translation workflows.
+
+The main research question is therefore: \textbf{"How can a NLP-based binary classification model detect gender bias in English-German translations?"}. 
 
 \section{Scope}
 
 \textbf{WRITE AFTER IMPLEMENTATION PART}
-This thesis focuses only on English-to-German (EN-DE) MT. This language pair is widely used in MT reserach, offering high-quality models and datasets. Extending the work to other language pairs would require native-level understanding to detect subtle gender patterns and translation errors, which is outside the current scope. 
+This thesis focuses only on EN-DE MT. Other language pairs are out of scope.
 
 \section{Limitations}
 \textbf{WRITE AFTER IMPLEMENTATION PART}
