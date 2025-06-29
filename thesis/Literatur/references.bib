@@ -52,6 +52,23 @@
   langid = {english}
 }
 
+@article{chakravarthiSurveyOrthographicInformation2021,
+  title = {A {{Survey}} of {{Orthographic Information}} in {{Machine Translation}}},
+  author = {Chakravarthi, Bharathi Raja and Rani, Priya and Arcan, Mihael and McCrae, John P.},
+  year = {2021},
+  month = jul,
+  journal = {SN Computer Science},
+  volume = {2},
+  number = {4},
+  pages = {330},
+  issn = {2662-995X, 2661-8907},
+  doi = {10.1007/s42979-021-00723-4},
+  urldate = {2025-06-27},
+  abstract = {Machine translation is one of the applications of natural language processing which has been explored in different languages. Recently researchers started paying attention towards machine translation for resource-poor languages and closely related languages. A widespread and underlying problem for these machine translation systems is the linguistic difference and variation in orthographic conventions which causes many issues to traditional approaches. Two languages written in two different orthographies are not easily comparable but orthographic information can also be used to improve the machine translation system. This article offers a survey of research regarding orthography's influence on machine translation of under-resourced languages. It introduces under-resourced languages in terms of machine translation and how orthographic information can be utilised to improve machine translation. We describe previous work in this area, discussing what underlying assumptions were made, and showing how orthographic knowledge improves the performance of machine translation of under-resourced languages. We discuss different types of machine translation and demonstrate a recent trend that seeks to link orthographic information with well-established machine translation methods. Considerable attention is given to current efforts using cognate information at different levels of machine translation and the lessons that can be drawn from this. Additionally, multilingual neural machine translation of closely related languages is given a particular focus in this survey. This article ends with a discussion of the way forward in machine translation with orthographic information, focusing on multilingual settings and bilingual lexicon induction.},
+  langid = {english},
+  file = {/Users/khali/Zotero/storage/5QEDLKY8/Chakravarthi et al. - 2021 - A Survey of Orthographic Information in Machine Translation.pdf}
+}
+
 @misc{choMeasuringGenderBias2019,
   title = {On {{Measuring Gender Bias}} in {{Translation}} of {{Gender-neutral Pronouns}}},
   author = {Cho, Won Ik and Kim, Ji Won and Kim, Seok Min and Kim, Nam Soo},
@@ -79,6 +96,18 @@
   doi = {10.18653/v1/2022.emnlp-main.288},
   langid = {english},
   file = {/Users/khali/Zotero/storage/DYWPD9BC/Currey et al. - MT-GenEval A Counterfactual and Contextual Dataset for Evaluating Gender Accuracy in Machine Transl.pdf}
+}
+
+@misc{deeplHowDoesDeepL2021,
+  title = {How Does {{DeepL}} Work?},
+  author = {{DeepL}},
+  year = {2021},
+  month = nov,
+  urldate = {2025-06-27},
+  abstract = {See why millions translate with DeepL every day. Fast, accurate, and secure -- translate texts and full document files instantly.},
+  howpublished = {https://www.deepl.com/en/blog/how-does-deepl-work},
+  langid = {english},
+  file = {/Users/khali/Zotero/storage/UU5DFDDN/how-does-deepl-work.html}
 }
 
 @misc{devlinBERTPretrainingDeep2019,
@@ -629,6 +658,24 @@
   urldate = {2025-06-08},
   abstract = {Everyday observations seem to indicate an increase in gender-inclusive language (GIL) in Germany; however, previous research on the prevalence of GIL suggests that it is a marginal phenomenon. Moreover, from a theoretical side, an increase in GIL seems unlikely because of the cognitive challenge language change holds, the existence of multiple GIL variants, and the antagonistic environment that Germany poses for language change. This study empirically measures the use of GIL in five media sources in Germany. Over four million articles from 2000 to 2021 are analysed using the IDS Deutscher Referenzkorpus (DeReKo), supplemented by an in-depth analysis of 500 newspaper articles scraped in 2021. A fine-grained analysis along the dimensions of political orientation of the outlet, type of GIL, and author's gender is conducted. In addition to observing an unexpectedly rapid increase in GIL, two different trends are identified: whilst non-binary inclusive forms of GIL are increasingly used in the left-leaning newspaper, GIL that adheres to a binary notion of gender is favoured in the mainstream and right-leaning media. This sheds light on how difficult behavioural change can occur.},
   file = {/Users/khali/Zotero/storage/Z6NC8CQG/Waldendorf - 2024 - Words of change The increase of gender-inclusive language in German media.pdf;/Users/khali/Zotero/storage/WWHVZ7QI/7275733.html}
+}
+
+@misc{wuGooglesNeuralMachine2016,
+  title = {Google's {{Neural Machine Translation System}}: {{Bridging}} the {{Gap}} between {{Human}} and {{Machine Translation}}},
+  shorttitle = {Google's {{Neural Machine Translation System}}},
+  author = {Wu, Yonghui and Schuster, Mike and Chen, Zhifeng and Le, Quoc V. and Norouzi, Mohammad and Macherey, Wolfgang and Krikun, Maxim and Cao, Yuan and Gao, Qin and Macherey, Klaus and Klingner, Jeff and Shah, Apurva and Johnson, Melvin and Liu, Xiaobing and Kaiser, {\L}ukasz and Gouws, Stephan and Kato, Yoshikiyo and Kudo, Taku and Kazawa, Hideto and Stevens, Keith and Kurian, George and Patil, Nishant and Wang, Wei and Young, Cliff and Smith, Jason and Riesa, Jason and Rudnick, Alex and Vinyals, Oriol and Corrado, Greg and Hughes, Macduff and Dean, Jeffrey},
+  year = {2016},
+  month = oct,
+  number = {arXiv:1609.08144},
+  eprint = {1609.08144},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.1609.08144},
+  urldate = {2025-06-29},
+  abstract = {Neural Machine Translation (NMT) is an end-to-end learning approach for automated translation, with the potential to overcome many of the weaknesses of conventional phrase-based translation systems. Unfortunately, NMT systems are known to be computationally expensive both in training and in translation inference. Also, most NMT systems have difficulty with rare words. These issues have hindered NMT's use in practical deployments and services, where both accuracy and speed are essential. In this work, we present GNMT, Google's Neural Machine Translation system, which attempts to address many of these issues. Our model consists of a deep LSTM network with 8 encoder and 8 decoder layers using attention and residual connections. To improve parallelism and therefore decrease training time, our attention mechanism connects the bottom layer of the decoder to the top layer of the encoder. To accelerate the final translation speed, we employ low-precision arithmetic during inference computations. To improve handling of rare words, we divide words into a limited set of common sub-word units ("wordpieces") for both input and output. This method provides a good balance between the flexibility of "character"-delimited models and the efficiency of "word"-delimited models, naturally handles translation of rare words, and ultimately improves the overall accuracy of the system. Our beam search technique employs a length-normalization procedure and uses a coverage penalty, which encourages generation of an output sentence that is most likely to cover all the words in the source sentence. On the WMT'14 English-to-French and English-to-German benchmarks, GNMT achieves competitive results to state-of-the-art. Using a human side-by-side evaluation on a set of isolated simple sentences, it reduces translation errors by an average of 60\% compared to Google's phrase-based production system.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Computation and Language,Computer Science - Machine Learning},
+  file = {/Users/khali/Zotero/storage/KAYLETGF/Wu et al. - 2016 - Google's Neural Machine Translation System Bridging the Gap between Human and Machine Translation.pdf;/Users/khali/Zotero/storage/ZEF6B6QF/1609.html}
 }
 
 @article{zotero-item-199,
