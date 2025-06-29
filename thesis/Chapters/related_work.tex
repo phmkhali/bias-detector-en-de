@@ -94,6 +94,40 @@ A common manifestation of this are \textbf{stereotypical job associations}. This
 
 Similarly, \citet{lardelliBuildingBridgesDataset2024} showed that even with natural passages from Wikipedia and Europarl, systems still largely defaulted to masculine forms. Feminine and inclusive translations remained rare, while gender-neutral alternatives appeared mainly when the noun itself suggested them.
 
+\subsection{Linguistic Challenges in English-German Translation}
+
+Although both English and German originate from the Indo-European language family \citep{baldiEnglishIndoEuropeanLanguage2008}, they have different characteristcs. English does not assign grammatical gender to nouns. The article "the" is used universally, independent of what it refers to. On the contrary, German assigns one of three grammatical gendered articles to nouns: "der" (m), "die" (f) and "das" (n). The form or ending of a noun may also change depending on its grammatical gender. While English has a few gendered word pairs, such as "actor" (m) and "actress" (f), gender distinctions in German apply broadly across the entire noun system. "Der Student" refers to a male student, whereas "die Studentin" refers to a female student. Note that grammatical gender has no connection to societal or biological gender. It is a rule of the language rather than a reflection of identity. For example, the German word Mädchen (girl) is grammatically neuter and takes the article "das". This is not because the referent lacks gender, but because the suffix "-chen" automatically assigns neuter gender. Grammatical gender in German follows structural rules, even when they contradict real-world gender associations.
+
+\subsection{German Gender-Fair Language}
+Gender-fair language (GFL) refers to the use of language that treats all genders equally and aims to reduce stereotyping and discrimination \citep{sczesnyCanGenderFairLanguage2016}. Three common approaches to plural mentionings in German are: 
+
+\begin{itemize}
+    \item \textbf{Gender-neutral rewording:}  
+    This uses neutral terms instead of gendered nouns, e.g., \textit{die Studierenden lernen}. A challenge for this version is that neutral alternatives do not exist for every noun and cannot be consistently applied \citep{lardelliBuildingBridgesDataset2024}.
+
+    \item \textbf{Gender-inclusive characters:}  
+    This combines masculine, feminine and non-binary forms by using a character like \textit{*}, \textit{:}, or \textit{\_}, e.g., \textit{die Student*innen lernen}. This method is consistent but may interrupt reading flow and lacks standardization \citep{lardelliBuildingBridgesDataset2024}.
+
+    \item \textbf{Pair form:}  
+    This names both gender forms, e.g., \textit{die Studentinnen und Studenten lernen}. It is currently the most used GFL form in German \citep{waldendorfWordsChangeIncrease2024}, briefly surpassing the star and colon characters as seen in \autoref{fig:gfl_types_frequency}.
+\end{itemize}
+
+These examples apply when the gender of the subjects is ambiguous. But when gender is known, especially in singular mentions, the generic masculine should be avoided. Instead, the correct gender form should be used to consitute as GFL. 
+
+\begin{figure}
+	\centering
+		\includegraphics[width=1\textwidth]{gfl_types_frequency.png}
+	\caption{Frequency of different types of gender-inclusive language. Source: \citet{waldendorfWordsChangeIncrease2024} p. 367.}
+	\label{fig:gfl_types_frequency}
+\end{figure}
+
+
+\subsection{Types of Biases in Machine Translation}
+
+\subsubsection{Technical Bias}
+\subsubsection{Data Bias}
+
+
 % --------------------------------------------------------------------------------
 
 \section{Societal Relevance and Impact of Gender Bias in Machine Translation}
