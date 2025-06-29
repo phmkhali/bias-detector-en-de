@@ -1,79 +1,21 @@
 
 \section{Foundations of Gender Bias in Natural Language Processing}
 
-This section outlines why gender bias is a subject of research in the first place and where it connects to broader social and ethical questions. It first looks at early studies that brought attention to gender patterns in language technologies and raised awareness of their social impact. Understanding these origins helps explain why it continues to be relevant today.
-
-\subsection{Foundational studies}
-The existence of gender bias in MT is well-documented. First mentions of this issue date back to over a decade ago, having been recognized by a paper by \citeauthor{schiebingerScientificResearchMust2014} in 2014. Since then, there has been a general increase in research papers focusing on this topic, especially between 2019 and 2023 \citep{savoldiDecadeGenderBias2025}.
-
-\textbf{\citet{pratesAssessingGenderBias2019}} conducted a large-scale quantitative study using Google Translate, translating sentences such as [Gender-neutral pronoun] is an engineer" from twelve gender-neutral languages into English. The study revealed a significant overrepresentation of male pronouns, particularly in STEM-related occupations. This was not attributable to actual gender distributions in the labor market, suggesting that the bias stemmed from imbalances in the system’s training data. The paper received widespread media coverage, which was then followed by a policy change by \citeauthor{googleReducingGenderBias2018} to present both feminine and masculine official translations for ambiguous queries \citep{googleReducingGenderBias2018}, acknowledging that their model inadvertently replicated gender biases (see \autoref{fig:gt_prates_example}). 
-
-Following that, \textbf{\citet{stanovskyEvaluatingGenderBias2019}} introduced \href{https://github.com/gabrielStanovsky/mt_gender}{WinoMT}, a challenge set designed to evaluate gender bias in translations of English sentences into eight target languages with grammatical gender. The study showed that both commercial and academic MT systems failed to preserve correct gender in non-stereotypical roles, while performing better on stereotypical ones. In line with the findings of \citeauthor{pratesAssessingGenderBias2019}, the study demonstrated a systematic preference for traditional gender roles in translations. This pattern is further supported by \textbf{\citet{choMeasuringGenderBias2019}}, who showed that occupational terms exhibit higher levels of gender bias across systems compared to other semantic categories. 
-
-These foundational studies not only confirm the existence of systematic gender bias in MT outputs, but also lay the groundwork for subsequent research that builds upon their findings and approaches to develop more robust evaluation methods and mitigation strategies.
-
-\subsection{Human-Centered Studies}
-
-
-\section{Sources and Manifestations of Bias}
-
-To address a problem, one needs to understand its origins. This section outlines how societal bias transfers into data and NLP systems. It looks at different types of bias, with a focus on those that shape model behaviour and outputs.
-
-\subsection{Types of Technical Bias}
-Technical bias happens when limitations in the system's design affect how models learn and make predictions \citep{stanczakSurveyGenderBias2021}. This includes the way data is processed or how the model handles information.
-
-\citet{shahPredictiveBiasesNatural2020}, as described by \citet{ullmannGenderBiasMachine2022}, differentiates between four technical origins of biases:
-
-\begin{itemize}
-    \item \textbf{Selection Bias:} Happens when the training data does not reflect the context in which the model is used (e.g., using Wikipedia data for detecting harmful language on Twitter).
-    
-    \item \textbf{Label Bias:} Occurs when annotations in the dataset are incorrect or skewed. This can be influenced by the annotators' own biases or lack of awareness of diverse linguistic expressions.
-
-    \item \textbf{Model Overamplification:} During training, models can exaggerate patterns found in the data. This is the cause of the aforementioned "only women cook" example (see \autoref{subsection:implications_of_gb_in_nlp}).
-
-    \item \textbf{Semantic Bias:} Stems from associative relationships within the data, where certain words or phrases are frequently co-occurring with specific genders (e.g., "he" with "doctor").
-\end{itemize}
-
-
-LLMs like GPT-3 were trained on hundreds of billions of words, making it practically impossible to review all of the data, therefore allowing misinformation or offensive content to be reproduced by the system.
-\citet{ullmannGenderBiasMachine2022} notes that the scale of training data (e.g., 175 billion parametres for GPT-3) makes it practically impossible to review all of it, allowing misinformation or offensive content to be reproduced by the system. The author also points out that platforms like Wikipedia and Reddit are male-dominated and often contain harmful or false content, which contribute to gender bias.
 
 
 
 
-\begin{table}[ht]
-\centering
-\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
-\toprule
-\textbf{Bias Type} & \textbf{Definition} & \textbf{Example} \\
-\midrule
-\multicolumn{3}{l}{\textbf{Stereotype-Driven Biases}} \\
-\midrule
-Occupational Stereotyping & Gender assigned to occupations based on societal stereotypes rather than context & "Engineer" → masculine; "nurse" → feminine, regardless of source \\
-\addlinespace
-Beyond Occupations & Gender bias appears in adjective associations and other non-professional contexts & Shy/desirable" → female pronouns; "guilty/cruel" → male pronouns \\
-\addlinespace
-Generic Masculine & Masculine form used by default in gender-ambiguous cases & "The students are late" → "Die Studenten (m) sind zu spät". translated as male, even when gender is unclear \\
-\midrule
-\multicolumn{3}{l}{\textbf{Contextual Failures}} \\
-\midrule
-Coreference Resolution Failures & MT fails to track gender associations across sentences/phrases & "Anna is a teacher. \textbf{She} teaches math." → "teacher" translated as male \\
-\addlinespace
-Ignoring Contextual Cues & MT actively disregards explicit gender markers in the immediate context & "She is a baker" → translated as male baker \\
-\bottomrule
-\end{tabularx}
-\caption{Summary of common gender bias manifestations in MT systems.}
-\label{tab:gender_biases}
-\end{table}
+
+
+
+
+
 
 
 \subsection{Implications of Gender Bias in Natural Language Processing} \label{subsection:implications_of_gb_in_nlp}
-As outlined in \autoref{section:social_and_ethical_importance_of_addressing}, this section builds on the social and ethical foundations by examining how gender bias in NLP can lead to the amplification of existing social biases \citep{rescignoGenderBiasMachine2023}.
-\citet{ullmannGenderBiasMachine2022} illustrates this with an example: if a dataset predominantly associates cooking with women, the system may amplify this pattern, reinforcing the assumption that cooking is an activity exclusive to women. This not only reproduces but also strengthens a social stereotype, potentially resulting in \textbf{representational harm}, namely, the continued spread of reductive or biased portrayals of a particular gender \citep{stanczakSurveyGenderBias2021}. 
 
-This also contributes to the invisibility of women in professions traditionally dominated by men \citep{kapplAreAllSpanish2025}. Studies show that gender bias in machine-generated text, such as children's stories or job advertisements, can \textbf{influence how young people view themselves} \citep{soundararajanInvestigatingGenderBias2024,kapplAreAllSpanish2025}. It may shape their interests, hobbies, and decisions about education and careers. This effect is especially noticeable in Science, Technology, Engineering, and Mathematics (STEM) fields \citep{pratesAssessingGenderBias2019}, where stereotypes are more deeply rooted. When job descriptions or mock interviews use gender-exclusive pronouns, women report feeling less sense of belonging, lower motivation, and weaker identification with the role \citep{godsilEffectsGenderRoles2016}. As a result, they may self-select out of the application process, reducing the pool of female talent available to employers and \textbf{reinforcing existing gender gaps in the workforce}.
 
-On the other hand, research shows that using gender-inclusive language, e.g. "she and he" or "one", can lead to more positive reactions from women when considering job opportunities. It helps reduce stereotype threat and improves how women perceive and engage with different environments \citep{ godsilEffectsGenderRoles2016}. Hence, complying with gender-inclusive langauge may offer companies both social and competitive advantages.
+
 
 
 
