@@ -48,8 +48,10 @@ Titles and abstracts were manually screened to select relevant studies. \textbf{
 
 \section{Understanding Gender Bias in English-to-German Machine Translation}
 
+This section explains the key terms and concepts needed to understand gender bias in English-to-German MT. It defines important ideas like natural language processing (NLP), MT, and gender bias. These concepts provide the background necessary to follow the thesis.
+
 \subsection{Differentiating between Natural Language Processing and Machine Translation}
-\textbf{Natural Language Processing (NLP)} refers to the development of machine systems that can process and generate human language. The goal is to mimic and understand it as fluently as possible \citep{smacchiaDoesAIReflect2024,ullmannGenderBiasMachine2022}. Common applications are chatbots, translation tools, speech recognition, and image captioning.
+\textbf{NLP} refers to the development of machine systems that can process and generate human language. The goal is to mimic and understand it as fluently as possible \citep{smacchiaDoesAIReflect2024,ullmannGenderBiasMachine2022}. Common applications are chatbots, translation tools, speech recognition, and image captioning.
 
 \textbf{MT} is a direct application of NLP. It is used to automatically translate text from one language to another \citep{linMachineTranslationAcademic2009}. MT systems have gone through several stages of development; earlier approaches like rule-based and statistical MT used manually defined grammar rules or pattern matching from large translation corpora \citep{chakravarthiSurveyOrthographicInformation2021}. For example:
 
@@ -62,9 +64,35 @@ Rules: "girl" → "Mädchen", "reads" → "lesen", "book" → "Buch"
 
 Most modern systems, including Google Translate and DeepL, use \textbf{neural machine translation (NMT)} \citep{wuGooglesNeuralMachine2016,deeplHowDoesDeepL2021}. These systems are trained on large sets of translated texts. They learn to represent the meaning of whole sentences as mathematical structures and generate more fluent and accurate translations. Unlike earlier systems, they aim to consider the full context of a sentence, which helps reduce errors and improves the handling of ambiguous or idiomatic language.
 
-In short, MT has evolved from fixed rules to data-driven systems that handle context, but unlike large language models (LLMs), MT is trained specifically for translation tasks rather than general language understanding.
 
 \subsection{What is Gender Bias in Machine Translation?}
+
+A clear definition of gender bias has not yet been established \citep{stanczakSurveyGenderBias2021}. Determining which features in text indicate bias is difficult, and the characteristics of non-biased text are often unclear. This makes it challenging to hold users accountable for gender bias, detect all harmful signals, and develop standard evaluation benchmarks \citep{barclayInvestigatingMarkersDrivers2024a,shresthaExploringGenderBiases2022,stanczakSurveyGenderBias2021}. 
+
+Since there is no clear definition, this work defines gender bias based on specific manifestations described in the following subsection. Any text that exhibits one or more of these forms will be considered gender biased.
+
+\subsection{Manifestiations of Gender Bias}
+This section draws from the main studies analyzing gender bias in EN-DE MT \citep{ullmannGenderBiasMachine2022,rescignoGenderBiasMachine2023,lardelliBuildingBridgesDataset2024,kapplAreAllSpanish2025}. Since existing research does not clearly define the different manifestations, the findings are grouped here into three main categories.
+
+\subsubsection{Defaulting to Masculine Forms}
+In both singular and plural contexts, the \textit{generic masculine} refers to the default use of the masculine grammatical gender.
+For example, the sentence "Die Studenten sind im Hörsaal" (translation: "The students are in the lecture hall") uses the masculine plural form to refer to a group of students regardless of their gender.
+
+It is commonly used in spoken German \citep{lardelliBuildingBridgesDataset2024,schmitzGermanAllProfessors2022}, although research has consistently shown that the generic masculine creates a male bias in mental representations, leading readers or listeners to think more of male than female examples \citep{sczesnyCanGenderFairLanguage2016}. In MT, the generic masculine can lead to inaccurate or unfair representations of gender in translated text. \citet{rescignoGenderBiasMachine2023} observed a predominance of masculine forms in translation outputs (approximately 90\% in Google Translate and 85–88\% in DeepL for EN-IT and EN-DE), even when the original sentences contained relatively few masculine references. This shows that the bias is not minor but occurs quite heavily in those systems.
+
+
+\subsubsection{Reinforcement of Stereotypes}
+Stereotypes and gender roles stem from historical and cultural perceptions of men's and women's societal roles, many of which are obsolete but still influential. For example, when men and women often take on different roles at work and at home, it shapes how people think about their personalities and qualities. Correspondence bias can emerge, where people infer attributes from observable behaviours \citep{godsilEffectsGenderRoles2016}. These associations can then be reinforced by popular media, such as TV and advertisements \citep{godsilEffectsGenderRoles2016}, just as much as it can be influenced by MT tools. Similarly to how humans are shaped by their environemnt, ML models learn from data they are trained on. Biases are thus reflected and reinforced in the final models \citep{stanczakSurveyGenderBias2021,smacchiaDoesAIReflect2024}. That bias can, again, reflect back to humans and create a regressive feedback loop \citep{barclayInvestigatingMarkersDrivers2024a,shresthaExploringGenderBiases2022}. 
+
+A common manifestation of this are \textbf{stereotypical job associations}. This can be seen in cases where models assign he/him pronouns to roles like doctors and pilots, and she/her pronouns to roles like nurses and flight attendants \citep{shresthaExploringGenderBiases2022}, with an even stronger tendency in male-domniated fields such as STEM \citep{pratesAssessingGenderBias2019}. In addition, NLP models have also been shown to \textbf{link certain adjectives and traits to genders}. Traits like "masterful," "assertive," and "competitive" are often associated with men, while "friendly," "unselfish," and "emotionally expressive" are more commonly linked to women \citep{godsilEffectsGenderRoles2016}.
+
+\subsubsection{Neglecting Contextual Information}
+
+\textbf{Coreference resolution} refers to the process of using contextual information to determine the correct gender in translation \citep{stanczakSurveyGenderBias2021}. In MT, this means identifying links between words like pronouns and the nouns they refer to. While human translators use both linguistic cues (such as pronouns and grammar) and real-world knowledge to correctly assign gender \citep{rescignoGenderBiasMachine2023}, MT systems often fail to do so reliably, especially when gender information appears earlier in the text or across sentence boundaries \citep{choMeasuringGenderBias2019,stanovskyEvaluatingGenderBias2019}. For example, if a biography introduces a person with a female name at the beginning, but later refers to that person only by name, translation systems may lose the link and default to masculine forms for the remaining text.
+
+\citet{rescignoGenderBiasMachine2023} found that including previous sentences improved coreference resolution and reduced masculine defaults, though some systems benefited more than others. However, the use of context also introduced occasional new errors. Additionally, \citet{savoldiWhatHarmQuantifying2024} highlighted that correcting biased translations toward feminine forms required significantly more time and edits than masculine ones, revealing a notable cost disparity.
+
+Similarly, \citet{lardelliBuildingBridgesDataset2024} showed that even with natural passages from Wikipedia and Europarl, systems still largely defaulted to masculine forms. Feminine and inclusive translations remained rare, while gender-neutral alternatives appeared mainly when the noun itself suggested them.
 
 % --------------------------------------------------------------------------------
 
