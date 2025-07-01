@@ -1,27 +1,14 @@
 import streamlit as st
-from transformers import MarianMTModel, MarianTokenizer
-import torch
+from translate import translate
 
-model_name = "Helsinki-NLP/opus-mt-en-de"
-tokenizer = MarianTokenizer.from_pretrained(model_name)
-model = MarianMTModel.from_pretrained(model_name)
+st.title("English to German Translation")
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model.to(device)
-
-st.title("English-German Translation")
-
-input_text = st.text_area("Enter English text:")
-
-def translate(text):
-    inputs = tokenizer(text, return_tensors="pt", truncation=True).to(device)
-    outputs = model.generate(**inputs)
-    return tokenizer.decode(outputs[0], skip_special_tokens=True)
+text = st.text_area("Enter English text here:")
 
 if st.button("Translate"):
-    if input_text.strip() == "":
-        st.error("Please enter some text to translate.")
+    if text:
+        result = translate(text)
+        st.write("German translation:")
+        st.write(result)
     else:
-        translated_text = translate(input_text)
-        st.write("### Translated Text")
-        st.success(translated_text)
+        st.write("Please enter some text.")

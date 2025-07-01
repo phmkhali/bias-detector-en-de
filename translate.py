@@ -10,5 +10,5 @@ def translate(text):
     output = model.generate(**input)
     return tokenizer.decode(output[0], skip_special_tokens=True)
 
-sentence="We need to prevent producers falling victim to the cyclical variation of the market."
+sentence="The nurse is handsome."
 print(translate(sentence)) 
