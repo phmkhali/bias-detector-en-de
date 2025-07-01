@@ -1,3 +1,4 @@
+import torch
 from transformers import MarianMTModel, MarianTokenizer
 
 model = "Helsinki-NLP/opus-mt-en-de"
