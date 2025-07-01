@@ -50,7 +50,7 @@ Titles and abstracts were manually screened to select relevant studies. \textbf{
 
 This section explains the key terms and concepts needed to understand gender bias in English-to-German MT. It defines important ideas like natural language processing (NLP), MT, and gender bias. These concepts provide the background necessary to follow the thesis.
 
-\subsection{Differentiating between Natural Language Processing and Machine Translation}
+\subsection{Natural Language Processing and Machine Translation}
 \textbf{NLP} refers to the development of machine systems that can process and generate human language. The goal is to mimic and understand it as fluently as possible \citep{smacchiaDoesAIReflect2024,ullmannGenderBiasMachine2022}. Common applications are chatbots, translation tools, speech recognition, and image captioning.
 
 \textbf{MT} is a direct application of NLP. It is used to automatically translate text from one language to another \citep{linMachineTranslationAcademic2009}. MT systems have gone through several stages of development; earlier approaches like rule-based and statistical MT used manually defined grammar rules or pattern matching from large translation corpora \citep{chakravarthiSurveyOrthographicInformation2021}. For example:
@@ -64,7 +64,7 @@ Rules: "girl" → "Mädchen", "reads" → "lesen", "book" → "Buch"
 
 Most modern systems, including Google Translate and DeepL, use \textbf{neural machine translation (NMT)} \citep{wuGooglesNeuralMachine2016,deeplHowDoesDeepL2021}. These systems are trained on large sets of translated texts. They learn to represent the meaning of whole sentences as mathematical structures and generate more fluent and accurate translations. Unlike earlier systems, they aim to consider the full context of a sentence, which helps reduce errors and improves the handling of ambiguous or idiomatic language.
 
-\subsection{How Bias Enters Machine Translation Systems}
+\subsection{Bias in Machine Translation Systems}
 
 Similarly to how humans are shaped by their environemnt, MT models learn from data they are trained on. Existing biases are thus reflected and reinforced in the final models, creating "machine bias" \citep{stanczakSurveyGenderBias2021,smacchiaDoesAIReflect2024}. \citet{shahPredictiveBiasesNatural2020}, as described by \citet{ullmannGenderBiasMachine2022}, differentiates between four origins of biases affecting NLP systems:
 
@@ -175,3 +175,15 @@ Furthermore, a study by \citet{savoldiWhatHarmQuantifying2024} employed behavior
 
 \section{Approach and Justification of the Technical Setup}
 
+
+
+\subsection{Binary Classification in NLP}
+% What binary classification is
+% Why it fits your task (biased vs. not biased)
+% Common algorithms used (just mention; detail comes in practical part)
+% How input features are represented (e.g. embeddings)
+
+\subsection{Pre-trained Language Model: BERT}
+% what is bert
+% how it works
+% how i am planning to use it
