@@ -3,9 +3,13 @@ from translate import translate
 import torch
 from transformers import BertTokenizer, BertForSequenceClassification
 
-# Load classifier and tokenizer once at start
-tokenizer = BertTokenizer.from_pretrained("bert-base-multilingual-cased")
-model = BertForSequenceClassification.from_pretrained("bert-base-multilingual-cased", num_labels=2)
+# Setup device
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+# Load tokenizer and fine-tuned model
+tokenizer = BertTokenizer.from_pretrained("./model_output")
+model = BertForSequenceClassification.from_pretrained("./model_output")
+model.to(device)
 model.eval()
 
 st.title("English to German Translation with Gender Bias Detection")
@@ -14,7 +18,14 @@ text = st.text_area("Enter English text here:")
 
 def predict_bias(english, german):
     text_pair = english + " [SEP] " + german
-    inputs = tokenizer(text_pair, return_tensors="pt", truncation=True, padding=True, max_length=128)
+    inputs = tokenizer(
+        text_pair,
+        return_tensors="pt",
+        truncation=True,
+        padding=True,
+        max_length=128,
+    )
+    inputs = {k: v.to(device) for k, v in inputs.items()}
     with torch.no_grad():
         outputs = model(**inputs)
         probs = torch.softmax(outputs.logits, dim=1)
