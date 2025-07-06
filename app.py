@@ -1,7 +1,12 @@
 import streamlit as st
-from translate import translate
 import torch
+import nltk
+from nltk.tokenize import sent_tokenize
+from translate import translate
 from transformers import BertTokenizer, BertForSequenceClassification
+
+# Download tokenizer for sentence splitting
+nltk.download("punkt")
 
 # Setup device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -34,15 +39,23 @@ def predict_bias(english, german):
     return pred, confidence
 
 if st.button("Translate"):
-    if text:
-        translation = translate(text)
-        st.write("German translation:")
-        st.write(translation)
+    if text.strip():
+        sentences = sent_tokenize(text)
+        st.write("### Results")
 
-        label, conf = predict_bias(text, translation)
-        if label == 1 and conf >= 0.7:
-            st.warning(f"The output might be gender biased. (Confidence: {conf:.2f})")
-        else:
-            st.success(f"No gender bias detected. (Confidence: {conf:.2f})")
+        for i, sentence in enumerate(sentences, 1):
+            st.markdown(f"**Sentence {i}:**")
+            st.write(f"English: {sentence}")
+
+            translation = translate(sentence)
+            st.write(f"German: {translation}")
+
+            label, conf = predict_bias(sentence, translation)
+            if label == 1 and conf >= 0.7:
+                st.warning(f"Bias detected (Confidence: {conf:.2f})")
+            else:
+                st.success(f"No bias detected (Confidence: {conf:.2f})")
+
+            st.markdown("---")
     else:
         st.write("Please enter some text.")
