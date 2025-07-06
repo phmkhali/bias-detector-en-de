@@ -80,7 +80,7 @@ Similarly to how humans are shaped by their environemnt, MT models learn from da
 
 \citet{ullmannGenderBiasMachine2022} notes that the scale of training data (e.g., 175 billion parametres for GPT-3) makes it practically impossible to review all of it, allowing misinformation or offensive content to be reproduced by the system. The author also points out that platforms like Wikipedia and Reddit are male-dominated and often contain harmful or false content.
 
-\subsection{What Gender Bias Means in Machine Translation}
+\subsection{What Gender Bias Means in Machine Translation}\label{subsection:what_is_gb}
 
 A clear definition of gender bias has not yet been established \citep{stanczakSurveyGenderBias2021}. Determining which features in text indicate bias is difficult, and the characteristics of non-biased text are often unclear. This makes it challenging to hold users accountable for gender bias, detect all harmful signals, and develop standard evaluation benchmarks \citep{barclayInvestigatingMarkersDrivers2024a,shresthaExploringGenderBiases2022,stanczakSurveyGenderBias2021}. 
 
@@ -178,10 +178,14 @@ Furthermore, a study by \citet{savoldiWhatHarmQuantifying2024} employed behavior
 
 
 \subsection{Binary Classification in NLP}
-% What binary classification is
-% Why it fits your task (biased vs. not biased)
-% Common algorithms used (just mention; detail comes in practical part)
-% How input features are represented (e.g. embeddings)
+Binary Classification means categorizing whether an element belongs into a distinct class, such as "spam" or "not spam". The ML algorithms use information from past examples to create a model or find key rules for making correct decisions. For example, a model can be trained on emails labeled as spam or not spam to detect whether new emails are real. Binary Classification is the most common task in ML % \citep{quemy}. 
+\textbf{This thesis attempts to label a translation as " potentially gender biased" or "neutral"}. 
+
+As stated in \autoref{subsection:what_is_gb}, since there is no clear definition on what counts as gender biased, there is no definition on what counts as unbiased. I have defined rules for what counts as biased, but that does not mean that everything not falling into that category is automatically unbiased. Therefore, I have decided on "neutral".
+
+\subsection{Transformer Architecture}
+Transformer models are a neural network architecture that incorporate a (self)attention mechanism %\citep{phuong}.
+
 
 \subsection{Pre-trained Language Model: BERT}
 % what is bert
