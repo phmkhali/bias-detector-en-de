@@ -2999,55 +2999,483 @@ What we feed our livestock is just as important to us farmers as it is to the co
 "Commissioner, I should really like you to clarify this point, seeing that Article 16 (2) is open to all kinds of interpretations.","Ich würde mich wirklich freuen, Kommissionsmitglied, wenn Sie uns diesen Punkt erläutern würden, da im Hinblick auf Artikel 16 Absatz 2 Interpretationen aller Art möglich sind.",0
 "This report and its accompanying amendments would like to impose rules to prevent forms of selection, based on criteria of health or handicap, on sharks such as the insurance company, Axa, which has multiplied the contributions paid by parents of mentally handicapped children by a factor of ten.","Dieser Bericht und die dazugehörigen Änderungsanträge möchten Regeln zum Verbot der Vorauswahl im Hinblick auf Gesundheits - oder Behinderungskriterien vorschreiben, die für Halsabschneider, wie etwa das Versicherungsunternehmen AXA, gelten sollen, das die Beitragssätze für Eltern von geistig behinderten Kindern um das Zehnfache erhöht hat.",1
 "This report and its accompanying amendments would like to impose rules to prevent forms of selection, based on criteria of health or handicap, on sharks such as the insurance company, Axa, which has multiplied the contributions paid by parents of mentally handicapped children by a factor of ten.","Dieser Bericht und die dazugehörigen Änderungsanträge möchten Regeln zum Verbot der Vorauswahl im Hinblick auf Gesundheits - oder Behinderungskriterien vorschreiben, die für halsabschneiderische Firmen, wie etwa das Versicherungsunternehmen AXA, gelten sollen, das die Beitragssätze für Eltern von geistig behinderten Kindern um das Zehnfache erhöht hat.",0
-"The nurse is handsome.","Die Krankenschwester ist hübsch.",1
-"The nurse is handsome.","Die Pflegekraft ist hübsch.",0
-"The teacher arrived.","Der Lehrer kam an.",1
-"The teacher arrived.","Die Lehrkraft kam an.",0
-"The doctor is smart.","Der Arzt ist klug.",1
-"The doctor is smart.","Die Ärztin ist klug.",1
-"The doctor is smart.","Die Ärzt:innen sind klug.",0
-"The doctor is smart.","Die Person ist klug.",0
-"The firefighter is brave.","Der Feuerwehrmann ist mutig.",1
-"The firefighter is brave.","Die Feuerwehrfrau ist mutig.",1
-"The firefighter is brave.","Die Feuerwehrkraft ist mutig.",0
-"The lawyer is honest.","Die Anwältin ist ehrlich.",1
-"The lawyer is honest.","Der Anwalt ist ehrlich.",1
-"The lawyer is honest.","Die Rechtskraft ist ehrlich.",0
-"The student is tired.","Der Student ist müde.",1
-"The student is tired.","Die Studentin ist müde.",1
-"The student is tired.","Die Schülerin ist müde.",1
-"The student is tired.","Die Lernkraft ist müde.",0
-"The student is tired.","Die Person ist müde.",0
-"The secretary is efficient.","Die Sekretärin ist effizient.",1
-"The secretary is efficient.","Der Sekretär ist effizient.",1
-"The secretary is efficient.","Die Sekretariatskraft ist effizient.",0
-"The manager is strict.","Der Manager ist streng.",1
-"The manager is strict.","Die Managerin ist streng.",1
-"The manager is strict.","Die Führungskraft ist streng.",0
-"The driver is careful.","Die Fahrerin ist vorsichtig.",1
-"The driver is careful.","Der Fahrer ist vorsichtig.",1
-"The driver is careful.","Die Fahrkraft ist vorsichtig.",0
-"The chef is creative.","Die Köchin ist kreativ.",1
-"The chef is creative.","Der Koch ist kreativ.",1
-"The chef is creative.","Die Küchenkraft ist kreativ.",0
-"The artist is talented.","Der Künstler ist talentiert.",1
-"The artist is talented.","Die Künstlerin ist talentiert.",1
-"The artist is talented.","Die Kunstkraft ist talentiert.",0
-"The scientist is curious.","Die Wissenschaftlerin ist neugierig.",1
-"The scientist is curious.","Der Wissenschaftler ist neugierig.",1
-"The scientist is curious.","Die Wissenschaftskraft ist neugierig.",0
-"The janitor is helpful.","Der Hausmeister ist hilfsbereit.",1
-"The janitor is helpful.","Die Hausmeisterin ist hilfsbereit.",1
-"The janitor is helpful.","Die Hauskraft ist hilfsbereit.",0
-"The athlete is fast.","Der Sportler ist schnell.",1
-"The athlete is fast.","Die Sportlerin ist schnell.",1
-"The athlete is fast.","Die Sportkraft ist schnell.",0
-"The child is happy.","Das Kind ist glücklich.",0
-"The friend is kind.","Die Freundin ist nett.",1
-"The friend is kind.","Der Freund ist nett.",1
-"The friend is kind.","Die Person ist nett.",0
-"The pilot is skilled.","Die Pilotin ist geschickt.",1
-"The pilot is skilled.","Der Pilot ist geschickt.",1
-"The pilot is skilled.","Die Flugkraft ist geschickt.",0
-"The lawyer is honest.","Der Anwalt ist ehrlich.",1
-"The lawyer is honest.","Die Rechtskraft ist ehrlich.",0
+"The dispatcher is efficient.","Der Dispatcher ist effizient.",1
+"The dispatcher is efficient.","Der oder die Dispatcher*in ist effizient.",0
+"The dispatchers are efficient.","Die Dispatcher sind effizient.",1
+"The dispatchers are efficient.","Dispatcher*innen sind effizient.",0
+"The deputy is authoritative.","Der Stellvertreter ist autoritär.",1
+"The deputy is authoritative.","Die Stellvertretung ist autoritär.",0
+"The deputies are authoritative.","Stellvertreter sind autoritär.",1
+"The deputies are authoritative.","Stellvertretungen sind autoritär.",0
+"The settler is resourceful.","Der Siedler ist einfallsreich.",1
+"The settler is resourceful.","Die ansässige Person ist einfallsreich.",0
+"The settlers are resourceful.","Siedler sind einfallsreich.",1
+"The settlers are resourceful.","Ansässige Personen sind einfallsreich.",0
+"The primary school pupil is curious.","Der Grundschüler ist neugierig.",1
+"The primary school pupil is curious.","Das Grundschulkind ist neugierig.",0
+"The primary school pupils are curious.","Grundschüler sind neugierig.",1
+"The primary school pupils are curious.","Grundschulkinder sind neugierig.",0
+"The recipient is grateful.","Der Rezipient ist dankbar.",1
+"The recipient is grateful.","Rezipierende sind dankbar.",0
+"The recipients are grateful.","Rezipienten sind dankbar.",1
+"The recipients are grateful.","Das Publikum ist dankbar.",0
+"The reformer is idealistic.","Der Reformer ist idealistisch.",1
+"The reformer is idealistic.","Die reformierende Person ist idealistisch.",0
+"The reformers are idealistic.","Reformer sind idealistisch.",1
+"The reformers are idealistic.","Reformpersonen sind idealistisch.",0
+"The colleague is supportive.","Der Kollege ist unterstützend.",1
+"The colleague is supportive.","Die Kollegschaft ist unterstützend.",0
+"The colleagues are supportive.","Kollegen sind unterstützend.",1
+"The colleagues are supportive.","Das Kollegium ist unterstützend.",0
+"The course participant is attentive.","Der Kursteilnehmer ist aufmerksam.",1
+"The course participant is attentive.","Die am Kurs teilnehmende Person ist aufmerksam.",0
+"The course participants are attentive.","Kursteilnehmer sind aufmerksam.",1
+"The course participants are attentive.","Am Kurs teilnehmende Personen sind aufmerksam.",0
+"The patient is recovering.","Der Patient erholt sich.",1
+"The patient is recovering.","Die zu behandelnde Person erholt sich.",0
+"The patients are recovering.","Patienten erholen sich.",1
+"The patients are recovering.","Kranke Personen erholen sich.",0
+"The mountaineer is experienced.","Der Bergsteiger ist erfahren.",1
+"The mountaineer is experienced.","Die bergbegeisterte Person ist erfahren.",0
+"The mountaineers are experienced.","Bergsteiger sind erfahren.",1
+"The mountaineers are experienced.","Bergbegeisterte Personen sind erfahren.",0
+"The day carer is patient.","Die Kindertagepflegerin ist geduldig.",1
+"The day carer is patient.","Die Kindertagespflegeperson ist geduldig.",0
+"The day carers are patient.","Kindertagepfleger sind geduldig.",1
+"The day carers are patient.","Kindertagespflegepersonen sind geduldig.",0
+"The ceramist is meticulous.","Die Keramikerin ist sorgfältig.",1
+"The ceramist is meticulous.","Die Keramikfachkraft ist sorgfältig.",0
+"The ceramists are meticulous.","Keramiker sind sorgfältig.",1
+"The ceramists are meticulous.","Keramikfachkräfte sind sorgfältig.",0
+"The pacifist is principled.","Der Pazifist ist prinzipientreu.",1
+"The pacifist is principled.","Friedensbewegte sind prinzipientreu.",0
+"The pacifists are principled.","Pazifisten sind prinzipientreu.",1
+"The pacifists are principled.","Friedensbewegte sind prinzipientreu.",0
+"The signee is hesitant.","Die Unterzeichnerin ist zögerlich.",1
+"The signee is hesitant.","Die unterzeichnende Person ist zögerlich.",0
+"The signees are hesitant.","Unterzeichner sind zögerlich.",1
+"The signees are hesitant.","Unterzeichnende Parteien sind zögerlich.",0
+"The counsellor is perceptive.","Die Beraterin ist einfühlsam.",1
+"The counsellor is perceptive.","Die beratende Person ist einfühlsam.",0
+"The counsellors are perceptive.","Berater sind einfühlsam.",1
+"The counsellors are perceptive.","Beratende Personen sind einfühlsam.",0
+"The contractor is reliable.","Der Auftragnehmer ist zuverlässig.",1
+"The contractor is reliable.","Die auftragnehmende Person ist zuverlässig.",0
+"The contractors are reliable.","Auftragnehmer sind zuverlässig.",1
+"The contractors are reliable.","Auftragnehmende Firmen sind zuverlässig.",0
+"The coordinator is organized.","Die Koordinatorin ist organisiert.",1
+"The coordinator is organized.","Die Koordination ist organisiert.",0
+"The coordinators are organized.","Koordinatoren sind organisiert.",1
+"The coordinators are organized.","Koordinationen sind organisiert.",0
+"The employee is punctual.","Die Beschäftigte ist pünktlich.",1
+"The employee is punctual.","Die Arbeitskraft ist pünktlich.",0
+"The employees are punctual.","Beschäftigte sind pünktlich.",1
+"The employees are punctual.","Angestellte Personen sind pünktlich.",0
+"The investor is cautious.","Die Investorin ist vorsichtig.",1
+"The investor is cautious.","Die investierende Person ist vorsichtig.",0
+"The investors are cautious.","Investoren sind vorsichtig.",1
+"The investors are cautious.","Investierende Personen sind vorsichtig.",0
+"The blogger is opinionated.","Die Bloggerin ist meinungsstark.",1
+"The blogger is opinionated.","Die bloggende Person ist meinungsstark.",0
+"The bloggers are opinionated.","Blogger sind meinungsstark.",1
+"The bloggers are opinionated.","Bloggende Personen sind meinungsstark.",0
+"The veteran is resilient.","Der Veteran ist widerstandsfähig.",1
+"The veteran is resilient.","Die altgediente Person ist widerstandsfähig.",0
+"The veterans are resilient.","Veteranen sind widerstandsfähig.",1
+"The veterans are resilient.","Ehemalige Kriegsteilnehmer sind widerstandsfähig.",0
+"The notary is precise.","Der Notar ist präzise.",1
+"The notary is precise.","Die notariell arbeitende Person ist präzise.",0
+"The notaries are precise.","Notare sind präzise.",1
+"The notaries are precise.","Notariell arbeitende Personen sind präzise.",0
+"The economist is insightful.","Der Ökonom ist weitsichtig.",1
+"The economist is insightful.","Die ökonomisch ausgebildete Person ist weitsichtig.",0
+"The economists are insightful.","Ökonomen sind weitsichtig.",1
+"The economists are insightful.","Ökonomisch ausgebildete Personen sind weitsichtig.",0
+"The administrator is thorough.","Der Sachbearbeiter ist gründlich.",1
+"The administrator is thorough.","Die Verwaltungskraft ist gründlich.",0
+"The administrators are thorough.","Sachbearbeiter sind gründlich.",1
+"The administrators are thorough.","Verwaltungskräfte sind gründlich.",0
+"The lawyer is articulate.","Die Rechtsanwältin ist redegewandt.",1
+"The lawyer is articulate.","Der Rechtsbeistand ist redegewandt.",0
+"The lawyers are articulate.","Rechtsanwälte sind redegewandt.",1
+"The lawyers are articulate.","Mitglieder der Anwaltschaft sind redegewandt.",0
+"The trainer is motivational.","Die Übungsleiterin ist motivierend.",1
+"The trainer is motivational.","Die sportliche Anleitung ist motivierend.",0
+"The trainers are motivational.","Übungsleiter sind motivierend.",1
+"The trainers are motivational.","Sportliche Anleitungen sind motivierend.",0
+"The specialist is knowledgeable.","Der Spezialist ist kenntnisreich.",1
+"The specialist is knowledgeable.","Die Fachperson ist kenntnisreich.",0
+"The specialists are knowledgeable.","Spezialisten sind kenntnisreich.",1
+"The specialists are knowledgeable.","Fachpersonen sind kenntnisreich.",0
+"The social worker is compassionate.","Die Sozialarbeiterin ist mitfühlend.",1
+"The social worker is compassionate.","Die sozialarbeitende Person ist mitfühlend.",0
+"The social workers are compassionate.","Sozialarbeiter sind mitfühlend.",1
+"The social workers are compassionate.","Fachkräfte der Sozialen Arbeit sind mitfühlend.",0
+"The kindergarten teacher is energetic.","Die Kindergärtnerin ist energiegeladen.",1
+"The kindergarten teacher is energetic.","Die pädagogische Fachkraft ist energiegeladen.",0
+"The kindergarten teachers are energetic.","Kindergärtner sind energiegeladen.",1
+"The kindergarten teachers are energetic.","Pädagogische Fachkräfte sind energiegeladen.",0
+"The businessperson is shrewd.","Die Kauffrau ist clever.",1
+"The businessperson is shrewd.","Die Kaufperson ist clever.",0
+"The businesspeople are shrewd.","Kaufleute sind clever.",1
+"The businesspeople are shrewd.","Kaufpersonen sind clever.",0
+"The pensioner is content.","Die Pensionärin ist zufrieden.",1
+"The pensioner is content.","Die pensionierte Person ist zufrieden.",0
+"The pensioners are content.","Pensionäre sind zufrieden.",1
+"The pensioners are content.","Pensionierte Personen sind zufrieden.",0
+"The president is diplomatic.","Der Präsident ist diplomatisch.",1
+"The president is diplomatic.","Der Vorsitz ist diplomatisch.",0
+"The presidents are diplomatic.","Präsidenten sind diplomatisch.",1
+"The presidents are diplomatic.","Staatsoberhäupter sind diplomatisch.",0
+"The director is innovative.","Die Direktorin ist innovativ.",1
+"The director is innovative.","Die Museumsleitung ist innovativ.",0
+"The directors are innovative.","Direktorinnen sind innovativ.",1
+"The directors are innovative.","Leitungen sind innovativ.",0
+"The project leader is organized.","Der Projektleiter ist organisiert.",1
+"The project leader is organized.","Die Projektleitung ist organisiert.",0
+"The project leaders are organized.","Projektleiter sind organisiert.",1
+"The project leaders are organized.","Projektleitungen sind organisiert.",0
+"The spokesperson is eloquent.","Die Sprecherin ist redegewandt.",1
+"The spokesperson is eloquent.","Die sprachbenutzende Person ist redegewandt.",0
+"The spokespersons are eloquent.","Sprecher sind redegewandt.",1
+"The spokespersons are eloquent.","Sprachbenutzende Personen sind redegewandt.",0
+"The mediator is impartial.","Der Vermittler ist unparteiisch.",1
+"The mediator is impartial.","Die Mittelsperson ist unparteiisch.",0
+"The mediators are impartial.","Vermittler sind unparteiisch.",1
+"The mediators are impartial.","Mittelspersonen sind unparteiisch.",0
+"The tax consultant is accurate.","Der Steuerberater ist genau.",1
+"The tax consultant is accurate.","Die Steuerkanzlei ist genau.",0
+"The tax consultants are accurate.","Steuerberater sind genau.",1
+"The tax consultants are accurate.","Steuerberatende Personen sind genau.",0
+"The jurist is knowledgeable.","Die Juristin ist sachkundig.",1
+"The jurist is knowledgeable.","Die Person mit juristischem Sachverstand ist sachkundig.",0
+"The jurists are knowledgeable.","Juristen sind sachkundig.",1
+"The jurists are knowledgeable.","Personen mit juristischer Ausbildung sind sachkundig.",0
+"The consumer advisor is helpful.","Der Verbraucherschützer ist hilfsbereit.",1
+"The consumer advisor is helpful.","Die mit dem Verbraucherschutz beauftragte Person ist hilfsbereit.",0
+"The consumer advisors are helpful.","Verbraucherschützer sind hilfsbereit.",1
+"The consumer advisors are helpful.","Verbraucherschutzbeauftragte sind hilfsbereit.",0
+"The debtor is cooperative.","Der Vollstreckungsschuldner ist kooperativ.",1
+"The debtor is cooperative.","Die zahlungspflichtige Person ist kooperativ.",0
+"The debtors are cooperative.","Vollstreckungsschuldner sind kooperativ.",1
+"The debtors are cooperative.","Zahlungspflichtige Personen sind kooperativ.",0
+"The plaintiff is determined.","Die Klägerin ist entschlossen.",1
+"The plaintiff is determined.","Die klagende Person ist entschlossen.",0
+"The plaintiffs are determined.","Kläger sind entschlossen.",1
+"The plaintiffs are determined.","Klagende Personen sind entschlossen.",0
+"The painter is expressive.","Der Maler ist ausdrucksstark.",1
+"The painter is expressive.","Die werkschaffende Person ist ausdrucksstark.",0
+"The painters are expressive.","Maler sind ausdrucksstark.",1
+"The painters are expressive.","Werkschaffende Personen sind ausdrucksstark.",0
+"The performer is charismatic.","Die Darstellerin ist charismatisch.",1
+"The performer is charismatic.","Die Rolle ist charismatisch.",0
+"The performers are charismatic.","Darsteller sind charismatisch.",1
+"The performers are charismatic.","Besetzungen sind charismatisch.",0
+"The illustrator is detailed.","Die Illustratorin ist detailverliebt.",1
+"The illustrator is detailed.","Die illustrierende Person ist detailverliebt.",0
+"The illustrators are detailed.","Illustratoren sind detailverliebt.",1
+"The illustrators are detailed.","Illustrierende Personen sind detailverliebt.",0
+"The commentator is insightful.","Der Kommentator ist einfühlsam.",1
+"The commentator is insightful.","Die medienschaffende Person ist einfühlsam.",0
+"The commentators are insightful.","Kommentatoren sind einfühlsam.",1
+"The commentators are insightful.","Medienschaffende Personen sind einfühlsam.",0
+"The user is tech-savvy.","Der User ist technikaffin.",1
+"The user is tech-savvy.","Die nutzende Person ist technikaffin.",0
+"The users are tech-savvy.","User sind technikaffin.",1
+"The users are tech-savvy.","Nutzende Personen sind technikaffin.",0
+"The operator is alert.","Die Callcenteroperatorin ist aufmerksam.",1
+"The operator is alert.","Die callcenteroperierende Person ist aufmerksam.",0
+"The operators are alert.","Callcenteroperatoren sind aufmerksam.",1
+"The operators are alert.","Callcenteroperierende Personen sind aufmerksam.",0
+"The custodian is diligent.","Der Hauswart ist gewissenhaft.",1
+"The custodian is diligent.","Die Hauswartung ist gewissenhaft.",0
+"The custodians are diligent.","Hauswarte sind gewissenhaft.",1
+"The custodians are diligent.","Hauswartungen sind gewissenhaft.",0
+"The builder is sturdy.","Der Bauträger ist robust.",1
+"The builder is sturdy.","Die für den Bau verantwortliche Firma ist robust.",0
+"The builders are sturdy.","Bauträger sind robust.",1
+"The builders are sturdy.","Für den Bau verantwortliche Firmen sind robust.",0
+"The trainer is encouraging.","Der Ausbilder ist ermutigend.",1
+"The trainer is encouraging.","Der ausbildende Betrieb ist ermutigend.",0
+"The trainers are encouraging.","Ausbilder sind ermutigend.",1
+"The trainers are encouraging.","Ausbildende Betriebe sind ermutigend.",0
+"The investigator is thorough.","Die Ermittlerin ist gründlich.",1
+"The investigator is thorough.","Die ermittelnde Person ist gründlich.",0
+"The investigators are thorough.","Ermittler sind gründlich.",1
+"The investigators are thorough.","Ermittelnde Personen sind gründlich.",0
+"The fellow citizen is neighborly.","Der Mitbürger ist nachbarschaftlich.",1
+"The fellow citizen is neighborly.","Der Mitmensch ist nachbarschaftlich.",0
+"The fellow citizens are neighborly.","Mitbürger sind nachbarschaftlich.",1
+"The fellow citizens are neighborly.","Mitmenschen sind nachbarschaftlich.",0
+"The student rep is vocal.","Der Schülervertreter ist redegewandt.",1
+"The student rep is vocal.","Die Lernendenvertretung ist redegewandt.",0
+"The student reps are vocal.","Schülervertreter sind redegewandt.",1
+"The student reps are vocal.","Lernendenvertretungen sind redegewandt.",0
+"The diabetic is disciplined.","Die Diabetikerin ist diszipliniert.",1
+"The diabetic is disciplined.","Der Mensch mit Diabetes ist diszipliniert.",0
+"The diabetics are disciplined.","Diabetiker sind diszipliniert.",1
+"The diabetics are disciplined.","Menschen mit Diabetes sind diszipliniert.",0
+"The pastor is comforting.","Der Seelsorger ist tröstend.",1
+"The pastor is comforting.","Die seelsorgerische Person ist tröstend.",0
+"The pastors are comforting.","Seelsorger sind tröstend.",1
+"The pastors are comforting.","Seelsorgerische Personen sind tröstend.",0
+"The influencer is trendy.","Der Einflussnehmer ist trendbewusst.",1
+"The influencer is trendy.","Die einflussnehmende Person ist trendbewusst.",0
+"The influencers are trendy.","Einflussnehmer sind trendbewusst.",1
+"The influencers are trendy.","Einflussnehmende Personen sind trendbewusst.",0
+"The layperson is curious.","Der Laie ist neugierig.",1
+"The layperson is curious.","Die fachunkundige Person ist neugierig.",0
+"The laypeople are curious.","Laien sind neugierig.",1
+"The laypeople are curious.","Fachunkundige Personen sind neugierig.",0
+"The advocate is passionate.","Die Fürsprecherin ist leidenschaftlich.",1
+"The advocate is passionate.","Die befürwortende Person ist leidenschaftlich.",0
+"The advocates are passionate.","Fürsprecher sind leidenschaftlich.",1
+"The advocates are passionate.","Befürwortende Personen sind leidenschaftlich.",0
+"The background actor is patient.","Der Statist ist geduldig.",1
+"The background actor is patient.","Die stumme Rolle ist geduldig.",0
+"The background actors are patient.","Statisten sind geduldig.",1
+"The background actors are patient.","Stumme Rollen sind geduldig.",0
+"The beginner is enthusiastic.","Der Anfänger ist begeistert.",1
+"The beginner is enthusiastic.","Der Mensch ohne Vorkenntnisse ist begeistert.",0
+"The beginners are enthusiastic.","Anfänger sind begeistert.",1
+"The beginners are enthusiastic.","Menschen ohne Vorerfahrung sind begeistert.",0
+"The contemporary is observant.","Der Zeitgenosse ist aufmerksam.",1
+"The contemporary is observant.","Der Mitmensch ist aufmerksam.",0
+"The contemporaries are observant.","Zeitgenossen sind aufmerksam.",1
+"The contemporaries are observant.","Mitmenschen sind aufmerksam.",0
+"The forest keeper is vigilant.","Der Forstwart ist wachsam.",1
+"The forest keeper is vigilant.","Die Forstaufsicht ist wachsam.",0
+"The forest keepers are vigilant.","Forstwarte sind wachsam.",1
+"The forest keepers are vigilant.","Forstaufsichten sind wachsam.",0
+"The neighbor is considerate.","Der Nebenmann ist rücksichtsvoll.",1
+"The neighbor is considerate.","Die nebenstehende Person ist rücksichtsvoll.",0
+"The neighbors are considerate.","Nebenmänner sind rücksichtsvoll.",1
+"The neighbors are considerate.","Nebenstehende Personen sind rücksichtsvoll.",0
+"The tutor is patient.","Der Betreuer ist geduldig.",1
+"The tutor is patient.","Die Betreuungsperson ist geduldig.",0
+"The tutors are patient.","Betreuer sind geduldig.",1
+"The tutors are patient.","Betreuungspersonen sind geduldig.",0
+"The interpreter is fluent.","Die Dolmetscherin ist fließend.",1
+"The interpreter is fluent.","Die dolmetschende Fachkraft ist fließend.",0
+"The interpreters are fluent.","Dolmetscher sind fließend.",1
+"The interpreters are fluent.","Dolmetschende Fachkräfte sind fließend.",0
+"The clerk is efficient.","Der Sachbearbeiter ist effizient.",1  
+"The clerk is efficient.","Die Verwaltungskraft ist effizient.",0  
+"The clerks are efficient.","Sachbearbeiter sind effizient.",1  
+"The clerks are efficient.","Verwaltungskräfte sind effizient.",0  
+"The developer is innovative.","Die Softwareentwicklerin ist innovativ.",1  
+"The developer is innovative.","Die entwickelnde Person ist innovativ.",0  
+"The developers are innovative.","Softwareentwickler sind innovativ.",1  
+"The developers are innovative.","Entwickelnde Personen sind innovativ.",0  
+"The hairdresser is stylish.","Der Friseur ist stylisch.",1  
+"The hairdresser is stylish.","Die frisierende Person ist stylisch.",0  
+"The hairdressers are stylish.","Friseure sind stylisch.",1  
+"The hairdressers are stylish.","Frisierende Personen sind stylisch.",0  
+"The tailor is precise.","Die Schneiderin ist präzise.",1  
+"The tailor is precise.","Die schneidernde Person ist präzise.",0  
+"The tailors are precise.","Schneider sind präzise.",1  
+"The tailors are precise.","Schneidernde Personen sind präzise.",0  
+"The scientist is analytical.","Der Wissenschaftler ist analytisch.",1
+"The scientist is analytical.","Die forschende Person ist analytisch.",0
+"The scientists are analytical.","Wissenschaftler sind analytisch.",1
+"The scientists are analytical.","Forschende Personen sind analytisch.",0
+"The librarian is quiet.","Die Bibliothekarin ist leise.",1
+"The librarian is quiet.","Die Bibliothekskraft ist leise.",0
+"The librarians are quiet.","Bibliothekare sind leise.",1
+"The librarians are quiet.","Bibliothekskräfte sind leise.",0
+"The enforcement debtor is stressed.","Der Vollstreckungsschuldner ist gestresst.",1
+"The enforcement debtor is stressed.","Die zahlungspflichtige Person ist gestresst.",0
+"The enforcement debtors are stressed.","Vollstreckungsschuldner sind gestresst.",1
+"The enforcement debtors are stressed.","Zahlungspflichtige Personen sind gestresst.",0
+"The party leader is charismatic.","Die Parteichefin ist charismatisch.",1
+"The party leader is charismatic.","Der Parteivorsitz ist charismatisch.",0
+"The party leaders are charismatic.","Parteichefs sind charismatisch.",1
+"The party leaders are charismatic.","Parteivorsitze sind charismatisch.",0
+"The newcomer is nervous.","Der Neueinsteiger ist nervös.",1
+"The newcomer is nervous.","Die neue Person im Geschäft ist nervös.",0
+"The newcomers are nervous.","Neueinsteiger sind nervös.",1
+"The newcomers are nervous.","Neue Personen im Geschäft sind nervös.",0
+"The stonecutter is strong.","Der Steinmetz ist stark.",1
+"The stonecutter is strong.","Die Stein bearbeitende Person ist stark.",0
+"The stonecutters are strong.","Steinmetze sind stark.",1
+"The stonecutters are strong.","Stein bearbeitende Personen sind stark.",0
+"The mood animator is cheerful.","Die Stimmungsanimateurin ist fröhlich.",1
+"The mood animator is cheerful.","Die stimmungsunterhaltende Person ist fröhlich.",0
+"The mood animators are cheerful.","Stimmungsanimateure sind fröhlich.",1
+"The mood animators are cheerful.","Stimmungsunterhaltende Personen sind fröhlich.",0
+"The slave holder is cruel.","Der Sklavenhalter ist grausam.",1
+"The slave holder is cruel.","Die Sklaverei ausübende Person ist grausam.",0
+"The slave holders are cruel.","Sklavenhalter sind grausam.",1
+"The slave holders are cruel.","Sklaverei ausübende Personen sind grausam.",0
+"The addresser is formal.","Der Unterzeichner ist formell.",1
+"The addresser is formal.","Die unterzeichnende Partei ist formell.",0
+"The addressers are formal.","Unterzeichner sind formell.",1
+"The addressers are formal.","Unterzeichnende Parteien sind formell.",0
+"The call center operator is patient.","Die Callcenteroperatorin ist geduldig.",1
+"The call center operator is patient.","Die callcenteroperierende Person ist geduldig.",0
+"The call center operators are patient.","Callcenteroperatoren sind geduldig.",1
+"The call center operators are patient.","Callcenteroperierende Personen sind geduldig.",0
+"The camera operator is focused.","Der Kameramann ist konzentriert.",1
+"The camera operator is focused.","Die Kameraperson ist konzentriert.",0
+"The camera operators are focused.","Kameraleute sind konzentriert.",1
+"The camera operators are focused.","Kamerapersonen sind konzentriert.",0
+"The chairperson is fair.","Die Obfrau ist gerecht.",1
+"The chairperson is fair.","Der Obmensch ist gerecht.",0
+"The chairpeople are fair.","Obleute sind gerecht.",1
+"The chairpeople are fair.","Obmenschen sind gerecht.",0
+"The children's day carer is playful.","Die Kindertagepflegerin ist verspielt.",1
+"The children's day carer is playful.","Die Kindertagespflegeperson ist verspielt.",0
+"The children's day carers are playful.","Kindertagepfleger sind verspielt.",1
+"The children's day carers are playful.","Kindertagespflegepersonen sind verspielt.",0
+"The civil servant is bureaucratic.","Der Beamte ist bürokratisch.",1
+"The civil servant is bureaucratic.","Die bedienstete Person ist bürokratisch.",0
+"The civil servants are bureaucratic.","Beamte sind bürokratisch.",1
+"The civil servants are bureaucratic.","Bedienstete Personen sind bürokratisch.",0
+"The client is satisfied.","Der Klient ist zufrieden.",1
+"The client is satisfied.","Die ratsuchende Person ist zufrieden.",0
+"The clients are satisfied.","Klienten sind zufrieden.",1
+"The clients are satisfied.","Ratsuchende Personen sind zufrieden.",0
+"The donor is generous.","Die Spenderin ist großzügig.",1
+"The donor is generous.","Die gebende Person ist großzügig.",0
+"The donors are generous.","Spender sind großzügig.",1
+"The donors are generous.","Gebende Personen sind großzügig.",0
+"The employee representative is vocal.","Der Arbeitnehmervertreter ist redegewandt.",1
+"The employee representative is vocal.","Die Beschäftigtenvertretung ist redegewandt.",0
+"The employee representatives are vocal.","Arbeitnehmervertreter sind redegewandt.",1
+"The employee representatives are vocal.","Beschäftigtenvertretungen sind redegewandt.",0
+"The employer is demanding.","Der Dienstherr ist fordernd.",1
+"The employer is demanding.","Die Dienstbehörde ist fordernd.",0
+"The employers are demanding.","Dienstherren sind fordernd.",1
+"The employers are demanding.","Dienstbehörden sind fordernd.",0
+"The intermediary is neutral.","Die Vermittlerin ist neutral.",1
+"The intermediary is neutral.","Die Mittelsperson ist neutral.",0
+"The intermediaries are neutral.","Vermittler sind neutral.",1
+"The intermediaries are neutral.","Mittelspersonen sind neutral.",0
+"The invoice recipient is prompt.","Der Rechnungsempfänger ist pünktlich.",1
+"The invoice recipient is prompt.","Die rechnungserhaltende Person ist pünktlich.",0
+"The invoice recipients are prompt.","Rechnungsempfänger sind pünktlich.",1
+"The invoice recipients are prompt.","Rechnungserhaltende Personen sind pünktlich.",0
+"The loser is disappointed.","Die Verliererin ist enttäuscht.",1
+"The loser is disappointed.","Die Person auf dem letzten Platz ist enttäuscht.",0
+"The losers are disappointed.","Verlierer sind enttäuscht.",1
+"The losers are disappointed.","Personen auf dem letzten Platz sind enttäuscht.",0
+"The mechanic is skilled.","Die Mechanikerin ist geschickt.",1
+"The mechanic is skilled.","Die Fachkraft für Mechanik ist geschickt.",0
+"The mechanics are skilled.","Mechaniker sind geschickt.",1
+"The mechanics are skilled.","Fachkräfte für Mechanik sind geschickt.",0
+"The minister is diplomatic.","Der Minister ist diplomatisch.",1
+"The minister is diplomatic.","Die Ressortleitung ist diplomatisch.",0
+"The ministers are diplomatic.","Minister sind diplomatisch.",1
+"The ministers are diplomatic.","Ressortleitungen sind diplomatisch.",0
+"The enthusiast is energetic.","Der Enthusiast ist energiegeladen.",1
+"The enthusiast is energetic.","Die begeisterte Person ist energiegeladen.",0
+"The enthusiasts are energetic.","Enthusiasten sind energiegeladen.",1
+"The enthusiasts are energetic.","Begeisterte Personen sind energiegeladen.",0
+"The expert is reliable.","Die Expertin ist zuverlässig.",1
+"The expert is reliable.","Die sachkundige Person ist zuverlässig.",0
+"The experts are reliable.","Experten sind zuverlässig.",1
+"The experts are reliable.","Sachkundige Personen sind zuverlässig.",0
+"The extremist is radical.","Der Extremist ist radikal.",1
+"The extremist is radical.","Die radikalisierte Person ist radikal.",0
+"The extremists are radical.","Extremisten sind radikal.",1
+"The extremists are radical.","Radikalisierte Personen sind radikal.",0
+"The fellow runner is competitive.","Die Mitläuferin ist wettbewerbsorientiert.",1
+"The fellow runner is competitive.","Die mitlaufende Person ist wettbewerbsorientiert.",0
+"The fellow runners are competitive.","Mitläufer sind wettbewerbsorientiert.",1
+"The fellow runners are competitive.","Mitlaufende Personen sind wettbewerbsorientiert.",0
+"The freelancer is flexible.","Der Freiberufler ist flexibel.",1
+"The freelancer is flexible.","Die freischaffende Person ist flexibel.",0
+"The freelancers are flexible.","Freiberufler sind flexibel.",1
+"The freelancers are flexible.","Freischaffende Personen sind flexibel.",0
+"The opinion leader is influential.","Die Meinungsführerin ist einflussreich.",1
+"The opinion leader is influential.","Die meinungsführende Person ist einflussreich.",0
+"The opinion leaders are influential.","Meinungsführer sind einflussreich.",1
+"The opinion leaders are influential.","Meinungsführende Personen sind einflussreich.",0
+"The organ donor is altruistic.","Die Organspenderin ist altruistisch.",1
+"The organ donor is altruistic.","Die Organ spendende Person ist altruistisch.",0
+"The organ donors are altruistic.","Organspender sind altruistisch.",1
+"The organ donors are altruistic.","Organ spendende Personen sind altruistisch.",0
+"The partner is supportive.","Der Partner ist unterstützend.",1
+"The partner is supportive.","Das Gegenüber ist unterstützend.",0
+"The partners are supportive.","Partner sind unterstützend.",1
+"The partners are supportive.","Gegenüber sind unterstützend.",0
+"The personnel manager is strategic.","Die Personalentwicklerin ist strategisch.",1
+"The personnel manager is strategic.","Die Personalentwicklung ist strategisch.",0
+"The personnel managers are strategic.","Personalentwickler sind strategisch.",1
+"The personnel managers are strategic.","Personalentwicklungen sind strategisch.",0
+"The practitioner is experienced.","Der Praktiker ist erfahren.",1
+"The practitioner is experienced.","Die praktizierende Person ist erfahren.",0
+"The practitioners are experienced.","Praktiker sind erfahren.",1
+"The practitioners are experienced.","Praktizierende Personen sind erfahren.",0
+"The private patient is privileged.","Der Privatpatient ist privilegiert.",1
+"The private patient is privileged.","Die privatversicherte Person ist privilegiert.",0
+"The private patients are privileged.","Privatpatienten sind privilegiert.",1
+"The private patients are privileged.","Privatversicherte Personen sind privilegiert.",0
+"The producer is creative.","Die Produzentin ist kreativ.",1
+"The producer is creative.","Die Produktionsleitung ist kreativ.",0
+"The producers are creative.","Produzenten sind kreativ.",1
+"The producers are creative.","Produktionsleitungen sind kreativ.",0
+"The prosecutor is assertive.","Der Kläger ist durchsetzungsfähig.",1
+"The prosecutor is assertive.","Die klagende Person ist durchsetzungsfähig.",0
+"The prosecutors are assertive.","Kläger sind durchsetzungsfähig.",1
+"The prosecutors are assertive.","Klagende Personen sind durchsetzungsfähig.",0
+"The reader is attentive.","Die Leserin ist aufmerksam.",1
+"The reader is attentive.","Die lesende Person ist aufmerksam.",0
+"The readers are attentive.","Leser sind aufmerksam.",1
+"The readers are attentive.","Lesende Personen sind aufmerksam.",0
+"The relative is caring.","Der Angehörige ist fürsorglich.",1
+"The relative is caring.","Das Familienmitglied ist fürsorglich.",0
+"The relatives are caring.","Angehörige sind fürsorglich.",1
+"The relatives are caring.","Familienmitglieder sind fürsorglich.",0
+"The respondent is cooperative.","Die Respondentin ist kooperativ.",1
+"The respondent is cooperative.","Die antwortende Person ist kooperativ.",0
+"The respondents are cooperative.","Respondenten sind kooperativ.",1
+"The respondents are cooperative.","Antwortende Personen sind kooperativ.",0
+"The sailor is adventurous.","Die Seglerin ist abenteuerlustig.",1
+"The sailor is adventurous.","Die segelnde Person ist abenteuerlustig.",0
+"The sailors are adventurous.","Segler sind abenteuerlustig.",1
+"The sailors are adventurous.","Segelnde Personen sind abenteuerlustig.",0
+"The secretary is organized.","Der Sekretär ist organisiert.",1
+"The secretary is organized.","Die Bürokraft ist organisiert.",0
+"The secretaries are organized.","Sekretäre sind organisiert.",1
+"The secretaries are organized.","Bürokräfte sind organisiert.",0
+"The sender is reliable.","Die Senderin ist zuverlässig.",1
+"The sender is reliable.","Die versendende Person ist zuverlässig.",0
+"The senders are reliable.","Sender sind zuverlässig.",1
+"The senders are reliable.","Versendende Personen sind zuverlässig.",0
+"The speaker is eloquent.","Der Redner ist redegewandt.",1
+"The speaker is eloquent.","Die sprechende Person ist redegewandt.",0
+"The speakers are eloquent.","Redner sind redegewandt.",1
+"The speakers are eloquent.","Sprechende Personen sind redegewandt.",0
+"The speculator is risky.","Der Spekulant ist risikofreudig.",1
+"The speculator is risky.","Die spekulierende Person ist risikofreudig.",0
+"The speculators are risky.","Spekulanten sind risikofreudig.",1
+"The speculators are risky.","Spekulierende Personen sind risikofreudig.",0
+"The sportsperson is athletic.","Die Sportfreundin ist athletisch.",1
+"The sportsperson is athletic.","Das Vereinsmitglied ist athletisch.",0
+"The sportspeople are athletic.","Sportfreunde sind athletisch.",1
+"The sportspeople are athletic.","Vereinsmitglieder sind athletisch.",0
+"The student rep is vocal.","Der Schülervertreter ist redegewandt.",1
+"The student rep is vocal.","Die Lernendenvertretung ist redegewandt.",0
+"The student reps are vocal.","Schülervertreter sind redegewandt.",1
+"The student reps are vocal.","Lernendenvertretungen sind redegewandt.",0
+"The supervisor is strict.","Die Betreuerin ist streng.",1
+"The supervisor is strict.","Die Betreuungsperson ist streng.",0
+"The supervisors are strict.","Betreuer sind streng.",1
+"The supervisors are strict.","Betreuungspersonen sind streng.",0
+"The team leader is decisive.","Die Teamleiterin ist entscheidungsfreudig.",1
+"The team leader is decisive.","Die Teamleitung ist entscheidungsfreudig.",0
+"The team leaders are decisive.","Teamleiter sind entscheidungsfreudig.",1
+"The team leaders are decisive.","Teamleitungen sind entscheidungsfreudig.",0
+"The traveller is worldly.","Der Reisende ist weltoffen.",1
+"The traveller is worldly.","Die reisende Person ist weltoffen.",0
+"The travellers are worldly.","Reisende sind weltoffen.",1
+"The travellers are worldly.","Reisende Personen sind weltoffen.",0
+"The xylophonist is rhythmic.","Die Xylophonspielerin ist rhythmisch.",1
+"The xylophonist is rhythmic.","Die xylophon spielende Person ist rhythmisch.",0
+"The xylophonists are rhythmic.","Xylophonspieler sind rhythmisch.",1
+"The xylophonists are rhythmic.","Xylophon spielende Personen sind rhythmisch.",0
+"The host is welcoming.","Der Gastgeber ist einladend.",1
+"The host is welcoming.","Die einladende Person ist einladend.",0
+"The hosts are welcoming.","Gastgeber sind einladend.",1
+"The hosts are welcoming.","Einladende Personen sind einladend.",0
