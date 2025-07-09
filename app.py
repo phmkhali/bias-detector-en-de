@@ -4,7 +4,7 @@ from translate import translate
 from transformers import BertTokenizer, BertForSequenceClassification
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-MODEL_DIR = "./best_model"
+MODEL_DIR = "./model_output" 
 MAX_LENGTH = 128
 BIAS_CONF_THRESHOLD = 0.9
 
@@ -22,19 +22,19 @@ st.title("English to German Translation with Gender Bias Detection")
 text = st.text_area("Enter English text here:")
 
 def predict_bias(english, german):
-    combined_text = english + " [SEP] " + german
     inputs = tokenizer(
-        combined_text,
+        english,
+        german,
         return_tensors="pt",
         truncation=True,
-        padding=True,
+        padding="max_length",
         max_length=MAX_LENGTH,
     )
     inputs = {k: v.to(device) for k, v in inputs.items()}
     with torch.no_grad():
         outputs = model(**inputs)
         probs = torch.softmax(outputs.logits, dim=1)
-        pred = torch.argmax(probs).item()
+        pred = torch.argmax(probs, dim=1).item()
         confidence = probs[0][pred].item()
     return pred, confidence
 
