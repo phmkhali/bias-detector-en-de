@@ -1,7 +1,7 @@
 import streamlit as st
 import torch
-from translate import translate
 from transformers import BertTokenizer, BertForSequenceClassification
+from utils import split_sentences, predict_bias_batch
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 MODEL_DIR = "./model_output" 
@@ -21,38 +21,19 @@ tokenizer, model = load_model_and_tokenizer()
 st.title("English to German Translation with Gender Bias Detection")
 text = st.text_area("Enter English text here:")
 
-def predict_bias(english, german):
-    inputs = tokenizer(
-        english,
-        german,
-        return_tensors="pt",
-        truncation=True,
-        padding="max_length",
-        max_length=MAX_LENGTH,
-    )
-    inputs = {k: v.to(device) for k, v in inputs.items()}
-    with torch.no_grad():
-        outputs = model(**inputs)
-        probs = torch.softmax(outputs.logits, dim=1)
-        pred = torch.argmax(probs, dim=1).item()
-        confidence = probs[0][pred].item()
-    return pred, confidence
-
 if st.button("Translate"):
     if not text.strip():
-        st.write("Please enter some text.")
+        st.write("Please enter some text")
     else:
         st.write("### Results")
-        translation = translate(text)
+        sentences = split_sentences(text)
+        results = predict_bias_batch(tokenizer, model, sentences, max_length=MAX_LENGTH, device=device, bias_threshold=BIAS_CONF_THRESHOLD)
 
-        st.write(f"English: {text}")
-        st.write(f"German: {translation}")
-
-        label, conf = predict_bias(text, translation)
-
-        if label == 1 and conf >= BIAS_CONF_THRESHOLD:
-            st.warning(f"Bias detected (Confidence: {conf:.2f})")
-        else:
-            st.success(f"No bias detected (Confidence: {conf:.2f})")
-
-        st.markdown("---")
+        for sentence, translation, pred, conf in results:
+            st.write(f"**english:** {sentence}")
+            st.write(f"**german:** {translation}")
+            if pred == 1 and conf >= BIAS_CONF_THRESHOLD:
+                st.warning(f"Bias detected confidence: {conf:.2f}")
+            else:
+                st.success(f"No bias detected confidence: {conf:.2f}")
+            st.markdown("---")
