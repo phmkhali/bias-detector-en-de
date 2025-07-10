@@ -178,16 +178,50 @@ Furthermore, a study by \citet{savoldiWhatHarmQuantifying2024} employed behavior
 
 
 \subsection{Binary Classification in NLP}
-Binary Classification means categorizing whether an element belongs into a distinct class, such as "spam" or "not spam". The ML algorithms use information from past examples to create a model or find key rules for making correct decisions. For example, a model can be trained on emails labeled as spam or not spam to detect whether new emails are real. Binary Classification is the most common task in ML % \citep{quemy}. 
-\textbf{This thesis attempts to label a translation as " potentially gender biased" or "neutral"}. 
+Binary Classification means categorizing whether an element belongs into a distinct class. It is the most common task in ML and is frequently found in every day life, such as automatically flitering e-mails as "spam" or "not spam" \citep{quemyBinaryClassificationUnstructured2019}. The ML algorithms use information from past examples to create a model or find key rules for making correct decisions. \textbf{This thesis attempts to label a translation as "potentially gender biased" or "neutral"}. 
 
-As stated in \autoref{subsection:what_is_gb}, since there is no clear definition on what counts as gender biased, there is no definition on what counts as unbiased. I have defined rules for what counts as biased, but that does not mean that everything not falling into that category is automatically unbiased. Therefore, I have decided on "neutral".
+As explained in \autoref{subsection:what_is_gb}, since there is no clear definition of what counts as gender biased, there is also no clear definition of what is unbiased. I have set rules for what I consider biased, but that does not mean everything else is automatically unbiased. For this reason, I use the term "neutral" instead.
 
 \subsection{Transformer Architecture}
-Transformer models are a neural network architecture that incorporate a (self)attention mechanism %\citep{phuong}.
+Transformers are a neural network architecture that incorporate a \textbf{self-attention mechanism} \citep{phuongFormalAlgorithmsTransformers2022}. This mechanism lets the model capture relationships between all elements simultaneously, meaning it looks at all the words in a sentence at once to better grasp the general meaning. They're commonly used for NLP tasks. For example, in the sentence “The dog chased the ball because it was fast,” the model learns that “it” refers to “the dog” by attending to the relevant parts of the sentence.
+
+The transformer architecture follows the general \textbf{encoder-decoder} framework. \autoref{fig:transformer_architecture} \citet{xiaoIntroductionTransformersNLP2023} gives an overview of its components. 
+
+The encoder on the left hand side is responsible for processing the input sentence and converting it into a sequence of vector representations that capture the meaning the input. The input text (bottom left side) is split into tokens (like words or subwords) are first mapped to vectors—numerical representations that carry semantic meaning. Since the model has no inherent sense of word order, positional encodings are added to these vectors. These encodings provide information about the position of each token in the sequence, allowing the model to understand word order.
+
+The encoder consists of a stack of multiple identical layers. Each layer takes the output of the previous one and refines it further, allowing the model to gradually build up more complex and abstract representations of the input.
+
+Each layer contains two key sub-layers. The first is a multi-head self-attention mechanism. This mechanism allows each word to focus on other words in the same sentence and weigh their importance.  The term “multi-head” means this process is done in parallel several times, with each head learning to capture different kinds of relationships.
+
+The second sub-layer is a position-wise feed-forward network, which is a simple neural network applied to each token vector separately. It helps transform and refine the information at each position.
+
+To improve training and preserve important information, the model uses residual connections. These are shortcut paths that skip each sub-layer by adding its input directly to its output. After this addition, the result is normalized, a step referred to as Add & Norm. This structure helps the model learn better and prevents certain training issues.
+
+At the top of the encoder stack, the final output is a sequence of context-rich vector representations. These are passed to the decoder, which uses them to generate the output.
+
+The decoder (right side of Figure 1) generates the output sentence one token at a time. It also begins with input embeddings and positional encodings. However, the input here is the target sequence—the output sentence the model is trying to generate. These tokens are shifted to the right, meaning that when predicting a word, the model only sees the words that came before it. This ensures that predictions do not rely on future tokens, which would break the natural flow of generation.
+
+Like the encoder, the decoder is made up of six identical layers. Each decoder layer has three sub-layers. The first is a masked multi-head self-attention mechanism. It works like the encoder’s self-attention but includes a mask to block information from future positions. This ensures that each word is predicted based only on earlier words in the sequence.
+
+The second sub-layer is the encoder-decoder attention mechanism. Here, the decoder uses the encoder's output to find relevant parts of the input sentence. This is done using a query-key-value structure: the decoder’s output so far is used as queries, while the encoder’s output provides the keys and values. This allows the decoder to focus on the most important parts of the input when generating each word.
+
+The third sub-layer is again a position-wise feed-forward network, identical in function to the one used in the encoder.
+
+After passing through all six decoder layers, the final output is processed by a linear layer and a softmax function. This converts the decoder’s output into a probability distribution over the vocabulary. The word with the highest probability is selected as the next token in the output sequence.
+
+This combination of attention, layered processing, and position-aware inputs allows the Transformer model to understand context, maintain order, and generate accurate outputs without relying on recurrence or convolution.
+
+\begin{figure}
+	\centering
+		\includegraphics[width=1\textwidth]{transformer_architecture.png}
+	\caption{Architecture of the Transformer model, composed of an encoder and a decoder. Source: \citet{xiaoIntroductionTransformersNLP2023} p. 6.}
+	\label{fig:transformer_architecture}
+\end{figure}
+
 
 
 \subsection{Pre-trained Language Model: BERT}
 % what is bert
 % how it works
 % how i am planning to use it
+
