@@ -210,7 +210,7 @@ The transformer architecture consists of two main components: the encoder and th
 \end{enumerate}
 
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
 	\includegraphics[width=\textwidth,height=0.45\textheight,keepaspectratio]{transformer_architecture.png}	
     \caption{Transformer encoder-decoder architecture. The encoder (left) processes input tokens \(x_1,\dots,x_m\) through: (1) a self-attention layer for contextual relationships, (2) a feed-forward network for feature transformation, and (3) residual connections with layer normalization. The decoder (right) generates outputs by attending to both the encoder's representations and its previous outputs ($y_0$ to $y_{n-1}$), producing the next-token probability distribution. Figure and description adapted from \citet{xiaoIntroductionTransformersNLP2023}, p. 6.}
@@ -304,8 +304,13 @@ To convert these logits into probabilities, the softmax function is applied:
 
 Here, \(K=2\) because there are two classes. The model assigns a 73\% probability to the "biased" class and 27\% to "neutral". Since the "biased" probability is higher, the model predicts the translati
 
-% layers
-% versions of bert -> mbert
+\subsection{Multilingual BERT}
+There are multiple variants of the original BERT model. Even the standard version was released in two sizes: BERT-Base and BERT-Large, which differ in the number of layers, attention heads, and overall model capacity \citep{devlinBERTPretrainingDeep2019}. Since then, many other versions have been developed. Most of them modify either BERT’s pre-training objectives or the underlying Transformer architecture \citep{libovickyHowLanguageNeutralMultilingual2019}.
+
+For this thesis, I use multilingual BERT \textbf{\href{https://huggingface.co/google-bert/bert-base-multilingual-cased}{(mBERT)}} \citep{devlinBERTPretrainingDeep2019}. mBERT uses the same configuration as BERT-Base, but it is pretrained on Wikipedia data from 104 languages, including both English and German. There is no explicit indication of the input language, nor is there a training objective that aligns languages bilingually; instead, multilingual capabilities emerge naturally from training on a large multilingual text corpus \citep{piresHowMultilingualMultilingual2019}.
+
+Monolingual models like \href{https://huggingface.co/google-bert/bert-base-german-cased}{German BERT} do not support English input. Larger multilingual models, such as \href{https://huggingface.co/docs/transformers/en/model_doc/xlm-roberta}{XLM-RoBERTa}, require more computational resources and training time, which was not feasible here. mBERT offers a good balance between language coverage, model size, and training efficiency, making it a practical choice detecting gender bias in EN-DE translations.
+
 
 
 \subsection{Demo}
