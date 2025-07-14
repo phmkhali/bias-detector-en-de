@@ -3,17 +3,21 @@ from translate import translate
 import torch
 
 def split_sentences(text):
-    # split on . ! or ? followed by space(s)
     sentences = re.split(r'(?<=[.!?])\s+', text.strip())
     return [s for s in sentences if s]
 
-def predict_bias_batch(tokenizer, model, sentences, max_length=128, device='cpu', bias_threshold=0.9):
+def predict_bias_batch(tokenizer, model, sentences, max_length=128, device='cpu', bias_threshold=0.9, use_translation=True):
     results = []
-    for sentence in sentences:
-        translation = translate(sentence)
+    for item in sentences:
+        if use_translation:
+            en = item
+            de = translate(en)
+        else:
+            en, de = item
+
         inputs = tokenizer(
-            sentence,
-            translation,
+            en,
+            de,
             return_tensors="pt",
             truncation=True,
             padding="max_length",
@@ -25,5 +29,5 @@ def predict_bias_batch(tokenizer, model, sentences, max_length=128, device='cpu'
             probs = torch.softmax(outputs.logits, dim=1)
             pred = torch.argmax(probs, dim=1).item()
             confidence = probs[0][pred].item()
-        results.append((sentence, translation, pred, confidence))
+        results.append((en, de, pred, confidence))
     return results
