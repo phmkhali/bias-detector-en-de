@@ -244,7 +244,7 @@ BERT processes an input by splitting whole words or subword units into \textit{t
     \texttt{unbelievable} $\rightarrow$ \texttt{un}, \texttt{\#\#believable}
 \end{quote}
 
-\noindent \textbf{Special tokens} are reserved tokens added to input sequences to indicate boundaries or roles, helping the model distinguish parts of the text and process it correctly.
+\noindent Special tokens are reserved tokens added to input sequences to indicate boundaries or roles, helping the model distinguish parts of the text and process it correctly.
 
 \begin{itemize}
 	\item \texttt{[CLS]} (classification) marks the start of the sequence,
@@ -311,8 +311,7 @@ For this thesis, I use multilingual BERT \textbf{\href{https://huggingface.co/go
 
 Monolingual models like \href{https://huggingface.co/google-bert/bert-base-german-cased}{German BERT} do not support English input. Larger multilingual models, such as \href{https://huggingface.co/docs/transformers/en/model_doc/xlm-roberta}{XLM-RoBERTa}, require more computational resources and training time, which was not feasible here. mBERT offers a good balance between language coverage, model size, and training efficiency, making it a practical choice detecting gender bias in EN-DE translations.
 
+\subsection{Interactive Demo}
+The fine-tuned model is intended to be presented through an interactive demonstration. Since the focus lies on showcasing the model’s functionality rather than creating a fully developed application, \href{https://streamlit.io/}{Streamlit} was chosen. Streamlit allows for quick and easy development of lightweight user interfaces in Python, providing a simple setup and effective performance.
 
-
-\subsection{Demo}
-% streamlit 
-% opus mt
+For live translation, an open-source tool supporting EN-DE pairs was required. \href{https://github.com/Helsinki-NLP/Opus-MT}{Opus-MT} \citep{tiedemannOPUSMTBuildingOpen2020} meets these criteria and integrates smoothly into the demonstration. While state-of-the-art translators like Google Translate or DeepL would have been preferred for their quality, they do not meet the requirements for this setup. Therefore, a separate tab for manual translation input was added, allowing users to paste translations directly and bypass this limitation.
