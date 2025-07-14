@@ -178,29 +178,136 @@ Furthermore, a study by \citet{savoldiWhatHarmQuantifying2024} employed behavior
 
 
 \subsection{Binary Classification in NLP}
-Binary Classification means categorizing whether an element belongs into a distinct class. It is the most common task in ML and is frequently found in every day life, such as automatically flitering e-mails as "spam" or "not spam" \citep{quemyBinaryClassificationUnstructured2019}. The ML algorithms use information from past examples to create a model or find key rules for making correct decisions. \textbf{This thesis attempts to label a translation as "potentially gender biased" or "neutral"}. 
+Binary classification means sorting items into two clear groups. It is the most common task in ML and is frequently found in every day life, such as automatically flitering e-mails as "spam" or "not spam" \citep{quemyBinaryClassificationUnstructured2019}. The ML algorithms use information from past examples to create a model or find key rules for making correct decisions. \textbf{This thesis tries to label a translation as either "potentially gender biased" or "neutral".}. 
 
-As explained in \autoref{subsection:what_is_gb}, since there is no clear definition of what counts as gender biased, there is also no clear definition of what is unbiased. I have set rules for what I consider biased, but that does not mean everything else is automatically unbiased. For this reason, I use the term "neutral" instead.
+As explained in \autoref{subsection:what_is_gb}, gender bias is difficult to define precisely, and the same applies to what counts as unbiased. I set specific rules to label something as biased, but this does not imply that everything else is unbiased. Therefore, I use the term "neutral" instead of "unbiased."
 
-\subsection{Transformer Architecture}
-Transformer models are a type of neural network architecture commonly used for NLP tasks. They \textit{transform} an input sequence into an output sequence, such as in translation. To effectively achieve that, they deploy a \textbf{self-attention mechanism} \citep{phuongFormalAlgorithmsTransformers2022}. It allows the model to consider all elements of the input at once (e.g., words of a sentence), rather than processing them separately. As a result, the model can capture global dependencies and contextual relationships more accurately. For example, in the sentence “The dog chased the ball because it was fast,” the model can learn that “it” refers to “the dog” by attending to the relevant parts of the sentence simultaneously.
+While it is possible to extend the classification beyond two categories, such as distinguishing types of bias or including labels like "gender-fair", this would require much more data and training. Given the practical aim of this work, which is to help users quickly identify whether their text might contain gender bias, the model focuses on a simple binary decision.
 
-The transformer architecture follows the general \textbf{encoder-decoder} framework. \autoref{fig:transformer_architecture} \citet{xiaoIntroductionTransformersNLP2023} gives an overview of its components. 
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\textwidth]{transformer_architecture.png}
-	\caption{Architecture of the Transformer model, composed of an encoder and a decoder. Source: \citet{xiaoIntroductionTransformersNLP2023} p. 6.}
-	\label{fig:transformer_architecture}
+\subsection{Transformer Architecture} \label{subsection:transformer_arch}
+Since BERT is based on the transformer architecture and is used for classification in this thesis, this section provides a brief overview of its structure. The transformer \textit{transforms} an input sequence into an output sequence, such as in translation. To effectively achieve that, they deploy a self-attention mechanism \citep{phuongFormalAlgorithmsTransformers2022}.
+
+\subsubsection{Self-attention mechanism}
+The self-attention mechanism allows the model to weigh the significance of all input elements simultaneously \citep{xiaoIntroductionTransformersNLP2023}, unlike traditional methods like Recurrent Neural Networks (RNNs), which process data sequentially. As a result, self-attention captures global dependencies and contextual relationships more accurately, creating "context-aware" representations, which is crucial for detecting subtle gender biases that depend on context within translations.
+
+\subsubsection{Encoder-Decoder Framework} \label{subsection:encoder-decoder}
+The transformer architecture consists of two main components: the encoder and the decoder. The \textbf{encoder}’s job is to read the input sentence and turn it into a series of vectors the model can understand. Each vector is a list of numbers representing the meaning and structure of each word \citep{xiaoIntroductionTransformersNLP2023}. The encoder works as follows (see \autoref{fig:transformer_architecture}):
+
+\begin{enumerate}
+    \item It receives \textbf{input embeddings}, which represent the words, and \textbf{positional encodings}, which tell the model the order of the words.
+    
+    \item The data then passes through several identical layers. Each layer has two main parts:
+    \begin{enumerate}[label=\alph*.]
+        \item \textbf{Multi-head self-attention} runs several attention processes in parallel. Each attention head focuses on different details to help the model understand the sentence better.
+        \item A \textbf{Feed-forward network} processes each word vector separately, refining the information like a small filter.
+        \item \textbf{Add \& Layer Norm} combines a shortcut connection (Add) and normalization (Layer Norm). The Add step passes the original input forward to keep useful information. Layer Norm adjusts the output values to a stable range so the model can learn more reliably.
+    \end{enumerate}
+    
+    \item Each layer builds on the output of the previous one, helping the model form more complex and abstract ideas about the input sentence.
+    
+    \item Finally, the encoder outputs a sequence of \textit{hidden states}. These are continuous vector representations for each input token. They encode contextual information from the entire sentence. For example, in the sentence ``The cat sat on the mat,'' the vector for ``cat'' reflects its relationship to words like ``sat'' and ``mat.''
+\end{enumerate}
+
+
+\begin{figure}[h]
+    \centering
+	\includegraphics[width=\textwidth,height=0.45\textheight,keepaspectratio]{transformer_architecture.png}	
+    \caption{Transformer encoder-decoder architecture. The encoder (left) processes input tokens \(x_1,\dots,x_m\) through: (1) a self-attention layer for contextual relationships, (2) a feed-forward network for feature transformation, and (3) residual connections with layer normalization. The decoder (right) generates outputs by attending to both the encoder's representations and its previous outputs ($y_0$ to $y_{n-1}$), producing the next-token probability distribution. Figure and description adapted from \citet{xiaoIntroductionTransformersNLP2023}, p. 6.}
+    \label{fig:transformer_architecture}
 \end{figure}
 
-The \textbf{encoder}’s job is to read the input sentence and turn it into a series of vectors the model can understand. Each vector is a list of numbers representing the meaning and structure of each word. It starts with input embeddings and positional encodings to handle word meaning and order (bottom left hand side of the \autoref{fig:transformer_architecture}). Then it passes the data through multiple identical layers; each including \textit{multi-head self-attention}. This mechanism runs several self-attention processes in parallel, with each \textit{head}learning to capture different aspects to give the model a more complete understanding of the sentence. The layer also includes a \textit{feed-forward network}, which processes each word vector individually. It acts like a small filter that sharpens the information for each word. Each layer refines the output of the previous one to help the model gradually build up more complex and abstract representations of the input.
+The \textbf{decoder} generates the output sentence one word at a time by using the information from the encode \citep{xiaoIntroductionTransformersNLP2023}. However, since BERT uses only an \textbf{encoder-only architecture}, the decoder is not relevant for this work and is therefore excluded from the discussion.
 
-The \textbf{decoder} then generates the output sentence using the encoder’s output. Since BERT only uses the encoder part of the Transformer though, the decoder is not relevant here.
+\subsection{Language model: BERT}
+\emph{This entire subsection summarizes the input representation methodology from \citet{devlinBERTPretrainingDeep2019}.}
+
+\noindent BERT is a language model that stands for "Bidirectional Encoder Representations from Transformers" and was introduced by Google in 2018 \citep{devlinBERTPretrainingDeep2019}. After pre-training, BERT can be adapted to many NLP tasks by adding a simple output layer and fine-tuning, without needing major changes to its design.
+
+\subsubsection{Model architecture}
+As explained in \autoref{subsection:transformer_arch}, BERT uses an \textbf{encoder-only architecture} (see \autoref{fig:bert_arch}). It processes and understands input thoroughly but does not generate new text. That makes BERT \textbf{well suited for binary classification tasks}, since it can analyze each word’s meaning and decide accurately between two categories.
+
+It uses a multi-layer bidirectional Transformer encoder. Multi-layer means it stacks 12 encoder layers that refine the information step by step. Bidirectional means the model reads both the words before and after a given word at the same time. This is a key improvement over earlier models, which could only read text in one direction, usually from left to right.
 
 
-\subsection{Pre-trained Language Model: BERT}
-% what is bert
-% how it works
-% how i am planning to use it
+\begin{figure}
+    \centering
+	\includegraphics[width=\textwidth,height=0.4\textheight,keepaspectratio]{BERT_architecture.png}	
+    \caption{BERT's encoder-only architecture. Figure by \citet{smithCompleteGuideBERT2024}.}
+    \label{fig:bert_arch}
+\end{figure}
 
+\subsubsection{Input and Output Representations}
+BERT processes an input by splitting whole words or subword units into \textit{tokens}. This allows the model to handle rare and compound words. For example:
+
+\begin{quote}
+    \texttt{unbelievable} $\rightarrow$ \texttt{un}, \texttt{\#\#believable}
+\end{quote}
+
+\noindent \textbf{Special tokens} are reserved tokens added to input sequences to indicate boundaries or roles, helping the model distinguish parts of the text and process it correctly.
+
+\begin{itemize}
+	\item \texttt{[CLS]} (classification) marks the start of the sequence,
+	\item \texttt{[SEP]} separates sentence pairs.
+\end{itemize}
+
+\noindent In this work, each input combines an English source sentence and its German translation as:
+
+\begin{quote}
+    \texttt{[CLS] english sentence [SEP] german translation [SEP]}
+\end{quote}
+
+\noindent After processing, BERT outputs a hidden vector for each token. The hidden vector for the \texttt{[CLS]} token represents the entire sequence and is used for tasks like classification. For example, for the input sequence:
+
+\begin{quote}
+\texttt{[CLS] the nurse is kind [SEP] die krankenschwester ist nett [SEP]}
+\end{quote}
+
+\noindent BERT creates a vector for each token:
+
+\[
+\text{Vector}([CLS]), \text{Vector}(\text{the}), \text{Vector}(\text{nurse}), \ldots, \text{Vector}([SEP])
+\]
+
+\noindent The \texttt{[CLS]} vector aggregates the meaning of both sentences and feeds into the classifier for bias detection.
+
+
+\subsubsection{Pre-training and Fine-tuning}
+BERT was pre-trained on a large corpus of unlabeled text \citep{devlinBERTPretrainingDeep2019}. Since this data contains no manual labels, the model learns to understand language by using patterns in the data to learn token relationships. The result is a task-agnostic base model. In \autoref{fig:bert_arch}, this base model includes all components below the purple linear layer.\footnote{The explanation in this section is based on a prompt-response pair generated using the Perplexity.ai search engine. The original prompt and result are included as a PDF in the appendix.}
+
+\textbf{Fine-tuning adjusts this base model for a specific task}, in this case, detecting gender bias in translations. Since this thesis focuses on the fine-tuning process, the following explanation provides more technical background for this part of the model. 
+
+A task-specific \textbf{classification head}, comprising a linear layer followed by a softmax function, is added on top of BERT’s output. The \textbf{linear layer} applies a learned transformation to the final hidden state vector of the \texttt{[CLS]} token. 
+
+\[
+z = Wx + b
+\]
+
+Here, \(x\) is the \texttt{[CLS]} embedding, \(W\) is the weight matrix, and \(b\) is the bias vector. Both \(W\) and \(b\) are parameters learned during training to help map BERT’s output to the task labels. This changes BERT’s output into two numbers (logits), one for each class: biased or neutral. Then, \textbf{softmax} turns these numbers into probabilities:
+
+\[
+\text{softmax}(z_i) = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_j}}
+\]
+
+Each logit \( z_i \) is exponentiated to ensure positivity. The result is then normalized by dividing by the sum of all exponentials, producing a probability distribution over the classes. \( K \) is the number of possible classes. The class with the highest probability is selected as the model’s prediction.
+
+\subsubsection{Example: Predicting Gender Bias with Softmax}
+When the model processes the sentence pair "the nurse is kind" / "die krankenschwester ist nett," it creates a \texttt{[CLS]} embedding summarizing the input. This embedding captures features such as word choice, syntactic structure, and semantic associations. 
+
+The linear layer then transforms this embedding into two logits, for example, \([2.0, 1.0]\). The first logit corresponds to the "biased" class, and the second to "neutral". These values are not manually assigned but result from learned weights in the linear layer. During training, the model adjusts these weights to associate certain input patterns with higher scores for one class. In this case, the presence of a gendered profession ("nurse") and a feminine translation ("krankenschwester") may lead the model to assign a higher logit to the "biased" class, based on patterns seen in the training data.
+
+To convert these logits into probabilities, the softmax function is applied:
+
+\[
+\text{softmax}([2.0, 1.0]) = \left[\frac{e^2}{e^2 + e^1}, \frac{e^1}{e^2 + e^1}\right] \approx \left[\frac{7.39}{7.39 + 2.72}, \frac{2.72}{7.39 + 2.72}\right] = [0.73, 0.27]
+\]
+
+Here, \(K=2\) because there are two classes. The model assigns a 73\% probability to the "biased" class and 27\% to "neutral". Since the "biased" probability is higher, the model predicts the translati
+
+% layers
+% versions of bert -> mbert
+
+
+\subsection{Demo}
+% streamlit 
+% opus mt

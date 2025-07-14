@@ -13,6 +13,7 @@ bibliography=totoc,listof=totoc,appendixprefix,paper=a4,headings=small]{scrbook}
   bindingoffset=10mm]{geometry}		% Seitenränder und Bindungskorrektur einstellen
   
 \usepackage{natbib}		
+\usepackage{pdfpages}
 
 \setcitestyle{round,aysep={}} 		% Indizierg. in runden Klammern, zw. Autor u. Jahr
 \usepackage[utf8]{inputenc}         % Umlaute im Text
@@ -21,7 +22,9 @@ bibliography=totoc,listof=totoc,appendixprefix,paper=a4,headings=small]{scrbook}
 \setkomafont{disposition}{\bfseries}
 
 \usepackage{graphicx} 				% Grafiken einfügen (pdf,png - aber jpg vermeiden)
+\usepackage{subcaption}
 \graphicspath{{./Bilder/}}          % Pfad zu den Bildern
+\usepackage{enumitem}
 
 \usepackage[final,nopatch=footnote]{microtype}
 
@@ -48,6 +51,8 @@ bibliography=totoc,listof=totoc,appendixprefix,paper=a4,headings=small]{scrbook}
 \usepackage{lscape}					% zum Rotieren von Seiten
 
 \usepackage{amsmath}				% zum Schreiben von mathematischen Formeln
+\usepackage{amssymb}   
+\usepackage{amsfonts} 
 
 \usepackage{calc}
 
