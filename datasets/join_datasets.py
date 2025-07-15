@@ -1,5 +1,7 @@
 import pandas as pd
 
+SEED = 10
+
 def analyze_dataset(df, name):
     """
     Prints the total number of entries and label distribution in the dataset.
@@ -20,33 +22,30 @@ def analyze_dataset(df, name):
 # Load datasets
 lardelli = pd.read_csv("lardelli_synthetically_extended.csv")
 mgente = pd.read_csv("mgente_transformed.csv")
+deu = pd.read_csv("deu_processed_sampled.csv")
 
-# Filter by label
-lardelli_biased = lardelli[lardelli["label"] == 1]
-lardelli_neutral = lardelli[lardelli["label"] == 0]
-mgente_biased = mgente[mgente["label"] == 1]
-mgente_neutral = mgente[mgente["label"] == 0]
+# Sample data
+samples = {
+    "lardelli": {"biased_n": 1300, "neutral_n": 1050},
+    "mgente": {"biased_n": 1300, "neutral_n": 1050},
+    "deu": {"biased_n": 0, "neutral_n": 500}
+}
 
-# Sample
-sampled_lardelli_biased = lardelli_biased.sample(n=1300, random_state=10)
-sampled_mgente_biased = mgente_biased.sample(n=1300, random_state=10)
-sampled_lardelli_neutral = lardelli_neutral.sample(n=1300, random_state=10)
-sampled_mgente_neutral = mgente_neutral.sample(n=1300, random_state=10)
+def sample_data(df, biased_n, neutral_n):
+    biased = df[df["label"] == 1].sample(n=biased_n, random_state=SEED)
+    neutral = df[df["label"] == 0].sample(n=neutral_n, random_state=SEED)
+    return pd.concat([biased, neutral], ignore_index=True)
+
+sampled_lardelli = sample_data(lardelli, **samples["lardelli"])
+sampled_mgente = sample_data(mgente, **samples["mgente"])
+sampled_deu = sample_data(deu, **samples["deu"])
 
 # Combine, shuffle, save
-final_df = pd.concat([
-    sampled_lardelli_biased,
-    sampled_mgente_biased,
-    sampled_lardelli_neutral,
-    sampled_mgente_neutral
-], ignore_index=True)
+final_df = pd.concat([sampled_lardelli, sampled_mgente, sampled_deu], ignore_index=True)
+final_df = final_df.sample(frac=1, random_state=SEED).reset_index(drop=True)
+final_df.to_csv("dataset.csv", index=False)
 
-final_df = final_df.sample(frac=1, random_state=10).reset_index(drop=True)
-final_df.to_csv("mgente_lardelli_equal.csv", index=False)
-
-print("Saved as mgente_lardelli_equal.csv")
+print("Saved as dataset.csv")
 
 # Run summary
-analyze_dataset(lardelli, "lardelli_and_gpt_data.csv")
-analyze_dataset(mgente, "mgente_transformed.csv")
-analyze_dataset(final_df, "mgente_lardelli_equal.csv (final)")
+analyze_dataset(final_df, "dataset.csv")

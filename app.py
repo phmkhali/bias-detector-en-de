@@ -4,7 +4,7 @@ from transformers import BertTokenizer, BertForSequenceClassification
 from utils import split_sentences, predict_bias_batch
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-MODEL_DIR = "./model_output_10_epoch_earlystop"
+MODEL_DIR = "./model_output"
 MAX_LENGTH = 128
 BIAS_CONF_THRESHOLD = 0.9
 
