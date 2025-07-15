@@ -1,11 +1,26 @@
 \chapter{Methodology}
+This chapter explains the overall approach and structure of the project. It covers how data is handled, how the model is built and trained, and how the demo application is designed. The goal is to present the key methodological steps and rationale guiding the system’s development.
 
 \section{Workflow}
-The project starts by selecting and combining datasets from prior work. The data is cleaned and pre-processed to prepare it for feature extraction. Features are then created to represent the data for model training. The model is chosen and trained with tuned hyperparameters. Its performance is evaluated using specific metrics. Finally, a demo application integrates the model and data, allowing interaction and testing.
+The project begins by selecting and combining datasets from previous work (see \autoref{fig:workflow}). The model building phase then follows, as shown in the purple boxes. It starts with cleaning and preparing the data, followed by extracting features for training. A pre-trained German BERT model is then fine-tuned for the classification task. Its performance is measured using standard evaluation metrics. In the final step, the trained model is integrated into a demo application for user interaction and testing.
+
+\vspace{1cm} 
+\begin{figure}[ht]
+    \centering
+    \scalebox{0.8}{\input{./Bilder/methodology_workflow.tex}}
+    \caption{Workflow of the project.}
+    \label{fig:workflow}
+\end{figure}
+\vspace{1cm} 
 
 \section{Dataset Handling}
 % thought process for selecting datasets from prior works
 % experimental joining and testing of datasets
+
+Since there was no ready-to-use dataset for this task and no prior work that built a similar model, I first had to define: (a) the desired structure and content of my dataset, and (b) the number of samples required.
+
+Based on the three groupings I defined in \autoref{subsection:manifestations_of_gb}, 
+
 \subsection{Final Dataset}
 % description of the final dataset creation
 % composition and characteristics

@@ -86,7 +86,7 @@ A clear definition of gender bias has not yet been established \citep{stanczakSu
 
 Since there is no clear definition, this work defines gender bias based on specific manifestations described in the following subsection. Any text that exhibits one or more of these forms will be considered gender biased.
 
-\subsection{Manifestiations of Gender Bias}
+\subsection{Manifestiations of Gender Bias} \label{subsection:manifestations_of_gb}
 This section draws from the main studies analyzing gender bias in EN-DE MT \citep{ullmannGenderBiasMachine2022,rescignoGenderBiasMachine2023,lardelliBuildingBridgesDataset2024,kapplAreAllSpanish2025}. Since existing research does not clearly define the different manifestations, the findings are grouped here into three main categories.
 
 \subsubsection{Defaulting to Masculine Forms}
@@ -103,7 +103,7 @@ A common manifestation of this are \textbf{stereotypical job associations}. This
 
 \subsubsection{Neglecting Contextual Information}
 
-\textbf{Coreference resolution} refers to the process of using contextual information to determine the correct gender in translation \citep{stanczakSurveyGenderBias2021}. In MT, this means identifying links between words like pronouns and the nouns they refer to. While human translators use both linguistic cues (such as pronouns and grammar) and real-world knowledge to correctly assign gender \citep{rescignoGenderBiasMachine2023}, MT systems often fail to do so reliably, especially when gender information appears earlier in the text or across sentence boundaries \citep{choMeasuringGenderBias2019,stanovskyEvaluatingGenderBias2019}. For example, if a biography introduces a person with a female name at the beginning, but later refers to that person only by name, translation systems may lose the link and default to masculine forms for the remaining text.
+Coreference resolution refers to the process of using contextual information to determine the correct gender in translation \citep{stanczakSurveyGenderBias2021}. In MT, this means identifying links between words like pronouns and the nouns they refer to. While human translators use both linguistic cues (such as pronouns and grammar) and real-world knowledge to correctly assign gender \citep{rescignoGenderBiasMachine2023}, MT systems often fail to do so reliably, especially when gender information appears earlier in the text or across sentence boundaries \citep{choMeasuringGenderBias2019,stanovskyEvaluatingGenderBias2019}. For example, if a biography introduces a person with a female name at the beginning, but later refers to that person only by name, translation systems may lose the link and default to masculine forms for the remaining text.
 
 \citet{rescignoGenderBiasMachine2023} found that including previous sentences improved coreference resolution and reduced masculine defaults, though some systems benefited more than others. However, the use of context also introduced occasional new errors. Additionally, \citet{savoldiWhatHarmQuantifying2024} highlighted that correcting biased translations toward feminine forms required significantly more time and edits than masculine ones, revealing a notable cost disparity.
 
