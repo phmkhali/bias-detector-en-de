@@ -22,11 +22,13 @@ The project begins by selecting and combining datasets from previous work (see \
 % thought process for selecting datasets from prior works
 % experimental joining and testing of datasets
 
-Since there was no ready-to-use dataset for this task and no prior work that built a similar model, I first had to define: \textbf{(1)} the number of samples required,  and \textbf{(2)} the desired structure and content of my dataset.
+Since there was no ready-to-use dataset for this task and no prior work that built a similar model, I first had to define: \textbf{(1)} the number of samples required,  and \textbf{(2)} the desired content of my dataset.
 
-\paragraph{(1)} For a binary classification task of detecting gender bias using \texttt{mBERT}, general guidelines suggest between 100 and 5000 labeled samples for fine-tuning \citep{pecherComparingSpecialisedSmall2024}. However, the complex nature of gender bias often requires a larger dataset for robust detection since the number of samples depends mainly on the task type. Multi-class tasks need fewer samples (around 100), while binary tasks can require up to 6,000 or more. \textbf{I will therefore aim to create a dataset with 5000-6000 samples.}
+\subsection{Number of Samples}
+For a binary classification task of detecting gender bias using \texttt{mBERT}, general guidelines suggest between 100 and 5000 labeled samples for fine-tuning \citep{pecherComparingSpecialisedSmall2024}. However, the complex nature of gender bias often requires a larger dataset for robust detection since the number of samples depends mainly on the task type. Multi-class tasks need fewer samples (around 100), while binary tasks can require up to 6,000 or more. \textbf{I will therefore aim to create a dataset with 5000-6000 samples.}
 
-\paragraph{(2)} Ideally, I wanted to make use of past EN-DE datasets to minimize manual labour. My options were \texttt{\href{https://huggingface.co/datasets/FBK-MT/mGeNTE}{mGeNTE en-de}} \citep{savoldiMGeNTEMultilingualResource2025}, \texttt{\href{https://github.com/g8a9/building-bridges-gender-fair-german-mt}{Building Bridges Dictionary}} \citep{lardelliBuildingBridgesDataset2024}, and \texttt{\href{https://research.google/blog/a-dataset-for-studying-gender-bias-in-translation/}{Translated Wikipedia Biographies}} \citep{stellaDatasetStudyingGender2021}.
+\subsection{Dataset Composition}
+Ideally, I wanted to make use of past EN-DE datasets to minimize manual labour. My options were \texttt{\href{https://huggingface.co/datasets/FBK-MT/mGeNTE}{mGeNTE en-de}} \citep{savoldiMGeNTEMultilingualResource2025}, \texttt{\href{https://github.com/g8a9/building-bridges-gender-fair-german-mt}{Building Bridges Dictionary}} \citep{lardelliBuildingBridgesDataset2024}, and \texttt{\href{https://research.google/blog/a-dataset-for-studying-gender-bias-in-translation/}{Translated Wikipedia Biographies}} \citep{stellaDatasetStudyingGender2021}.
 
 \begin{table}[ht!]
     \centering
@@ -48,7 +50,7 @@ The \texttt{mGeNTE} dataset was suitable for automatic reuse. It includes column
 
 \texttt{Building Bridges Dictionary} did not contain full sentences but rather a gender-fair dictionary of nouns. While this made it a valuable resource for studying gender-fair language, I needed full sentences for my task. To address this, I used prompt engineering with Google Gemini 2.5 Flash to synthetically expand the dataset. The prompt used for generation is included in the appendix. The generated sentences can be found in the code files. I used the nouns from the original dataset to create multiple grammatically correct sentence variations, covering singular, plural, gender-neutral, and gender-inclusive forms. This process resulted in 2,718 sentences.
 
-\subsection{Final Dataset Composition}
+\subsection{Final Dataset Summary}
 The final dataset used for training is a combination of the transformed \texttt{mGeNTE} dataset and the synthetically extended \texttt{Building Bridges Dictionary} dataset. Each source contributes 2,600 sentence pairs, split evenly into 1,300 biased and 1,300 neutral examples, resulting in a balanced dataset of 5,200 entries. The dataset is shuffled before training to prevent source-specific bias. Each entry contains:
 \begin{itemize}
     \item an English source sentence (\texttt{english}),
@@ -76,12 +78,20 @@ Mrs Brok, I have no problem whatsoever with this motion. & Ich habe überhaupt k
 \end{table}
 
 \section{Data Pre-processing}
-% how data is cleaned and prepared before feature extraction
-% tokenization, normalization, etc.
+
+I split the dataset into three parts: training, validation, and test sets. I used stratified sampling for this. That means the label distribution (biased vs. neutral) stays the same across all three sets. This avoids skewed splits. For example, if 30\% of the full dataset is biased, each split will also have 30\% biased samples. This helps the model learn from both classes equally and avoids misleading results in validation or testing.
+
+I did not apply advanced text cleaning such as removing punctuation, lowercasing, or stemming. This is because I use a pretrained BERT tokenizer. These models are trained on raw text and expect natural input. For example, lowercasing "Doctor" to "doctor" could remove useful information if the model has seen one more often than the other. Cleaning might even hurt performance by removing patterns the model understands.
+
+Further data pre-processing was not necessary as I concatenated already clean datasets and manually reviewed them.
 
 \section{Feature extraction}
-% how features are extracted from the data
-% what features are used
+Feature extraction means turning raw data into a format that the ML model can understand and learn from. To prepare the text for the model, I used a tokenizer that supports sentence pairs. Each input consists of one English sentence and its German translation. The tokenizer encodes them together. This lets the model compare both sides and find patterns related to bias in the translation. For example, if the English says "The nurse is smart" and the German says "Der Pfleger ist klug", the model needs to see both sides to catch the gender mismatch.
+
+I used the tokenizer from \texttt{mBERT}, because it supports both English and German. It maps words and subwords to token IDs that the model understands. Padding and truncation are applied so that all inputs are the same length. I set a fixed maximum length of 128 tokens. Padding adds zeros if the sentence is too short. Truncation cuts off tokens if the sentence is too long. This helps with batch processing and avoids memory issues.
+
+The tokenizer returns token IDs as PyTorch tensors. I also convert the labels (0 or 1) to tensors. This is necessary because the model expects both inputs and labels in tensor format during training.
+
 
 \section{Model Selection and Training}
 % choice of model architecture and reasoning
