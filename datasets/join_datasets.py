@@ -26,9 +26,9 @@ deu = pd.read_csv("deu_processed_sampled.csv")
 
 # Sample data
 samples = {
-    "lardelli": {"biased_n": 1300, "neutral_n": 1050},
-    "mgente": {"biased_n": 1300, "neutral_n": 1050},
-    "deu": {"biased_n": 0, "neutral_n": 500}
+    "lardelli": {"biased_n": 600, "neutral_n": 600},
+    "mgente": {"biased_n": 1500, "neutral_n": 1500},
+    "deu": {"biased_n": 0, "neutral_n": 1000}
 }
 
 def sample_data(df, biased_n, neutral_n):
@@ -40,12 +40,20 @@ sampled_lardelli = sample_data(lardelli, **samples["lardelli"])
 sampled_mgente = sample_data(mgente, **samples["mgente"])
 sampled_deu = sample_data(deu, **samples["deu"])
 
-# Combine, shuffle, save
+# Combine, shuffle
 final_df = pd.concat([sampled_lardelli, sampled_mgente, sampled_deu], ignore_index=True)
 final_df = final_df.sample(frac=1, random_state=SEED).reset_index(drop=True)
-final_df.to_csv("dataset.csv", index=False)
 
+# Check for NaNs
+missing = final_df.isna().sum()
+if missing.any():
+    print("\nWarning: Missing values found before saving:")
+    print(missing)
+else:
+    print("\nNo missing values found.")
+
+# Save and analyze
+final_df.to_csv("dataset.csv", index=False)
 print("Saved as dataset.csv")
 
-# Run summary
 analyze_dataset(final_df, "dataset.csv")
