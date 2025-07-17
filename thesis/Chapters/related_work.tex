@@ -196,8 +196,14 @@ Although the use of GFL has increased in recent years \citep{waldendorfWordsChan
 
 % --------------------------------------------------------------------------------
 
-\section{Research Gaps}
-   bc of lack of defintiion This makes it challenging to hold users accountable for gender bias, detect all harmful signals, and develop standard evaluation benchmarks \citep{barclayInvestigatingMarkersDrivers2024a,shresthaExploringGenderBiases2022,stanczakSurveyGenderBias2021}. 
+\subsection{Research Gaps}
+    A central gap in gender bias research is the absence of a shared definition of what constitutes "fair" language. This lack of conceptual clarity makes it difficult to design systematic evaluation approaches, define accountability standards, or detect all relevant forms of harm \citep{barclayInvestigatingMarkersDrivers2024a,shresthaExploringGenderBiases2022,stanczakSurveyGenderBias2021}.
+
+    A second major gap concerns the availability of high-quality EN-DE translation data that includes GFL. While a few datasets exist, they are not designed for bias detection tasks and often require manual post-editing to incorporate inclusive forms \citep{lardelliBuildingBridgesDataset2024}. This limits the development and evaluation of models that aim to identify biased output in a structured and reproducible way.
+
+    As \citet{stanczakSurveyGenderBias2021} point out, findings on gender bias in English do not necessarily transfer to other languages such as German. This underlines the importance of typological diversity and language-specific solutions when addressing fairness in MT. Existing studies on EN-DE \citep{ullmannGenderBiasMachine2022,kapplAreAllSpanish2025,lardelliBuildingBridgesDataset2024} systems mostly confirm the presence of gender bias, propose mitigation strategies, or introduce evaluation metrics. However, few provide methods for systematically detecting bias in translated text.
+
+    \textbf{This project addresses that gap by focusing on bias detection as a foundational step.} To support this, I combine existing datasets from previous research to create a new dataset specifically for detecting gender bias in EN-DE translations. Given the lack of suitable data and tools, detection is a necessary starting point. Manual correction will likely remain necessary, as current research does not yet support reliable automatic debiasing. This project therefore focuses on flagging biased translations, not correcting them.
 
 % --------------------------------------------------------------------------------
 
