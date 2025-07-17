@@ -4,24 +4,22 @@ SEED = 10
 
 def analyze_dataset(df, name):
     """
-    Prints the total number of entries and label distribution in the dataset,
-    including both counts and percentages.
+    Prints the total number of entries, label distribution,
+    and percentage of each label in the dataset.
     """
+    total = len(df)
     print(f"\n--- Analysis for: {name} ---")
-    print(f"Total entries: {len(df)}")
-    
+    print(f"Total entries: {total}")
     if 'label' in df.columns:
         label_counts = df['label'].value_counts().sort_index()
-        total = len(df)
-        
-        print("Label distribution:")
-        for label in label_counts.index:
-            count = label_counts[label]
-            percentage = (count / total) * 100
-            if label in [0, 1]:
-                print(f"  Label {label}: {count} entries ({percentage:.1f}%)")
-            else:
-                print(f"  Label {label}: {count} entries ({percentage:.1f}%) (other labels)")
+        print("Label counts:")
+        for label, count in label_counts.items():
+            pct = (count / total) * 100
+            print(f"  Label {label}: {count} entries ({pct:.1f}%)")
+        # catch any other labels
+        other_labels = set(label_counts.index) - {0, 1}
+        for label in other_labels:
+            print(f"  Label {label}: {label_counts[label]} entries (other labels)")
     else:
         print("No 'label' column found.")
 
@@ -64,4 +62,5 @@ name = "dataset_fair.csv"
 final_df.to_csv(name, index=False)
 print("Saved as ",name)
 
+analyze_dataset(final_df, name)
 analyze_dataset(final_df, name)
