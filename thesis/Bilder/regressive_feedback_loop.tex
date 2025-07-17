@@ -1,0 +1,20 @@
+
+\begin{tikzpicture}[
+    box/.style={rectangle, draw, rounded corners, minimum width=2.5cm, minimum height=1.2cm, align=center, font=\small},
+    arrow/.style={-Stealth, thick, shorten >=1pt, shorten <=1pt},
+    label/.style={midway, font=\footnotesize\bfseries}
+]
+
+\node[box] (bias) {Gender Bias\\in Society};
+\node[box, right=3.5cm of bias] (data) {Training Data};
+\node[box, right=3.5cm of data] (mt) {MT System};
+\node[box, below=2.5cm of mt] (output) {Biased\\Outputs};
+\node[box, below=2.5cm of bias] (harm) {Representational\\Harm};
+
+\draw[arrow] (bias) -- (data) node[label, above] {1. Reflects};
+\draw[arrow] (data) -- (mt) node[label, above] {2. Trains};
+\draw[arrow] (mt) -- (output) node[label, right=3mm, xshift=2mm] {3. Produces};  
+\draw[arrow] (output) -- (harm) node[label, above] {4. Causes};
+\draw[arrow] (harm) -- (bias) node[label, left=3mm, xshift=-2mm, yshift=1mm] {5. Reinforces}; 
+
+\end{tikzpicture}
