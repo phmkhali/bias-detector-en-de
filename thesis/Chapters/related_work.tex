@@ -95,108 +95,108 @@ This section explains the key terms and concepts needed to understand gender bia
 
 \section{Related Works}
 
-\subsection{Literature Search Process}
-    For the literature review I combined incremental and conceptual literature review methods, where each source led to the identification of next. Based on this progression, I identified key concepts and used them to organize and interpret the literature, aligning with a conceptual approach. The structure followed the qualitative Information Systems framework by \citet{schryenWritingQualitativeLiterature2015} and was further informed by \citet{shresthaExploringGenderBiases2022} and \citet{savoldiDecadeGenderBias2025}, who both conducted systematic reviews on gender bias in ML and MT respectively. 
+    \subsection{Literature Search Process}
+        For the literature review I combined incremental and conceptual literature review methods, where each source led to the identification of next. Based on this progression, I identified key concepts and used them to organize and interpret the literature, aligning with a conceptual approach. The structure followed the qualitative Information Systems framework by \citet{schryenWritingQualitativeLiterature2015} and was further informed by \citet{shresthaExploringGenderBiases2022} and \citet{savoldiDecadeGenderBias2025}, who both conducted systematic reviews on gender bias in ML and MT respectively. 
 
-    \subsubsection{Search Sources and Tools}
-    Sources were primarily searched on \href{https://scholar.google.com/}{Google Scholar} and \href{https://www.perplexity.ai/}{Perplexity}, which served as an additional search engine. Prompts and outputs from Perplexity have been saved and are included in the appendix. To organize and manage the collected sources, \href{https://www.zotero.org/}{Zotero} was used throughout the process.
+        \subsubsection{Search Sources and Tools}
+        Sources were primarily searched on \href{https://scholar.google.com/}{Google Scholar} and \href{https://www.perplexity.ai/}{Perplexity}, which served as an additional search engine. Prompts and outputs from Perplexity have been saved and are included in the appendix. To organize and manage the collected sources, \href{https://www.zotero.org/}{Zotero} was used throughout the process.
 
-    \subsubsection{Literature Review Framing}
-    To answer the four research aims, I have defined the key concepts in \autoref{tab:key-concepts}. Key search terms consisted of \textit{gender bias}, \textit{machine translation}, \textit{AI}, \textit{machine learning}, \textit{German}, \textit{stereotypes}, and \textit{detection}, which were combined with \textit{AND/OR}. The focus was on literature published between 2019 and 2025 to maintain relevance and currency, while foundational and definitional works from earlier periods were selectively included. The initial search for the term \textit{gender bias in machine translation} returned over 18,000 results. Through my iterative selection process, this was narrowed down to 34 core sources.
+        \subsubsection{Literature Review Framing}
+        To answer the four research aims, I have defined the key concepts in \autoref{tab:key-concepts}. Key search terms consisted of \textit{gender bias}, \textit{machine translation}, \textit{AI}, \textit{machine learning}, \textit{German}, \textit{stereotypes}, and \textit{detection}, which were combined with \textit{AND/OR}. The focus was on literature published between 2019 and 2025 to maintain relevance and currency, while foundational and definitional works from earlier periods were selectively included. The initial search for the term \textit{gender bias in machine translation} returned over 18,000 results. Through my iterative selection process, this was narrowed down to 34 core sources.
 
-    \renewcommand{\arraystretch}{1.3}
-        \begin{table}[ht!]
+        \renewcommand{\arraystretch}{1.3}
+            \begin{table}[ht!]
+            \centering
+            \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{6.5cm}X}
+            \toprule
+            \textbf{Key Concept} & \textbf{Description} \\
+            \midrule
+
+            Foundations of Gender Bias in Natural Language Processing & Traces early research that identified gender bias in language. Focuses on foundational studies that showed why the issue matters and how later work builds on these findings. \\
+
+            Sources and Manifestations of Bias & Explains how stereotypes shape language and persist over time. Describes how societal bias enters training data, model design, and system feedback. Shows how bias appears in machine translation and everyday language. \\
+
+            Linguistic Challenges in English-German Translations & Explores key grammatical differences between English and German that affect translation. Focuses on how the lack of gender in English and its presence in German can lead to biased outputs. \\
+
+            Mitigation Strategies and Current Limitations & Reviews how current research tries to reduce gender bias in NLP. Highlights what these methods can and cannot do. Helps identify where a classification-based approach could fill gaps and improve bias detection in translations. \\
+            \bottomrule
+            \end{tabularx}
+            \caption{Key concepts relevant to this thesis}
+            \label{tab:key-concepts}
+        \end{table}
+
+
+        \subsubsection{Citation Tracking}
+        Backward citation searching involved reviewing references cited by selected papers, prioritizing frequently cited and foundational works relevant to gender bias in MT. Forward citation searching used Google Scholar's "cited by" function to identify newer research citing those key papers. Filtering with specific terms (e.g., \textit{German} and \textit{machine translation}) was applied during forward search to maintain focus. Beyond these systematic methods, I also included supplementary sources when needed while writing. These consist of contextual references, statistics, or secondary citations that support specific points but were not part of the core conceptual or methodological framework. Supplementary sources were defined as materials identified outside the systematic search, such as papers found through backward citations or targeted queries for statistics and news, which provided support for subordinate arguments without being central to the study's theoretical or analytical structure.
+
+        \subsubsection{Selection Criteria and Screening Process}\label{subsection:selection_criteria}
+        Titles and abstracts were manually screened to select relevant studies. \textbf{Inclusion criteria} required sources to specifically address gender bias in MT, provide examples or discussions of gender-related errors, or explain the significance of gender bias in this context. Sources also had to be available in full text without access restrictions. \textbf{Exclusion criteria} filtered out studies focusing on general NLP bias without a direct link to MT, non-gender biases, and highly technical papers lacking contribution to the general understanding of gender bias or that did not provide additional knowledge beyond what was already found in previously published papers. Full texts were reviewed after initial screening to confirm relevance and extract insights. Redundant sources not providing new perspectives aligned with the thesis goals were excluded.
+
+    \subsection{Foundational studies}
+        The existence of gender bias in MT is well-documented. First mentions of this issue date back to over a decade ago, having been recognized by a paper by \citeauthor{schiebingerScientificResearchMust2014} in 2014. Since then, there has been a general increase in research papers focusing on this topic, especially between 2019 and 2023 \citep{savoldiDecadeGenderBias2025}. 
+
+        \textbf{\citet{pratesAssessingGenderBias2019}} conducted a large-scale study using Google Translate to translate sentences like "[Gender-neutral pronoun] is an engineer" from twelve gender-neutral languages into English. The results showed a strong bias toward male pronouns, especially in STEM occupations. This could not be explained by real-world labor statistics, pointing instead to imbalances in the system's training data. The study received wide media attention, leading \citeauthor{googleReducingGenderBias2018} to change their translation policy: Google Translate began showing both feminine and masculine forms for ambiguous inputs \citep{googleReducingGenderBias2018} (see \autoref{fig:gt_prates_example}).
+
+        Building on this, \textbf{\citet{stanovskyEvaluatingGenderBias2019}} created \href{https://github.com/gabrielStanovsky/mt_gender}{WinoMT}, a benchmark for evaluating gender bias in English-to-multilingual translations. It focused on occupations in contexts designed to challenge stereotypes. The study found that systems were more accurate for stereotypical gender roles but struggled in non-stereotypical cases, confirming the trends observed by \citeauthor{pratesAssessingGenderBias2019}.
+        Together, these studies helped spark the ongoing research interest in gender bias in MT.
+
+    \subsection{Why the topic remains relevant }
+        Gender bias in MT can lead to \textbf{representational harm}. This happens when certain genders are repeatedly shown in biased or limiting ways through language \citep{stanczakSurveyGenderBias2021}. These patterns can then again, enter training data and influence MT systems, and reflect back into society. This creates a regressive feedback loop.
+
+        \vspace{1cm} 
+        \begin{figure}[htb]
+            \centering
+            \scalebox{0.8}{\input{./Bilder/regressive_feedback_loop.tex}}
+            \caption{Regressive feedback loop of gender bias in MT.}
+            \label{fig:regressive_feedback_loop}
+        \end{figure}
+        \vspace{1cm} 
+
+        The generic masculine in particular leads to inaccurate and unfair representations of gender in translated text. \citet{rescignoGenderBiasMachine2023} observed a predominance of masculine forms in translation outputs (approximately 90\% in Google Translate and 85–88\% in DeepL for EN-IT and EN-DE), even when the original sentences contained relatively few masculine references. This shows that the bias is not minor but occurs quite heavily in those systems.
+
+        It also contributes to the invisibility of women in male-dominated professions \citep{kapplAreAllSpanish2025}. Studies show that biased language in machine-generated text, such as children’s stories or job ads, can \textbf{influence how young people view themselves} \citep{soundararajanInvestigatingGenderBias2024,kapplAreAllSpanish2025}. It may shape their interests, hobbies, and career choices. This is especially visible in STEM fields \citep{pratesAssessingGenderBias2019}, where stereotypes are more persistent. When job descriptions or mock interviews use gender-exclusive pronouns, women report feeling less belonging, lower motivation, and weaker identification with the role \citep{godsilEffectsGenderRoles2016}. Many self-select out of applying, shrinking the female talent pool and \textbf{reinforcing gender gaps in the workforce}.
+
+        Research also shows that using GFL like "she and he" or "one" can improve how women respond to job ads. It reduces stereotype threat and helps them engage more positively with opportunities \citep{godsilEffectsGenderRoles2016}.
+
+        Furthermore, a study by \citet{savoldiWhatHarmQuantifying2024} measured how much effort people need to fix biased translations. They used metrics like the time it took to edit and how many edits were needed, based on human-targeted error rate. The results showed that fixing translations with feminine forms took almost twice as long and required four times more edits than those with masculine forms.
+
+        As a result, biased translations lead to higher economic costs and a quality gap that disproportionately affects women. \citeauthor{savoldiWhatHarmQuantifying2024} argued that current automatic bias metrics miss these human impacts. They called for better evaluation methods that reflect what users actually experience.
+
+    \subsection{Linguistic Challenges in English-German Translation}
+        Although both English and German originate from the Indo-European language family \citep{baldiEnglishIndoEuropeanLanguage2008}, they have different characteristcs. English does not assign grammatical gender to nouns. The article "the" is used universally, independent of what it refers to. On the contrary, German assigns one of three grammatical gendered articles to nouns: "der" (m), "die" (f) and "das" (n). The form or ending of a noun may also change depending on its grammatical gender. While English has a few gendered word pairs, such as "actor" (m) and "actress" (f), gender distinctions in German apply broadly across the entire noun system. "Der Student" refers to a male student, whereas "die Studentin" refers to a female student. 
+
+        Note that grammatical gender has no connection to societal or biological gender. It is a rule of the language rather than a reflection of identity. For example, the German word Mädchen (girl) is grammatically neuter and takes the article "das". This is not because the referent lacks gender, but because the suffix "-chen" automatically assigns neuter gender. Grammatical gender in German follows structural rules, even when they contradict real-world gender associations.
+
+    \subsection{German Gender-Fair Language} \label{subsection:german_gfl}
+    Gender-fair language (GFL) refers to the use of language that treats all genders equally and aims to reduce stereotyping and discrimination \citep{sczesnyCanGenderFairLanguage2016}. Three common approaches to plural mentionings in German are: 
+
+    \begin{itemize}
+        \item \textbf{Gender-neutral rewording:}  
+        This uses neutral terms instead of gendered nouns, e.g., \textit{die Studierenden lernen}. A challenge for this version is that neutral alternatives do not exist for every noun and cannot be consistently applied \citep{lardelliBuildingBridgesDataset2024}.
+
+        \item \textbf{Gender-inclusive characters:}  
+        This combines masculine, feminine and non-binary forms by using a character like \textit{*}, \textit{:}, or \textit{\_}, e.g., \textit{die Student*innen lernen}. This method is consistent but may interrupt reading flow and lacks standardization \citep{lardelliBuildingBridgesDataset2024}.
+
+        \item \textbf{Pair form:}  
+        This names both gender forms, e.g., \textit{die Studentinnen und Studenten lernen}. It is currently the most used GFL form in German \citep{waldendorfWordsChangeIncrease2024}, briefly surpassing the star and colon characters as seen in \autoref{fig:gfl_types_frequency}.
+    \end{itemize}
+
+    These examples apply when the gender of the subjects is ambiguous. But when gender is known, especially in singular mentions, the generic masculine should be avoided. However, in the same way as gender bias has no clear definition, there is \textbf{no agreed standard for GFL} \citep{lardelliBuildingBridgesDataset2024, savoldiDecadeGenderBias2025}. "Fairness" therefore heavily depends on personal views, culture, and context, which raises ethical questions about debiasing systems.
+
+    \begin{figure}
         \centering
-        \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{6.5cm}X}
-        \toprule
-        \textbf{Key Concept} & \textbf{Description} \\
-        \midrule
-
-        Foundations of Gender Bias in Natural Language Processing & Traces early research that identified gender bias in language. Focuses on foundational studies that showed why the issue matters and how later work builds on these findings. \\
-
-        Sources and Manifestations of Bias & Explains how stereotypes shape language and persist over time. Describes how societal bias enters training data, model design, and system feedback. Shows how bias appears in machine translation and everyday language. \\
-
-        Linguistic Challenges in English-German Translations & Explores key grammatical differences between English and German that affect translation. Focuses on how the lack of gender in English and its presence in German can lead to biased outputs. \\
-
-        Mitigation Strategies and Current Limitations & Reviews how current research tries to reduce gender bias in NLP. Highlights what these methods can and cannot do. Helps identify where a classification-based approach could fill gaps and improve bias detection in translations. \\
-        \bottomrule
-        \end{tabularx}
-        \caption{Key concepts relevant to this thesis}
-        \label{tab:key-concepts}
-    \end{table}
-
-
-    \subsubsection{Citation Tracking}
-    Backward citation searching involved reviewing references cited by selected papers, prioritizing frequently cited and foundational works relevant to gender bias in MT. Forward citation searching used Google Scholar's "cited by" function to identify newer research citing those key papers. Filtering with specific terms (e.g., \textit{German} and \textit{machine translation}) was applied during forward search to maintain focus. Beyond these systematic methods, I also included supplementary sources when needed while writing. These consist of contextual references, statistics, or secondary citations that support specific points but were not part of the core conceptual or methodological framework. Supplementary sources were defined as materials identified outside the systematic search, such as papers found through backward citations or targeted queries for statistics and news, which provided support for subordinate arguments without being central to the study's theoretical or analytical structure.
-
-    \subsubsection{Selection Criteria and Screening Process}\label{subsection:selection_criteria}
-    Titles and abstracts were manually screened to select relevant studies. \textbf{Inclusion criteria} required sources to specifically address gender bias in MT, provide examples or discussions of gender-related errors, or explain the significance of gender bias in this context. Sources also had to be available in full text without access restrictions. \textbf{Exclusion criteria} filtered out studies focusing on general NLP bias without a direct link to MT, non-gender biases, and highly technical papers lacking contribution to the general understanding of gender bias or that did not provide additional knowledge beyond what was already found in previously published papers. Full texts were reviewed after initial screening to confirm relevance and extract insights. Redundant sources not providing new perspectives aligned with the thesis goals were excluded.
-
-\subsection{Foundational studies}
-    The existence of gender bias in MT is well-documented. First mentions of this issue date back to over a decade ago, having been recognized by a paper by \citeauthor{schiebingerScientificResearchMust2014} in 2014. Since then, there has been a general increase in research papers focusing on this topic, especially between 2019 and 2023 \citep{savoldiDecadeGenderBias2025}. 
-
-    \textbf{\citet{pratesAssessingGenderBias2019}} conducted a large-scale study using Google Translate to translate sentences like "[Gender-neutral pronoun] is an engineer" from twelve gender-neutral languages into English. The results showed a strong bias toward male pronouns, especially in STEM occupations. This could not be explained by real-world labor statistics, pointing instead to imbalances in the system's training data. The study received wide media attention, leading \citeauthor{googleReducingGenderBias2018} to change their translation policy: Google Translate began showing both feminine and masculine forms for ambiguous inputs \citep{googleReducingGenderBias2018} (see \autoref{fig:gt_prates_example}).
-
-    Building on this, \textbf{\citet{stanovskyEvaluatingGenderBias2019}} created \href{https://github.com/gabrielStanovsky/mt_gender}{WinoMT}, a benchmark for evaluating gender bias in English-to-multilingual translations. It focused on occupations in contexts designed to challenge stereotypes. The study found that systems were more accurate for stereotypical gender roles but struggled in non-stereotypical cases, confirming the trends observed by \citeauthor{pratesAssessingGenderBias2019}.
-    Together, these studies helped spark the ongoing research interest in gender bias in MT.
-
-\subsection{Why the topic remains relevant }
-    Gender bias in MT can lead to \textbf{representational harm}. This happens when certain genders are repeatedly shown in biased or limiting ways through language \citep{stanczakSurveyGenderBias2021}. These patterns can then again, enter training data and influence MT systems, and reflect back into society. This creates a regressive feedback loop.
-
-    \vspace{1cm} 
-    \begin{figure}[htb]
-        \centering
-        \scalebox{0.8}{\input{./Bilder/regressive_feedback_loop.tex}}
-        \caption{Regressive feedback loop of gender bias in MT.}
-        \label{fig:regressive_feedback_loop}
+            \includegraphics[width=1\textwidth]{gfl_types_frequency.png}
+        \caption{Frequency of different types of gender-inclusive language. Source: \citet{waldendorfWordsChangeIncrease2024} p. 367.}
+        \label{fig:gfl_types_frequency}
     \end{figure}
-    \vspace{1cm} 
 
-    The generic masculine in particular leads to inaccurate and unfair representations of gender in translated text. \citet{rescignoGenderBiasMachine2023} observed a predominance of masculine forms in translation outputs (approximately 90\% in Google Translate and 85–88\% in DeepL for EN-IT and EN-DE), even when the original sentences contained relatively few masculine references. This shows that the bias is not minor but occurs quite heavily in those systems.
-
-    It also contributes to the invisibility of women in male-dominated professions \citep{kapplAreAllSpanish2025}. Studies show that biased language in machine-generated text, such as children’s stories or job ads, can \textbf{influence how young people view themselves} \citep{soundararajanInvestigatingGenderBias2024,kapplAreAllSpanish2025}. It may shape their interests, hobbies, and career choices. This is especially visible in STEM fields \citep{pratesAssessingGenderBias2019}, where stereotypes are more persistent. When job descriptions or mock interviews use gender-exclusive pronouns, women report feeling less belonging, lower motivation, and weaker identification with the role \citep{godsilEffectsGenderRoles2016}. Many self-select out of applying, shrinking the female talent pool and \textbf{reinforcing gender gaps in the workforce}.
-
-    Research also shows that using GFL like "she and he" or "one" can improve how women respond to job ads. It reduces stereotype threat and helps them engage more positively with opportunities \citep{godsilEffectsGenderRoles2016}.
-
-    Furthermore, a study by \citet{savoldiWhatHarmQuantifying2024} measured how much effort people need to fix biased translations. They used metrics like the time it took to edit and how many edits were needed, based on human-targeted error rate. The results showed that fixing translations with feminine forms took almost twice as long and required four times more edits than those with masculine forms.
-
-    As a result, biased translations lead to higher economic costs and a quality gap that disproportionately affects women. \citeauthor{savoldiWhatHarmQuantifying2024} argued that current automatic bias metrics miss these human impacts. They called for better evaluation methods that reflect what users actually experience.
-
-\subsection{Linguistic Challenges in English-German Translation}
-    Although both English and German originate from the Indo-European language family \citep{baldiEnglishIndoEuropeanLanguage2008}, they have different characteristcs. English does not assign grammatical gender to nouns. The article "the" is used universally, independent of what it refers to. On the contrary, German assigns one of three grammatical gendered articles to nouns: "der" (m), "die" (f) and "das" (n). The form or ending of a noun may also change depending on its grammatical gender. While English has a few gendered word pairs, such as "actor" (m) and "actress" (f), gender distinctions in German apply broadly across the entire noun system. "Der Student" refers to a male student, whereas "die Studentin" refers to a female student. 
-
-    Note that grammatical gender has no connection to societal or biological gender. It is a rule of the language rather than a reflection of identity. For example, the German word Mädchen (girl) is grammatically neuter and takes the article "das". This is not because the referent lacks gender, but because the suffix "-chen" automatically assigns neuter gender. Grammatical gender in German follows structural rules, even when they contradict real-world gender associations.
-
-\subsection{German Gender-Fair Language} \label{subsection:german_gfl}
-Gender-fair language (GFL) refers to the use of language that treats all genders equally and aims to reduce stereotyping and discrimination \citep{sczesnyCanGenderFairLanguage2016}. Three common approaches to plural mentionings in German are: 
-
-\begin{itemize}
-    \item \textbf{Gender-neutral rewording:}  
-    This uses neutral terms instead of gendered nouns, e.g., \textit{die Studierenden lernen}. A challenge for this version is that neutral alternatives do not exist for every noun and cannot be consistently applied \citep{lardelliBuildingBridgesDataset2024}.
-
-    \item \textbf{Gender-inclusive characters:}  
-    This combines masculine, feminine and non-binary forms by using a character like \textit{*}, \textit{:}, or \textit{\_}, e.g., \textit{die Student*innen lernen}. This method is consistent but may interrupt reading flow and lacks standardization \citep{lardelliBuildingBridgesDataset2024}.
-
-    \item \textbf{Pair form:}  
-    This names both gender forms, e.g., \textit{die Studentinnen und Studenten lernen}. It is currently the most used GFL form in German \citep{waldendorfWordsChangeIncrease2024}, briefly surpassing the star and colon characters as seen in \autoref{fig:gfl_types_frequency}.
-\end{itemize}
-
-These examples apply when the gender of the subjects is ambiguous. But when gender is known, especially in singular mentions, the generic masculine should be avoided. However, in the same way as gender bias has no clear definition, there is \textbf{no agreed standard for GFL} \citep{lardelliBuildingBridgesDataset2024, savoldiDecadeGenderBias2025}. "Fairness" therefore heavily depends on personal views, culture, and context, which raises ethical questions about debiasing systems.
-
-\begin{figure}
-	\centering
-		\includegraphics[width=1\textwidth]{gfl_types_frequency.png}
-	\caption{Frequency of different types of gender-inclusive language. Source: \citet{waldendorfWordsChangeIncrease2024} p. 367.}
-	\label{fig:gfl_types_frequency}
-\end{figure}
-
-\subsubsection{Challenge of Integrating Gender-Fair Language into NLP}
-Although the use of GFL has increased in recent years \citep{waldendorfWordsChangeIncrease2024}, it is still generally low. This leads to a scarcity of relevant linguistic data. Few datasets include GFL variants, and existing resources often depend on manual translations or post-editing to add gender-inclusive forms \citep{lardelliBuildingBridgesDataset2024}. For this project, the limited availability of GFL data poses a significant challenge, especially when training the model to recognize gender-fair alternatives as neutral due to the lack of consistent examples.
+    \subsubsection{Challenge of Integrating Gender-Fair Language into NLP}
+    Although the use of GFL has increased in recent years \citep{waldendorfWordsChangeIncrease2024}, it is still generally low. This leads to a scarcity of relevant linguistic data. Few datasets include GFL variants, and existing resources often depend on manual translations or post-editing to add gender-inclusive forms \citep{lardelliBuildingBridgesDataset2024}. For this project, the limited availability of GFL data poses a significant challenge, especially when training the model to recognize gender-fair alternatives as neutral due to the lack of consistent examples.
 
 
-% --------------------------------------------------------------------------------
+    % --------------------------------------------------------------------------------
 
-\subsection{Research Gaps}
+    \subsection{Research Gaps}
     A central gap in gender bias research is the absence of a shared definition of what constitutes "fair" language. This lack of conceptual clarity makes it difficult to design systematic evaluation approaches, define accountability standards, or detect all relevant forms of harm \citep{barclayInvestigatingMarkersDrivers2024a,shresthaExploringGenderBiases2022,stanczakSurveyGenderBias2021}.
 
     A second major gap concerns the availability of high-quality EN-DE translation data that includes GFL. While a few datasets exist, they are not designed for bias detection tasks and often require manual post-editing to incorporate inclusive forms \citep{lardelliBuildingBridgesDataset2024}. This limits the development and evaluation of models that aim to identify biased output in a structured and reproducible way.
@@ -208,14 +208,12 @@ Although the use of GFL has increased in recent years \citep{waldendorfWordsChan
 % --------------------------------------------------------------------------------
 
 \section{Approach and Justification of the Technical Setup}
+This section outlines the technical setup used in the project and explains the rationale behind design choices. It also provides background information on the underlying technologies to clarify how each component contributes to the overall goal of detecting gender bias in EN-DE translations.
 
 \subsection{Binary Classification in NLP}
-Binary classification means sorting items into two clear groups. It is the most common task in ML and is frequently found in every day life, such as automatically flitering e-mails as "spam" or "not spam" \citep{quemyBinaryClassificationUnstructured2019}. The ML algorithms use information from past examples to create a model or find key rules for making correct decisions. \textbf{This thesis tries to label a translation as either "potentially gender biased" or "neutral".}. 
-
-As explained in \autoref{subsection:definition_gb}, gender bias is difficult to define precisely, and the same applies to what counts as unbiased. I set specific rules to label something as biased, but this does not imply that everything else is unbiased. Therefore, I use the term "neutral" instead of "unbiased."
-
-While it is possible to extend the classification beyond two categories, such as distinguishing types of bias or including labels like "gender-fair", this would require much more data and training. Given the practical aim of this work, which is to help users quickly identify whether their text might contain gender bias, the model focuses on a simple binary decision.
-
+    Binary classification means sorting items into two clear groups. It is the most common task in ML and is frequently found in every day life, such as automatically flitering e-mails as "spam" or "not spam" \citep{quemyBinaryClassificationUnstructured2019} or deciding whether a transaction is "fraudulent" or "legitimate". For instance, a spam filter uses previously labeled e-mails to learn relevant patterns, such as specific keywords or sender information, and builds a model that applies these patterns to classify new messages accurately. 
+    
+    \textbf{This thesis tries to label a translation as either "potentially gender biased" or "neutral".}. While it is possible to extend the classification beyond two categories, such as distinguishing types of bias or including labels like "gender-fair", this would require much more data and training. Given the practical aim of this work, which is to help users quickly identify whether their text might contain gender bias, the model focuses on a simple binary decision.
 
 \subsection{Transformer Architecture} \label{subsection:transformer_arch}
 Since BERT is based on the transformer architecture and is used for classification in this thesis, this section provides a brief overview of its structure. The transformer \textit{transforms} an input sequence into an output sequence, such as in translation. To effectively achieve that, they deploy a self-attention mechanism \citep{phuongFormalAlgorithmsTransformers2022}.
