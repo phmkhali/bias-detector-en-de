@@ -7,7 +7,7 @@ The goal is to build a gender bias detection model for real-world MT scenarios. 
 Thus, the model processes each sentence independently. If multiple sentences are inputted, bias is evaluated for each one separately. Context across sentences is not considered, as it does not reflect the intended use case. This approach is also reflected in the design of the training data, where each sentence pair is treated as a standalone instance.
 
 \section{Workflow}
-The project begins by selecting and combining datasets from previous work (see \autoref{fig:workflow}). The model building phase then follows, as shown in the purple boxes. It starts with cleaning and preparing the data, followed by extracting features for training. A pre-trained German BERT model is then fine-tuned for the classification task. Its performance is measured using standard evaluation metrics. In the final step, the trained model is integrated into a demo application for user interaction and testing.
+The project begins by selecting and combining datasets from previous work (see \autoref{fig:workflow}). The model building phase then follows, as shown in the purple boxes. It starts with cleaning and preparing the data, followed by extracting features for training. A pre-trained multilingual BERT model is then fine-tuned for the classification task. Its performance is measured using standard evaluation metrics. In the final step, the trained model is integrated  into the demo application.
 
 \vspace{1cm} 
 \begin{figure}[htb]
@@ -25,10 +25,16 @@ The project begins by selecting and combining datasets from previous work (see \
 Since there was no ready-to-use dataset for this task and no prior work that built a similar model, I first had to define: \textbf{(1)} the number of samples required,  and \textbf{(2)} the desired content of my dataset.
 
 \subsection{Number of Samples}
-For a binary classification task of detecting gender bias using \texttt{mBERT}, general guidelines suggest between 100 and 5000 labeled samples for fine-tuning \citep{pecherComparingSpecialisedSmall2024}. However, the complex nature of gender bias often requires a larger dataset for robust detection since the number of samples depends mainly on the task type. Multi-class tasks need fewer samples (around 100), while binary tasks can require up to 6,000 or more. \textbf{I will therefore aim to create a dataset with 5000-6000 samples.}
+For a binary classification task of detecting gender bias using \texttt{mBERT}, general guidelines suggest \textbf{between 100 and 5000 labeled samples for fine-tuning} \citep{pecherComparingSpecialisedSmall2024}, while multi-class tasks need fewer samples (around 100). However, the complex nature of gender bias often requires a larger dataset for robust detection since the number of samples depends mainly on the task type. 
 
 \subsection{Dataset Composition}
-Ideally, I wanted to make use of past EN-DE datasets to minimize manual labour. My options were \texttt{\href{https://huggingface.co/datasets/FBK-MT/mGeNTE}{mGeNTE en-de}} \citep{savoldiMGeNTEMultilingualResource2025}, \texttt{\href{https://github.com/g8a9/building-bridges-gender-fair-german-mt}{Building Bridges Dictionary}} \citep{lardelliBuildingBridgesDataset2024}, and \texttt{\href{https://research.google/blog/a-dataset-for-studying-gender-bias-in-translation/}{Translated Wikipedia Biographies}} \citep{stellaDatasetStudyingGender2021}.
+Ideally, I wanted to make use of past EN-DE datasets to minimize manual labour. My options were \texttt{\href{https://huggingface.co/datasets/FBK-MT/mGeNTE}{mGeNTE en-de}} \citep{savoldiMGeNTEMultilingualResource2025}, \texttt{\href{https://github.com/g8a9/building-bridges-gender-fair-german-mt}{Building Bridges Dictionary}} \citep{lardelliBuildingBridgesDataset2024}, and \texttt{\href{https://research.google/blog/a-dataset-for-studying-gender-bias-in-translation/}{Translated Wikipedia Biographies}} \citep{stellaDatasetStudyingGender2021}. 
+
+However, While analyzing the \texttt{Translated Wikipedia Biographies} dataset, I found issues that prevented automatic reuse. For example, the \texttt{perceivedGender} column sometimes contained subject names instead of expected labels like Male, Female, or Neutral, which would require manual review. Moreover, the dataset only provided neutral labels (0) since the phrases were correctly gendered. Because my other two datasets are already balanced and include enough neutrally gendered examples, I decided to exclude this dataset.
+
+\texttt{mGeNTE} contains naturally occurring sentences with gendered entities, while \texttt{Building Bridges} focuses on German GFL entries for explicitly gendered nouns such as professions. However, this setup lacked genuinely neutral examples—sentences that do not involve any gendered subject at all, such as \textit{"The weather is nice"} or \textit{"How are you"}. Including such sentences is important to help the model learn that not all translations are relevant for gender bias detection and that many ordinary sentences should be classified as neutral.
+
+Since no suitable dataset for this category was readily available, a supplementary set was created using random EN-DE sentence pairs from the \href{https://tatoeba.org/en/}{\texttt{Tatoeba}} corpus. A sample of 550 sentence pairs was selected. Manual filtering was applied to remove any pairs with incorrect or stereotypically gendered translations, as public contributions often default to male forms. The resulting subset consisted only of clearly neutral sentence pairs, all labeled with 0.
 
 \begin{table}[ht!]
     \centering
@@ -38,71 +44,167 @@ Ideally, I wanted to make use of past EN-DE datasets to minimize manual labour. 
     \textbf{Dataset} & \textbf{Description} & \textbf{Content} \\ \hline
     \texttt{mGeNTE en-de} \citep{savoldiMGeNTEMultilingualResource2025} & Multilingual dataset to assess gender bias in MT. & \textasciitilde1,500 gender-ambiguous and gendered English sentences with gender-neutral and gendered German translations. \\ \hline
     \texttt{Building Bridges Dictionary} \citep{lardelliBuildingBridgesDataset2024} & Bilingual dictionary designed to support gender-fair EN-DE translation. & \textasciitilde230 German gender-neutral and gender-inclusive singular and plural sentences with English equivalents. \\ \hline
-    \texttt{Translated Wikipedia Biographies} \citep{stellaDatasetStudyingGender2021} & Automatically translated Wikipedia biographies for evaluating gender bias. & \textasciitilde1,500 translated biography sentences with English source text and gender-accurate translated German equivalent. \\ \hline
     \end{tabularx}
-    \caption{Overview of available EN-DE datasets based on past works.}
+    \caption{Overview of suitable EN-DE datasets based on past works.}
     \label{tab:available_datasets}
 \end{table}
 
-While analyzing the \texttt{Translated Wikipedia Biographies} dataset, I found issues that prevented automatic reuse. For example, the \texttt{perceivedGender} column sometimes contained subject names instead of expected labels like Male, Female, or Neutral, which would require manual review. Moreover, the dataset only provided neutral labels (0) since the phrases were correctly gendered. Because my other two datasets are already balanced and include enough neutral examples, I decided to exclude this dataset.
+\paragraph {\texttt{mGeNTE en-de}} Overview:  
 
-The \texttt{mGeNTE} dataset was suitable for automatic reuse. It includes columns \texttt{SET-G}, \texttt{REF-G}, and \texttt{REF-N}. The \texttt{SET-G} column indicates if the source sentence has a gendered subject. For each entry with a gendered source (\texttt{SET-G}), I add two rows: one with \texttt{REF-G} as the correctly gendered (neutral) label, and one with \texttt{REF-N} as a neutral translation that loses the original gender, making it biased. For source sentences without gendered subjects (\texttt{SET-N}), I apply the same approach but reversed: one row with the neutral source and a correctly gendered translation as biased. This method creates two rows for each original entry, resulting in about 3,000 balanced instances of biased and neutral sentences.
+\begin{itemize}  
+  \item \texttt{SET-G}: English sentences with a clearly gendered subject.  
+  \item \texttt{SET-N}: English sentences with neutral or ambiguous subject gender.  
+  \item \texttt{REF-G}: German translations that preserve or introduce gender.  
+  \item \texttt{REF-N}: German translations that are fully gender–neutral.  
+\end{itemize}  
+
+\noindent
+The bias definition used in this study classifies translations that omit the original gender as neutral since it does not rely on a male default or stereotype. While gender‑neutral translations may be imperfect, they are not considered "biased" under this framework. Initial experiments showed that including \texttt{REF-N} pairs during training overly penalized neutral outputs. Given the scarcity of neutral examples, I chose not to penalize neutral translations. 
+
+Each original entry was split into two paired examples and labeled as follows:  
+\[
+\begin{aligned}
+\texttt{SET\!-\!G} + \texttt{REF\!-\!G} &\;\rightarrow\; 0 \quad(\text{neutral})\\
+\texttt{SET\!-\!G} + \texttt{REF\!-\!N} &\;\rightarrow\; 0 \quad(\text{neutral})\\
+\texttt{SET\!-\!N} + \texttt{REF\!-\!N} &\;\rightarrow\; 0 \quad(\text{neutral})\\
+\texttt{SET\!-\!N} + \texttt{REF\!-\!G} &\;\rightarrow\; 1 \quad(\text{biased})
+\end{aligned}
+\]  
+This procedure yields 3,000 total instances, of which 750 are labeled biased (1) and 2,250 are labeled neutral (0).  
+
 
 \texttt{Building Bridges Dictionary} did not contain full sentences but rather a gender-fair dictionary of nouns. While this made it a valuable resource for studying gender-fair language, I needed full sentences for my task. To address this, I used prompt engineering with Google Gemini 2.5 Flash to synthetically expand the dataset. The prompt used for generation is included in the appendix. The generated sentences can be found in the code files. I used the nouns from the original dataset to create multiple grammatically correct sentence variations, covering singular, plural, gender-neutral, and gender-inclusive forms. This process resulted in 2,718 sentences.
 
 \subsection{Final Dataset Summary}
-The final dataset used for training is a combination of the transformed \texttt{mGeNTE} dataset and the synthetically extended \texttt{Building Bridges Dictionary} dataset. Each source contributes 2,600 sentence pairs, split evenly into 1,300 biased and 1,300 neutral examples, resulting in a balanced dataset of 5,200 entries. The dataset is shuffled before training to prevent source-specific bias. Each entry contains:
-\begin{itemize}
-    \item an English source sentence (\texttt{english}),
-    \item its German translation (\texttt{german}),
-    \item and a binary label (\texttt{label}), where \texttt{1} denotes gender bias and \texttt{0} denotes neutrality.
-\end{itemize}
+% The final dataset used for training is a combination of the transformed \texttt{mGeNTE} dataset and the synthetically extended \texttt{Building Bridges Dictionary} dataset. Each source contributes 2,600 sentence pairs, split evenly into 1,300 biased and 1,300 neutral examples, resulting in a balanced dataset of 5,200 entries. The dataset is shuffled before training to prevent source-specific bias. Each entry contains:
+% \begin{itemize}
+%     \item an English source sentence (\texttt{english}),
+%     \item its German translation (\texttt{german}),
+%     \item and a binary label (\texttt{label}), where \texttt{1} denotes gender bias and \texttt{0} denotes neutrality.
+% \end{itemize}
 
-\noindent A sample of the dataset is shown below:
+% \noindent A sample of the dataset is shown below:
 
-\begin{table}[ht!]
-\renewcommand{\arraystretch}{1.2}
-\setlength{\tabcolsep}{6pt}
-\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X c}
-\toprule
-\textbf{English} & \textbf{German} & \textbf{Label} \\
-\midrule
-The laypeople are intelligent. & Die Laiinnen sind intelligent. & 1 \\
-The ceramist is responsible. & Der Keramiker ist verantwortlich. & 1 \\
-The forest keepers are responsible. & die Forstwart*innen sind verantwortlich. & 0 \\
-I am sorry that the Commissioner responsible for agriculture is not here and that she does not have the courage to face us. & Ich bedauere, dass die für die Landwirtschaft zuständige Kommissarin nicht anwesend ist und nicht den Mut hat, uns gegenüberzutreten. & 0 \\
-Mrs Brok, I have no problem whatsoever with this motion. & Ich habe überhaupt kein Problem mit diesem Antrag des Kollegiumsmitglieds Brok. & 1 \\
-\bottomrule
-\end{tabularx}
-\caption{Sample entries from the final training dataset.}
-\end{table}
+% \begin{table}[ht!]
+% \renewcommand{\arraystretch}{1.2}
+% \setlength{\tabcolsep}{6pt}
+% \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X c}
+% \toprule
+% \textbf{English} & \textbf{German} & \textbf{Label} \\
+% \midrule
+% The laypeople are intelligent. & Die Laiinnen sind intelligent. & 1 \\
+% The ceramist is responsible. & Der Keramiker ist verantwortlich. & 1 \\
+% The forest keepers are responsible. & die Forstwart*innen sind verantwortlich. & 0 \\
+% I am sorry that the Commissioner responsible for agriculture is not here and that she does not have the courage to face us. & Ich bedauere, dass die für die Landwirtschaft zuständige Kommissarin nicht anwesend ist und nicht den Mut hat, uns gegenüberzutreten. & 0 \\
+% Mrs Brok, I have no problem whatsoever with this motion. & Ich habe überhaupt kein Problem mit diesem Antrag des Kollegiumsmitglieds Brok. & 1 \\
+% \bottomrule
+% \end{tabularx}
+% \caption{Sample entries from the final training dataset.}
+% \end{table}
 
 \section{Data Pre-processing}
+    I split the dataset into three parts: training (80\%), validation (10\%), and test sets (10\%). This ratio is a common choice when working with limited data. It provides enough samples for the model to learn general patterns while reserving separate subsets for tuning and final evaluation. I used stratified sampling for this. That means the label distribution (biased vs. neutral) stays the same across all three sets, avoiding skewed splits. For example, if 30\% of the full dataset is biased, each split will also have 30\% biased samples. This helps the model learn from both classes equally and avoids misleading results in validation or testing.
 
-I split the dataset into three parts: training, validation, and test sets. I used stratified sampling for this. That means the label distribution (biased vs. neutral) stays the same across all three sets. This avoids skewed splits. For example, if 30\% of the full dataset is biased, each split will also have 30\% biased samples. This helps the model learn from both classes equally and avoids misleading results in validation or testing.
+    I did not apply advanced text cleaning such as removing punctuation, lowercasing, or stemming because I use \href{https://huggingface.co/google-bert/bert-base-multilingual-cased}{\texttt{bert-base-multilingual-cased}}. This tokenizer is designed to handle raw, unmodified text and preserves casing. The model has been trained on large corpora containing natural language in its original form \citep{devlinBERTPretrainingDeep2019}. Altering the input, such as converting "Doctor" to "doctor", could remove distinctions the model has learned. Therefore, advanced preprocessing might reduce performance by disrupting patterns the tokenizer expects.
 
-I did not apply advanced text cleaning such as removing punctuation, lowercasing, or stemming. This is because I use a pretrained BERT tokenizer. These models are trained on raw text and expect natural input. For example, lowercasing "Doctor" to "doctor" could remove useful information if the model has seen one more often than the other. Cleaning might even hurt performance by removing patterns the model understands.
+Further data preprocessing was not necessary since I concatenated already clean datasets and manually reviewed them.
 
-Further data pre-processing was not necessary as I concatenated already clean datasets and manually reviewed them.
+\section{Model Initialization}
+    \texttt{mBERT} with a binary classification head is used to predict whether a translation is \textit{biased} or \textit{neutral}, based on the input format described in \autoref{subsection:input_output}.
 
-\section{Feature extraction}
-Feature extraction means turning raw data into a format that the ML model can understand and learn from. To prepare the text for the model, I used a tokenizer that supports sentence pairs. Each input consists of one English sentence and its German translation. The tokenizer encodes them together. This lets the model compare both sides and find patterns related to bias in the translation. For example, if the English says "The nurse is smart" and the German says "Der Pfleger ist klug", the model needs to see both sides to catch the gender mismatch.
+    The tokenizer from the same model source encodes input pairs into token IDs and applies segment embeddings to distinguish between source and target sentences. All sequences are padded or truncated to a fixed length of 256 tokens. This length was chosen after tests with 128 tokens led to truncation warnings and content loss. With 256 tokens, most pairs remained complete while keeping memory use efficient.
 
-I used the tokenizer from \texttt{mBERT}, because it supports both English and German. It maps words and subwords to token IDs that the model understands. Padding and truncation are applied so that all inputs are the same length. I set a fixed maximum length of 128 tokens. Padding adds zeros if the sentence is too short. Truncation cuts off tokens if the sentence is too long. This helps with batch processing and avoids memory issues.
+    Input features and labels (0 for neutral, 1 for biased) are converted to PyTorch tensors for training. The model runs on GPU if available to speed up processing. For classification, the output vector of the [CLS] token is used as a representation of the full input.
 
-The tokenizer returns token IDs as PyTorch tensors. I also convert the labels (0 or 1) to tensors. This is necessary because the model expects both inputs and labels in tensor format during training.
+\section{Training Pipeline}
+\subsection{{Fine‑Tuning with the Trainer API.}}
+    I fine-tuned the model using the Hugging Face \href{https://huggingface.co/docs/transformers/en/main_classes/trainer}{\texttt{Trainer} API}. This library takes care of most of the training process. It handles evaluation, logging, and saving model checkpoints. It also supports automatic early stopping and loading the best model at the end.
 
+    Compared to writing a manual PyTorch training loop, \texttt{Trainer} is easier to use and requires less code. It also includes standard features like tracking metrics and scheduling learning rates. For my use case, this made it a better choice. I did not need custom loss functions or multi-GPU setups, so the added complexity of other frameworks (like PyTorch Lightning) was not necessary.
 
-\section{Model Selection and Training}
-% choice of model architecture and reasoning
-% training approach overview
+    \subsection{Layer Freezing.}
+    I fine-tuned only the last two encoder layers (10 and 11), the pooler, and the classifier, about 25-30\% of the model. Later layers specialize in the fine-tuning task by focusing on features relevant to it. Freezing earlier layers keeps the general language knowledge unchanged. This reduces overfitting by limiting changes to the most task-relevant parts and speeds up training because fewer parameters are updated \citep{nadipalliLayerWiseEvolutionRepresentations2025}. This is helpful since the task is very specific and resources are limited.
+
 \subsection{Hyperparameters}
-% experimentation with epochs and other key parameters
+    I tested a few different settings but mostly kept values close to common recommendations for fine-tuning BERT models.
+
+    \paragraph{Epochs.} I trained for up to \textbf{10 epochs}. \textbf{Early stopping} was enabled with a patience of two epochs. This means training stopped if the F1 score did not improve for two consecutive epochs. I chose this setup following the recommendation by \citet{pecherComparingSpecialisedSmall2024}, who suggest training until convergence with a maximum of 10 epochs and early stopping. This helped avoid overfitting and saved training time.
+
+    \paragraph{Batch size.} I used a \textbf{batch size of 16}. This is a common choice for fine-tuning on small datasets. It keeps GPU memory use low while still allowing stable gradient updates. \citet{mosbachStabilityFinetuningBERT2021} also use this value when testing fine-tuning stability.
+
+    \paragraph{Learning rate.} I set the \textbf{learning rate to 2e-5}. This is the default used in the original BERT paper \citep{devlinBERTPretrainingDeep2019} and still works well in many cases. I also tested 1e-5 and 3e-5. Both gave worse results on the validation set. For example, training with 3e-5 led to sharp drops in F1 after the second epoch. The 2e-5 rate gave the most stable and consistent results in my runs.
+
+    \paragraph{Optimizer and scheduler.} The \texttt{Trainer} API uses the \textbf{AdamW optimizer} by default. An optimizer is an algorithm that adjusts the model’s parameters during training to minimize errors \citep{mosbachStabilityFinetuningBERT2021}. AdamW is a popular choice for fine-tuning BERT because it includes weight decay, which helps prevent overfitting. It also uses bias correction to improve stability early in training, avoiding issues like vanishing gradients.
+
+    A scheduler controls how the learning rate changes during training \citep{mosbachStabilityFinetuningBERT2021}. This affects how big each step is when updating parameters. The scheduler here uses a warmup-linear schedule: the learning rate starts low and increases gradually during the first 10\% of training (warmup), then decreases linearly until the end. This helps the model learn smoothly and prevents unstable training.
 
 \section{Evaluation}
-% metrics and evaluation strategy
-% validation approach
+\subsection{Evaluation Strategy}
+
+The model was evaluated during and after training using the validation and test splits. As described in the data section, both sets were created using stratified sampling to preserve the label distribution. This ensured consistent evaluation across all splits and avoided misleading metrics due to imbalance.
+
+During training, the model was evaluated on the validation set after every epoch. The \textbf{F1 score} was used to monitor progress and decide when to stop. The checkpoint with the highest validation F1 score was saved as the final model. This strategy helped avoid overfitting and improved generalization.
+
+After training, I evaluated the model on two types of data:
+\begin{itemize}
+    \item A small handcrafted test set that includes common bias patterns seen during training. This tested whether the model correctly learned to flag known types of bias.
+    \item A set of real-world sentences taken from external sources like job ads. This tested how well the model handles unseen natural language and generalizes beyond training data.
+\end{itemize}
+
+\subsection{Why F1 Score Was Used}
+
+In this task, both \textbf{false positives} (flagging neutral translations as biased) and \textbf{false negatives} (missing actual bias) are problematic. A model that just plays it safe or guesses randomly is not useful. The F1 score balances \textbf{precision} and \textbf{recall}, which are the two metrics most relevant here.
+
+\begin{itemize}
+    \item \textbf{Precision:} Of the translations flagged as biased, how many were actually biased?
+    \item \textbf{Recall:} Of the biased translations, how many did the model catch?
+\end{itemize}
+
+If the model has high precision but low recall, it avoids false accusations but misses many real issues. If it has high recall but low precision, it catches more bias but floods users with false warnings. 
+
+To balance these trade-offs, the \textbf{F1 score} is used. It is the harmonic mean of precision and recall:
+
+
+\[
+F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
+\]
+\vspace{0.5em}
+
+Accuracy, by contrast, is not helpful here. With a 50-50 dataset, a model could reach high accuracy by only learning to predict the majority class. That would ignore the actual task of bias detection.
+
+The use of the F1 score ties back to the model design: sentence-level binary classification with a balanced dataset and no cross-sentence context. In this setup, F1 gives the clearest picture of how well the model performs in practice.
+
 
 \section{Demo Application Design}
-% concept and structure of the demo app
-% how it connects with other components
+
+The demo application comprises three modules: the Streamlit interface, the bias detection model with its prediction functions, and the translation component. \autoref{fig:demo_workflow} illustrates the workflow. Both input modes converge on a common prediction pipeline.
+
+\begin{figure}[htb]
+    \centering
+    \scalebox{0.8}{\input{./Bilder/demo_workflow.tex}}
+    \caption{Workflow of the bias detection application. Automatic translation and manual sentence pairs follow the same prediction steps.}
+    \label{fig:demo_workflow}
+\end{figure}
+
+\paragraph{Initialization.} 
+On launch, the application loads the fine‑tuned BERT bias detection model and its tokenizer from a local directory. These objects are cached in memory to avoid repeated loading. The model and tokenizer move to the available device, either CPU or GPU.
+
+\paragraph{User Interface.} 
+The interface has two tabs:
+\begin{enumerate}
+  \item \textbf{Automatic Translation.} The user inputs raw English text. The application splits the text into sentences and sends them in batches to the translation module. The module returns German translations. Each English sentence is paired with its translation before bias analysis.
+  \item \textbf{Manual Pairing.} The user supplies parallel English–German sentence pairs. After splitting and pairing, the application bypasses translation and proceeds directly to bias analysis.
+\end{enumerate}
+
+\paragraph{Bias Detection Pipeline.} 
+Sentence pairs are processed in batches to reduce overhead and speed up analysis. Each sentence pair is first encoded with the tokenizer of the fine‑tuned BERT model. The encoded input is then processed by the trained classifier, which produces raw bias scores. These scores are normalized into probabilities using softmax. The bias label corresponding to the highest probability is selected, and its confidence value is reported.
+
+\paragraph{Results Presentation.} 
+The application displays a table of results. Each row contains:
+\begin{itemize}
+  \item Original English sentence
+  \item Corresponding German sentence
+  \item Bias prediction (binary)
+  \item Confidence score
+\end{itemize}
+

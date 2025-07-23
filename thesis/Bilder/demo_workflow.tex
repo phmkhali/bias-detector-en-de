@@ -1,0 +1,79 @@
+\begin{tikzpicture}[
+    node distance=1.2cm,
+    every node/.style={font=\small},
+    startstop/.style={
+        rectangle, 
+        rounded corners, 
+        minimum width=3cm, 
+        minimum height=1cm, 
+        text centered, 
+        draw=black, 
+        fill=gray!20
+    },
+    process/.style={
+        rectangle, 
+        minimum width=3cm, 
+        minimum height=1cm, 
+        text centered, 
+        draw=black, 
+        fill=blue!10
+    },
+    arrow/.style={
+        thick,
+        ->,
+        >=stealth
+    }
+]
+
+% Start
+\node (start) [startstop] {User opens Demo App};
+
+% Model Loading
+\node (load) [process, below of=start] {Load Model \& Tokenizer};
+
+% Tabs
+\node (tabs) [process, below of=load] {Select Input Mode};
+
+% Tab 1 flow (left branch)
+\node (tab1) [process, below left=1.5cm and 1.5cm of tabs] {Tab 1: Enter EN Text};
+\node (split1) [process, below of=tab1] {Split Inputs};
+\node (translate) [process, below of=split1] {Translate to German};
+\node (pair1) [process, below of=translate] {Pair Sentences};
+
+% Tab 2 flow (right branch)
+\node (tab2) [process, below right=1.5cm and 1.5cm of tabs] {Tab 2: Enter EN and DE Sentences};
+\node (split2) [process, below of=tab2] {Split Inputs};
+\node (pair2) [process, below of=split2] {Pair Sentences};
+
+% Common processing - positioned lower to accommodate 90-degree arrows
+\node (tokenize) [process, below=7cm of tabs] {Tokenize Pairs};
+\node (predict) [process, below of=tokenize] {Bias Detection Model};
+\node (results) [process, below of=predict] {Generate Predictions};
+\node (display) [startstop, below of=results] {Display Results};
+
+% Arrows - Main flow
+\draw [arrow] (start) -- (load);
+\draw [arrow] (load) -- (tabs);
+\draw [arrow] (tabs) -| (tab1);
+\draw [arrow] (tabs) -| (tab2);
+
+% Arrows - Left branch
+\draw [arrow] (tab1) -- (split1);
+\draw [arrow] (split1) -- (translate);
+\draw [arrow] (translate) -- (pair1);
+\draw [arrow] (pair1) -- (pair1 |- tokenize.north) -- (tokenize);
+
+% Arrows - Right branch
+\draw [arrow] (tab2) -- (split2);
+\draw [arrow] (split2) -- (pair2);
+\draw [arrow] (pair2) -- (pair2 |- tokenize.north) -- (tokenize);
+
+% Arrows - Common processing
+\draw [arrow] (tokenize) -- (predict);
+\draw [arrow] (predict) -- (results);
+\draw [arrow] (results) -- (display);
+
+% Dashed line to show parallel flows
+\draw [dashed, gray] ($(tab1.north east)+(0.2,0)$) -- ($(tab2.north west)-(0.2,0)$);
+
+\end{tikzpicture}
