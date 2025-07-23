@@ -13,4 +13,25 @@ A binary classification tool that flags gendered bias in English-to-German machi
 - 🔧 **Tech Stack**:  
   - Translation: OPUS-MT  
   - Web interface: Streamlit  
-- 📊 **Datasets**: mGeNTE corpus + building-bridges-gender-fair-german-mt dictionary + synthetic gender-swapped examples  
+- 📊 **Datasets**: 
+
+## How to install
+
+1. Clone the repository  
+2. Make sure you have Python and pip installed  
+3. Install the required packages:
+
+   ```bash
+   pip install -r requirements.txt
+
+## How to run
+
+1. Build the model:
+
+   - Open `fine-tuning.ipynb`
+   - Run all cells to train and save the model
+
+2. Start the demo app:
+
+   ```bash
+   streamlit run app.py
