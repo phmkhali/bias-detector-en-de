@@ -35,8 +35,8 @@ def tsv_to_csv_processed_sample(input_filepath, output_filepath, sample_size, se
 
 # Usage
 input_file = 'deu.txt'
-output_file = 'deu_processed_sampled.csv'
-sample_count = 1000
+output_file = 'deu_processed_500.csv'
+sample_count = 550
 random_seed = 10
 
 tsv_to_csv_processed_sample(input_file, output_file, sample_count, random_seed)
