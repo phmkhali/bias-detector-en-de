@@ -31,7 +31,7 @@ deu = pd.read_csv("deu_processed_sampled.csv")
 
 # Sample data
 samples = {
-    "lardelli": {"biased_n": 600, "neutral_n": 600},
+    "lardelli": {"biased_n": 750, "neutral_n": 750},
     "mgente": {"biased_n": 750, "neutral_n": 750},
     "deu": {"biased_n": 0, "neutral_n": 500}
 }
@@ -57,10 +57,9 @@ if missing.any():
 else:
     print("\nNo missing values found.")
 
-name = "dataset_fair.csv"
+name = "dataset_equal.csv"
 
 final_df.to_csv(name, index=False)
 print("Saved as ",name)
 
-analyze_dataset(final_df, name)
 analyze_dataset(final_df, name)
