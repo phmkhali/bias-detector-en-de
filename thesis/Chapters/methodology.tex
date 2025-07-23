@@ -32,9 +32,9 @@ Ideally, I wanted to make use of past EN-DE datasets to minimize manual labour. 
 
 However, While analyzing the \texttt{Translated Wikipedia Biographies} dataset, I found issues that prevented automatic reuse. For example, the \texttt{perceivedGender} column sometimes contained subject names instead of expected labels like Male, Female, or Neutral, which would require manual review. Moreover, the dataset only provided neutral labels (0) since the phrases were correctly gendered. Because my other two datasets are already balanced and include enough neutrally gendered examples, I decided to exclude this dataset.
 
-\texttt{mGeNTE} contains naturally occurring sentences with gendered entities, while \texttt{Building Bridges} focuses on German GFL entries for explicitly gendered nouns such as professions. However, this setup lacked genuinely neutral examples—sentences that do not involve any gendered subject at all, such as \textit{"The weather is nice"} or \textit{"How are you"}. Including such sentences is important to help the model learn that not all translations are relevant for gender bias detection and that many ordinary sentences should be classified as neutral.
+\texttt{mGeNTE} contains naturally occurring sentences with gendered entities, while \texttt{Building Bridges} focuses on German GFL entries for explicitly gendered nouns such as professions. However, this setup lacked genuinely neutral examples; sentences that do not involve any gendered subject at all, such as \textit{"The weather is nice"} or \textit{"How are you"}. Including such sentences is important to help the model learn that not all translations are relevant for gender bias detection and that many ordinary sentences should be classified as neutral.
 
-Since no suitable dataset for this category was readily available, a supplementary set was created using random EN-DE sentence pairs from the \href{https://tatoeba.org/en/}{\texttt{Tatoeba}} corpus. A sample of 550 sentence pairs was selected. Manual filtering was applied to remove any pairs with incorrect or stereotypically gendered translations, as public contributions often default to male forms. The resulting subset consisted only of clearly neutral sentence pairs, all labeled with 0.
+\paragraph{\texttt{Tatoeba.}} Since no suitable dataset for this category was readily available, a supplementary set was created using random EN-DE sentence pairs from the \href{https://tatoeba.org/en/}{\texttt{Tatoeba}} corpus. A sample of 550 sentence pairs was selected. Manual filtering was applied to remove any pairs with incorrect or stereotypically gendered translations, as public contributions often default to male forms. The resulting subset consisted only of clearly neutral sentence pairs, all labeled with 0.
 
 \begin{table}[ht!]
     \centering
@@ -49,7 +49,7 @@ Since no suitable dataset for this category was readily available, a supplementa
     \label{tab:available_datasets}
 \end{table}
 
-\paragraph {\texttt{mGeNTE en-de}} Overview:  
+\paragraph {\texttt{mGeNTE en-de}}. The mGeNTE dataset contained the following relevant information:  
 
 \begin{itemize}  
   \item \texttt{SET-G}: English sentences with a clearly gendered subject.  
@@ -73,7 +73,7 @@ Each original entry was split into two paired examples and labeled as follows:
 This procedure yields 3,000 total instances, of which 750 are labeled biased (1) and 2,250 are labeled neutral (0).  
 
 
-\texttt{Building Bridges Dictionary} did not contain full sentences but rather a gender-fair dictionary of nouns. While this made it a valuable resource for studying gender-fair language, I needed full sentences for my task. To address this, I used prompt engineering with Google Gemini 2.5 Flash to synthetically expand the dataset. The prompt used for generation is included in the appendix. The generated sentences can be found in the code files. I used the nouns from the original dataset to create multiple grammatically correct sentence variations, covering singular, plural, gender-neutral, and gender-inclusive forms. This process resulted in 2,718 sentences.
+\paragraph{\texttt{Building Bridges Dictionary.}} This dataset did not contain full sentences but rather a gender-fair dictionary of nouns. While this made it a valuable resource for studying gender-fair language, I needed full sentences for my task. To address this, I used prompt engineering with Google Gemini 2.5 Flash to synthetically expand the dataset. The prompt used for generation is included in the appendix. The generated sentences can be found in the code files. I used the nouns from the original dataset to create multiple grammatically correct sentence variations, covering singular, plural, gender-neutral, and gender-inclusive forms. This process resulted in 2,718 sentences.
 
 \subsection{Final Dataset Summary}
 % The final dataset used for training is a combination of the transformed \texttt{mGeNTE} dataset and the synthetically extended \texttt{Building Bridges Dictionary} dataset. Each source contributes 2,600 sentence pairs, split evenly into 1,300 biased and 1,300 neutral examples, resulting in a balanced dataset of 5,200 entries. The dataset is shuffled before training to prevent source-specific bias. Each entry contains:
@@ -128,7 +128,7 @@ Further data preprocessing was not necessary since I concatenated already clean 
 \subsection{Hyperparameters}
     I tested a few different settings but mostly kept values close to common recommendations for fine-tuning BERT models.
 
-    \paragraph{Epochs.} I trained for up to \textbf{10 epochs}. \textbf{Early stopping} was enabled with a patience of two epochs. This means training stopped if the F1 score did not improve for two consecutive epochs. I chose this setup following the recommendation by \citet{pecherComparingSpecialisedSmall2024}, who suggest training until convergence with a maximum of 10 epochs and early stopping. This helped avoid overfitting and saved training time.
+    \paragraph{Epochs.} I trained the model for up to \textbf{8 epochs}, with \textbf{early stopping} enabled using a patience of two epochs. This means that training stopped if the F1 score did not improve for two consecutive epochs. The setup follows the recommendation by \citet{pecherComparingSpecialisedSmall2024}, who advise training until convergence with a maximum of 10 epochs and early stopping. In my case, the validation loss typically began to increase after 8 epochs, with no further gains in performance. Reducing the maximum to 8 epochs helped avoid overfitting and shortened training time.
 
     \paragraph{Batch size.} I used a \textbf{batch size of 16}. This is a common choice for fine-tuning on small datasets. It keeps GPU memory use low while still allowing stable gradient updates. \citet{mosbachStabilityFinetuningBERT2021} also use this value when testing fine-tuning stability.
 
