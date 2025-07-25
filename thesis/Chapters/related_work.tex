@@ -286,19 +286,6 @@ Here, \(x\) is the \texttt{[CLS]} embedding, \(W\) is the weight matrix, and \(b
 
 Each logit \( z_i \) is exponentiated to ensure positivity. The result is then normalized by dividing by the sum of all exponentials, producing a probability distribution over the classes. \( K \) is the number of possible classes. The class with the highest probability is selected as the model’s prediction.
 
-\subsubsection{Example: Predicting Gender Bias with Softmax}
-When the model processes the sentence pair "the nurse is kind" / "die krankenschwester ist nett," it creates a \texttt{[CLS]} embedding summarizing the input. This embedding captures features such as word choice, syntactic structure, and semantic associations. 
-
-The linear layer then transforms this embedding into two logits, for example, \([2.0, 1.0]\). The first logit corresponds to the "biased" class, and the second to "neutral". These values are not manually assigned but result from learned weights in the linear layer. During training, the model adjusts these weights to associate certain input patterns with higher scores for one class. In this case, the presence of a gendered profession ("nurse") and a feminine translation ("krankenschwester") may lead the model to assign a higher logit to the "biased" class, based on patterns seen in the training data.
-
-To convert these logits into probabilities, the softmax function is applied:
-
-\[
-\text{softmax}([2.0, 1.0]) = \left[\frac{e^2}{e^2 + e^1}, \frac{e^1}{e^2 + e^1}\right] \approx \left[\frac{7.39}{7.39 + 2.72}, \frac{2.72}{7.39 + 2.72}\right] = [0.73, 0.27]
-\]
-
-Here, \(K=2\) because there are two classes. The model assigns a 73\% probability to the "biased" class and 27\% to "neutral". Since the "biased" probability is higher, the model predicts the translation likely contains gender bias.
-
 \subsection{Multilingual BERT}
     There are multiple variants of the original BERT model. Even the standard version was released in two sizes: BERT-Base and BERT-Large, which differ in the number of layers, attention heads, and overall model capacity \citep{devlinBERTPretrainingDeep2019}. Since then, many other versions have been developed. Most of them modify either BERT’s pre-training objectives or the underlying Transformer architecture \citep{libovickyHowLanguageNeutralMultilingual2019}.
 
