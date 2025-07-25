@@ -25,10 +25,10 @@ The project begins by selecting and combining datasets from previous work (see \
 Since there was no ready-to-use dataset for this task and no prior work that built a similar model, I first had to define: \textbf{(1)} the number of samples required,  and \textbf{(2)} the desired content of my dataset.
 
 \subsection{Number of Samples}
-For a binary classification task of detecting gender bias using \texttt{mBERT}, general guidelines suggest \textbf{between 100 and 5000 labeled samples for fine-tuning} \citep{pecherComparingSpecialisedSmall2024}, while multi-class tasks need fewer samples (around 100). However, the complex nature of gender bias often requires a larger dataset for robust detection since the number of samples depends mainly on the task type. 
+For a binary classification task of detecting gender bias using \texttt{mBERT}, general guidelines suggest between 100 and 5000 labeled samples for fine-tuning \parencite{pecherComparingSpecialisedSmall2024}, while multi-class tasks need fewer samples (around 100). However, the complex nature of gender bias often requires a larger dataset for robust detection since the number of samples depends mainly on the task type. 
 
 \subsection{Dataset Composition}
-Ideally, I wanted to make use of past EN-DE datasets to minimize manual labour. My options were \texttt{\href{https://huggingface.co/datasets/FBK-MT/mGeNTE}{mGeNTE en-de}} \citep{savoldiMGeNTEMultilingualResource2025}, \texttt{\href{https://github.com/g8a9/building-bridges-gender-fair-german-mt}{Building Bridges Dictionary}} \citep{lardelliBuildingBridgesDataset2024}, and \texttt{\href{https://research.google/blog/a-dataset-for-studying-gender-bias-in-translation/}{Translated Wikipedia Biographies}} \citep{stellaDatasetStudyingGender2021}. 
+Ideally, I wanted to make use of past EN-DE datasets to minimize manual labour. My options were \texttt{\href{https://huggingface.co/datasets/FBK-MT/mGeNTE}{mGeNTE en-de}} \parencite{savoldiMGeNTEMultilingualResource2025}, \texttt{\href{https://github.com/g8a9/building-bridges-gender-fair-german-mt}{Building Bridges Dictionary}} \parencite{lardelliBuildingBridgesDataset2024}, and \texttt{\href{https://research.google/blog/a-dataset-for-studying-gender-bias-in-translation/}{Translated Wikipedia Biographies}} \parencite{stellaDatasetStudyingGender2021}. 
 
 However, While analyzing the \texttt{Translated Wikipedia Biographies} dataset, I found issues that prevented automatic reuse. For example, the \texttt{perceivedGender} column sometimes contained subject names instead of expected labels like Male, Female, or Neutral, which would require manual review. Moreover, the dataset only provided neutral labels (0) since the phrases were correctly gendered. Because my other two datasets are already balanced and include enough neutrally gendered examples, I decided to exclude this dataset.
 
@@ -42,8 +42,8 @@ However, While analyzing the \texttt{Translated Wikipedia Biographies} dataset, 
     \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
     \hline
     \textbf{Dataset} & \textbf{Description} & \textbf{Content} \\ \hline
-    \texttt{mGeNTE en-de} \citep{savoldiMGeNTEMultilingualResource2025} & Multilingual dataset to assess gender bias in MT. & \textasciitilde1,500 gender-ambiguous and gendered English sentences with gender-neutral and gendered German translations. \\ \hline
-    \texttt{Building Bridges Dictionary} \citep{lardelliBuildingBridgesDataset2024} & Bilingual dictionary designed to support gender-fair EN-DE translation. & \textasciitilde230 German gender-neutral and gender-inclusive singular and plural sentences with English equivalents. \\ \hline
+    \texttt{mGeNTE en-de} \parencite{savoldiMGeNTEMultilingualResource2025} & Multilingual dataset to assess gender bias in MT. & \textasciitilde1,500 gender-ambiguous and gendered English sentences with gender-neutral and gendered German translations. \\ \hline
+    \texttt{Building Bridges Dictionary} \parencite{lardelliBuildingBridgesDataset2024} & Bilingual dictionary designed to support gender-fair EN-DE translation. & \textasciitilde230 German gender-neutral and gender-inclusive singular and plural sentences with English equivalents. \\ \hline
     \end{tabularx}
     \caption{Overview of suitable EN-DE datasets based on past works.}
     \label{tab:available_datasets}
@@ -101,7 +101,7 @@ The number of samples selected from each dataset was determined through iterativ
 \section{Data Pre-processing}
     I load and split the dataset into three parts: training (80\%), validation (10\%), and test sets (10\%). This ratio is a common choice when working with limited data. It provides enough samples for the model to learn general patterns while reserving separate subsets for tuning and final evaluation. I used stratified sampling for this. That means the label distribution (biased vs. neutral) stays the same across all three sets, avoiding skewed splits. For example, if 30\% of the full dataset is biased, each split will also have 30\% biased samples. This helps the model learn from both classes equally and avoids misleading results in validation or testing.
 
-    I did not apply advanced text cleaning such as removing punctuation, lowercasing, or stemming because I use \href{https://huggingface.co/google-bert/bert-base-multilingual-cased}{\texttt{bert-base-multilingual-cased}}. This tokenizer is designed to handle raw, unmodified text and preserves casing. The model has been trained on large corpora containing natural language in its original form \citep{devlinBERTPretrainingDeep2019}. Altering the input, such as converting "Doctor" to "doctor", could remove distinctions the model has learned. Therefore, advanced preprocessing might reduce performance by disrupting patterns the tokenizer expects.
+    I did not apply advanced text cleaning such as removing punctuation, lowercasing, or stemming because I use \href{https://huggingface.co/google-bert/bert-base-multilingual-cased}{\texttt{bert-base-multilingual-cased}}. This tokenizer is designed to handle raw, unmodified text and preserves casing. The model has been trained on large corpora containing natural language in its original form \parencite{devlinBERTPretrainingDeep2019}. Altering the input, such as converting "Doctor" to "doctor", could remove distinctions the model has learned. Therefore, advanced preprocessing might reduce performance by disrupting patterns the tokenizer expects.
 
 Further data preprocessing was not necessary since I concatenated already clean datasets and manually reviewed them.
 
@@ -119,27 +119,27 @@ Further data preprocessing was not necessary since I concatenated already clean 
     Compared to writing a manual PyTorch training loop, \texttt{Trainer} is easier to use and requires less code. It also includes standard features like tracking metrics and scheduling learning rates. For my use case, this made it a better choice. I did not need custom loss functions or multi-GPU setups, so the added complexity of other frameworks (like PyTorch Lightning) was not necessary.
 
     \subsection{Layer Freezing.}
-    I fine-tuned only the last two encoder layers (10 and 11), the pooler, and the classifier, about 25-30\% of the model. Later layers specialize in the fine-tuning task by focusing on features relevant to it. Freezing earlier layers keeps the general language knowledge unchanged. This reduces overfitting by limiting changes to the most task-relevant parts and speeds up training because fewer parameters are updated \citep{nadipalliLayerWiseEvolutionRepresentations2025}. This is helpful since the task is very specific and resources are limited.
+    I fine-tuned only the last two encoder layers (10 and 11), the pooler, and the classifier, about 25-30\% of the model. Later layers specialize in the fine-tuning task by focusing on features relevant to it. Freezing earlier layers keeps the general language knowledge unchanged. This reduces overfitting by limiting changes to the most task-relevant parts and speeds up training because fewer parameters are updated \parencite{nadipalliLayerWiseEvolutionRepresentations2025}. This is helpful since the task is very specific and resources are limited.
 
 \subsection{Hyperparameters}
     I tested a few different settings but mostly kept values close to common recommendations for fine-tuning BERT models.
 
-    \paragraph{Epochs.} I trained the model for up to \textbf{8 epochs}, with \textbf{early stopping} enabled using a patience of two epochs. This means that training stopped if the F1 score did not improve for two consecutive epochs. The setup follows the recommendation by \citet{pecherComparingSpecialisedSmall2024}, who advise training until convergence with a maximum of 10 epochs and early stopping. In my case, the validation loss typically began to increase after 8 epochs, with no further gains in performance. Reducing the maximum to 8 epochs helped avoid overfitting and shortened training time.
+    \paragraph{Epochs.} I trained the model for up to 8 epochs, with early stopping enabled using a patience of two epochs. This means that training stopped if the F1 score did not improve for two consecutive epochs. The setup follows the recommendation by \textcite{pecherComparingSpecialisedSmall2024}, who advise training until convergence with a maximum of 10 epochs and early stopping. In my case, the validation loss typically began to increase after 8 epochs, with no further gains in performance. Reducing the maximum to 8 epochs helped avoid overfitting and shortened training time.
 
-    \paragraph{Batch size.} I used a \textbf{batch size of 16}. This is a common choice for fine-tuning on small datasets. It keeps GPU memory use low while still allowing stable gradient updates. \citet{mosbachStabilityFinetuningBERT2021} also use this value when testing fine-tuning stability.
+    \paragraph{Batch size.} I used a batch size of 16. This is a common choice for fine-tuning on small datasets. It keeps GPU memory use low while still allowing stable gradient updates. \textcite{mosbachStabilityFinetuningBERT2021} also use this value when testing fine-tuning stability.
 
-    \paragraph{Learning rate.} I set the \textbf{learning rate to 2e-5}. This is the default used in the original BERT paper \citep{devlinBERTPretrainingDeep2019} and still works well in many cases. I also tested 1e-5 and 3e-5. Both gave worse results on the validation set. For example, training with 3e-5 led to sharp drops in F1 after the second epoch. The 2e-5 rate gave the most stable and consistent results in my runs.
+    \paragraph{Learning rate.} I set the learning rate to 2e-5. This is the default used in the original BERT paper \parencite{devlinBERTPretrainingDeep2019} and still works well in many cases. I also tested 1e-5 and 3e-5. Both gave worse results on the validation set. For example, training with 3e-5 led to sharp drops in F1 after the second epoch. The 2e-5 rate gave the most stable and consistent results in my runs.
 
-    \paragraph{Optimizer and scheduler.} The \texttt{Trainer} API uses the \textbf{AdamW optimizer} by default. An optimizer is an algorithm that adjusts the model’s parameters during training to minimize errors \citep{mosbachStabilityFinetuningBERT2021}. AdamW is a popular choice for fine-tuning BERT because it includes weight decay, which helps prevent overfitting. It also uses bias correction to improve stability early in training, avoiding issues like vanishing gradients.
+    \paragraph{Optimizer and scheduler.} The \texttt{Trainer} API uses the AdamW optimizer by default. An optimizer is an algorithm that adjusts the model’s parameters during training to minimize errors \parencite{mosbachStabilityFinetuningBERT2021}. AdamW is a popular choice for fine-tuning BERT because it includes weight decay, which helps prevent overfitting. It also uses bias correction to improve stability early in training, avoiding issues like vanishing gradients.
 
-    A scheduler controls how the learning rate changes during training \citep{mosbachStabilityFinetuningBERT2021}. This affects how big each step is when updating parameters. The scheduler here uses a warmup-linear schedule: the learning rate starts low and increases gradually during the first 10\% of training (warmup), then decreases linearly until the end. This helps the model learn smoothly and prevents unstable training.
+    A scheduler controls how the learning rate changes during training \parencite{mosbachStabilityFinetuningBERT2021}. This affects how big each step is when updating parameters. The scheduler here uses a warmup-linear schedule: the learning rate starts low and increases gradually during the first 10\% of training (warmup), then decreases linearly until the end. This helps the model learn smoothly and prevents unstable training.
 
 \section{Evaluation}
 \subsection{Evaluation Strategy}
 
 The model was evaluated during and after training using the validation and test splits. As described in the data section, both sets were created using stratified sampling to preserve the label distribution. This ensured consistent evaluation across all splits and avoided misleading metrics due to imbalance.
 
-During training, the model was evaluated on the validation set after every epoch. The \textbf{F1 score} was used to monitor progress and decide when to stop. The checkpoint with the highest validation F1 score was saved as the final model. This strategy helped avoid overfitting and improved generalization.
+During training, the model was evaluated on the validation set after every epoch. The F1 score was used to monitor progress and decide when to stop. The checkpoint with the highest validation F1 score was saved as the final model. This strategy helped avoid overfitting and improved generalization.
 
 After training, I evaluated the model on two types of data:
 \begin{itemize}
@@ -149,7 +149,7 @@ After training, I evaluated the model on two types of data:
 
 \subsection{Why F1 Score Was Used}
 
-In this task, both \textbf{false positives} (flagging neutral translations as biased) and \textbf{false negatives} (missing actual bias) are problematic. A model that just plays it safe or guesses randomly is not useful. The F1 score balances \textbf{precision} and \textbf{recall}, which are the two metrics most relevant here.
+In this task, both false positives (flagging neutral translations as biased) and false negatives (missing actual bias) are problematic. A model that just plays it safe or guesses randomly is not useful. The F1 score balances precision and recall, which are the two metrics most relevant here.
 
 \begin{itemize}
     \item \textbf{Precision:} Of the translations flagged as biased, how many were actually biased?
@@ -158,7 +158,7 @@ In this task, both \textbf{false positives} (flagging neutral translations as bi
 
 If the model has high precision but low recall, it avoids false accusations but misses many real issues. If it has high recall but low precision, it catches more bias but floods users with false warnings. 
 
-To balance these trade-offs, the \textbf{F1 score} is used. It is the harmonic mean of precision and recall:
+To balance these trade-offs, the F1 score is used. It is the harmonic mean of precision and recall:
 
 
 \[

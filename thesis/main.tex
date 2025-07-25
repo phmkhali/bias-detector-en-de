@@ -11,12 +11,21 @@ bibliography=totoc,listof=totoc,appendixprefix,paper=a4,headings=small]{scrbook}
   top=25mm,
   bottom=50mm,
   bindingoffset=10mm]{geometry}		% Seitenränder und Bindungskorrektur einstellen
-  
-\usepackage{natbib}		
+
+\usepackage[utf8]{inputenc}         % Umlaute im Text
+
+\usepackage[
+  backend=biber,       
+  style=authoryear,    
+  natbib=true,        
+  maxcitenames=2,
+  mincitenames=1,
+  sorting=nyt,         
+  giveninits=true   
+]{biblatex}
+\addbibresource{Literatur/refs.bib}  % Make sure this path is correct
 \usepackage{pdfpages}
 
-\setcitestyle{round,aysep={}} 		% Indizierg. in runden Klammern, zw. Autor u. Jahr
-\usepackage[utf8]{inputenc}         % Umlaute im Text
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}				% Schriftfamilie
 \setkomafont{disposition}{\bfseries}
@@ -107,8 +116,7 @@ bibliography=totoc,listof=totoc,appendixprefix,paper=a4,headings=small]{scrbook}
 
 % -----------------------------------
 \backmatter 
-\bibliographystyle{apalike}		
-\bibliography{./Literatur/refs}		% Literaturquellen einbinden 
+\printbibliography
 \clearpage{\pagestyle{empty}\cleardoublepage}		
 \input{./Chapters/appendix}
 \input{./Chapters/erklaerung} 			% Eidesstattliche Erklärung (nicht bei Seminararb.)
