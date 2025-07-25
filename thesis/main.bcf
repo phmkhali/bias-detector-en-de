@@ -2463,21 +2463,21 @@
     <bcf:citekey order="68" intorder="2">kapplAreAllSpanish2025</bcf:citekey>
     <bcf:citekey order="68" intorder="3">lardelliBuildingBridgesDataset2024</bcf:citekey>
     <bcf:citekey order="69" intorder="1">quemyBinaryClassificationUnstructured2019</bcf:citekey>
-    <bcf:citekey order="70" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
-    <bcf:citekey order="71" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
-    <bcf:citekey order="72" intorder="1">smithCompleteGuideBERT2024</bcf:citekey>
-    <bcf:citekey order="73" intorder="1">smithCompleteGuideBERT2024</bcf:citekey>
-    <bcf:citekey order="74" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
-    <bcf:citekey order="75" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
-    <bcf:citekey order="76" intorder="1">libovickyHowLanguageNeutralMultilingual2019</bcf:citekey>
+    <bcf:citekey order="70" intorder="1">phuongFormalAlgorithmsTransformers2022</bcf:citekey>
+    <bcf:citekey order="71" intorder="1">xiaoIntroductionTransformersNLP2023</bcf:citekey>
+    <bcf:citekey order="72" intorder="1">xiaoIntroductionTransformersNLP2023</bcf:citekey>
+    <bcf:citekey order="73" intorder="1">xiaoIntroductionTransformersNLP2023</bcf:citekey>
+    <bcf:citekey order="74" intorder="1">xiaoIntroductionTransformersNLP2023</bcf:citekey>
+    <bcf:citekey order="75" intorder="1">xiaoIntroductionTransformersNLP2023</bcf:citekey>
+    <bcf:citekey order="76" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
     <bcf:citekey order="77" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
-    <bcf:citekey order="78" intorder="1">piresHowMultilingualMultilingual2019</bcf:citekey>
-    <bcf:citekey order="79" intorder="1">phuongFormalAlgorithmsTransformers2022</bcf:citekey>
-    <bcf:citekey order="80" intorder="1">xiaoIntroductionTransformersNLP2023</bcf:citekey>
-    <bcf:citekey order="81" intorder="1">xiaoIntroductionTransformersNLP2023</bcf:citekey>
-    <bcf:citekey order="82" intorder="1">xiaoIntroductionTransformersNLP2023</bcf:citekey>
-    <bcf:citekey order="83" intorder="1">xiaoIntroductionTransformersNLP2023</bcf:citekey>
-    <bcf:citekey order="84" intorder="1">xiaoIntroductionTransformersNLP2023</bcf:citekey>
+    <bcf:citekey order="78" intorder="1">smithCompleteGuideBERT2024</bcf:citekey>
+    <bcf:citekey order="79" intorder="1">smithCompleteGuideBERT2024</bcf:citekey>
+    <bcf:citekey order="80" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
+    <bcf:citekey order="81" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
+    <bcf:citekey order="82" intorder="1">libovickyHowLanguageNeutralMultilingual2019</bcf:citekey>
+    <bcf:citekey order="83" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
+    <bcf:citekey order="84" intorder="1">piresHowMultilingualMultilingual2019</bcf:citekey>
     <bcf:citekey order="85" intorder="1">tiedemannOPUSMTBuildingOpen2020</bcf:citekey>
     <bcf:citekey order="86" intorder="1">pecherComparingSpecialisedSmall2024</bcf:citekey>
     <bcf:citekey order="87" intorder="1">savoldiMGeNTEMultilingualResource2025</bcf:citekey>
