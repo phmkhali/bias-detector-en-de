@@ -6,7 +6,7 @@
 
 \node (start) [startstop] {Select and Combine Datasets};
 \node (clean) [process, below of=start] {Clean and Pre-process Data};
-\node (features) [process, below of=clean] {Extract Features};
+\node (features) [process, below of=clean] {Initialize Model};
 \node (train) [process, below of=features] {Train Model};
 \node (evaluate) [process, below of=train] {Evaluate Model Performance};
 \node (demo) [startstop, below of=evaluate] {Show Model in Demo Application};
