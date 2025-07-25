@@ -58,7 +58,7 @@ deu = pd.read_csv("deu_final.csv")
 samples = {
     "lardelli": {"biased_n": 750, "neutral_n": 750},
     "mgente": {"biased_n": 750, "neutral_n": 750},
-    "deu": {"biased_n": 0, "neutral_n": 500}
+    "deu": {"biased_n": 0, "neutral_n": 250}
 }
 
 # Sample entries
