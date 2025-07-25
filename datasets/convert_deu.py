@@ -1,11 +1,16 @@
 import csv
 import random
 
+"""
+This script reads a TSV file with at least two columns: English and German sentences.
+It filters out any rows where either sentence contains the word "Tom".
+It randomly samples a specified number of rows from the filtered data.
+It writes the sampled rows to a CSV file with columns: english, german, label.
+The label for all output rows is set to '0'.
+""" 
+
 def tsv_to_csv_processed_sample(input_filepath, output_filepath, sample_size, seed):
-    """
-    Reads a TSV file, filters out rows with 'Tom', samples a subset,
-    and writes them as CSV with 'english,german,label' format.
-    """
+
     try:
         with open(input_filepath, 'r', encoding='utf-8') as infile:
             reader = csv.reader(infile, delimiter='\t')
@@ -35,7 +40,7 @@ def tsv_to_csv_processed_sample(input_filepath, output_filepath, sample_size, se
 
 # Usage
 input_file = 'deu.txt'
-output_file = 'deu_processed_500.csv'
+output_file = 'deu_final.csv'
 sample_count = 550
 random_seed = 10
 
