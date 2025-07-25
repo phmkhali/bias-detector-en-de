@@ -34,7 +34,7 @@ However, While analyzing the \texttt{Translated Wikipedia Biographies} dataset, 
 
 \texttt{mGeNTE} contains naturally occurring sentences with gendered entities, while \texttt{Building Bridges} focuses on German GFL entries for explicitly gendered nouns such as professions. However, this setup lacked genuinely neutral examples; sentences that do not involve any gendered subject at all, such as \textit{"The weather is nice"} or \textit{"How are you"}. Including such sentences is important to help the model learn that not all translations are relevant for gender bias detection and that many ordinary sentences should be classified as neutral.
 
-\paragraph{\texttt{Tatoeba.}} Since no suitable dataset for this category was readily available, a supplementary set was created using random EN-DE sentence pairs from the \href{https://tatoeba.org/en/}{\texttt{Tatoeba}} corpus. A sample of 550 sentence pairs was selected. Manual filtering was applied to remove any pairs with incorrect or stereotypically gendered translations, as public contributions often default to male forms. The resulting subset consisted only of clearly neutral sentence pairs, all labeled with 0.
+\paragraph{\texttt{Tatoeba.}} Since no suitable dataset for this category was readily available, a supplementary set was created using random EN-DE sentence pairs from the \href{https://tatoeba.org/en/}{\texttt{Tatoeba}} corpus. A sample of 550 sentence pairs was selected. Manual filtering was applied to remove any pairs with incorrect or stereotypically gendered translations, as public contributions often default to male forms. The resulting subset consisted of 532 clearly neutral sentence pairs, all labeled with 0. \footnote{The transformed dataset can be found in \texttt{/datasets/deu\_final.csv}.} 
 
 \begin{table}[ht!]
     \centering
@@ -49,7 +49,7 @@ However, While analyzing the \texttt{Translated Wikipedia Biographies} dataset, 
     \label{tab:available_datasets}
 \end{table}
 
-\paragraph {\texttt{mGeNTE en-de}}. The mGeNTE dataset contained the following relevant information:  
+\paragraph {\texttt{mGeNTE en-de.}} The mGeNTE dataset contained the following relevant information:  
 
 \begin{itemize}  
   \item \texttt{SET-G}: English sentences with a clearly gendered subject.  
@@ -70,40 +70,36 @@ Each original entry was split into two paired examples and labeled as follows:
 \texttt{SET\!-\!N} + \texttt{REF\!-\!G} &\;\rightarrow\; 1 \quad(\text{biased})
 \end{aligned}
 \]  
-This procedure yields 3,000 total instances, of which 750 are labeled biased (1) and 2,250 are labeled neutral (0).  
+This procedure yields 3,000 total instances, of which 750 are labeled biased (1) and 2,250 are labeled neutral (0). \footnote{The transformed dataset can be found in \texttt{/datasets/mgente\_final.csv}.} 
 
 
-\paragraph{\texttt{Building Bridges Dictionary.}} This dataset did not contain full sentences but rather a gender-fair dictionary of nouns. While this made it a valuable resource for studying gender-fair language, I needed full sentences for my task. To address this, I used prompt engineering with Google Gemini 2.5 Flash to synthetically expand the dataset. The prompt used for generation is included in the appendix. The generated sentences can be found in the code files. I used the nouns from the original dataset to create multiple grammatically correct sentence variations, covering singular, plural, gender-neutral, and gender-inclusive forms. This process resulted in 2,718 sentences.
+\paragraph{\texttt{Building Bridges Dictionary.}} This dataset did not contain full sentences but rather a gender-fair dictionary of nouns. While this made it a valuable resource for studying gender-fair language, I needed full sentences for my task. To address this, I used prompt engineering with Google Gemini 2.5 Flash to synthetically expand the dataset. The prompt used for generation is included in the appendix. The generated sentences can be found in the code files. I used the nouns from the original dataset to create multiple grammatically correct sentence variations, covering singular, plural, gender-neutral, and gender-inclusive forms. The dataset uses the star form (e.g., \textit{Lehrer*innen}) as its gender-inclusive format. Since the colon form (e.g., \textit{Lehrer:innen}) is also widely used, I added it manually via a script. The script duplicated all entries with stars and replaced the star with a colon to create additional variants.
 
-\subsection{Final Dataset Summary}
-% The final dataset used for training is a combination of the transformed \texttt{mGeNTE} dataset and the synthetically extended \texttt{Building Bridges Dictionary} dataset. Each source contributes 2,600 sentence pairs, split evenly into 1,300 biased and 1,300 neutral examples, resulting in a balanced dataset of 5,200 entries. The dataset is shuffled before training to prevent source-specific bias. Each entry contains:
-% \begin{itemize}
-%     \item an English source sentence (\texttt{english}),
-%     \item its German translation (\texttt{german}),
-%     \item and a binary label (\texttt{label}), where \texttt{1} denotes gender bias and \texttt{0} denotes neutrality.
-% \end{itemize}
+This resulted in 3,381 total entries: 2,001 labeled as 0 (neutral) and 1,380 labeled as 1 (biased). \footnote{The transformed dataset can be found in \texttt{/datasets/lardelli\_final.csv}.}
 
-% \noindent A sample of the dataset is shown below:
+\subsection{Available Data Summary}
 
-% \begin{table}[ht!]
-% \renewcommand{\arraystretch}{1.2}
-% \setlength{\tabcolsep}{6pt}
-% \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X c}
-% \toprule
-% \textbf{English} & \textbf{German} & \textbf{Label} \\
-% \midrule
-% The laypeople are intelligent. & Die Laiinnen sind intelligent. & 1 \\
-% The ceramist is responsible. & Der Keramiker ist verantwortlich. & 1 \\
-% The forest keepers are responsible. & die Forstwart*innen sind verantwortlich. & 0 \\
-% I am sorry that the Commissioner responsible for agriculture is not here and that she does not have the courage to face us. & Ich bedauere, dass die für die Landwirtschaft zuständige Kommissarin nicht anwesend ist und nicht den Mut hat, uns gegenüberzutreten. & 0 \\
-% Mrs Brok, I have no problem whatsoever with this motion. & Ich habe überhaupt kein Problem mit diesem Antrag des Kollegiumsmitglieds Brok. & 1 \\
-% \bottomrule
-% \end{tabularx}
-% \caption{Sample entries from the final training dataset.}
-% \end{table}
+\autoref{tab:data-summary} shows an overview of the labeled data from the three available sources. 
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{l *{3}{>{\centering\arraybackslash}X}}
+\toprule
+\textbf{Dataset} & \textbf{Total} & \textbf{Neutral (0)} & \textbf{Biased (1)} \\
+\midrule
+\texttt{lardelli\_final.csv} & 3381 & 2001 & 1380 \\
+\texttt{mgente\_final.csv}   & 3000 & 2250 & 750  \\
+\texttt{deu\_final.csv}      & 532  & 532  & 0    \\
+\bottomrule
+\end{tabularx}
+\caption{Summary of available labeled examples}
+\label{tab:data-summary}
+\end{table}
+
+The number of samples selected from each dataset was determined through iterative testing. Multiple dataset variants were created by upsampling or downsampling specific groups. The documentation of this process is discussed in \autoref{subsection:eval_dataset}.
 
 \section{Data Pre-processing}
-    I split the dataset into three parts: training (80\%), validation (10\%), and test sets (10\%). This ratio is a common choice when working with limited data. It provides enough samples for the model to learn general patterns while reserving separate subsets for tuning and final evaluation. I used stratified sampling for this. That means the label distribution (biased vs. neutral) stays the same across all three sets, avoiding skewed splits. For example, if 30\% of the full dataset is biased, each split will also have 30\% biased samples. This helps the model learn from both classes equally and avoids misleading results in validation or testing.
+    I load and split the dataset into three parts: training (80\%), validation (10\%), and test sets (10\%). This ratio is a common choice when working with limited data. It provides enough samples for the model to learn general patterns while reserving separate subsets for tuning and final evaluation. I used stratified sampling for this. That means the label distribution (biased vs. neutral) stays the same across all three sets, avoiding skewed splits. For example, if 30\% of the full dataset is biased, each split will also have 30\% biased samples. This helps the model learn from both classes equally and avoids misleading results in validation or testing.
 
     I did not apply advanced text cleaning such as removing punctuation, lowercasing, or stemming because I use \href{https://huggingface.co/google-bert/bert-base-multilingual-cased}{\texttt{bert-base-multilingual-cased}}. This tokenizer is designed to handle raw, unmodified text and preserves casing. The model has been trained on large corpora containing natural language in its original form \citep{devlinBERTPretrainingDeep2019}. Altering the input, such as converting "Doctor" to "doctor", could remove distinctions the model has learned. Therefore, advanced preprocessing might reduce performance by disrupting patterns the tokenizer expects.
 
@@ -174,6 +170,7 @@ Accuracy, by contrast, is not helpful here. With a 50-50 dataset, a model could 
 
 The use of the F1 score ties back to the model design: sentence-level binary classification with a balanced dataset and no cross-sentence context. In this setup, F1 gives the clearest picture of how well the model performs in practice.
 
+\subsection{Dataset Sampling Configurations and Results} \label{subsection:eval_dataset}
 
 \section{Demo Application Design}
 
