@@ -350,9 +350,7 @@ F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \tex
 \]
 \vspace{0.5em}
 
-Accuracy, which measures the overall percentage of correct predictions, is less useful here. Even with a balanced dataset, a model could achieve high accuracy by favoring one class, ignoring the goal of bias detection.
-
-Class imbalance, where one class appears less often, is common in bias detection tasks. Although this thesis uses a roughly balanced dataset, F1 remains the best indicator of model performance because it treats precision and recall equally.
+While commonly used, accuracy (the overall percentage of correct predictions) is a less suitable metric for this task. Even with a balanced dataset, a model could achieve high accuracy by disproportionately favoring one class, thereby failing at the primary goal of reliably detecting bias. 
 
 \subsection{Interactive Demo}
     The fine-tuned model is intended to be presented through an interactive demonstration. Since the focus lies on showcasing the model’s functionality rather than creating a fully developed application, \href{https://streamlit.io/}{Streamlit} was chosen. Streamlit allows for quick and easy development of lightweight user interfaces in Python, providing a simple setup and effective performance. For live translation, an open-source tool supporting EN-DE pairs was required. \href{https://github.com/Helsinki-NLP/Opus-MT}{Opus-MT} \parencite{tiedemannOPUSMTBuildingOpen2020} meets these criteria and integrates smoothly into the demonstration. While state-of-the-art translators like Google Translate or DeepL would have been preferred for their quality, they do not meet the requirements for this setup. Therefore, a separate tab for manual translation input was added, allowing users to paste translations directly and bypass this limitation.
