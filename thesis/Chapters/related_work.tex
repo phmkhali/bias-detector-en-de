@@ -219,19 +219,19 @@ This section explains the key terms and concepts needed to understand gender bia
   To provide some background on the BERT architecture, it is important to understand its foundation in the Transformer model. The Transformer is designed to process input sequences and \textit{transform} them into output sequences. To do this effectively, it uses a self-attention mechanism \parencite{phuongFormalAlgorithmsTransformers2022}.
 
     \subsubsection{Self-attention mechanism}
-    The self-attention mechanism allows the model to weigh the significance of all input elements simultaneously \parencite{xiaoIntroductionTransformersNLP2023}, unlike traditional methods like Recurrent Neural Networks (RNNs), which process data sequentially. As a result, self-attention captures global dependencies and contextual relationships more accurately, creating "context-aware" representations, which is crucial for detecting subtle gender biases that depend on context within translations.
+    The self-attention mechanism allows the model to weigh the significance of all input elements simultaneously \parencite{xiaoIntroductionTransformersNLP2023}, meaning it can look at all words in a sentence at once and decide which ones are most relevant to each word. Unlike traditional methods like Recurrent Neural Networks (RNNs), which process input step by step, self-attention captures global dependencies and contextual relationships more accurately, creating "context-aware" representations.
 
     \subsubsection{Encoder-Decoder Framework} \label{subsection:encoder-decoder}
-    The transformer architecture consists of two main components: the encoder and the decoder. The \textbf{encoder}’s job is to read the input sentence and turn it into a series of vectors the model can understand. Each vector is a list of numbers representing the meaning and structure of each word \parencite{xiaoIntroductionTransformersNLP2023}. The encoder works as follows (see \autoref{fig:transformer_architecture}):
+    The transformer architecture consists of two main components: the encoder and the decoder. The encoder’s job is to read the input sentence and turn it into a series of vectors the model can understand. Each vector is a list of numbers representing the meaning and structure of each word \parencite{xiaoIntroductionTransformersNLP2023}. The encoder works as follows (see \autoref{fig:transformer_architecture}):
 
     \begin{enumerate}
-        \item It receives input embeddings, which represent the words, and \textbf{positional encodings}, which tell the model the order of the words.
+        \item It receives input embeddings, which represent the words, and positional encodings, which tell the model the order of the words.
         
         \item The data then passes through several identical layers. Each layer has two main parts:
         \begin{enumerate}[label=\alph*.]
             \item \textbf{Multi-head self-attention} runs several attention processes in parallel. Each attention head focuses on different details to help the model understand the sentence better.
             \item A \textbf{Feed-forward network} processes each word vector separately, refining the information like a small filter.
-            \item \textbf{Add \& Layer Norm} combines a shortcut connection (Add) and normalization (Layer Norm). The Add step passes the original input forward to keep useful information. Layer Norm adjusts the output values to a stable range so the model can learn more reliably.
+            \item \textbf{Add \& Layer Norm} combines a shortcut connection (Add) and normalization (Layer Norm). The Add step passes the original input forward to keep useful information. Layer Norm adjusts the output values to a stable range.
     \end{enumerate}
     
     \item Each layer builds on the output of the previous one, helping the model form more complex and abstract ideas about the input sentence.
@@ -246,17 +246,17 @@ This section explains the key terms and concepts needed to understand gender bia
     \label{fig:transformer_architecture}
 \end{figure}
 
-The \textbf{decoder} generates the output sentence one word at a time by using the information from the encode \parencite{xiaoIntroductionTransformersNLP2023}. However, since BERT uses only an encoder-only architecture (see \autoref{fig:bert_arch}), the decoder is not relevant for this work and is therefore excluded from the discussion.
+The decoder generates the output sentence one word at a time by using the information from the encoder \parencite{xiaoIntroductionTransformersNLP2023}. However, since BERT uses only an encoder-only architecture (see \autoref{fig:bert_arch}), the decoder is not relevant for this work and is therefore excluded from the discussion.
 
-\subsection{Language model: BERT}
-    \emph{This entire subsection summarizes the input representation methodology from \textcite{devlinBERTPretrainingDeep2019}.}
+\subsection{BERT}
+    BERT is a language model that stands for "Bidirectional Encoder Representations from Transformers" and was introduced by Google in 2018 \parencite{devlinBERTPretrainingDeep2019}. After pre-training, BERT can be adapted to many NLP tasks by adding a simple output layer and fine-tuning, without needing major changes to its design. Since BERT uses only the encoder part of the Transformer architecture, it is designed to understand input rather than generate output. This makes it especially suitable for a binary classification text, where the goal is to analyze input text and assign it to one of two categories.
 
-    \noindent BERT is a language model that stands for "Bidirectional Encoder Representations from Transformers" and was introduced by Google in 2018 \parencite{devlinBERTPretrainingDeep2019}. After pre-training, BERT can be adapted to many NLP tasks by adding a simple output layer and fine-tuning, without needing major changes to its design.
+    There are multiple variants of the original BERT model. It was originally released in two sizes: \texttt{BERT-Base} and \texttt{BERT-Large}, which differ in the number of layers, attention heads, and overall model capacity \parencite{devlinBERTPretrainingDeep2019}. Since then, many other versions have been developed. Most of them modify either BERT’s pre-training objectives or the underlying Transformer architecture \parencite{libovickyHowLanguageNeutralMultilingual2019}.
 
-\subsubsection{Model architecture}
-    BERT's encoder-only architecture allows it to process and understand input thoroughly, but it is not designed to generate new text. That makes BERT well suited for binary classification tasks, since it can analyze each word’s meaning and decide accurately between two categories.
+\subsection{Multilingual BERT (mBERT)}
+    For this thesis, I use multilingual BERT \textbf{\href{https://huggingface.co/google-bert/bert-base-multilingual-cased}{(\texttt{mBERT})}} \parencite{devlinBERTPretrainingDeep2019}. \texttt{mBERT} uses the same configuration as \texttt{BERT-Base}, but it is pretrained on Wikipedia data from 104 languages, including both English and German. There is no explicit indication of the input language, nor is there a training objective that aligns languages bilingually; instead, multilingual capabilities emerge naturally from training on a large multilingual text corpus \parencite{piresHowMultilingualMultilingual2019}.
 
-    The model is based on a multi-layer bidirectional Transformer encoder. The term "multi-layer" refers to the use of 12 stacked encoder layers, each of which incrementally refines the input representation. "Bidirectional" indicates that the model processes both preceding and following words simultaneously, allowing it to capture context more effectively. This represents a significant improvement over earlier architectures, which typically processed text in a single direction, often from left to right. A more detailed description of the Transformer architecture is provided in \autoref{subsection:transformer_arch}.
+    Monolingual models like \href{https://huggingface.co/google-bert/bert-base-german-cased}{\texttt{German BERT}} do not support English input. Larger multilingual models, such as \href{https://huggingface.co/docs/transformers/en/model_doc/xlm-roberta}{\texttt{XLM-RoBERTa}}, require more computational resources and training time, which was not feasible here. \texttt{mBERT} offers a good balance between language coverage, model size, and training efficiency, making it a practical choice detecting gender bias in EN-DE translations.
 
 \begin{figure}
     \centering
@@ -266,13 +266,11 @@ The \textbf{decoder} generates the output sentence one word at a time by using t
 \end{figure}
 
 \subsubsection{Input and Output Representations} \label{subsection:input_output}
-BERT processes an input by splitting whole words or subword units into \textit{tokens}. This allows the model to handle rare and compound words. For example:
+\texttt{mBERT} processes input by splitting words or subword units into \textit{tokens} (tokenization)\footnote{This tokenization process applies to both BERT and mBERT.}. It uses the WordPiece algorithm with a shared vocabulary of 110,000 tokens, and all texts are lowercased before tokenization \citep{devlinMultilingualBERTGitHub2018}. To balance the training data, languages with large Wikipedia corpora are downsampled, while those with fewer resources are oversampled.
 
-\begin{quote}
-    \texttt{unbelievable} $\rightarrow$ \texttt{un}, \texttt{\#\#believable}
-\end{quote}
+Preprocessing is the same for all supported languages and follows the same steps used for English: (1) converting text to lowercase and removing accents, (2) splitting punctuation, and (3) tokenizing based on whitespace. Removing accents helps reduce the vocabulary size, even though it can introduce ambiguity in languages where accents carry meaning. This trade-off is accepted because BERT's contextual embeddings usually resolve such ambiguities during training and inference.
 
-\noindent Special tokens are reserved tokens added to input sequences to indicate boundaries or roles, helping the model distinguish parts of the text and process it correctly.
+Special tokens are reserved tokens added to input sequences to indicate boundaries or roles, helping the model distinguish parts of the text and process it correctly.
 
 \begin{itemize}
 	\item \texttt{[CLS]} (classification) marks the start of the sequence,
@@ -285,7 +283,7 @@ BERT processes an input by splitting whole words or subword units into \textit{t
     \texttt{[CLS] english sentence [SEP] german translation [SEP]}
 \end{quote}
 
-\noindent After processing, BERT outputs a hidden vector for each token. The hidden vector for the \texttt{[CLS]} token represents the entire sequence and is used for tasks like classification. For example, for the input sequence:
+\noindent After processing, BERT outputs a hidden vector for each token. The hidden vector for the \texttt{[CLS]} token represents the entire sequence, acting like a summary of the whole sentence pair. For example, for the input sequence:
 
 \begin{quote}
 \texttt{[CLS] the nurse is kind [SEP] die krankenschwester ist nett [SEP]}
@@ -297,8 +295,7 @@ BERT processes an input by splitting whole words or subword units into \textit{t
 \text{Vector}([CLS]), \text{Vector}(\text{the}), \text{Vector}(\text{nurse}), \ldots, \text{Vector}([SEP])
 \]
 
-\noindent The \texttt{[CLS]} vector aggregates the meaning of both sentences and feeds into the classifier for bias detection.
-
+\noindent The \texttt{[CLS]} vector uses this summary and feeds into the classifier to predict whether the translation is biased or neutral.
 
 \subsubsection{Pre-training and Fine-tuning}
 BERT was pre-trained on a large corpus of unlabeled text \parencite{devlinBERTPretrainingDeep2019}. Since this data contains no manual labels, the model learns to understand language by using patterns in the data to learn token relationships. The result is a task-agnostic base model. In \autoref{fig:bert_arch}, this base model includes all components below the purple linear layer.
@@ -318,13 +315,6 @@ Here, \(x\) is the \texttt{[CLS]} embedding, \(W\) is the weight matrix, and \(b
 \]
 
 Each logit \( z_i \) is exponentiated to ensure positivity. The result is then normalized by dividing by the sum of all exponentials, producing a probability distribution over the classes. \( K \) is the number of possible classes. The class with the highest probability is selected as the model’s prediction.
-
-\subsection{Multilingual BERT}
-    There are multiple variants of the original BERT model. Even the standard version was released in two sizes: BERT-Base and BERT-Large, which differ in the number of layers, attention heads, and overall model capacity \parencite{devlinBERTPretrainingDeep2019}. Since then, many other versions have been developed. Most of them modify either BERT’s pre-training objectives or the underlying Transformer architecture \parencite{libovickyHowLanguageNeutralMultilingual2019}.
-
-    For this thesis, I use multilingual BERT \textbf{\href{https://huggingface.co/google-bert/bert-base-multilingual-cased}{(mBERT)}} \parencite{devlinBERTPretrainingDeep2019}. mBERT uses the same configuration as BERT-Base, but it is pretrained on Wikipedia data from 104 languages, including both English and German. There is no explicit indication of the input language, nor is there a training objective that aligns languages bilingually; instead, multilingual capabilities emerge naturally from training on a large multilingual text corpus \parencite{piresHowMultilingualMultilingual2019}.
-
-    Monolingual models like \href{https://huggingface.co/google-bert/bert-base-german-cased}{German BERT} do not support English input. Larger multilingual models, such as \href{https://huggingface.co/docs/transformers/en/model_doc/xlm-roberta}{XLM-RoBERTa}, require more computational resources and training time, which was not feasible here. mBERT offers a good balance between language coverage, model size, and training efficiency, making it a practical choice detecting gender bias in EN-DE translations.
 
 \subsection{Interactive Demo}
 The fine-tuned model is intended to be presented through an interactive demonstration. Since the focus lies on showcasing the model’s functionality rather than creating a fully developed application, \href{https://streamlit.io/}{Streamlit} was chosen. Streamlit allows for quick and easy development of lightweight user interfaces in Python, providing a simple setup and effective performance. For live translation, an open-source tool supporting EN-DE pairs was required. \href{https://github.com/Helsinki-NLP/Opus-MT}{Opus-MT} \parencite{tiedemannOPUSMTBuildingOpen2020} meets these criteria and integrates smoothly into the demonstration. While state-of-the-art translators like Google Translate or DeepL would have been preferred for their quality, they do not meet the requirements for this setup. Therefore, a separate tab for manual translation input was added, allowing users to paste translations directly and bypass this limitation.
