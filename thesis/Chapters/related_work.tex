@@ -249,12 +249,12 @@ This section explains the key terms and concepts needed to understand gender bia
 The decoder generates the output sentence one word at a time by using the information from the encoder \parencite{xiaoIntroductionTransformersNLP2023}. However, since BERT uses only an encoder-only architecture (see \autoref{fig:bert_arch}), the decoder is not relevant for this work and is therefore excluded from the discussion.
 
 \subsection{BERT}
-    BERT is a language model that stands for "Bidirectional Encoder Representations from Transformers" and was introduced by Google in 2018 \parencite{devlinBERTPretrainingDeep2019}. After pre-training, BERT can be adapted to many NLP tasks by adding a simple output layer and fine-tuning, without needing major changes to its design. Since BERT uses only the encoder part of the Transformer architecture, it is designed to understand input rather than generate output. This makes it especially suitable for a binary classification text, where the goal is to analyze input text and assign it to one of two categories.
+    BERT is a language model that stands for "Bidirectional Encoder Representations from Transformers" and was introduced by Google in 2018 \parencite{devlinBERTPretrainingDeep2019}. After pre-training, BERT can be adapted to many NLP tasks by adding a simple output layer and fine-tuning, without needing major changes to its design. Since BERT uses only the encoder part of the Transformer architecture, it is designed to understand input rather than generate output. This makes it especially suitable for a binary classification task, where the goal is to analyze input texts and assign it to one of two categories.
 
     There are multiple variants of the original BERT model. It was originally released in two sizes: \texttt{BERT-Base} and \texttt{BERT-Large}, which differ in the number of layers, attention heads, and overall model capacity \parencite{devlinBERTPretrainingDeep2019}. Since then, many other versions have been developed. Most of them modify either BERT’s pre-training objectives or the underlying Transformer architecture \parencite{libovickyHowLanguageNeutralMultilingual2019}.
 
 \subsection{Multilingual BERT (mBERT)}
-    For this thesis, I use multilingual BERT \textbf{\href{https://huggingface.co/google-bert/bert-base-multilingual-cased}{(\texttt{mBERT})}} \parencite{devlinBERTPretrainingDeep2019}. \texttt{mBERT} uses the same configuration as \texttt{BERT-Base}, but it is pretrained on Wikipedia data from 104 languages, including both English and German. There is no explicit indication of the input language, nor is there a training objective that aligns languages bilingually; instead, multilingual capabilities emerge naturally from training on a large multilingual text corpus \parencite{piresHowMultilingualMultilingual2019}.
+    For this thesis, I use multilingual BERT \textbf{\href{https://huggingface.co/google-bert/bert-base-multilingual-cased}{(\texttt{mBERT})}} \parencite{devlinBERTPretrainingDeep2019}. \texttt{mBERT} uses the same configuration as \texttt{BERT-Base}, but it is pretrained on Wikipedia data from 104 languages, including both English and German. There is no explicit indication of the input language, nor is there a training objective that aligns languages bilingually. Instead, multilingual capabilities emerge naturally from its large multilingual text corpus \parencite{piresHowMultilingualMultilingual2019}.
 
     Monolingual models like \href{https://huggingface.co/google-bert/bert-base-german-cased}{\texttt{German BERT}} do not support English input. Larger multilingual models, such as \href{https://huggingface.co/docs/transformers/en/model_doc/xlm-roberta}{\texttt{XLM-RoBERTa}}, require more computational resources and training time, which was not feasible here. \texttt{mBERT} offers a good balance between language coverage, model size, and training efficiency, making it a practical choice detecting gender bias in EN-DE translations.
 
@@ -265,12 +265,12 @@ The decoder generates the output sentence one word at a time by using the inform
     \label{fig:bert_arch}
 \end{figure}
 
-\subsubsection{Input and Output Representations} \label{subsection:input_output}
+\subsubsection{Tokenization}
 \texttt{mBERT} processes input by splitting words or subword units into \textit{tokens} (tokenization)\footnote{This tokenization process applies to both BERT and mBERT.}. It uses the WordPiece algorithm with a shared vocabulary of 110,000 tokens, and all texts are lowercased before tokenization \citep{devlinMultilingualBERTGitHub2018}. To balance the training data, languages with large Wikipedia corpora are downsampled, while those with fewer resources are oversampled.
 
-Preprocessing is the same for all supported languages and follows the same steps used for English: (1) converting text to lowercase and removing accents, (2) splitting punctuation, and (3) tokenizing based on whitespace. Removing accents helps reduce the vocabulary size, even though it can introduce ambiguity in languages where accents carry meaning. This trade-off is accepted because BERT's contextual embeddings usually resolve such ambiguities during training and inference.
+Pre-processing is the same for all supported languages: (1) converting text to lowercase and removing accents, (2) splitting punctuation, and (3) tokenizing based on whitespace. Removing accents helps reduce the vocabulary size, even though it can introduce ambiguity in languages where accents carry meaning. This trade-off is accepted because \texttt{mBERT's} contextual embeddings usually resolve such ambiguities during training and inference.
 
-Special tokens are reserved tokens added to input sequences to indicate boundaries or roles, helping the model distinguish parts of the text and process it correctly.
+Special tokens are reserved tokens added to in. They indicate boundaries or roles, helping the model distinguish parts of the text and process it correctly.
 
 \begin{itemize}
 	\item \texttt{[CLS]} (classification) marks the start of the sequence,
@@ -283,38 +283,39 @@ Special tokens are reserved tokens added to input sequences to indicate boundari
     \texttt{[CLS] english sentence [SEP] german translation [SEP]}
 \end{quote}
 
-\noindent After processing, BERT outputs a hidden vector for each token. The hidden vector for the \texttt{[CLS]} token represents the entire sequence, acting like a summary of the whole sentence pair. For example, for the input sequence:
-
 \begin{quote}
 \texttt{[CLS] the nurse is kind [SEP] die krankenschwester ist nett [SEP]}
 \end{quote}
 
-\noindent BERT creates a vector for each token:
+\subsubsection{Mechanics of Fine-Tuning mBERT}
+    Fine-tuning adjusts the base model for a specific task, in this case, detecting gender bias in translations.\footnote{This fine-tuning process applies to both BERT and mBERT.} To do so, a new labeled dataset is used to continue training the model, allowing it to adapt its weights to task-specific patterns. 
 
-\[
-\text{Vector}([CLS]), \text{Vector}(\text{the}), \text{Vector}(\text{nurse}), \ldots, \text{Vector}([SEP])
-\]
+    A classification head, comprising a linear layer followed by a softmax function (see \autoref{fig:bert_arch}), is added on top of \texttt{mBERT’s} output. The linear layer applies a learned transformation to the final hidden state vector of the \texttt{[CLS]} token. 
 
-\noindent The \texttt{[CLS]} vector uses this summary and feeds into the classifier to predict whether the translation is biased or neutral.
+    \[
+    z = Wx + b
+    \]
 
-\subsubsection{Pre-training and Fine-tuning}
-BERT was pre-trained on a large corpus of unlabeled text \parencite{devlinBERTPretrainingDeep2019}. Since this data contains no manual labels, the model learns to understand language by using patterns in the data to learn token relationships. The result is a task-agnostic base model. In \autoref{fig:bert_arch}, this base model includes all components below the purple linear layer.
+    Here, \(x\) is the \texttt{[CLS]} embedding, \(W\) is the weight matrix, and \(b\) is the bias vector. Both \(W\) and \(b\) are parameters learned during training to help map \texttt{mBERT’s} output to the task labels. This changes the output into two numbers (logits), one for each class: biased or neutral. Then, the softmax function turns these numbers into probabilities \parencite{devlinBERTPretrainingDeep2019,xiaoIntroductionTransformersNLP2023}. Short for "soft maximum," it maps raw scores to a probability distribution, emphasizing the highest values while still giving smaller ones some weight.
 
-Fine-tuning adjusts this base model for a specific task, in this case, detecting gender bias in translations. Since this thesis focuses on the fine-tuning process, the following explanation provides more technical background for this part of the model. 
+    \[
+    \text{softmax}(z_i) = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_j}}
+    \]
 
-A task-specific classification head, comprising a linear layer followed by a softmax function, is added on top of BERT’s output. The linear layer applies a learned transformation to the final hidden state vector of the \texttt{[CLS]} token. 
+    Each logit \( z_i \) is exponentiated to ensure positivity. The result is then normalized by dividing by the sum of all exponentials, producing the probability distributions. \( K \) is the number of possible classes. The class with the highest probability is selected as the model’s prediction.
+    
+\subsubsection{Key Hyperparameters Explained}
+    Fine-tuning can be unstable, and changes such as different seeds can lead to large differences in task performance \parencite{mosbachStabilityFinetuningBERT2021}. Tuning a set of key hyperparameters is therefore necessary. These are not learned by the model but must be set manually or through experimentation. Their values affect how fast the model learns, how stable training is, and how well the model generalizes to new data.
 
-\[
-z = Wx + b
-\]
+    The \textit{learning rate} controls how much the model updates its weights during each step \parencite{mosbachStabilityFinetuningBERT2021}. If it is too high, the model may not converge and instead jump over good solutions. If it is too low, training can be very slow or get stuck in local minima.
 
-Here, \(x\) is the \texttt{[CLS]} embedding, \(W\) is the weight matrix, and \(b\) is the bias vector. Both \(W\) and \(b\) are parameters learned during training to help map BERT’s output to the task labels. This changes BERT’s output into two numbers (logits), one for each class: biased or neutral. Then, softmax turns these numbers into probabilities:
+    \textit{Warmup steps} are used at the beginning of training to gradually increase the learning rate from zero to its target value \citep{mosbachStabilityFinetuningBERT2021}. This helps avoid instability in the early stages, where large updates can be harmful. After the warmup period, the learning rate is often decreased again using a scheduler, which controls how it changes over time.
 
-\[
-\text{softmax}(z_i) = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_j}}
-\]
+    The \textit{number of epochs} defines how many times the model passes through the entire training dataset \parencite{mosbachStabilityFinetuningBERT2021}. More epochs mean more training iterations, which can help the model better fit the data. On small datasets, training for more epochs—sometimes up to 20 instead of the usual 3—helps reduce instability and improves generalization. This is because the model has more chances to learn meaningful patterns instead of stopping too early.
 
-Each logit \( z_i \) is exponentiated to ensure positivity. The result is then normalized by dividing by the sum of all exponentials, producing a probability distribution over the classes. \( K \) is the number of possible classes. The class with the highest probability is selected as the model’s prediction.
+    The \textit{batch size} refers to how many training examples the model processes before updating its parameters \parencite{mosbachStabilityFinetuningBERT2021}. Commonly, a batch size of 16 is used during fine-tuning \texttt{mBERT}. Larger batches provide more stable gradient estimates but require more memory. Smaller batches can introduce noise in the updates but might help the model generalize better. While \textcite{mosbachStabilityFinetuningBERT2021} does not deeply analyze batch size effects on stability, it remains an important parameter to balance resource limits and training quality.
+
+    Finally, the \textit{optimizer} controls how the model weights are adjusted to minimize prediction error \parencite{mosbachStabilityFinetuningBERT2021}. The AdamW optimizer is standard for \texttt{mBERT} fine-tuning because it adapts learning rates per parameter and includes weight decay regularization. A critical feature of Adam is \textit{bias correction}, which reduces the effective learning rate early in training. This acts like an implicit warmup, preventing large unstable updates and vanishing gradients in the lower layers. Combining explicit warmup with Adam’s bias correction allows training with higher learning rates more stably.
 
 \subsection{Interactive Demo}
 The fine-tuned model is intended to be presented through an interactive demonstration. Since the focus lies on showcasing the model’s functionality rather than creating a fully developed application, \href{https://streamlit.io/}{Streamlit} was chosen. Streamlit allows for quick and easy development of lightweight user interfaces in Python, providing a simple setup and effective performance. For live translation, an open-source tool supporting EN-DE pairs was required. \href{https://github.com/Helsinki-NLP/Opus-MT}{Opus-MT} \parencite{tiedemannOPUSMTBuildingOpen2020} meets these criteria and integrates smoothly into the demonstration. While state-of-the-art translators like Google Translate or DeepL would have been preferred for their quality, they do not meet the requirements for this setup. Therefore, a separate tab for manual translation input was added, allowing users to paste translations directly and bypass this limitation.

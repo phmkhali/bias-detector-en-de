@@ -106,7 +106,7 @@ The number of samples selected from each dataset was determined through iterativ
 Further data preprocessing was not necessary since I concatenated already clean datasets and manually reviewed them.
 
 \section{Model Initialization}
-    \texttt{mBERT} with a binary classification head is used to predict whether a translation is \textit{biased} or \textit{neutral}, based on the input format described in \autoref{subsection:input_output}.
+    \texttt{mBERT} with a binary classification head is used to predict whether a translation is \textit{biased} or \textit{neutral}.
 
     The tokenizer from the same model source encodes input pairs into token IDs and applies segment embeddings to distinguish between source and target sentences. All sequences are padded or truncated to a fixed length of 256 tokens. This length was chosen after tests with 128 tokens led to truncation warnings and content loss. With 256 tokens, most pairs remained complete while keeping memory use efficient.
 
