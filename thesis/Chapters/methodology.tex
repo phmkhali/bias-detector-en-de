@@ -34,7 +34,7 @@ However, While analyzing the \texttt{Translated Wikipedia Biographies} dataset, 
 
 \texttt{mGeNTE} contains naturally occurring sentences with gendered entities, while \texttt{Building Bridges} focuses on German GFL entries for explicitly gendered nouns such as professions. However, this setup lacked genuinely neutral examples; sentences that do not involve any gendered subject at all, such as \textit{"The weather is nice"} or \textit{"How are you"}. Including such sentences is important to help the model learn that not all translations are relevant for gender bias detection and that many ordinary sentences should be classified as neutral.
 
-\paragraph{\texttt{Tatoeba.}} Since no suitable dataset for this category was readily available, a supplementary set was created using random EN-DE sentence pairs from the \href{https://tatoeba.org/en/}{\texttt{Tatoeba}} corpus. A sample of 550 sentence pairs was selected. Manual filtering was applied to remove any pairs with incorrect or stereotypically gendered translations, as public contributions often default to male forms. The resulting subset consisted of 532 clearly neutral sentence pairs, all labeled with 0. \footnote{The transformed dataset can be found in \texttt{/datasets/deu\_final.csv}.} 
+\paragraph{\texttt{Tatoeba.}} Since no suitable dataset for this category was readily available, a supplementary set was created using random EN-DE sentence pairs from the \href{https://tatoeba.org/en/}{\texttt{Tatoeba}} corpus. A sample of 550 sentence pairs was selected. Manual filtering was applied to remove any pairs with incorrect or stereotypically gendered translations, as public contributions often default to male forms. The resulting subset consisted of 532 clearly neutral sentence pairs, all labeled with 0. \footnote{The transformed dataset can be found in \texttt{/datasets/tatoeba\_final.csv}.} 
 
 \begin{table}[ht!]
     \centering
@@ -89,14 +89,14 @@ This resulted in 3,381 total entries: 2,001 labeled as 0 (neutral) and 1,380 lab
 \midrule
 \texttt{lardelli\_final.csv} & 3381 & 2001 & 1380 \\
 \texttt{mgente\_final.csv}   & 3000 & 2250 & 750  \\
-\texttt{deu\_final.csv}      & 532  & 532  & 0    \\
+\texttt{tatoeba\_final.csv}      & 532  & 532  & 0    \\
 \bottomrule
 \end{tabularx}
 \caption{Summary of available labeled examples}
 \label{tab:data-summary}
 \end{table}
 
-The number of samples selected from each dataset was determined through iterative testing. Multiple dataset variants were created by upsampling or downsampling specific groups. The documentation of this process is discussed in \autoref{subsection:eval_dataset}.
+The number of samples selected from each dataset was determined through iterative testing. Multiple dataset variants were created by upsampling or downsampling specific groups. The documentation of this process is discussed in \autoref{subsection:training_dataset_tuning}.
 
 \section{Data Pre-processing}
     I load and split the dataset into three parts: training (80\%), validation (10\%), and test sets (10\%). This ratio is a common choice when working with limited data. It provides enough samples for the model to learn general patterns while reserving separate subsets for tuning and final evaluation. I used stratified sampling for this. That means the label distribution (biased vs. neutral) stays the same across all three sets, avoiding skewed splits. For example, if 30\% of the full dataset is biased, each split will also have 30\% biased samples. This helps the model learn from both classes equally and avoids misleading results in validation or testing.
@@ -124,29 +124,84 @@ Further data preprocessing was not necessary since I concatenated already clean 
 \section{Evaluation Strategy}
     I evaluated the model during training using the validation set and after training using two separate test sets. As described in \autoref{subsection:hyperparameters_explained}, I used the macro F1 score to measure model performance. The validation set helped track progress across epochs. I saved the checkpoint with the highest validation F1 score.
 
-    However, since the dataset was handcrafted and had known weaknesses, I did not rely on the validation set alone to judge final performance. To get a clearer picture of how well the model generalizes, I created a separate handcrafted test set. This set includes EN-DE sentence pairs with manually added bias labels.
+    However, since the joined training dataset was handcrafted and had known weaknesses, I did not rely on the validation set alone to judge final performance. To get a clearer picture of how well the model generalizes outside of that dataset, I created a separate handcrafted test set. This set includes EN-DE sentence pairs with manually added bias labels.
     
-    Based on those two evaluation strategies, I tuned the hyperparameters to gradually improve performance.
+    Based on those two evaluation strategies, I adapted the fine-tuning as well as the joined training dataset. 
 
 \subsection{Handcrafted Test Set Construction} \label{subsection:eval_dataset}
     I approached the manual test set creation from the perspective of a user testing the tool. I asked what types of input would reveal different failure cases or edge cases. I grouped the examples into categories: neutral sentences, neutral sentences with gendered roles, biased translations, and translations using German GFL. These groupings helped ensure coverage of both obvious and subtle cases.
 
     The set includes simple synthetic sentences I wrote myself, as well as real-world examples taken from job postings. I added the latter to reflect how the tool might be used in practice, for example, when checking a translated job ad for gender bias.
 
-    I focused on diversity in sentence structure and content rather than label balance. Some cases were meant to test whether the model wrongly flags neutral sentences that happen to contain gendered words. Others tested its ability to recognize different GFL forms in German, such as “Lehrende” or the colon form “Lehrer:innen.” Bias labels were assigned manually based on the definition discussed in Chapter 2. The full handcrafted test set is listed in Appendix~\ref{appendix:handcrafted_testset}.
+    I focused on diversity in sentence structure and content rather than label balance. Some cases were meant to test whether the model wrongly flags neutral sentences that happen to contain gendered words. Others tested its ability to recognize different GFL forms in German, such as “Lehrende” or the colon form “Lehrer:innen.” Bias labels were assigned manually based on the definition discussed in Chapter 2. The full handcrafted test set consisting of 25 labeled translation pairs is listed in the Appendix.
 
 \subsection{Hyperparameter Selection and Tuning}
-    I tested a few different settings but mostly kept values close to common recommendations for fine-tuning BERT models.
+     While I tested a few standard hyperparameters, I focused more on tuning the dataset composition and the number of frozen layers. These changes had a much stronger impact on performance in my experiments. Since my training data came from a mix of external sources with varying quality, I saw more value in adjusting how the data was used rather than spending time on extensive hyperparameter tuning. The recommended defaults from prior work already performed well enough, so I treated them as a reasonable starting point.
 
     \paragraph{Epochs.} I trained the model for up to 8 epochs, with early stopping enabled using a patience of two epochs. This means that training stopped if the F1 score did not improve for two consecutive epochs. The setup follows the recommendation by \textcite{pecherComparingSpecialisedSmall2024}, who advise training until convergence with a maximum of 10 epochs and early stopping. In my case, the validation loss typically began to increase after 8 epochs, with no further gains in performance. Reducing the maximum to 8 epochs helped avoid overfitting and shortened training time.
 
-    \paragraph{Batch size.} I used a batch size of 16. This is a common choice for fine-tuning on small datasets. It keeps GPU memory use low while still allowing stable gradient updates. \textcite{mosbachStabilityFinetuningBERT2021} also use this value when testing fine-tuning stability.
+    \paragraph{Batch size.} I used a batch size of 16. This is a common choice for fine-tuning on small datasets, offering a good balance between memory usage and training stability. I tested smaller batch sizes with lower learning rates, but these combinations led to worse performance and less effective training early on. Since existing literature, such as \textcite{mosbachStabilityFinetuningBERT2021}, already supports using a batch size of 16, I did not run many additional experiments with smaller values.
 
-    \paragraph{Learning rate.} I set the learning rate to 2e-5. This is the default used in the original BERT paper \parencite{devlinBERTPretrainingDeep2019} and still works well in many cases. I also tested 1e-5 and 3e-5. Both gave worse results on the validation set. For example, training with 3e-5 led to sharp drops in F1 after the second epoch. The 2e-5 rate gave the most stable and consistent results in my runs.
+    \paragraph{Learning rate.} I set the learning rate to 2e-5. This value comes from the original BERT paper \parencite{devlinBERTPretrainingDeep2019} and is still widely used. I also tested 1e-5 and 3e-5, but both showed slightly worse results on the validation set. The 2e-5 setting gave the most stable and reliable performance in my runs, so I kept it for all final training runs.
 
-    \paragraph{Optimizer and scheduler.} The \texttt{Trainer} API uses the AdamW optimizer by default. An optimizer is an algorithm that adjusts the model’s parameters during training to minimize errors \parencite{mosbachStabilityFinetuningBERT2021}. AdamW is a popular choice for fine-tuning BERT because it includes weight decay, which helps prevent overfitting. It also uses bias correction to improve stability early in training, avoiding issues like vanishing gradients.
+    \paragraph{Optimizer and scheduler.} The \texttt{Trainer} API uses the AdamW optimizer by default. The scheduler here uses a warmup-linear schedule: the learning rate starts low and increases gradually during the first 10\% of training (warmup), then decreases linearly until the end. This helps the model learn smoothly and prevents unstable training.
 
-    A scheduler controls how the learning rate changes during training \parencite{mosbachStabilityFinetuningBERT2021}. This affects how big each step is when updating parameters. The scheduler here uses a warmup-linear schedule: the learning rate starts low and increases gradually during the first 10\% of training (warmup), then decreases linearly until the end. This helps the model learn smoothly and prevents unstable training.
+    These were the values I used for the following experiments described in the \textit{Training Dataset Tuning} and \textit{Layer Freezing Tuning} sections.
+
+\subsection{Training Dataset Tuning} \label{subsection:training_dataset_tuning}
+    This section summarizes the process of tuning the training dataset composition for the classifier. The detailed documentation of each iteration is included in the appendix. Here, the focus is on the process and rationale rather than on numeric results.
+
+    Since the F1 scores were similar across dataset versions, the main evaluation was performed my handcrafted test set of 25 sentences. This small test set does not provide a full indication of model quality, but it offers insight into practical usability. When mentioning better or worse performance, this limitation should be kept in mind.
+
+    The dataset \texttt{mgente\_final} was considered the best source because its samples are natural sentences. All 750 biased samples from \texttt{mgente\_final} were included, along with exactly 750 neutral samples. The tuning process aimed to adjust the remaining datasets to maintain a maximum ratio of 60\% neutral to 40\% biased samples.
+
+    Sampling was performed using the \texttt{join\_datasets.py} script, which loads the labeled datasets, samples a fixed number of biased and neutral entries per dataset using a fixed random seed (10), and combines them into a single training set. The script also checks for missing values and label integrity before saving the final CSV file. The tuning process across dataset versions, including their composition and rationale, is summarized in \autoref{tab:dataset_versions}.
+
+    The Baseline dataset already achieved strong performance, with a test F1 score of 0.975 and 84.6\% accuracy on the handcrafted test set. However, it failed on some neutral examples such as \textit{"My mother is an engineer." / "Meine Mutter ist Ingenieurin."} (predicted biased with confidence 0.55) and on certain German GFL patterns (e.g., double naming and the colon notation).
+
+    Tweaking the dataset composition in Datasets B through E occasionally improved specific issues. For example, Dataset E correctly classified the neutral gendered sentence that the Baseline missed. However, these improvements came at the cost of worse performance elsewhere, such as failing on some job advertisements. Overall, these adjustments did not lead to consistent practical gains on the handcrafted test set and sometimes reduced accuracy. Therefore, the Baseline dataset composition was retained for final training, as it provided the best overall balance and practical usability based on the evaluation.
+
+\vspace{0.8em}
+\begin{table}[ht]
+    \centering
+    \begin{tabularx}{\textwidth}{l >{\raggedright\arraybackslash}X rrr}
+    \toprule
+    \textbf{Dataset} & \textbf{Rationale} & \multicolumn{3}{c}{\textbf{Composition}} \\
+    \cmidrule(lr){3-5}
+    & & \textbf{Neutral} & \textbf{Biased} & \textbf{Total} \\
+    \midrule
+    A (Baseline) & Initial setup using equal parts of \texttt{mgente\_final} and \texttt{lardelli\_final}, with some \texttt{tatoeba\_final} neutrals. & 1,750 & 1,500 & 3,250 \\
+    B & Built on Baseline. Increased \texttt{lardelli\_final} neutrals to better capture GFL patterns and added more \texttt{tatoeba\_final} neutrals. & 2,150 & 1,500 & 3,650 \\
+    C & Built on Baseline and B. Reduced \texttt{lardelli\_final} biased examples to counter possible overrepresentation. & 1,750 & 1,150 & 2,900 \\
+    D & Built on Baseline and C. Further improved neutral recognition by adding more \texttt{tatoeba\_final} neutral sentences. & 2,000 & 1,500 & 3,500 \\
+    E & Built on Baseline and C. Increased \texttt{mgente\_final} neutral data to raise diversity from naturalistic examples. & 1,750 & 1,500 & 3,250 \\
+    \bottomrule
+    \end{tabularx}
+    \caption{Dataset iterations with rationale and composition. Each version builds on the Baseline and previous adjustments.}
+    \label{tab:dataset_versions}
+\end{table}
+
+\subsection{Layer Freezing Tuning}
+    All dataset tuning experiments described above were conducted with layer freezing set to $n=8$, meaning that encoder layers 0 through 7 of \texttt{mBERT} were frozen during training. As explained in \autoref{subsection:hyperparameters_explained}, earlier studies have shown that the middle layers are most semantically informative, while lower layers tend to capture syntactic information. Freezing up to layer 8 was chosen as a baseline to reduce training time while still allowing the model to adapt higher-level representations to the task.
+
+    Since the results with $n=8$ were already promising, only two further variations were tested: $n=7$ and $n=6$. These settings freeze fewer layers, meaning more of the network remains trainable. The purpose of these tests was to evaluate whether this added flexibility improved performance without overfitting.
+
+    \vspace{0.8em}
+    \begin{table}[ht]
+        \centering
+        \begin{tabularx}{\linewidth}{Xcc}
+        \toprule
+        \textbf{Frozen Layers} & \textbf{Test F1 (weighted)} & \textbf{Handcrafted Test Set Accuracy} \\
+        \midrule
+        $n=6$ (layers 0--5 frozen) & 0.981 & 80.8\% \\
+        $n=7$ (layers 0--6 frozen) & 0.979 & 80.8\% \\
+        $n=8$ (layers 0--7 frozen) & 0.966 & 84.8\% \\
+        \bottomrule
+        \end{tabularx}
+        \caption{Comparison of layer freezing settings}
+    \end{table}
+
+    Although freezing fewer layers yielded slightly higher F1 scores on the test set, the model trained with $n=8$ performed best on the handcrafted test sentences, which were designed to assess real-world usability. Given that the F1 differences were small and that freezing more layers leads to a simpler and more efficient model, $n=8$ was selected as the final setting.
 
 \section{Demo Application Design}
 
