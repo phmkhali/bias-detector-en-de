@@ -24,3 +24,54 @@
 \section{Prompt and Output for Pre-training/Fine-tuning Explanation}
 \label{appendix:prompt_pdf}
 \includepdf[pages=-]{./Literatur/Linear and Softmax 14-jul-2025.pdf}
+
+\section{Handcrafted Test Set}
+\label{appendix:handcrafted_testset}
+
+\begin{longtable}{|p{6.5cm}|p{6.5cm}|c|}
+\hline
+\textbf{English} & \textbf{German} & \textbf{Label} \\
+\hline
+\multicolumn{3}{|l|}{\textbf{Neutral}} \\
+\hline
+Today the weather is beautiful & Heute ist das Wetter schön & 0 \\
+I like this guy. & Ich mag diesen Kerl. & 0 \\
+How are you? & Wie geht es dir? & 0 \\
+BERT is a transformers model pretrained on a large corpus of multilingual data in a self-supervised fashion. & BERT ist ein Transformer-Modell, das auf selbstüberwachte Weise auf einem großen Korpus mehrsprachiger Daten vorab trainiert wird. & 0 \\
+Knowledge is love and light and vision. & Wissen ist Liebe und Licht und Vision. & 0 \\
+\hline
+\multicolumn{3}{|l|}{\textbf{Neutral with Gendered Subjects}} \\
+\hline
+My mother is an engineer. & Meine Mutter ist Ingenieurin. & 0 \\
+Is this boy a good artist? & Ist dieser Junge ein guter Künstler? & 0 \\
+I am living with my sister, who is also my best friend & Ich lebe mit meiner Schwester, die auch meine beste Freundin ist & 0 \\
+My father was an excellent cook. & Mein Vater war ein ausgezeichneter Koch. & 0 \\
+The girls went hiking. & Die Mädchen gingen wandern. & 0 \\
+\hline
+\multicolumn{3}{|l|}{\textbf{Biased}} \\
+\hline
+Do you like our maths teacher? & Mögen Sie unsere Mathelehrerin? & 1 \\
+The doctor was late to work today. & Der Arzt kam heute zu spät zur Arbeit. & 1 \\
+Tomorrow the students are leaving for a class trip. & Morgen gehen die Studenten zu einer Klassenfahrt. & 1 \\
+This nurse does not work hard. & Diese Krankenschwester arbeitet nicht hart. & 1 \\
+Athletes earn a lot of money. & Sportler verdienen viel Geld. & 1 \\
+\hline
+\multicolumn{3}{|l|}{\textbf{GFL Variants}} \\
+\hline
+Engineers are kind and hard-working & Ingenieur*innen sind lieb und fleißig & 0 \\
+Engineers are kind and hard-working & Ingenieure und Ingenieurinnen sind lieb und fleißig & 0 \\
+Teachers are kind and hard-working & Lehrende sind lieb und fleißig & 0 \\
+Teachers are kind and hard-working & Lehrer:innen sind lieb und fleißig & 0 \\
+Teachers are kind and hard-working & Lehrerinnen und Lehrer sind lieb und fleißig & 0 \\
+Teachers are kind and hard-working & Lehrer sind lieb und fleißig & 1 \\
+Teachers are kind and hard-working & Lehrerinnen sind lieb und fleißig & 1 \\
+\hline
+\multicolumn{3}{|l|}{\textbf{Job Posting (Real-world)} } \\
+\hline
+We’re seeking someone to join our team Office 365 squads to lead the design, development, and integration of Gen AI apps and integration using Microsoft Copilot Studio. & Wir suchen jemanden für unser Office 365-Team, der die Konzeption, Entwicklung und Integration von Gen AI-Apps und die Integration mithilfe von Microsoft Copilot Studio leitet. & 0 \\
+The ideal candidate should have a solid technical foundation with a focus on Custom agent development and Copilot integrations, strategic thinking, excellent communication skills, and the ability to collaborate within a global team. & Der ideale Kandidat sollte über solide technische Grundlagen mit Schwerpunkt auf der Entwicklung kundenspezifischer Agenten und Copilot-Integrationen, strategisches Denken, ausgezeichnete Kommunikationsfähigkeiten und die Fähigkeit zur Zusammenarbeit in einem globalen Team verfügen. & 1 \\
+In the Technology division, we leverage innovation to build the connections and capabilities that power our Firm, enabling our clients and colleagues to redefine markets and shape the future of our communities. & Im Bereich Technologie nutzen wir Innovationen, um die Verbindungen und Fähigkeiten aufzubauen, die unser Unternehmen voranbringen, und unseren Kunden und Kollegen zu ermöglichen, Märkte neu zu definieren und die Zukunft unserer Gemeinschaften zu gestalten. & 1 \\
+This is a Lead Workplace Engineering position at VP level, which is part of the job family responsible for managing and optimizing the technical environment and end-user experience across various workplace technologies, ensuring seamless operations and user satisfaction across the organization. & Dies ist eine Position als Lead Workplace Engineering auf VP-Ebene, die Teil der Jobfamilie ist, die für die Verwaltung und Optimierung der technischen Umgebung und der Endbenutzererfahrung für verschiedene Arbeitsplatztechnologien verantwortlich ist und einen reibungslosen Betrieb sowie die Zufriedenheit der Benutzer im gesamten Unternehmen sicherstellt. & 1 \\
+\hline
+\caption{Handcrafted English-German sentence pairs with binary bias labels (0 = neutral, 1 = biased).}
+\end{longtable}

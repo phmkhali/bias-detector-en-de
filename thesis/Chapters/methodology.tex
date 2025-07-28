@@ -121,7 +121,21 @@ Further data preprocessing was not necessary since I concatenated already clean 
     \subsection{Layer Freezing.}
     I fine-tuned only the last two encoder layers (10 and 11), the pooler, and the classifier, about 25-30\% of the model. Later layers specialize in the fine-tuning task by focusing on features relevant to it. Freezing earlier layers keeps the general language knowledge unchanged. This reduces overfitting by limiting changes to the most task-relevant parts and speeds up training because fewer parameters are updated \parencite{nadipalliLayerWiseEvolutionRepresentations2025}. This is helpful since the task is very specific and resources are limited.
 
-\subsection{Hyperparameters}
+\section{Evaluation Strategy}
+    I evaluated the model during training using the validation set and after training using two separate test sets. As described in \autoref{subsection:hyperparameters_explained}, I used the macro F1 score to measure model performance. The validation set helped track progress across epochs. I saved the checkpoint with the highest validation F1 score.
+
+    However, since the dataset was handcrafted and had known weaknesses, I did not rely on the validation set alone to judge final performance. To get a clearer picture of how well the model generalizes, I created a separate handcrafted test set. This set includes EN-DE sentence pairs with manually added bias labels.
+    
+    Based on those two evaluation strategies, I tuned the hyperparameters to gradually improve performance.
+
+\subsection{Handcrafted Test Set Construction} \label{subsection:eval_dataset}
+    I approached the manual test set creation from the perspective of a user testing the tool. I asked what types of input would reveal different failure cases or edge cases. I grouped the examples into categories: neutral sentences, neutral sentences with gendered roles, biased translations, and translations using German GFL. These groupings helped ensure coverage of both obvious and subtle cases.
+
+    The set includes simple synthetic sentences I wrote myself, as well as real-world examples taken from job postings. I added the latter to reflect how the tool might be used in practice, for example, when checking a translated job ad for gender bias.
+
+    I focused on diversity in sentence structure and content rather than label balance. Some cases were meant to test whether the model wrongly flags neutral sentences that happen to contain gendered words. Others tested its ability to recognize different GFL forms in German, such as “Lehrende” or the colon form “Lehrer:innen.” Bias labels were assigned manually based on the definition discussed in Chapter 2. The full handcrafted test set is listed in Appendix~\ref{appendix:handcrafted_testset}.
+
+\subsection{Hyperparameter Selection and Tuning}
     I tested a few different settings but mostly kept values close to common recommendations for fine-tuning BERT models.
 
     \paragraph{Epochs.} I trained the model for up to 8 epochs, with early stopping enabled using a patience of two epochs. This means that training stopped if the F1 score did not improve for two consecutive epochs. The setup follows the recommendation by \textcite{pecherComparingSpecialisedSmall2024}, who advise training until convergence with a maximum of 10 epochs and early stopping. In my case, the validation loss typically began to increase after 8 epochs, with no further gains in performance. Reducing the maximum to 8 epochs helped avoid overfitting and shortened training time.
@@ -133,44 +147,6 @@ Further data preprocessing was not necessary since I concatenated already clean 
     \paragraph{Optimizer and scheduler.} The \texttt{Trainer} API uses the AdamW optimizer by default. An optimizer is an algorithm that adjusts the model’s parameters during training to minimize errors \parencite{mosbachStabilityFinetuningBERT2021}. AdamW is a popular choice for fine-tuning BERT because it includes weight decay, which helps prevent overfitting. It also uses bias correction to improve stability early in training, avoiding issues like vanishing gradients.
 
     A scheduler controls how the learning rate changes during training \parencite{mosbachStabilityFinetuningBERT2021}. This affects how big each step is when updating parameters. The scheduler here uses a warmup-linear schedule: the learning rate starts low and increases gradually during the first 10\% of training (warmup), then decreases linearly until the end. This helps the model learn smoothly and prevents unstable training.
-
-\section{Evaluation}
-\subsection{Evaluation Strategy}
-
-The model was evaluated during and after training using the validation and test splits. As described in the data section, both sets were created using stratified sampling to preserve the label distribution. This ensured consistent evaluation across all splits and avoided misleading metrics due to imbalance.
-
-During training, the model was evaluated on the validation set after every epoch. The F1 score was used to monitor progress and decide when to stop. The checkpoint with the highest validation F1 score was saved as the final model. This strategy helped avoid overfitting and improved generalization.
-
-After training, I evaluated the model on two types of data:
-\begin{itemize}
-    \item A small handcrafted test set that includes common bias patterns seen during training. This tested whether the model correctly learned to flag known types of bias.
-    \item A set of real-world sentences taken from external sources like job ads. This tested how well the model handles unseen natural language and generalizes beyond training data.
-\end{itemize}
-
-\subsection{Why F1 Score Was Used}
-
-In this task, both false positives (flagging neutral translations as biased) and false negatives (missing actual bias) are problematic. A model that just plays it safe or guesses randomly is not useful. The F1 score balances precision and recall, which are the two metrics most relevant here.
-
-\begin{itemize}
-    \item \textbf{Precision:} Of the translations flagged as biased, how many were actually biased?
-    \item \textbf{Recall:} Of the biased translations, how many did the model catch?
-\end{itemize}
-
-If the model has high precision but low recall, it avoids false accusations but misses many real issues. If it has high recall but low precision, it catches more bias but floods users with false warnings. 
-
-To balance these trade-offs, the F1 score is used. It is the harmonic mean of precision and recall:
-
-
-\[
-F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
-\]
-\vspace{0.5em}
-
-Accuracy, by contrast, is not helpful here. With a 50-50 dataset, a model could reach high accuracy by only learning to predict the majority class. That would ignore the actual task of bias detection.
-
-The use of the F1 score ties back to the model design: sentence-level binary classification with a balanced dataset and no cross-sentence context. In this setup, F1 gives the clearest picture of how well the model performs in practice.
-
-\subsection{Dataset Sampling Configurations and Results} \label{subsection:eval_dataset}
 
 \section{Demo Application Design}
 
