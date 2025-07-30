@@ -25,6 +25,9 @@ bibliography=totoc,listof=totoc,appendixprefix,paper=a4,headings=small]{scrbook}
 ]{biblatex}
 \addbibresource{Literatur/refs.bib}  % Make sure this path is correct
 \usepackage{pdfpages}
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}				% Schriftfamilie

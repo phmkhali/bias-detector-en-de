@@ -2406,107 +2406,108 @@
     <bcf:citekey order="23" intorder="1">chakravarthiSurveyOrthographicInformation2021</bcf:citekey>
     <bcf:citekey order="24" intorder="1">wuGooglesNeuralMachine2016</bcf:citekey>
     <bcf:citekey order="24" intorder="2">deeplHowDoesDeepL2021</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">ullmannGenderBiasMachine2022</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">wuGooglesNeuralMachine2016</bcf:citekey>
     <bcf:citekey order="26" intorder="1">ullmannGenderBiasMachine2022</bcf:citekey>
-    <bcf:citekey order="26" intorder="2">rescignoGenderBiasMachine2023</bcf:citekey>
-    <bcf:citekey order="26" intorder="3">lardelliBuildingBridgesDataset2024</bcf:citekey>
-    <bcf:citekey order="26" intorder="4">kapplAreAllSpanish2025</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">lardelliBuildingBridgesDataset2024</bcf:citekey>
-    <bcf:citekey order="27" intorder="2">schmitzGermanAllProfessors2022</bcf:citekey>
-    <bcf:citekey order="28" intorder="1">sczesnyCanGenderFairLanguage2016</bcf:citekey>
-    <bcf:citekey order="29" intorder="1">godsilEffectsGenderRoles2016</bcf:citekey>
-    <bcf:citekey order="30" intorder="1">shresthaExploringGenderBiases2022</bcf:citekey>
-    <bcf:citekey order="31" intorder="1">pratesAssessingGenderBias2019</bcf:citekey>
-    <bcf:citekey order="32" intorder="1">barclayInvestigatingMarkersDrivers2024a</bcf:citekey>
-    <bcf:citekey order="33" intorder="1">ullmannGenderBiasMachine2022</bcf:citekey>
-    <bcf:citekey order="33" intorder="2">shahPredictiveBiasesNatural2020</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">ullmannGenderBiasMachine2022</bcf:citekey>
+    <bcf:citekey order="27" intorder="2">rescignoGenderBiasMachine2023</bcf:citekey>
+    <bcf:citekey order="27" intorder="3">lardelliBuildingBridgesDataset2024</bcf:citekey>
+    <bcf:citekey order="27" intorder="4">kapplAreAllSpanish2025</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">lardelliBuildingBridgesDataset2024</bcf:citekey>
+    <bcf:citekey order="28" intorder="2">schmitzGermanAllProfessors2022</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">sczesnyCanGenderFairLanguage2016</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">godsilEffectsGenderRoles2016</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">shresthaExploringGenderBiases2022</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">pratesAssessingGenderBias2019</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">barclayInvestigatingMarkersDrivers2024a</bcf:citekey>
     <bcf:citekey order="34" intorder="1">ullmannGenderBiasMachine2022</bcf:citekey>
-    <bcf:citekey order="34" intorder="2">stanczakSurveyGenderBias2021</bcf:citekey>
     <bcf:citekey order="35" intorder="1">ullmannGenderBiasMachine2022</bcf:citekey>
-    <bcf:citekey order="36" intorder="1">schryenWritingQualitativeLiterature2015</bcf:citekey>
-    <bcf:citekey order="37" intorder="1">shresthaExploringGenderBiases2022</bcf:citekey>
-    <bcf:citekey order="38" intorder="1">savoldiDecadeGenderBias2025</bcf:citekey>
-    <bcf:citekey order="39" intorder="1">schiebingerScientificResearchMust2014</bcf:citekey>
-    <bcf:citekey order="40" intorder="1">savoldiDecadeGenderBias2025</bcf:citekey>
-    <bcf:citekey order="41" intorder="1">pratesAssessingGenderBias2019</bcf:citekey>
-    <bcf:citekey order="42" intorder="1">googleReducingGenderBias2018</bcf:citekey>
+    <bcf:citekey order="35" intorder="2">shahPredictiveBiasesNatural2020</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">ullmannGenderBiasMachine2022</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">schryenWritingQualitativeLiterature2015</bcf:citekey>
+    <bcf:citekey order="38" intorder="1">shresthaExploringGenderBiases2022</bcf:citekey>
+    <bcf:citekey order="39" intorder="1">savoldiDecadeGenderBias2025</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">schiebingerScientificResearchMust2014</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">savoldiDecadeGenderBias2025</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">pratesAssessingGenderBias2019</bcf:citekey>
     <bcf:citekey order="43" intorder="1">googleReducingGenderBias2018</bcf:citekey>
-    <bcf:citekey order="44" intorder="1">stanovskyEvaluatingGenderBias2019</bcf:citekey>
-    <bcf:citekey order="45" intorder="1">pratesAssessingGenderBias2019</bcf:citekey>
-    <bcf:citekey order="46" intorder="1">stanczakSurveyGenderBias2021</bcf:citekey>
-    <bcf:citekey order="47" intorder="1">rescignoGenderBiasMachine2023</bcf:citekey>
-    <bcf:citekey order="48" intorder="1">kapplAreAllSpanish2025</bcf:citekey>
-    <bcf:citekey order="49" intorder="1">soundararajanInvestigatingGenderBias2024</bcf:citekey>
-    <bcf:citekey order="49" intorder="2">kapplAreAllSpanish2025</bcf:citekey>
-    <bcf:citekey order="50" intorder="1">pratesAssessingGenderBias2019</bcf:citekey>
-    <bcf:citekey order="51" intorder="1">godsilEffectsGenderRoles2016</bcf:citekey>
+    <bcf:citekey order="44" intorder="1">googleReducingGenderBias2018</bcf:citekey>
+    <bcf:citekey order="45" intorder="1">stanovskyEvaluatingGenderBias2019</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">pratesAssessingGenderBias2019</bcf:citekey>
+    <bcf:citekey order="47" intorder="1">stanczakSurveyGenderBias2021</bcf:citekey>
+    <bcf:citekey order="48" intorder="1">rescignoGenderBiasMachine2023</bcf:citekey>
+    <bcf:citekey order="49" intorder="1">kapplAreAllSpanish2025</bcf:citekey>
+    <bcf:citekey order="50" intorder="1">soundararajanInvestigatingGenderBias2024</bcf:citekey>
+    <bcf:citekey order="50" intorder="2">kapplAreAllSpanish2025</bcf:citekey>
+    <bcf:citekey order="51" intorder="1">pratesAssessingGenderBias2019</bcf:citekey>
     <bcf:citekey order="52" intorder="1">godsilEffectsGenderRoles2016</bcf:citekey>
-    <bcf:citekey order="53" intorder="1">savoldiWhatHarmQuantifying2024</bcf:citekey>
+    <bcf:citekey order="53" intorder="1">godsilEffectsGenderRoles2016</bcf:citekey>
     <bcf:citekey order="54" intorder="1">savoldiWhatHarmQuantifying2024</bcf:citekey>
-    <bcf:citekey order="55" intorder="1">baldiEnglishIndoEuropeanLanguage2008</bcf:citekey>
-    <bcf:citekey order="56" intorder="1">sczesnyCanGenderFairLanguage2016</bcf:citekey>
-    <bcf:citekey order="57" intorder="1">lardelliBuildingBridgesDataset2024</bcf:citekey>
+    <bcf:citekey order="55" intorder="1">savoldiWhatHarmQuantifying2024</bcf:citekey>
+    <bcf:citekey order="56" intorder="1">baldiEnglishIndoEuropeanLanguage2008</bcf:citekey>
+    <bcf:citekey order="57" intorder="1">sczesnyCanGenderFairLanguage2016</bcf:citekey>
     <bcf:citekey order="58" intorder="1">lardelliBuildingBridgesDataset2024</bcf:citekey>
-    <bcf:citekey order="59" intorder="1">waldendorfWordsChangeIncrease2024</bcf:citekey>
-    <bcf:citekey order="60" intorder="1">lardelliBuildingBridgesDataset2024</bcf:citekey>
-    <bcf:citekey order="60" intorder="2">savoldiDecadeGenderBias2025</bcf:citekey>
-    <bcf:citekey order="61" intorder="1">waldendorfWordsChangeIncrease2024</bcf:citekey>
+    <bcf:citekey order="59" intorder="1">lardelliBuildingBridgesDataset2024</bcf:citekey>
+    <bcf:citekey order="60" intorder="1">waldendorfWordsChangeIncrease2024</bcf:citekey>
+    <bcf:citekey order="61" intorder="1">lardelliBuildingBridgesDataset2024</bcf:citekey>
+    <bcf:citekey order="61" intorder="2">savoldiDecadeGenderBias2025</bcf:citekey>
     <bcf:citekey order="62" intorder="1">waldendorfWordsChangeIncrease2024</bcf:citekey>
     <bcf:citekey order="63" intorder="1">waldendorfWordsChangeIncrease2024</bcf:citekey>
-    <bcf:citekey order="64" intorder="1">lardelliBuildingBridgesDataset2024</bcf:citekey>
-    <bcf:citekey order="65" intorder="1">barclayInvestigatingMarkersDrivers2024a</bcf:citekey>
-    <bcf:citekey order="65" intorder="2">shresthaExploringGenderBiases2022</bcf:citekey>
-    <bcf:citekey order="65" intorder="3">stanczakSurveyGenderBias2021</bcf:citekey>
-    <bcf:citekey order="66" intorder="1">lardelliBuildingBridgesDataset2024</bcf:citekey>
-    <bcf:citekey order="67" intorder="1">stanczakSurveyGenderBias2021</bcf:citekey>
-    <bcf:citekey order="68" intorder="1">ullmannGenderBiasMachine2022</bcf:citekey>
-    <bcf:citekey order="68" intorder="2">kapplAreAllSpanish2025</bcf:citekey>
-    <bcf:citekey order="68" intorder="3">lardelliBuildingBridgesDataset2024</bcf:citekey>
-    <bcf:citekey order="69" intorder="1">quemyBinaryClassificationUnstructured2019</bcf:citekey>
-    <bcf:citekey order="70" intorder="1">phuongFormalAlgorithmsTransformers2022</bcf:citekey>
-    <bcf:citekey order="71" intorder="1">xiaoIntroductionTransformersNLP2023</bcf:citekey>
+    <bcf:citekey order="64" intorder="1">waldendorfWordsChangeIncrease2024</bcf:citekey>
+    <bcf:citekey order="65" intorder="1">lardelliBuildingBridgesDataset2024</bcf:citekey>
+    <bcf:citekey order="66" intorder="1">barclayInvestigatingMarkersDrivers2024a</bcf:citekey>
+    <bcf:citekey order="66" intorder="2">shresthaExploringGenderBiases2022</bcf:citekey>
+    <bcf:citekey order="66" intorder="3">stanczakSurveyGenderBias2021</bcf:citekey>
+    <bcf:citekey order="67" intorder="1">lardelliBuildingBridgesDataset2024</bcf:citekey>
+    <bcf:citekey order="68" intorder="1">stanczakSurveyGenderBias2021</bcf:citekey>
+    <bcf:citekey order="69" intorder="1">ullmannGenderBiasMachine2022</bcf:citekey>
+    <bcf:citekey order="69" intorder="2">kapplAreAllSpanish2025</bcf:citekey>
+    <bcf:citekey order="69" intorder="3">lardelliBuildingBridgesDataset2024</bcf:citekey>
+    <bcf:citekey order="70" intorder="1">quemyBinaryClassificationUnstructured2019</bcf:citekey>
+    <bcf:citekey order="71" intorder="1">phuongFormalAlgorithmsTransformers2022</bcf:citekey>
     <bcf:citekey order="72" intorder="1">xiaoIntroductionTransformersNLP2023</bcf:citekey>
     <bcf:citekey order="73" intorder="1">xiaoIntroductionTransformersNLP2023</bcf:citekey>
     <bcf:citekey order="74" intorder="1">xiaoIntroductionTransformersNLP2023</bcf:citekey>
     <bcf:citekey order="75" intorder="1">xiaoIntroductionTransformersNLP2023</bcf:citekey>
-    <bcf:citekey order="76" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
+    <bcf:citekey order="76" intorder="1">xiaoIntroductionTransformersNLP2023</bcf:citekey>
     <bcf:citekey order="77" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
-    <bcf:citekey order="78" intorder="1">libovickyHowLanguageNeutralMultilingual2019</bcf:citekey>
-    <bcf:citekey order="79" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
-    <bcf:citekey order="80" intorder="1">piresHowMultilingualMultilingual2019</bcf:citekey>
-    <bcf:citekey order="81" intorder="1">smithCompleteGuideBERT2024</bcf:citekey>
+    <bcf:citekey order="78" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
+    <bcf:citekey order="79" intorder="1">libovickyHowLanguageNeutralMultilingual2019</bcf:citekey>
+    <bcf:citekey order="80" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
+    <bcf:citekey order="81" intorder="1">piresHowMultilingualMultilingual2019</bcf:citekey>
     <bcf:citekey order="82" intorder="1">smithCompleteGuideBERT2024</bcf:citekey>
-    <bcf:citekey order="83" intorder="1">devlinMultilingualBERTGitHub2018</bcf:citekey>
-    <bcf:citekey order="84" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
-    <bcf:citekey order="84" intorder="2">xiaoIntroductionTransformersNLP2023</bcf:citekey>
-    <bcf:citekey order="85" intorder="1">mosbachStabilityFinetuningBERT2021</bcf:citekey>
+    <bcf:citekey order="83" intorder="1">smithCompleteGuideBERT2024</bcf:citekey>
+    <bcf:citekey order="84" intorder="1">devlinMultilingualBERTGitHub2018</bcf:citekey>
+    <bcf:citekey order="85" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
+    <bcf:citekey order="85" intorder="2">xiaoIntroductionTransformersNLP2023</bcf:citekey>
     <bcf:citekey order="86" intorder="1">mosbachStabilityFinetuningBERT2021</bcf:citekey>
     <bcf:citekey order="87" intorder="1">mosbachStabilityFinetuningBERT2021</bcf:citekey>
     <bcf:citekey order="88" intorder="1">mosbachStabilityFinetuningBERT2021</bcf:citekey>
     <bcf:citekey order="89" intorder="1">mosbachStabilityFinetuningBERT2021</bcf:citekey>
     <bcf:citekey order="90" intorder="1">mosbachStabilityFinetuningBERT2021</bcf:citekey>
     <bcf:citekey order="91" intorder="1">mosbachStabilityFinetuningBERT2021</bcf:citekey>
-    <bcf:citekey order="92" intorder="1">sorrentiSelectiveFreezingEfficient2023</bcf:citekey>
-    <bcf:citekey order="93" intorder="1">nadipalliLayerWiseEvolutionRepresentations2025</bcf:citekey>
+    <bcf:citekey order="92" intorder="1">mosbachStabilityFinetuningBERT2021</bcf:citekey>
+    <bcf:citekey order="93" intorder="1">sorrentiSelectiveFreezingEfficient2023</bcf:citekey>
     <bcf:citekey order="94" intorder="1">nadipalliLayerWiseEvolutionRepresentations2025</bcf:citekey>
-    <bcf:citekey order="95" intorder="1">wuBetoBentzBecas2019</bcf:citekey>
+    <bcf:citekey order="95" intorder="1">nadipalliLayerWiseEvolutionRepresentations2025</bcf:citekey>
     <bcf:citekey order="96" intorder="1">wuBetoBentzBecas2019</bcf:citekey>
-    <bcf:citekey order="97" intorder="1">gurgurovMultilingualLargeLanguage2024</bcf:citekey>
-    <bcf:citekey order="98" intorder="1">sichlerGenderDifferencesGermanlanguage2014</bcf:citekey>
-    <bcf:citekey order="99" intorder="1">lauscherZeroHeroLimitations2020</bcf:citekey>
-    <bcf:citekey order="100" intorder="1">rainioEvaluationMetricsStatistical2024</bcf:citekey>
-    <bcf:citekey order="101" intorder="1">tiedemannOPUSMTBuildingOpen2020</bcf:citekey>
-    <bcf:citekey order="102" intorder="1">pecherComparingSpecialisedSmall2024</bcf:citekey>
-    <bcf:citekey order="103" intorder="1">savoldiMGeNTEMultilingualResource2025</bcf:citekey>
-    <bcf:citekey order="104" intorder="1">lardelliBuildingBridgesDataset2024</bcf:citekey>
-    <bcf:citekey order="105" intorder="1">stellaDatasetStudyingGender2021</bcf:citekey>
-    <bcf:citekey order="110" intorder="1">savoldiMGeNTEMultilingualResource2025</bcf:citekey>
-    <bcf:citekey order="111" intorder="1">lardelliBuildingBridgesDataset2024</bcf:citekey>
-    <bcf:citekey order="112" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
-    <bcf:citekey order="113" intorder="1">nadipalliLayerWiseEvolutionRepresentations2025</bcf:citekey>
-    <bcf:citekey order="114" intorder="1">pecherComparingSpecialisedSmall2024</bcf:citekey>
-    <bcf:citekey order="115" intorder="1">mosbachStabilityFinetuningBERT2021</bcf:citekey>
-    <bcf:citekey order="116" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
+    <bcf:citekey order="97" intorder="1">wuBetoBentzBecas2019</bcf:citekey>
+    <bcf:citekey order="98" intorder="1">gurgurovMultilingualLargeLanguage2024</bcf:citekey>
+    <bcf:citekey order="99" intorder="1">sichlerGenderDifferencesGermanlanguage2014</bcf:citekey>
+    <bcf:citekey order="100" intorder="1">lauscherZeroHeroLimitations2020</bcf:citekey>
+    <bcf:citekey order="101" intorder="1">rainioEvaluationMetricsStatistical2024</bcf:citekey>
+    <bcf:citekey order="102" intorder="1">tiedemannOPUSMTBuildingOpen2020</bcf:citekey>
+    <bcf:citekey order="103" intorder="1">pecherComparingSpecialisedSmall2024</bcf:citekey>
+    <bcf:citekey order="104" intorder="1">savoldiMGeNTEMultilingualResource2025</bcf:citekey>
+    <bcf:citekey order="105" intorder="1">lardelliBuildingBridgesDataset2024</bcf:citekey>
+    <bcf:citekey order="106" intorder="1">stellaDatasetStudyingGender2021</bcf:citekey>
+    <bcf:citekey order="111" intorder="1">savoldiMGeNTEMultilingualResource2025</bcf:citekey>
+    <bcf:citekey order="112" intorder="1">lardelliBuildingBridgesDataset2024</bcf:citekey>
+    <bcf:citekey order="113" intorder="1">bahetiTrainTestValidation2021</bcf:citekey>
+    <bcf:citekey order="114" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
+    <bcf:citekey order="115" intorder="1">nadipalliLayerWiseEvolutionRepresentations2025</bcf:citekey>
+    <bcf:citekey order="116" intorder="1">pecherComparingSpecialisedSmall2024</bcf:citekey>
+    <bcf:citekey order="117" intorder="1">mosbachStabilityFinetuningBERT2021</bcf:citekey>
+    <bcf:citekey order="118" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

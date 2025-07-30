@@ -20,7 +20,7 @@ This section explains the key terms and concepts needed to understand gender bia
 
     \textbf{MT} is a direct application of NLP. It is used to automatically translate text from one language to another \parencite{linMachineTranslationAcademic2009}. MT systems have gone through several stages of development; earlier approaches like rule-based and statistical MT used manually defined grammar rules or pattern matching from large translation corpora \parencite{chakravarthiSurveyOrthographicInformation2021}. 
 
-    Most modern systems like Google Translate and DeepL, use neural machine translation (NMT) \parencite{wuGooglesNeuralMachine2016,deeplHowDoesDeepL2021}. These systems are trained on large sets of translated texts. They learn to represent the meaning of whole sentences as mathematical structures and generate more fluent and accurate translations. Unlike earlier systems, they aim to consider the full context of a sentence, which helps reduce errors and improves the handling of ambiguous or idiomatic language. In this work, all MT systems mentioned or deployed are neural NMT systems.
+    Most modern systems like Google Translate and DeepL, use neural machine translation (NMT) \parencite{wuGooglesNeuralMachine2016,deeplHowDoesDeepL2021}. These systems are trained on large sets of translated texts. They learn to represent the meaning of whole sentences as mathematical structures and generate more fluent and accurate translations. Unlike earlier systems, they aim to consider the full context of a sentence, which helps reduce errors and improves the handling of ambiguous or idiomatic language \parencite{wuGooglesNeuralMachine2016}. In this work, all MT systems mentioned or deployed are neural NMT systems.
 
 \subsection{Bias in Society and its Manifestations}
 \label{subsection:manifestations_of_gb}
@@ -39,7 +39,7 @@ This section explains the key terms and concepts needed to understand gender bia
         It is commonly used in spoken German and other gendered languages \parencite{lardelliBuildingBridgesDataset2024,schmitzGermanAllProfessors2022}, although research has consistently shown that the generic masculine creates a male bias in mental representations, leading readers or listeners to think more of male than female examples \parencite{sczesnyCanGenderFairLanguage2016}. 
 
     \subsubsection{Reinforcement of Stereotypes}
-        Gender bias is deeply rooted in traditional views of men’s and women’s roles at work and at home \parencite{godsilEffectsGenderRoles2016}. Even though many of these roles are outdated, they still shape how people judge others’ abilities and character. This can lead to correspondence bias, where people assume traits based on behavior or context. These ideas are reinforced by media like TV shows and advertisements, and they can also influence the way language is used and interpreted.
+        Gender bias is deeply rooted in traditional views of men’s and women’s roles at work and at home. Even though many of these roles are outdated, they still shape how people judge others’ abilities and character. This can lead to correspondence bias, where people assume traits based on behavior or context \parencite{godsilEffectsGenderRoles2016}. These ideas are reinforced by media like TV shows and advertisements, and they can also influence the way language is used and interpreted.
 
         One common result of this is stereotypical job associations. People often link roles like doctors or pilots with he/him pronouns, and roles like nurses or flight attendants with she/her pronouns \parencite{shresthaExploringGenderBiases2022}. \textcite{pratesAssessingGenderBias2019} rates et al. also found clear patterns in how gender is associated with certain traits. Adjectives like "shy," "happy," "kind," and "ashamed" are often linked to women, while words like "arrogant," "cruel," and "guilty" are more often linked to men. 
 
@@ -81,13 +81,13 @@ This section explains the key terms and concepts needed to understand gender bia
     \label{tab:overview_bias_neutral}
     \end{table}
 
-    We can observe that the translation errors often stem from two main sources: Model Overamplification and Semantic Bias. Both phenomena interact with skewed training data to produce the biased outputs outlined in \autoref{tab:overview_bias_neutral}.
+    We can observe that the translation errors often stem from two main sources: Semantic Bias and Model Overamplification. Both phenomena interact with skewed training data to produce the biased outputs outlined in \autoref{tab:overview_bias_neutral}.
+
+    Semantic Bias arises from the associations the model learns between words and genders. When “he” co‑occurs more often with “doctor,” the model will default to the masculine form in translation \parencite{ullmannGenderBiasMachine2022}. Such defaults lead directly to outputs that either introduce an unwarranted gender or assign the wrong gender, as captured in the first two bias criteria. 
 
     Model Overamplification occurs during training when the system exaggerates patterns that already exist in its data. If a corpus frequently pairs cooking with women, the model may conclude that cooking is inherently a female activity. This overemphasis can then manifest as the introduction of a gendered term where none existed or as the misassignment of a subject’s gender \parencite{ullmannGenderBiasMachine2022,shahPredictiveBiasesNatural2020}.
 
-    Semantic Bias arises from the associations the model learns between words and genders. When “he” co‑occurs more often with “doctor,” the model will default to the masculine form in translation. Such defaults lead directly to outputs that either introduce an unwarranted gender or assign the wrong gender, as captured in the first two bias criteria. 
-    
-    Both overamplification and semantic bias worsen when training data are imbalanced. Studies report a high frequency of masculine forms in parallel corpora. One analysis found that the German term for “male doctor” appears 38 times more often than its female counterpart. Female and non‑binary examples remain far less common in many datasets \parencite{ullmannGenderBiasMachine2022,stanczakSurveyGenderBias2021}.
+    They can seem similar because both lead to gendered outputs that are not present in the input. However, the key difference is that semantic bias reflects what the model has learned, while overamplification distorts it.
 
     Finally, the sheer scale of modern MT training sets makes manual review impossible. When a model is trained on hundreds of billions of tokens, it may unknowingly absorb and replicate harmful or offensive content. This reinforces the patterns that lead to the biased translations, underlining the need for targeted mitigation strategies at both the data and model levels \parencite{ullmannGenderBiasMachine2022}.
 
@@ -131,6 +131,22 @@ This section explains the key terms and concepts needed to understand gender bia
 
         \subsubsection{Selection Criteria and Screening Process}\label{subsection:selection_criteria}
         Titles and abstracts were manually screened to select relevant studies. Inclusion required sources to specifically address gender bias in MT, provide examples or discussions of gender-related errors, or explain the significance of gender bias in this context. Sources also had to be available in full text without access restrictions. Exclusion criteria filtered out studies focusing on general NLP bias without a direct link to MT, non-gender biases, and highly technical papers lacking contribution to the general understanding of gender bias or that did not provide additional knowledge beyond what was already found in previously published papers. Full texts were reviewed after initial screening to confirm relevance and extract insights. Redundant sources not providing new perspectives aligned with the thesis goals were excluded.
+        
+        \vspace{0.6em}
+        \begin{table}[h]
+            \centering
+            \begin{tabularx}{\textwidth}{X X}
+            \toprule
+            \textbf{Inclusion Criteria} & \textbf{Exclusion Criteria} \\
+            \midrule
+            Addresses gender bias in MT & Focuses on general NLP bias without link to MT \\
+            Provides examples or discussion of gender-related errors & Covers non-gender-related biases \\
+            Explains the significance of gender bias in MT & Highly technical with no added general insight \\
+            Available in full text without access restrictions & Redundant or not contributing new perspectives \\
+            \bottomrule
+            \end{tabularx}
+            \caption{Selection criteria for literature review.}
+        \end{table}
 
     \subsection{Foundational studies}
         The existence of gender bias in MT is well-documented. First mentions of this issue date back to over a decade ago, having been recognized by a paper by \citeauthor{schiebingerScientificResearchMust2014} in 2014. Since then, there has been a general increase in research papers focusing on this topic, especially between 2019 and 2023 \parencite{savoldiDecadeGenderBias2025}. 
@@ -156,7 +172,7 @@ This section explains the key terms and concepts needed to understand gender bia
 
         It also contributes to the invisibility of women in male-dominated professions \parencite{kapplAreAllSpanish2025}. Studies show that biased language in machine-generated text, such as children’s stories or job ads, can influence how young people view themselves \parencite{soundararajanInvestigatingGenderBias2024,kapplAreAllSpanish2025}. It may shape their interests, hobbies, and career choices. This is especially visible in STEM fields \parencite{pratesAssessingGenderBias2019}, where stereotypes are more persistent. When job descriptions or mock interviews use gender-exclusive pronouns, women report feeling less belonging, lower motivation, and weaker identification with the role \parencite{godsilEffectsGenderRoles2016}. Many self-select out of applying, shrinking the female talent pool and reinforcing gender gaps in the workforce.
 
-        Research also shows that using GFL like "she and he" or "one" can improve how women respond to job ads. It reduces stereotype threat and helps them engage more positively with opportunities \parencite{godsilEffectsGenderRoles2016}.
+        Research also shows that using Gender-Fair Language (GFL) like "she and he" or "one" can improve how women respond to job ads. It reduces stereotype threat and helps them engage more positively with opportunities \parencite{godsilEffectsGenderRoles2016}.
 
         Furthermore, a study by \textcite{savoldiWhatHarmQuantifying2024} measured how much effort people need to fix biased translations. They used metrics like the time it took to edit and how many edits were needed, based on human-targeted error rate. The results showed that fixing translations with feminine forms took almost twice as long and required four times more edits than those with masculine forms.
 
@@ -168,7 +184,7 @@ This section explains the key terms and concepts needed to understand gender bia
         Note that grammatical gender has no connection to societal or biological gender. It is a rule of the language rather than a reflection of identity. For example, the German word Mädchen (girl) is grammatically neuter and takes the article "das". This is not because the referent lacks gender, but because the suffix "-chen" automatically assigns neuter gender. Grammatical gender in German follows structural rules, even when they contradict real-world gender associations.
 
     \subsection{German Gender-Fair Language} \label{subsection:german_gfl}
-    Gender-fair language (GFL) refers to the use of language that treats all genders equally and aims to reduce stereotyping and discrimination \parencite{sczesnyCanGenderFairLanguage2016}. Three common approaches to plural mentionings in German are: 
+    GFL refers to the use of language that treats all genders equally and aims to reduce stereotyping and discrimination \parencite{sczesnyCanGenderFairLanguage2016}. Three common approaches to plural mentionings in German are: 
 
     \begin{itemize}
         \item \textbf{Gender-neutral rewording:}  
@@ -199,7 +215,7 @@ This section explains the key terms and concepts needed to understand gender bia
     \subsection{Research Gaps}
     A central gap in gender bias research is the absence of a shared definition of what constitutes "fair" language. This lack of conceptual clarity makes it difficult to design systematic evaluation approaches, define accountability standards, or detect all relevant forms of harm \parencite{barclayInvestigatingMarkersDrivers2024a,shresthaExploringGenderBiases2022,stanczakSurveyGenderBias2021}.
 
-    A second major gap concerns the availability of high-quality EN-DE translation data that includes GFL. While a few datasets exist, they are not designed for bias detection tasks and often require manual post-editing to incorporate inclusive forms \parencite{lardelliBuildingBridgesDataset2024}. This limits the development and evaluation of models that aim to identify biased output in a structured and reproducible way.
+    A second major gap concerns the availability of high-quality EN-DE translation data that includes GFL. This limits the development and evaluation of models that aim to identify biased output in a structured and reproducible way. While a few datasets exist, they are not designed for bias detection tasks and often require manual post-editing to incorporate inclusive forms \parencite{lardelliBuildingBridgesDataset2024}.
 
     As \textcite{stanczakSurveyGenderBias2021} point out, findings on gender bias in English do not necessarily transfer to other languages such as German. This underlines the importance of typological diversity and language-specific solutions when addressing fairness in MT. Existing studies on EN-DE \parencite{ullmannGenderBiasMachine2022,kapplAreAllSpanish2025,lardelliBuildingBridgesDataset2024} systems mostly confirm the presence of gender bias, propose mitigation strategies, or introduce evaluation metrics. However, few provide methods for systematically detecting bias in translated text.
 
@@ -227,11 +243,10 @@ This section explains the key terms and concepts needed to understand gender bia
     \begin{enumerate}
         \item It receives input embeddings, which represent the words, and positional encodings, which tell the model the order of the words.
         
-        \item The data then passes through several identical layers. Each layer has two main parts:
+        \item The data then passes through several identical layers. Each layer has two main components. Each of these is followed by an \textbf{Add \& Layer Norm} step, which helps stabilize and preserve useful information:
         \begin{enumerate}[label=\alph*.]
             \item \textbf{Multi-head self-attention} runs several attention processes in parallel. Each attention head focuses on different details to help the model understand the sentence better.
             \item A \textbf{Feed-forward network} processes each word vector separately, refining the information like a small filter.
-            \item \textbf{Add \& Layer Norm} combines a shortcut connection (Add) and normalization (Layer Norm). The Add step passes the original input forward to keep useful information. Layer Norm adjusts the output values to a stable range.
     \end{enumerate}
     
     \item Each layer builds on the output of the previous one, helping the model form more complex and abstract ideas about the input sentence.
@@ -254,13 +269,15 @@ The decoder generates the output sentence one word at a time by using the inform
     There are multiple variants of the original BERT model. It was originally released in two sizes: \texttt{BERT-Base} and \texttt{BERT-Large}, which differ in the number of layers, attention heads, and overall model capacity \parencite{devlinBERTPretrainingDeep2019}. Since then, many other versions have been developed. Most of them modify either BERT’s pre-training objectives or the underlying Transformer architecture \parencite{libovickyHowLanguageNeutralMultilingual2019}.
 
 \subsection{Multilingual BERT (mBERT)}
-    For this thesis, I use multilingual BERT \textbf{\href{https://huggingface.co/google-bert/bert-base-multilingual-cased}{(\texttt{mBERT})}} \parencite{devlinBERTPretrainingDeep2019}. \texttt{mBERT} uses the same configuration as \texttt{BERT-Base}, but it is pretrained on Wikipedia data from 104 languages, including both English and German. There is no explicit indication of the input language, nor is there a training objective that aligns languages bilingually. Instead, multilingual capabilities emerge naturally from its large multilingual text corpus \parencite{piresHowMultilingualMultilingual2019}. 
+    For this thesis, I use multilingual BERT \textbf{\href{https://huggingface.co/google-bert/bert-base-multilingual-cased}{(\texttt{mBERT})}} \parencite{devlinBERTPretrainingDeep2019}. \texttt{mBERT} uses the same configuration as \texttt{BERT-Base}, but it is pretrained on Wikipedia data from 104 languages, including both English and German. 
+    
+    The model does not receive any explicit signal about which language it is processing. It is also not trained to align translations across languages. Instead, its multilingual ability emerges from shared patterns it learns across the multilingual corpus \parencite{piresHowMultilingualMultilingual2019}. Despite the lack of cross-lingual supervision, the model develops internal representations that support tasks in multiple languages.
 
     Monolingual models like \href{https://huggingface.co/google-bert/bert-base-german-cased}{\texttt{German BERT}} do not support English input. Larger multilingual models, such as \href{https://huggingface.co/docs/transformers/en/model_doc/xlm-roberta}{\texttt{XLM-RoBERTa}}, require more computational resources and training time, which was not feasible here. \texttt{mBERT} offers a good balance between language coverage, model size, and training efficiency, making it a practical choice detecting gender bias in EN-DE translations.
 
 \begin{figure}
     \centering
-	\includegraphics[width=\textwidth,height=0.4\textheight,keepaspectratio]{BERT_architecture.png}	
+	\includegraphics[width=\textwidth,height=0.45\textheight,keepaspectratio]{BERT_architecture.png}	
     \caption{BERT's encoder-only architecture. Figure by \textcite{smithCompleteGuideBERT2024}.}
     \label{fig:bert_arch}
 \end{figure}
@@ -270,7 +287,7 @@ The decoder generates the output sentence one word at a time by using the inform
 
 Pre-processing is the same for all supported languages: (1) converting text to lowercase and removing accents, (2) splitting punctuation, and (3) tokenizing based on whitespace. Removing accents helps reduce the vocabulary size, even though it can introduce ambiguity in languages where accents carry meaning. This trade-off is accepted because \texttt{mBERT's} contextual embeddings usually resolve such ambiguities during training and inference.
 
-Special tokens are reserved tokens added to in. They indicate boundaries or roles, helping the model distinguish parts of the text and process it correctly.
+Special tokens are reserved units added to the input text to mark structure. They are not real words but placeholders that tell the model how to interpret different parts of the input.
 
 \begin{itemize}
 	\item \texttt{[CLS]} (classification) marks the start of the sequence,
@@ -290,7 +307,9 @@ Special tokens are reserved tokens added to in. They indicate boundaries or role
 \subsubsection{Mechanics of Fine-Tuning mBERT}
     Fine-tuning adjusts the base model for a specific task, in this case, detecting gender bias in translations.\footnote{This fine-tuning process applies to both BERT and mBERT.} To do so, a new labeled dataset is used to continue training the model, allowing it to adapt its weights to task-specific patterns. 
 
-    A classification head, comprising a linear layer followed by a softmax function (see \autoref{fig:bert_arch}), is added on top of \texttt{mBERT’s} output. The linear layer applies a learned transformation to the final hidden state vector of the \texttt{[CLS]} token. 
+    A classification head is an additional layer added to the top of the model to turn its general language understanding into task-specific predictions. It usually consists of a linear layer, which transforms the model’s output into a set of scores, followed by a softmax function, which converts these scores into probabilities for each class.
+
+    In this case, the classification head uses the final hidden state of the \texttt{[CLS]} as the input. The linear layer maps this vector to two values (biased or not biased), and the softmax function outputs the probability for each class.
 
     \[
     z = Wx + b
@@ -317,6 +336,24 @@ Special tokens are reserved tokens added to in. They indicate boundaries or role
 
     Finally, the \textit{optimizer} controls how the model weights are adjusted to minimize prediction error \parencite{mosbachStabilityFinetuningBERT2021}. The AdamW optimizer is standard for \texttt{mBERT} fine-tuning because it adapts learning rates per parameter and includes weight decay regularization. A critical feature of Adam is \textit{bias correction}, which reduces the effective learning rate early in training. This acts like an implicit warmup, preventing large unstable updates and vanishing gradients in the lower layers. Combining explicit warmup with Adam’s bias correction allows training with higher learning rates more stably.
 
+    \vspace{0.6em}
+    \begin{table}[h]
+        \centering
+        \begin{tabularx}{\textwidth}{l X}
+        \toprule
+        \textbf{Hyperparameter} & \textbf{Role in Fine-Tuning} \\
+        \midrule
+        Learning Rate & Controls how much model weights are updated at each step; too high causes instability, too low slows training. \\
+        Warmup Steps & Gradually increases the learning rate at the start to prevent unstable early updates. \\
+        Number of Epochs & Defines how many times the model sees the full training data; more epochs help on small datasets. \\
+        Batch Size & Number of samples processed before an update; affects stability, memory use, and generalization. \\
+        Optimizer & Algorithm for updating weights; AdamW is standard, with adaptive rates and weight decay. \\
+        \bottomrule
+        \end{tabularx}
+        \caption{Summary of key hyperparameters used during fine-tuning.}
+    \end{table}
+
+
 \subsubsection{Layer Freezing During Fine-Tuning} \label{subsection:layer_freezing}
     Layer freezing refers to the practice of keeping certain layers of a pretrained model fixed during fine-tuning, meaning their weights are not updated. This approach reduces the number of trainable parameters. This not only speeds up training \parencite{sorrentiSelectiveFreezingEfficient2023} but also helps prevent overfitting on small datasets and preserves the broad language knowledge from pre-training.
 
@@ -334,7 +371,7 @@ Special tokens are reserved tokens added to in. They indicate boundaries or role
 \subsection{Chosen Evaluation Metrics}
     Evaluation metrics quantify how effectively the model identifies gender bias. They provide objective measures to assess and compare performance.
 
-    In this task, two types of errors are especially important to avoid: false positives, where neutral translations are incorrectly flagged as biased, and false negatives, where actual bias is missed. A model that only guesses or always plays it safe is not useful. 
+    In this task, it is particularly important to minimize two types of errors: false positives, where unbiased translations are mistakenly identified as biased, and false negatives, where genuine instances of bias are overlooked. A model that resorts to random guessing or consistently avoids flagging bias lacks practical value.
 
     The metrics that capture these errors are precision and recall \parencite{rainioEvaluationMetricsStatistical2024}:
 
@@ -349,8 +386,6 @@ There is often a trade-off between precision and recall. A model with high preci
 F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
 \]
 \vspace{0.5em}
-
-While commonly used, accuracy (the overall percentage of correct predictions) is a less suitable metric for this task. Even with a balanced dataset, a model could achieve high accuracy by disproportionately favoring one class, thereby failing at the primary goal of reliably detecting bias. 
 
 \subsection{Interactive Demo}
     The fine-tuned model is intended to be presented through an interactive demonstration. Since the focus lies on showcasing the model’s functionality rather than creating a fully developed application, \href{https://streamlit.io/}{Streamlit} was chosen. Streamlit allows for quick and easy development of lightweight user interfaces in Python, providing a simple setup and effective performance. For live translation, an open-source tool supporting EN-DE pairs was required. \href{https://github.com/Helsinki-NLP/Opus-MT}{Opus-MT} \parencite{tiedemannOPUSMTBuildingOpen2020} meets these criteria and integrates smoothly into the demonstration. While state-of-the-art translators like Google Translate or DeepL would have been preferred for their quality, they do not meet the requirements for this setup. Therefore, a separate tab for manual translation input was added, allowing users to paste translations directly and bypass this limitation.

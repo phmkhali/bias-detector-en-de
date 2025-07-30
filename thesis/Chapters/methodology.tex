@@ -30,11 +30,9 @@ For a binary classification task of detecting gender bias using \texttt{mBERT}, 
 \subsection{Dataset Composition}
 Ideally, I wanted to make use of past EN-DE datasets to minimize manual labour. My options were \texttt{\href{https://huggingface.co/datasets/FBK-MT/mGeNTE}{mGeNTE en-de}} \parencite{savoldiMGeNTEMultilingualResource2025}, \texttt{\href{https://github.com/g8a9/building-bridges-gender-fair-german-mt}{Building Bridges Dictionary}} \parencite{lardelliBuildingBridgesDataset2024}, and \texttt{\href{https://research.google/blog/a-dataset-for-studying-gender-bias-in-translation/}{Translated Wikipedia Biographies}} \parencite{stellaDatasetStudyingGender2021}. 
 
-However, While analyzing the \texttt{Translated Wikipedia Biographies} dataset, I found issues that prevented automatic reuse. For example, the \texttt{perceivedGender} column sometimes contained subject names instead of expected labels like Male, Female, or Neutral, which would require manual review. Moreover, the dataset only provided neutral labels (0) since the phrases were correctly gendered. Because my other two datasets are already balanced and include enough neutrally gendered examples, I decided to exclude this dataset.
+During analysis of the \texttt{Translated Wikipedia Biographies} dataset, I identified issues that prevented automatic reuse. For instance, the \texttt{perceivedGender} column sometimes contained subject names instead of expected labels such as Male, Female, or Neutral, necessitating manual review. Additionally, the dataset only included neutral labels (0) since the phrases were correctly gendered. Because my other two datasets are already balanced and include enough neutrally gendered examples, I decided to exclude this dataset.
 
-\texttt{mGeNTE} contains naturally occurring sentences with gendered entities, while \texttt{Building Bridges} focuses on German GFL entries for explicitly gendered nouns such as professions. However, this setup lacked genuinely neutral examples; sentences that do not involve any gendered subject at all, such as \textit{"The weather is nice"} or \textit{"How are you"}. Including such sentences is important to help the model learn that not all translations are relevant for gender bias detection and that many ordinary sentences should be classified as neutral.
-
-\paragraph{\texttt{Tatoeba.}} Since no suitable dataset for this category was readily available, a supplementary set was created using random EN-DE sentence pairs from the \href{https://tatoeba.org/en/}{\texttt{Tatoeba}} corpus. A sample of 550 sentence pairs was selected. Manual filtering was applied to remove any pairs with incorrect or stereotypically gendered translations, as public contributions often default to male forms. The resulting subset consisted of 532 clearly neutral sentence pairs, all labeled with 0. \footnote{The transformed dataset can be found in \texttt{/datasets/tatoeba\_final.csv}.} 
+\texttt{mGeNTE} contains naturally occurring sentences with gendered entities, while \texttt{Building Bridges} focuses on German GFL entries for explicitly gendered nouns such as professions. 
 
 \begin{table}[ht!]
     \centering
@@ -49,7 +47,7 @@ However, While analyzing the \texttt{Translated Wikipedia Biographies} dataset, 
     \label{tab:available_datasets}
 \end{table}
 
-\paragraph {\texttt{mGeNTE en-de.}} The mGeNTE dataset contained the following relevant information:  
+\subsubsection{mGeNTE en-de} The mGeNTE dataset contained the following relevant information:  
 
 \begin{itemize}  
   \item \texttt{SET-G}: English sentences with a clearly gendered subject.  
@@ -72,10 +70,15 @@ Each original entry was split into two paired examples and labeled as follows:
 \]  
 This procedure yields 3,000 total instances, of which 750 are labeled biased (1) and 2,250 are labeled neutral (0). \footnote{The transformed dataset can be found in \texttt{/datasets/mgente\_final.csv}.} 
 
-
-\paragraph{\texttt{Building Bridges Dictionary.}} This dataset did not contain full sentences but rather a gender-fair dictionary of nouns. While this made it a valuable resource for studying gender-fair language, I needed full sentences for my task. To address this, I used prompt engineering with Google Gemini 2.5 Flash to synthetically expand the dataset. The prompt used for generation is included in the appendix. The generated sentences can be found in the code files. I used the nouns from the original dataset to create multiple grammatically correct sentence variations, covering singular, plural, gender-neutral, and gender-inclusive forms. The dataset uses the star form (e.g., \textit{Lehrer*innen}) as its gender-inclusive format. Since the colon form (e.g., \textit{Lehrer:innen}) is also widely used, I added it manually via a script. The script duplicated all entries with stars and replaced the star with a colon to create additional variants.
+\subsubsection{Building Bridges Dictionary} 
+This dataset did not contain full sentences but rather a gender-fair dictionary of nouns. While this made it a valuable resource for studying gender-fair language, I needed full sentences for my task. To address this, I used prompt engineering with Google Gemini 2.5 Flash to synthetically expand the dataset. The prompt used for generation is included in the appendix. The generated sentences can be found in the code files. I used the nouns from the original dataset to create multiple grammatically correct sentence variations, covering singular, plural, gender-neutral, and gender-inclusive forms. The dataset uses the star form (e.g., \textit{Lehrer*innen}) as its gender-inclusive format. Since the colon form (e.g., \textit{Lehrer:innen}) is also widely used, I added it manually via a script. The script duplicated all entries with stars and replaced the star with a colon to create additional variants.
 
 This resulted in 3,381 total entries: 2,001 labeled as 0 (neutral) and 1,380 labeled as 1 (biased). \footnote{The transformed dataset can be found in \texttt{/datasets/lardelli\_final.csv}.}
+
+However, this setup lacked genuinely neutral examples; sentences that do not involve any gendered subject at all, such as \textit{"The weather is nice"} or \textit{"How are you"}. Including such sentences is important to help the model learn that not all translations are relevant for gender bias detection and that many ordinary sentences should be classified as neutral.
+
+\subsubsection{Tatoeba} 
+Since no suitable dataset for this category was readily available, a supplementary set was created using random EN-DE sentence pairs from the \href{https://tatoeba.org/en/}{\texttt{Tatoeba}} corpus. A sample of 550 sentence pairs was selected. Manual filtering was applied to remove any pairs with incorrect or stereotypically gendered translations, as public contributions often default to male forms. The resulting subset consisted of 532 clearly neutral sentence pairs, all labeled with 0. \footnote{The transformed dataset can be found in \texttt{/datasets/tatoeba\_final.csv}.} 
 
 \subsection{Available Data Summary}
 
@@ -99,7 +102,7 @@ This resulted in 3,381 total entries: 2,001 labeled as 0 (neutral) and 1,380 lab
 The number of samples selected from each dataset was determined through iterative testing. Multiple dataset variants were created by upsampling or downsampling specific groups. The documentation of this process is discussed in \autoref{subsection:training_dataset_tuning}.
 
 \section{Data Pre-processing}
-    I load and split the dataset into three parts: training (80\%), validation (10\%), and test sets (10\%). This ratio is a common choice when working with limited data. It provides enough samples for the model to learn general patterns while reserving separate subsets for tuning and final evaluation. I used stratified sampling for this. That means the label distribution (biased vs. neutral) stays the same across all three sets, avoiding skewed splits. For example, if 30\% of the full dataset is biased, each split will also have 30\% biased samples. This helps the model learn from both classes equally and avoids misleading results in validation or testing.
+    I load and split the dataset into three parts: training (80\%), validation (10\%), and test sets (10\%). This ratio is a common split ratio to work with \parencite{bahetiTrainTestValidation2021}. It provides enough samples for the model to learn general patterns while reserving separate subsets for tuning and final evaluation. I used stratified sampling for this. That means the label distribution (biased vs. neutral) stays the same across all three sets, avoiding skewed splits. For example, if 30\% of the full dataset is biased, each split will also have 30\% biased samples. This helps the model learn from both classes equally and avoids misleading results in validation or testing.
 
     I did not apply advanced text cleaning such as removing punctuation, lowercasing, or stemming because I use \href{https://huggingface.co/google-bert/bert-base-multilingual-cased}{\texttt{bert-base-multilingual-cased}}. This tokenizer is designed to handle raw, unmodified text and preserves casing. The model has been trained on large corpora containing natural language in its original form \parencite{devlinBERTPretrainingDeep2019}. Altering the input, such as converting "Doctor" to "doctor", could remove distinctions the model has learned. Therefore, advanced preprocessing might reduce performance by disrupting patterns the tokenizer expects.
 
@@ -140,7 +143,7 @@ Further data preprocessing was not necessary since I concatenated already clean 
 
     \paragraph{Epochs.} I trained the model for up to 8 epochs, with early stopping enabled using a patience of two epochs. This means that training stopped if the F1 score did not improve for two consecutive epochs. The setup follows the recommendation by \textcite{pecherComparingSpecialisedSmall2024}, who advise training until convergence with a maximum of 10 epochs and early stopping. In my case, the validation loss typically began to increase after 8 epochs, with no further gains in performance. Reducing the maximum to 8 epochs helped avoid overfitting and shortened training time.
 
-    \paragraph{Batch size.} I used a batch size of 16. This is a common choice for fine-tuning on small datasets, offering a good balance between memory usage and training stability. I tested smaller batch sizes with lower learning rates, but these combinations led to worse performance and less effective training early on. Since existing literature, such as \textcite{mosbachStabilityFinetuningBERT2021}, already supports using a batch size of 16, I did not run many additional experiments with smaller values.
+    \paragraph{Batch size.} I used a batch size of 16. This is a common choice for fine-tuning on small datasets, offering a good balance between memory usage and training stability. I tested smaller batch sizes with lower learning rates, but these combinations led to worse performance and less effective training early on. Since existing literature, such as \textcite{mosbachStabilityFinetuningBERT2021}, already supports using a batch size of 16, I did not run any additional experiments with smaller values.
 
     \paragraph{Learning rate.} I set the learning rate to 2e-5. This value comes from the original BERT paper \parencite{devlinBERTPretrainingDeep2019} and is still widely used. I also tested 1e-5 and 3e-5, but both showed slightly worse results on the validation set. The 2e-5 setting gave the most stable and reliable performance in my runs, so I kept it for all final training runs.
 
