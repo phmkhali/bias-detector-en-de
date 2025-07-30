@@ -167,22 +167,21 @@ Further data preprocessing was not necessary since I concatenated already clean 
 \vspace{0.8em}
 \begin{table}[ht]
     \centering
-    \begin{tabularx}{\textwidth}{l >{\raggedright\arraybackslash}X rrr}
+        \begin{tabularx}{\textwidth}{l X >{\raggedright\arraybackslash}X}
     \toprule
-    \textbf{Dataset} & \textbf{Rationale} & \multicolumn{3}{c}{\textbf{Composition}} \\
-    \cmidrule(lr){3-5}
-    & & \textbf{Neutral} & \textbf{Biased} & \textbf{Total} \\
+    \textbf{Dataset} & \textbf{Rationale} & \textbf{Sample Distribution (biased/neutral)} \\
     \midrule
-    A (Baseline) & Initial setup using equal parts of \texttt{mgente\_final} and \texttt{lardelli\_final}, with some \texttt{tatoeba\_final} neutrals. & 1,750 & 1,500 & 3,250 \\
-    B & Built on Baseline. Increased \texttt{lardelli\_final} neutrals to better capture GFL patterns and added more \texttt{tatoeba\_final} neutrals. & 2,150 & 1,500 & 3,650 \\
-    C & Built on Baseline and B. Reduced \texttt{lardelli\_final} biased examples to counter possible overrepresentation. & 1,750 & 1,150 & 2,900 \\
-    D & Built on Baseline and C. Further improved neutral recognition by adding more \texttt{tatoeba\_final} neutral sentences. & 2,000 & 1,500 & 3,500 \\
-    E & Built on Baseline and C. Increased \texttt{mgente\_final} neutral data to raise diversity from naturalistic examples. & 1,750 & 1,500 & 3,250 \\
+    A & Initial setup using equal parts of \texttt{mgente\_final} and \texttt{lardelli\_final}, with some \texttt{tatoeba\_final} neutrals. & mgente 750 / 750, lardelli 750 / 750, tatoeba 0 / 250 \\
+    B & Built on A. Increased \texttt{lardelli\_final} neutrals to better capture GFL patterns and added more \texttt{tatoeba\_final} neutrals. & mgente 750 / 750, lardelli 750 / 1000, tatoeba 0 / 400 \\
+    C & Built on A and B. Reduced \texttt{lardelli\_final} biased examples to counter possible overrepresentation. & mgente 750 / 750, lardelli 400 / 750, tatoeba 0 / 250 \\
+    D & Built on A and C. Further improved neutral recognition by adding more \texttt{tatoeba\_final} neutral sentences. & mgente 750 / 750, lardelli 750 / 750, tatoeba 0 / 500 \\
+    E & Built on A and C. Increased \texttt{mgente\_final} neutral data to raise diversity from naturalistic examples. & mgente 750 / 1,250, lardelli 750 / 750, tatoeba 0 / 250 \\
     \bottomrule
     \end{tabularx}
-    \caption{Dataset iterations with rationale and composition. Each version builds on the Baseline and previous adjustments.}
+    \caption{Dataset iterations with rationale and composition. Each version builds on the Baseline and previous adjustments. Format: source biased / neutral.}
     \label{tab:dataset_versions}
 \end{table}
+
 
 \subsection{Layer Freezing Tuning}
     All dataset tuning experiments described above were conducted with layer freezing set to $n=8$, meaning that encoder layers 0 through 7 of \texttt{mBERT} were frozen during training. As explained in \autoref{subsection:hyperparameters_explained}, earlier studies have shown that the middle layers are most semantically informative, while lower layers tend to capture syntactic information. Freezing up to layer 8 was chosen as a baseline to reduce training time while still allowing the model to adapt higher-level representations to the task.
@@ -217,25 +216,26 @@ The demo application comprises three modules: the Streamlit interface, the bias 
     \label{fig:demo_workflow}
 \end{figure}
 
-\paragraph{Initialization.} 
+\subsubsection{Initialization} 
 On launch, the application loads the fine‑tuned BERT bias detection model and its tokenizer from a local directory. These objects are cached in memory to avoid repeated loading. The model and tokenizer move to the available device, either CPU or GPU.
 
-\paragraph{User Interface.} 
+\subsubsection{User Interface} 
 The interface has two tabs:
 \begin{enumerate}
   \item \textbf{Automatic Translation.} The user inputs raw English text. The application splits the text into sentences and sends them in batches to the translation module. The module returns German translations. Each English sentence is paired with its translation before bias analysis.
   \item \textbf{Manual Pairing.} The user supplies parallel English–German sentence pairs. After splitting and pairing, the application bypasses translation and proceeds directly to bias analysis.
 \end{enumerate}
 
-\paragraph{Bias Detection Pipeline.} 
+\subsubsection{Bias Detection Pipeline} 
 Sentence pairs are processed in batches to reduce overhead and speed up analysis. Each sentence pair is first encoded with the tokenizer of the fine‑tuned BERT model. The encoded input is then processed by the trained classifier, which produces raw bias scores. These scores are normalized into probabilities using softmax. The bias label corresponding to the highest probability is selected, and its confidence value is reported.
 
-\paragraph{Results Presentation.} 
+\subsubsection{Results Presentation} 
 The application displays a table of results. Each row contains:
 \begin{itemize}
   \item Original English sentence
   \item Corresponding German sentence
-  \item Bias prediction (binary)
-  \item Confidence score
+  \item Bias prediction with confidence score
 \end{itemize}
 
+\subsubsection{Chapter Summary}
+This chapter outlined the full process of building a bias detection system, from dataset selection and preprocessing to fine-tuning a multilingual BERT model, and presenting the demo interface. While key hyperparameters were tuned to improve training stability and performance, the main focus was on practical usability. To reflect this, I crafted a second test set with edge cases that better represent real-world bias scenarios. Alongside hyperparameter tuning, most effort went into dataset construction and adjustment. This focus on data, rather than model complexity, was key to achieving stable F1 scores and making the system more useful in practice. These decisions provide a solid foundation for evaluating how well the model performs in practice, as detailed in the next chapter.

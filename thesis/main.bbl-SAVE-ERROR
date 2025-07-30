@@ -1,0 +1,3089 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{bahetiTrainTestValidation2021}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=acb1a8bbc36bf2d131015ac20419fe36}{%
+           family={Baheti},
+           familyi={B\bibinitperiod},
+           given={Pragati},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{acb1a8bbc36bf2d131015ac20419fe36}
+      \strng{fullhash}{acb1a8bbc36bf2d131015ac20419fe36}
+      \strng{fullhashraw}{acb1a8bbc36bf2d131015ac20419fe36}
+      \strng{bibnamehash}{acb1a8bbc36bf2d131015ac20419fe36}
+      \strng{authorbibnamehash}{acb1a8bbc36bf2d131015ac20419fe36}
+      \strng{authornamehash}{acb1a8bbc36bf2d131015ac20419fe36}
+      \strng{authorfullhash}{acb1a8bbc36bf2d131015ac20419fe36}
+      \strng{authorfullhashraw}{acb1a8bbc36bf2d131015ac20419fe36}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{The train test validation split is a technique for partitioning data into training, validation, and test sets. Learn how to do it, and what the benefits are.}
+      \field{howpublished}{https://www.v7labs.com/blog/train-validation-test-set}
+      \field{langid}{english}
+      \field{shorttitle}{Train {{Test Validation Split}}}
+      \field{title}{Train {{Test Validation Split}}: {{How To}} \& {{Best Practices}} [2024]}
+      \field{urlday}{30}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/UTQ657ME/train-validation-test-set.html
+      \endverb
+    \endentry
+    \entry{baldiEnglishIndoEuropeanLanguage2008}{incollection}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d8e95df320cd19f2af62c8d8856afd5b}{%
+           family={Baldi},
+           familyi={B\bibinitperiod},
+           given={Philip},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=0306e0cc55f9054e8228987b9d4e8be9}{%
+           family={Momma},
+           familyi={M\bibinitperiod},
+           given={Haruko},
+           giveni={H\bibinitperiod}}}%
+        {{hash=3f04be76488133f6b76cb5c48c999c33}{%
+           family={Matto},
+           familyi={M\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{d8e95df320cd19f2af62c8d8856afd5b}
+      \strng{fullhash}{d8e95df320cd19f2af62c8d8856afd5b}
+      \strng{fullhashraw}{d8e95df320cd19f2af62c8d8856afd5b}
+      \strng{bibnamehash}{d8e95df320cd19f2af62c8d8856afd5b}
+      \strng{authorbibnamehash}{d8e95df320cd19f2af62c8d8856afd5b}
+      \strng{authornamehash}{d8e95df320cd19f2af62c8d8856afd5b}
+      \strng{authorfullhash}{d8e95df320cd19f2af62c8d8856afd5b}
+      \strng{authorfullhashraw}{d8e95df320cd19f2af62c8d8856afd5b}
+      \strng{editorbibnamehash}{abaa36ce21d8eb2a22361d4d41d26890}
+      \strng{editornamehash}{abaa36ce21d8eb2a22361d4d41d26890}
+      \strng{editorfullhash}{abaa36ce21d8eb2a22361d4d41d26890}
+      \strng{editorfullhashraw}{abaa36ce21d8eb2a22361d4d41d26890}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{A {{Companion}} to the {{History}} of the {{English Language}}}
+      \field{edition}{1}
+      \field{isbn}{978-1-4051-2992-3 978-1-4443-0285-1}
+      \field{langid}{english}
+      \field{month}{7}
+      \field{title}{English as an {{Indo}}-{{European Language}}}
+      \field{urlday}{6}
+      \field{urlmonth}{6}
+      \field{urlyear}{2025}
+      \field{year}{2008}
+      \field{urldateera}{ce}
+      \field{pages}{127\bibrangedash 141}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1002/9781444302851.ch12
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/FG6GRZHI/Baldi - 2008 - English as an Indo‐European Language.pdf
+      \endverb
+    \endentry
+    \entry{barclayInvestigatingMarkersDrivers2024a}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2b5398cb97682fb18c2202b53b040c12}{%
+           family={Barclay},
+           familyi={B\bibinitperiod},
+           given={Peter\bibnamedelima J.},
+           giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dedcde6201104b7941f84bef07dbf180}{%
+           family={Sami},
+           familyi={S\bibinitperiod},
+           given={Ashkan},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{d8f5a198fc93ec67b5082114f3500fa9}
+      \strng{fullhash}{d8f5a198fc93ec67b5082114f3500fa9}
+      \strng{fullhashraw}{d8f5a198fc93ec67b5082114f3500fa9}
+      \strng{bibnamehash}{d8f5a198fc93ec67b5082114f3500fa9}
+      \strng{authorbibnamehash}{d8f5a198fc93ec67b5082114f3500fa9}
+      \strng{authornamehash}{d8f5a198fc93ec67b5082114f3500fa9}
+      \strng{authorfullhash}{d8f5a198fc93ec67b5082114f3500fa9}
+      \strng{authorfullhashraw}{d8f5a198fc93ec67b5082114f3500fa9}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Implicit gender bias in Large Language Models (LLMs) is a well-documented problem, and implications of gender introduced into automatic translations can perpetuate real-world biases. However, some LLMs use heuristics or postprocessing to mask such bias, making investigation difficult. Here, we examine bias in LLMs via back-translation, using the DeepL translation API to investigate the bias evinced when repeatedly translating a set of 56 Software Engineering tasks used in a previous study. Each statement starts with `she', and is translated first into a `genderless' intermediate language then back into English; we then examine pronoun-choice in the backtranslated texts. We expand prior research in the following ways: (1) by comparing results across five intermediate languages, namely Finnish, Indonesian, Estonian, Turkish and Hungarian; (2) by proposing a novel metric for assessing the variation in gender implied in the repeated translations, avoiding the overinterpretation of individual pronouns, apparent in earlier work; (3) by investigating sentence features that drive bias; (4) and by comparing results from three time-lapsed datasets to establish the reproducibility of the approach. We found that some languages display similar patterns of pronoun use, falling into three loose groups, but that patterns vary between groups; this underlines the need to work with multiple languages. We also identify the main verb appearing in a sentence as a likely significant driver of implied gender in the translations. Moreover, we see a good level of replicability in the results, and establish that our variation metric proves robust despite an obvious change in the behaviour of the DeepL translation API during the course of the study. These results show that the back-translation method can provide further insights into bias in language models.}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arXiv}
+      \field{langid}{english}
+      \field{month}{4}
+      \field{number}{arXiv:2403.11896}
+      \field{title}{Investigating {{Markers}} and {{Drivers}} of {{Gender Bias}} in {{Machine Translations}}}
+      \field{urlday}{21}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2403.11896
+      \endverb
+      \verb{eprint}
+      \verb 2403.11896
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/P2DCYJJH/Barclay and Sami - 2024 - Investigating Markers and Drivers of Gender Bias in Machine Translations.pdf
+      \endverb
+      \keyw{Computer Science - Computation and Language,Computer Science - Computers and Society,Computer Science - Software Engineering}
+    \endentry
+    \entry{bolukbasiManComputerProgrammer2016}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=9302e95dd4df33ead5464ab087ab17b0}{%
+           family={Bolukbasi},
+           familyi={B\bibinitperiod},
+           given={Tolga},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e92742530fcafbae797b45437638bb01}{%
+           family={Chang},
+           familyi={C\bibinitperiod},
+           given={Kai-Wei},
+           giveni={K\bibinithyphendelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1b868d50048a635fa27ffa744323fa41}{%
+           family={Zou},
+           familyi={Z\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5292ad7a965d3892e67bed1262d5e8a3}{%
+           family={Saligrama},
+           familyi={S\bibinitperiod},
+           given={Venkatesh},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8e941bf5de8ef9916e85742c9f469bc9}{%
+           family={Kalai},
+           familyi={K\bibinitperiod},
+           given={Adam},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ad8a246e762922f308a119263671cbf5}
+      \strng{fullhash}{4114b1936e2a381f9b96185b4f833b69}
+      \strng{fullhashraw}{4114b1936e2a381f9b96185b4f833b69}
+      \strng{bibnamehash}{ad8a246e762922f308a119263671cbf5}
+      \strng{authorbibnamehash}{ad8a246e762922f308a119263671cbf5}
+      \strng{authornamehash}{ad8a246e762922f308a119263671cbf5}
+      \strng{authorfullhash}{4114b1936e2a381f9b96185b4f833b69}
+      \strng{authorfullhashraw}{4114b1936e2a381f9b96185b4f833b69}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This research paper addresses the critical issue of gender bias present within word embeddings, a widely used technique in machine learning for representing text. The authors demonstrate that even embeddings trained on seemingly neutral data, like Google News articles, exhibit disturbing gender stereotypes, such as associating "computer programmer" more closely with "man" and "homemaker" with "woman". Recognizing the potential for these biases to be amplified in downstream applications, the paper's main purpose is to develop methodologies to reduce or remove these gender stereotypes from word embeddings. The authors propose and evaluate algorithms that can "debias" the embeddings, aiming to create more equitable representations of language while preserving their usefulness for tasks like analogy solving and semantic understanding.}
+      \field{journaltitle}{NIPS'16: Proceedings of the 30th International Conference on Neural Information Processing Systems}
+      \field{langid}{english}
+      \field{title}{Man Is to {{Computer Programmer}} as {{Woman}} Is to {{Homemaker}}? {{Debiasing Word Embeddings}}}
+      \field{year}{2016}
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/35RIHQCX/Bolukbasi et al. - Man is to Computer Programmer as Woman is to Homemaker Debiasing Word Embeddings.pdf
+      \endverb
+    \endentry
+    \entry{chakravarthiSurveyOrthographicInformation2021}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=668bf2b2730037f2f603c7940cd92fb8}{%
+           family={Chakravarthi},
+           familyi={C\bibinitperiod},
+           given={Bharathi\bibnamedelima Raja},
+           giveni={B\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e666b20eabb74fd9729aaa3b080c235f}{%
+           family={Rani},
+           familyi={R\bibinitperiod},
+           given={Priya},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3f976c41a1ab95cef4a4a6795adad761}{%
+           family={Arcan},
+           familyi={A\bibinitperiod},
+           given={Mihael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=067389e3b9828f90f2a5800428dbabe7}{%
+           family={McCrae},
+           familyi={M\bibinitperiod},
+           given={John\bibnamedelima P.},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e311b8e79c74cee1cc2b0e1eaf08a633}
+      \strng{fullhash}{9e6b6c936d8a735882aef723c9a9a569}
+      \strng{fullhashraw}{9e6b6c936d8a735882aef723c9a9a569}
+      \strng{bibnamehash}{e311b8e79c74cee1cc2b0e1eaf08a633}
+      \strng{authorbibnamehash}{e311b8e79c74cee1cc2b0e1eaf08a633}
+      \strng{authornamehash}{e311b8e79c74cee1cc2b0e1eaf08a633}
+      \strng{authorfullhash}{9e6b6c936d8a735882aef723c9a9a569}
+      \strng{authorfullhashraw}{9e6b6c936d8a735882aef723c9a9a569}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Machine translation is one of the applications of natural language processing which has been explored in different languages. Recently researchers started paying attention towards machine translation for resource-poor languages and closely related languages. A widespread and underlying problem for these machine translation systems is the linguistic difference and variation in orthographic conventions which causes many issues to traditional approaches. Two languages written in two different orthographies are not easily comparable but orthographic information can also be used to improve the machine translation system. This article offers a survey of research regarding orthography's influence on machine translation of under-resourced languages. It introduces under-resourced languages in terms of machine translation and how orthographic information can be utilised to improve machine translation. We describe previous work in this area, discussing what underlying assumptions were made, and showing how orthographic knowledge improves the performance of machine translation of under-resourced languages. We discuss different types of machine translation and demonstrate a recent trend that seeks to link orthographic information with well-established machine translation methods. Considerable attention is given to current efforts using cognate information at different levels of machine translation and the lessons that can be drawn from this. Additionally, multilingual neural machine translation of closely related languages is given a particular focus in this survey. This article ends with a discussion of the way forward in machine translation with orthographic information, focusing on multilingual settings and bilingual lexicon induction.}
+      \field{issn}{2662-995X, 2661-8907}
+      \field{journaltitle}{SN Computer Science}
+      \field{langid}{english}
+      \field{month}{7}
+      \field{number}{4}
+      \field{title}{A {{Survey}} of {{Orthographic Information}} in {{Machine Translation}}}
+      \field{urlday}{27}
+      \field{urlmonth}{6}
+      \field{urlyear}{2025}
+      \field{volume}{2}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \field{pages}{330}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1007/s42979-021-00723-4
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/5QEDLKY8/Chakravarthi et al. - 2021 - A Survey of Orthographic Information in Machine Translation.pdf
+      \endverb
+    \endentry
+    \entry{choMeasuringGenderBias2019}{misc}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=e98b353d7c2f5606ed5e862605b4e9b7}{%
+           family={Cho},
+           familyi={C\bibinitperiod},
+           given={Won\bibnamedelima Ik},
+           giveni={W\bibinitperiod\bibinitdelim I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e4924e6eb804b772243a0cf8a0c10b7e}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Ji\bibnamedelima Won},
+           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ec874c27ac603fdb6a12dad617c04426}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Seok\bibnamedelima Min},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=681cc9cf374831ffabfdbb224d00c0cd}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Nam\bibnamedelima Soo},
+           giveni={N\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{dabe77613cdd789cc8e2788a856dc4b8}
+      \strng{fullhash}{ca88fe8449eacc7f4efc0d6bcf02cdda}
+      \strng{fullhashraw}{ca88fe8449eacc7f4efc0d6bcf02cdda}
+      \strng{bibnamehash}{dabe77613cdd789cc8e2788a856dc4b8}
+      \strng{authorbibnamehash}{dabe77613cdd789cc8e2788a856dc4b8}
+      \strng{authornamehash}{dabe77613cdd789cc8e2788a856dc4b8}
+      \strng{authorfullhash}{ca88fe8449eacc7f4efc0d6bcf02cdda}
+      \strng{authorfullhashraw}{ca88fe8449eacc7f4efc0d6bcf02cdda}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Ethics regarding social bias has recently thrown striking issues in natural language processing. Especially for gender-related topics, the need for a system that reduces the model bias has grown in areas such as image captioning, content recommendation, and automated employment. However, detection and evaluation of gender bias in the machine translation systems are not yet thoroughly investigated, for the task being cross-lingual and challenging to define. In this paper, we propose a scheme for making up a test set that evaluates the gender bias in a machine translation system, with Korean, a language with genderneutral pronouns. Three word/phrase sets are primarily constructed, each incorporating positive/negative expressions or occupations; all the terms are gender-independent or at least not biased to one side severely. Then, additional sentence lists are constructed concerning formality of the pronouns and politeness of the sentences. With the generated sentence set of size 4,236 in total, we evaluate gender bias in conventional machine translation systems utilizing the proposed measure, which is termed here as translation gender bias index (TGBI). The corpus and the code for evaluation is available on-line1.}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arXiv}
+      \field{langid}{english}
+      \field{number}{arXiv:1905.11684}
+      \field{title}{On {{Measuring Gender Bias}} in {{Translation}} of {{Gender-neutral Pronouns}}}
+      \field{urlday}{21}
+      \field{urlmonth}{4}
+      \field{urlyear}{2025}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.1905.11684
+      \endverb
+      \verb{eprint}
+      \verb 1905.11684
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/EPSS6DEE/Cho et al. - 2019 - On Measuring Gender Bias in Translation of Gender-neutral Pronouns.pdf
+      \endverb
+      \keyw{Computer Science - Computation and Language}
+    \endentry
+    \entry{deeplHowDoesDeepL2021}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=086b5407f3734e9b5c12a636fc131ba8}{%
+           family={{DeepL}},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{086b5407f3734e9b5c12a636fc131ba8}
+      \strng{fullhash}{086b5407f3734e9b5c12a636fc131ba8}
+      \strng{fullhashraw}{086b5407f3734e9b5c12a636fc131ba8}
+      \strng{bibnamehash}{086b5407f3734e9b5c12a636fc131ba8}
+      \strng{authorbibnamehash}{086b5407f3734e9b5c12a636fc131ba8}
+      \strng{authornamehash}{086b5407f3734e9b5c12a636fc131ba8}
+      \strng{authorfullhash}{086b5407f3734e9b5c12a636fc131ba8}
+      \strng{authorfullhashraw}{086b5407f3734e9b5c12a636fc131ba8}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{See why millions translate with DeepL every day. Fast, accurate, and secure -- translate texts and full document files instantly.}
+      \field{howpublished}{https://www.deepl.com/en/blog/how-does-deepl-work}
+      \field{langid}{english}
+      \field{month}{11}
+      \field{title}{How Does {{DeepL}} Work?}
+      \field{urlday}{27}
+      \field{urlmonth}{6}
+      \field{urlyear}{2025}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/UU5DFDDN/how-does-deepl-work.html
+      \endverb
+    \endentry
+    \entry{devlinMultilingualBERTGitHub2018}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=13202969e372bc82318f9629cbdd199b}{%
+           family={Devlin},
+           familyi={D\bibinitperiod},
+           given={Jacob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{13202969e372bc82318f9629cbdd199b}
+      \strng{fullhash}{13202969e372bc82318f9629cbdd199b}
+      \strng{fullhashraw}{13202969e372bc82318f9629cbdd199b}
+      \strng{bibnamehash}{13202969e372bc82318f9629cbdd199b}
+      \strng{authorbibnamehash}{13202969e372bc82318f9629cbdd199b}
+      \strng{authornamehash}{13202969e372bc82318f9629cbdd199b}
+      \strng{authorfullhash}{13202969e372bc82318f9629cbdd199b}
+      \strng{authorfullhashraw}{13202969e372bc82318f9629cbdd199b}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{TensorFlow code and pre-trained models for BERT. Contribute to google-research/bert development by creating an account on GitHub.}
+      \field{howpublished}{https://github.com/google-research/bert/blob/a9ba4b8d7704c1ae18d1b28c56c0430d41407eb1/multilingual.md}
+      \field{journaltitle}{GitHub}
+      \field{langid}{english}
+      \field{title}{Multilingual {{BERT GitHub Readme}}}
+      \field{urlday}{25}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/F6D63UZ9/multilingual.html
+      \endverb
+    \endentry
+    \entry{devlinBERTPretrainingDeep2019}{misc}{}{}
+      \name{author}{4}{ul=1}{%
+        {{un=0,uniquepart=base,hash=13202969e372bc82318f9629cbdd199b}{%
+           family={Devlin},
+           familyi={D\bibinitperiod},
+           given={Jacob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a45784fe7163b45f11d166564f5d24b6}{%
+           family={Chang},
+           familyi={C\bibinitperiod},
+           given={Ming-Wei},
+           giveni={M\bibinithyphendelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8dde73b4194f5bc4230c4808f3fc1534}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Kenton},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b92aa283415413bb8d2a1548716d0c7d}{%
+           family={Toutanova},
+           familyi={T\bibinitperiod},
+           given={Kristina},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{ad8e2e2a80d28ade21e86852b804fc9b}
+      \strng{fullhash}{e8bccd48302a14eeba57d9dce2f49ef4}
+      \strng{fullhashraw}{e8bccd48302a14eeba57d9dce2f49ef4}
+      \strng{bibnamehash}{ad8e2e2a80d28ade21e86852b804fc9b}
+      \strng{authorbibnamehash}{ad8e2e2a80d28ade21e86852b804fc9b}
+      \strng{authornamehash}{ad8e2e2a80d28ade21e86852b804fc9b}
+      \strng{authorfullhash}{e8bccd48302a14eeba57d9dce2f49ef4}
+      \strng{authorfullhashraw}{e8bccd48302a14eeba57d9dce2f49ef4}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models (Peters et al., 2018a; Radford et al., 2018), BERT is designed to pretrain deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be finetuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial taskspecific architecture modifications.}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arXiv}
+      \field{langid}{english}
+      \field{number}{arXiv:1810.04805}
+      \field{shorttitle}{{{BERT}}}
+      \field{title}{{{BERT}}: {{Pre-training}} of {{Deep Bidirectional Transformers}} for {{Language Understanding}}}
+      \field{urlday}{9}
+      \field{urlmonth}{4}
+      \field{urlyear}{2025}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.1810.04805
+      \endverb
+      \verb{eprint}
+      \verb 1810.04805
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/BIXCSRQ4/Devlin et al. - 2019 - BERT Pre-training of Deep Bidirectional Transformers for Language Understanding.pdf
+      \endverb
+      \keyw{Computer Science - Computation and Language}
+    \endentry
+    \entry{godsilEffectsGenderRoles2016}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=b3b4f9804299790b894326f211bde455}{%
+           family={Godsil},
+           familyi={G\bibinitperiod},
+           given={Rachel\bibnamedelima D.},
+           giveni={R\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=99d0cc389ee7a46888720ab94159b326}{%
+           family={Tropp},
+           familyi={T\bibinitperiod},
+           given={Linda\bibnamedelima R.},
+           giveni={L\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0f2912676e75bc1ef72b2ce99411c80e}{%
+           family={Goff},
+           familyi={G\bibinitperiod},
+           given={Phillip\bibnamedelima Atiba},
+           giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=aa6d0a7ed8a1438bcc0f7fcd7f0cd75a}{%
+           family={Powell},
+           familyi={P\bibinitperiod},
+           given={John\bibnamedelima A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=732dd2887c47d8a1b0c39dced5317f03}{%
+           family={MacFarlane},
+           familyi={M\bibinitperiod},
+           given={Jessica},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ac745ab5d942f173f91c4a33c547f0b2}
+      \strng{fullhash}{a6093b5c91c433f475bf9921fd38b2c3}
+      \strng{fullhashraw}{a6093b5c91c433f475bf9921fd38b2c3}
+      \strng{bibnamehash}{ac745ab5d942f173f91c4a33c547f0b2}
+      \strng{authorbibnamehash}{ac745ab5d942f173f91c4a33c547f0b2}
+      \strng{authornamehash}{ac745ab5d942f173f91c4a33c547f0b2}
+      \strng{authorfullhash}{a6093b5c91c433f475bf9921fd38b2c3}
+      \strng{authorfullhashraw}{a6093b5c91c433f475bf9921fd38b2c3}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{THE SCIENCE OF EQUALITY}
+      \field{langid}{english}
+      \field{number}{Perception Institute}
+      \field{title}{The {{Effects}} of {{Gender Roles}}, {{Implicit Bias}}, and {{Stereotype Threat}} on the {{Lives}} of {{Women}} and {{Girls}}}
+      \field{volume}{2}
+      \field{year}{2016}
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/YDMUSE26/Johnson et al. - PERCEPTION INSTITUTE.pdf
+      \endverb
+    \endentry
+    \entry{googleReducingGenderBias2018}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8b36e9207c24c76e6719268e49201d94}{%
+           family={{Google}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhashraw}{8b36e9207c24c76e6719268e49201d94}
+      \strng{bibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorbibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authornamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhashraw}{8b36e9207c24c76e6719268e49201d94}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Google Translate is launching gender-specific translations: masculine and feminine results for a gender-neutral query.}
+      \field{howpublished}{https://blog.google/products/translate/reducing-gender-bias-google-translate/}
+      \field{journaltitle}{Google}
+      \field{langid}{american}
+      \field{month}{12}
+      \field{title}{Reducing Gender Bias in {{Google Translate}}}
+      \field{urlday}{5}
+      \field{urlmonth}{6}
+      \field{urlyear}{2025}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/VAP3FIZB/reducing-gender-bias-google-translate.html
+      \endverb
+    \endentry
+    \entry{gurgurovMultilingualLargeLanguage2024}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=7ff27a9526f30b44b7728a2e245791ec}{%
+           family={Gurgurov},
+           familyi={G\bibinitperiod},
+           given={Daniil},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b876bc082dc7873b6768fd7fc44bddfa}{%
+           family={Bäumel},
+           familyi={B\bibinitperiod},
+           given={Tanja},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3bc681ceddc45eeafe62160bd72959fb}{%
+           family={Anikina},
+           familyi={A\bibinitperiod},
+           given={Tatiana},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2c45663b4dafc9af3ec8d703f5e3e00c}
+      \strng{fullhash}{b49911e062826a0846d614c871f4bd1a}
+      \strng{fullhashraw}{b49911e062826a0846d614c871f4bd1a}
+      \strng{bibnamehash}{b49911e062826a0846d614c871f4bd1a}
+      \strng{authorbibnamehash}{b49911e062826a0846d614c871f4bd1a}
+      \strng{authornamehash}{2c45663b4dafc9af3ec8d703f5e3e00c}
+      \strng{authorfullhash}{b49911e062826a0846d614c871f4bd1a}
+      \strng{authorfullhashraw}{b49911e062826a0846d614c871f4bd1a}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Multilingual Large Language Models (LLMs) have gained large popularity among Natural Language Processing (NLP) researchers and practitioners. These models, trained on huge datasets, show proficiency across various languages and demonstrate effectiveness in numerous downstream tasks. This paper navigates the landscape of multilingual LLMs, providing an introductory overview of their technical aspects. It explains underlying architectures, objective functions, pre-training data sources, and tokenization methods. This work explores the unique features of different model types: encoder-only (mBERT, XLM-R), decoder-only (XGLM, PALM, BLOOM, GPT-3), and encoder-decoder models (mT5, mBART). Additionally, it addresses one of the significant limitations of multilingual LLMs - the curse of multilinguality - and discusses current attempts to overcome it.}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arXiv}
+      \field{title}{Multilingual {{Large Language Models}} and {{Curse}} of {{Multilinguality}}}
+      \field{urlday}{27}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2406.10602
+      \endverb
+      \verb{eprint}
+      \verb 2406.10602
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/YZ8NBAH5/Gurgurov et al. - 2024 - Multilingual Large Language Models and Curse of Multilinguality.pdf;/Users/khali/Zotero/storage/J5F9RA2A/2406.html
+      \endverb
+      \keyw{Computer Science - Computation and Language,Computer Science - Computers and Society}
+    \endentry
+    \entry{kapplAreAllSpanish2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9ea3ced15157db5be8199ad9bb2d2507}{%
+           family={Kappl},
+           familyi={K\bibinitperiod},
+           given={Michelle},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{9ea3ced15157db5be8199ad9bb2d2507}
+      \strng{fullhash}{9ea3ced15157db5be8199ad9bb2d2507}
+      \strng{fullhashraw}{9ea3ced15157db5be8199ad9bb2d2507}
+      \strng{bibnamehash}{9ea3ced15157db5be8199ad9bb2d2507}
+      \strng{authorbibnamehash}{9ea3ced15157db5be8199ad9bb2d2507}
+      \strng{authornamehash}{9ea3ced15157db5be8199ad9bb2d2507}
+      \strng{authorfullhash}{9ea3ced15157db5be8199ad9bb2d2507}
+      \strng{authorfullhashraw}{9ea3ced15157db5be8199ad9bb2d2507}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{We present WinoMTDE, a new gender bias evaluation test set designed to assess occupational stereotyping and underrepresentation in German machine translation (MT) systems. Building on the automatic evaluation method introduced by Stanovsky et al. (2019), we extend the approach to German, a language with grammatical gender. The WinoMTDE dataset comprises 288 German sentences that are balanced in regard to gender, as well as stereotype, which was annotated using German labor statistics. We conduct a largescale evaluation of five widely used MT systems and a large language model. Our results reveal persistent bias in most models, with the LLM outperforming traditional systems. The dataset and evaluation code are publicly available at https://github.com/ michellekappl/mt\_gender\_german.}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arXiv}
+      \field{langid}{english}
+      \field{number}{arXiv:2502.19104}
+      \field{shorttitle}{Are {{All Spanish Doctors Male}}?}
+      \field{title}{Are {{All Spanish Doctors Male}}? {{Evaluating Gender Bias}} in {{German Machine Translation}}}
+      \field{urlday}{10}
+      \field{urlmonth}{4}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2502.19104
+      \endverb
+      \verb{eprint}
+      \verb 2502.19104
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/X53BVETT/Kappl - 2025 - Are All Spanish Doctors Male Evaluating Gender Bias in German Machine Translation.pdf
+      \endverb
+      \keyw{Computer Science - Computation and Language}
+    \endentry
+    \entry{lardelliBuildingBridgesDataset2024}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=b1b28a53d5f5dc84ed56b18577663384}{%
+           family={Lardelli},
+           familyi={L\bibinitperiod},
+           given={Manuel},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=179a40f791b39fbab95da977082320b7}{%
+           family={Attanasio},
+           familyi={A\bibinitperiod},
+           given={Giuseppe},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0ae99fcaf6da46c3cb4ddb8323c9daef}{%
+           family={Lauscher},
+           familyi={L\bibinitperiod},
+           given={Anne},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{2}{%
+        {Bangkok, Thailand}%
+        {virtual meeting}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computational Linguistics}%
+      }
+      \strng{namehash}{b35e30f9250d9b3d889829f4f570e96a}
+      \strng{fullhash}{3d05889dfeb9595d1dadf24aaf62c8f5}
+      \strng{fullhashraw}{3d05889dfeb9595d1dadf24aaf62c8f5}
+      \strng{bibnamehash}{3d05889dfeb9595d1dadf24aaf62c8f5}
+      \strng{authorbibnamehash}{3d05889dfeb9595d1dadf24aaf62c8f5}
+      \strng{authornamehash}{b35e30f9250d9b3d889829f4f570e96a}
+      \strng{authorfullhash}{3d05889dfeb9595d1dadf24aaf62c8f5}
+      \strng{authorfullhashraw}{3d05889dfeb9595d1dadf24aaf62c8f5}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{The translation of gender-neutral personreferring terms (e.g., the students) is often nontrivial. Translating from English into German poses an interesting case---in German, personreferring nouns are usually gender-specific, and if the gender of the referent(s) is unknown or diverse, the generic masculine (die Studenten (m.)) is commonly used. This solution, however, reduces the visibility of other genders, such as women and non-binary people. To counteract gender discrimination, a societal movement towards using gender-fair language exists (e.g., by adopting neosystems). However, gender-fair German is currently barely supported in machine translation (MT), requiring post-editing or manual translations. We address this research gap by studying gender-fair language in English-to-German MT. Concretely, we enrich a community-created gender-fair language dictionary and sample multi-sentence test instances from encyclopedic text and parliamentary speeches. Using these novel resources, we conduct the first benchmark study involving two commercial systems and six neural MT models for translating words in isolation and natural contexts across two domains. Our findings show that most systems produce mainly masculine forms and rarely genderneutral variants, highlighting the need for future research. We release code and data at https://github.com/g8a9/building-b ridges-gender-fair-german-mt.}
+      \field{booktitle}{Findings of the {{Association}} for {{Computational Linguistics ACL}} 2024}
+      \field{langid}{english}
+      \field{shorttitle}{Building {{Bridges}}}
+      \field{title}{Building {{Bridges}}: {{A Dataset}} for {{Evaluating Gender-Fair Machine Translation}} into {{German}}}
+      \field{urlday}{6}
+      \field{urlmonth}{4}
+      \field{urlyear}{2025}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \field{pages}{7542\bibrangedash 7550}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.18653/v1/2024.findings-acl.448
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/BT3GSQC7/Lardelli et al. - 2024 - Building Bridges A Dataset for Evaluating Gender-Fair Machine Translation into German.pdf
+      \endverb
+    \endentry
+    \entry{lauscherZeroHeroLimitations2020}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=0ae99fcaf6da46c3cb4ddb8323c9daef}{%
+           family={Lauscher},
+           familyi={L\bibinitperiod},
+           given={Anne},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=121be4878183e35e2906048846f16e1d}{%
+           family={Ravishankar},
+           familyi={R\bibinitperiod},
+           given={Vinit},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9fa17331489449c86886282786aa6111}{%
+           family={Vulić},
+           familyi={V\bibinitperiod},
+           given={Ivan},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c4b6fcc2ce6f6a46cbca1beae53902bc}{%
+           family={Glavaš},
+           familyi={G\bibinitperiod},
+           given={Goran},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{4}{}{%
+        {{hash=073903bf4f8271f1a80b3fdcc63d92c2}{%
+           family={Webber},
+           familyi={W\bibinitperiod},
+           given={Bonnie},
+           giveni={B\bibinitperiod}}}%
+        {{hash=fcbee11f57094a6fbbfcbf494f023974}{%
+           family={Cohn},
+           familyi={C\bibinitperiod},
+           given={Trevor},
+           giveni={T\bibinitperiod}}}%
+        {{hash=f3b78337b03e473fdd1fe07b5b127389}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Yulan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=621013bf54d3546375ad71f17f020b5b}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Yang},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Online}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computational Linguistics}%
+      }
+      \strng{namehash}{e0d635eb3662380d0b068a70210f429c}
+      \strng{fullhash}{eea472c2a0a1be47a49eee677060b0cd}
+      \strng{fullhashraw}{eea472c2a0a1be47a49eee677060b0cd}
+      \strng{bibnamehash}{e0d635eb3662380d0b068a70210f429c}
+      \strng{authorbibnamehash}{e0d635eb3662380d0b068a70210f429c}
+      \strng{authornamehash}{e0d635eb3662380d0b068a70210f429c}
+      \strng{authorfullhash}{eea472c2a0a1be47a49eee677060b0cd}
+      \strng{authorfullhashraw}{eea472c2a0a1be47a49eee677060b0cd}
+      \strng{editorbibnamehash}{7126226c96b902f79c86c0a19c719ffe}
+      \strng{editornamehash}{7126226c96b902f79c86c0a19c719ffe}
+      \strng{editorfullhash}{b493927e65eacfc394fe1e594cf72a89}
+      \strng{editorfullhashraw}{b493927e65eacfc394fe1e594cf72a89}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Massively multilingual transformers (MMTs) pretrained via language modeling (e.g., mBERT, XLM-R) have become a default paradigm for zero-shot language transfer in NLP, offering unmatched transfer performance. Current evaluations, however, verify their efficacy in transfers (a) to languages with sufficiently large pretraining corpora, and (b) between close languages. In this work, we analyze the limitations of downstream language transfer with MMTs, showing that, much like cross-lingual word embeddings, they are substantially less effective in resource-lean scenarios and for distant languages. Our experiments, encompassing three lower-level tasks (POS tagging, dependency parsing, NER) and two high-level tasks (NLI, QA), empirically correlate transfer performance with linguistic proximity between source and target languages, but also with the size of target language corpora used in MMT pretraining. Most importantly, we demonstrate that the inexpensive few-shot transfer (i.e., additional fine-tuning on a few target-language instances) is surprisingly effective across the board, warranting more research efforts reaching beyond the limiting zero-shot conditions.}
+      \field{booktitle}{Proceedings of the 2020 {{Conference}} on {{Empirical Methods}} in {{Natural Language Processing}} ({{EMNLP}})}
+      \field{month}{11}
+      \field{shorttitle}{From {{Zero}} to {{Hero}}}
+      \field{title}{From {{Zero}} to {{Hero}}: {{On}} the {{Limitations}} of {{Zero-Shot Language Transfer}} with {{Multilingual Transformers}}}
+      \field{urlday}{27}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \field{pages}{4483\bibrangedash 4499}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.18653/v1/2020.emnlp-main.363
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/EE45HWN2/Lauscher et al. - 2020 - From Zero to Hero On the Limitations of Zero-Shot Language Transfer with Multilingual Transformers.pdf
+      \endverb
+    \endentry
+    \entry{libovickyHowLanguageNeutralMultilingual2019}{misc}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=5ac5d970c0954d8077fe391abaa9afeb}{%
+           family={Libovický},
+           familyi={L\bibinitperiod},
+           given={Jindřich},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=96944b0316f8f4e31e427256011c5b02}{%
+           family={Rosa},
+           familyi={R\bibinitperiod},
+           given={Rudolf},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a0bb0b8ef470c04a9241b1c343ab1a83}{%
+           family={Fraser},
+           familyi={F\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{28b800cca366c814d2d302f9386db5c5}
+      \strng{fullhash}{856095ee3fd6826a73374a22955be401}
+      \strng{fullhashraw}{856095ee3fd6826a73374a22955be401}
+      \strng{bibnamehash}{856095ee3fd6826a73374a22955be401}
+      \strng{authorbibnamehash}{856095ee3fd6826a73374a22955be401}
+      \strng{authornamehash}{28b800cca366c814d2d302f9386db5c5}
+      \strng{authorfullhash}{856095ee3fd6826a73374a22955be401}
+      \strng{authorfullhashraw}{856095ee3fd6826a73374a22955be401}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Multilingual BERT (mBERT) provides sentence representations for 104 languages, which are useful for many multi-lingual tasks. Previous work probed the cross-linguality of mBERT using zero-shot transfer learning on morphological and syntactic tasks. We instead focus on the semantic properties of mBERT. We show that mBERT representations can be split into a language-specific component and a language-neutral component, and that the language-neutral component is sufficiently general in terms of modeling semantics to allow high-accuracy word-alignment and sentence retrieval but is not yet good enough for the more difficult task of MT quality estimation. Our work presents interesting challenges which must be solved to build better language-neutral representations, particularly for tasks requiring linguistic transfer of semantics.}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arXiv}
+      \field{month}{11}
+      \field{number}{arXiv:1911.03310}
+      \field{title}{How {{Language-Neutral}} Is {{Multilingual BERT}}?}
+      \field{urlday}{14}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.1911.03310
+      \endverb
+      \verb{eprint}
+      \verb 1911.03310
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/4HJY9NGF/Libovický et al. - 2019 - How Language-Neutral is Multilingual BERT.pdf;/Users/khali/Zotero/storage/XWKSB967/1911.html
+      \endverb
+      \keyw{Computer Science - Computation and Language}
+    \endentry
+    \entry{linMachineTranslationAcademic2009}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=064289d6b4a9f42e151b9da53f9fd753}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={Grace\bibnamedelima Hui-chin},
+           giveni={G\bibinitperiod\bibinitdelim H\bibinithyphendelim c\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2f3be4311712e5b21a9ba9ea7a788aad}{%
+           family={Chien},
+           familyi={C\bibinitperiod},
+           given={Paul\bibnamedelimb Shih\bibnamedelima Chieh},
+           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1ce4cfd17e23e7a88bdc1ad491333895}
+      \strng{fullhash}{1ce4cfd17e23e7a88bdc1ad491333895}
+      \strng{fullhashraw}{1ce4cfd17e23e7a88bdc1ad491333895}
+      \strng{bibnamehash}{1ce4cfd17e23e7a88bdc1ad491333895}
+      \strng{authorbibnamehash}{1ce4cfd17e23e7a88bdc1ad491333895}
+      \strng{authornamehash}{1ce4cfd17e23e7a88bdc1ad491333895}
+      \strng{authorfullhash}{1ce4cfd17e23e7a88bdc1ad491333895}
+      \strng{authorfullhashraw}{1ce4cfd17e23e7a88bdc1ad491333895}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Due to the globalization trend and knowledge boost in the second millennium, multi-lingual translation has become a noteworthy issue. For the purposes of learning knowledge in academic fields, Machine Translation (MT) should be noticed not only academically but also practically. MT should be informed to the translating learners because it is a valuable approach to apply by professional translators for diverse professional fields. For learning translating skills and finding a way to learn and teach through bi-lingual/multilingual translating functions in software, machine translation is an ideal approach that translation trainers, translation learners, and professional translators should be familiar with. In fact, theories for machine translation and computer assistance had been highly valued by many scholars. (e.g., Hutchines, 2003; Thriveni, 2002) Based on MIT's Open Courseware into Chinese that Lee, Lin and Bonk (2007) have introduced, this paper demonstrates how MT can be efficiently applied as a superior way of teaching and learning. This article predicts the translated courses utilizing MT for residents of global village should emerge and be provided soon in industrialized nations and it exhibits an overview about what the current developmental status of MT is, why the MT should be fully applied for academic purpose, such as translating a textbook or teaching and learning a course, and what types of software can be successfully applied. It implies MT should be promoted in Taiwan because its functions of clearly translating the key-words and leading the basic learners to a certain professional field can be proved in MIT.}
+      \field{journaltitle}{Proceedings of the International Conference on TESOL and Translation 2009}
+      \field{langid}{english}
+      \field{title}{Machine {{Translation}} for {{Academic Purposes}}}
+      \field{year}{2009}
+      \field{pages}{pp.133\bibrangedash 148}
+      \range{pages}{-1}
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/2H7RUWAZ/Lin and Chien - Machine Translation for Academic Purposes.pdf
+      \endverb
+    \endentry
+    \entry{mosbachStabilityFinetuningBERT2021}{misc}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=a337d6494f1b30bc3ab3ac3f5ecb8e9a}{%
+           family={Mosbach},
+           familyi={M\bibinitperiod},
+           given={Marius},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=37eab590a70071733a7207c69c1de93b}{%
+           family={Andriushchenko},
+           familyi={A\bibinitperiod},
+           given={Maksym},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f440856a11ae15184a2f1802e005ea47}{%
+           family={Klakow},
+           familyi={K\bibinitperiod},
+           given={Dietrich},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{6c7c4e80dd0489817aa8e9d637e8b40b}
+      \strng{fullhash}{3fe799e41434163cc529cba344ea3bda}
+      \strng{fullhashraw}{3fe799e41434163cc529cba344ea3bda}
+      \strng{bibnamehash}{3fe799e41434163cc529cba344ea3bda}
+      \strng{authorbibnamehash}{3fe799e41434163cc529cba344ea3bda}
+      \strng{authornamehash}{6c7c4e80dd0489817aa8e9d637e8b40b}
+      \strng{authorfullhash}{3fe799e41434163cc529cba344ea3bda}
+      \strng{authorfullhashraw}{3fe799e41434163cc529cba344ea3bda}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Fine-tuning pre-trained transformer-based language models such as BERT has become a common practice dominating leaderboards across various NLP benchmarks. Despite the strong empirical performance of fine-tuned models, fine-tuning is an unstable process: training the same model with multiple random seeds can result in a large variance of the task performance. Previous literature (Devlin et al., 2019; Lee et al., 2020; Dodge et al., 2020) identified two potential reasons for the observed instability: catastrophic forgetting and small size of the fine-tuning datasets. In this paper, we show that both hypotheses fail to explain the fine-tuning instability. We analyze BERT, RoBERTa, and ALBERT, fine-tuned on commonly used datasets from the GLUE benchmark, and show that the observed instability is caused by optimization difficulties that lead to vanishing gradients. Additionally, we show that the remaining variance of the downstream task performance can be attributed to differences in generalization where fine-tuned models with the same training loss exhibit noticeably different test performance. Based on our analysis, we present a simple but strong baseline that makes fine-tuning BERT-based models significantly more stable than the previously proposed approaches. Code to reproduce our results is available online: https://github.com/uds-lsv/bert-stable-fine-tuning.}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arXiv}
+      \field{month}{3}
+      \field{number}{arXiv:2006.04884}
+      \field{shorttitle}{On the {{Stability}} of {{Fine-tuning BERT}}}
+      \field{title}{On the {{Stability}} of {{Fine-tuning BERT}}: {{Misconceptions}}, {{Explanations}}, and {{Strong Baselines}}}
+      \field{urlday}{14}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2006.04884
+      \endverb
+      \verb{eprint}
+      \verb 2006.04884
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/WD9MIC2T/Mosbach et al. - 2021 - On the Stability of Fine-tuning BERT Misconceptions, Explanations, and Strong Baselines.pdf;/Users/khali/Zotero/storage/BXLL4ZVI/2006.html
+      \endverb
+      \keyw{Computer Science - Machine Learning,Statistics - Machine Learning}
+    \endentry
+    \entry{nadipalliLayerWiseEvolutionRepresentations2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7b02d04514cd8e76ba4390e345fc73cf}{%
+           family={Nadipalli},
+           familyi={N\bibinitperiod},
+           given={Suneel},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{7b02d04514cd8e76ba4390e345fc73cf}
+      \strng{fullhash}{7b02d04514cd8e76ba4390e345fc73cf}
+      \strng{fullhashraw}{7b02d04514cd8e76ba4390e345fc73cf}
+      \strng{bibnamehash}{7b02d04514cd8e76ba4390e345fc73cf}
+      \strng{authorbibnamehash}{7b02d04514cd8e76ba4390e345fc73cf}
+      \strng{authornamehash}{7b02d04514cd8e76ba4390e345fc73cf}
+      \strng{authorfullhash}{7b02d04514cd8e76ba4390e345fc73cf}
+      \strng{authorfullhashraw}{7b02d04514cd8e76ba4390e345fc73cf}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Fine-tuning pre-trained transformers is a powerful technique for enhancing the performance of base models on specific tasks. From early applications in models like BERT to fine-tuning Large Language Models (LLMs), this approach has been instrumental in adapting general-purpose architectures for specialized downstream tasks. Understanding the fine-tuning process is crucial for uncovering how transformers adapt to specific objectives, retain general representations, and acquire task-specific features. This paper explores the underlying mechanisms of fine-tuning, specifically in the BERT transformer, by analyzing activation similarity, training Sparse AutoEncoders (SAEs), and visualizing token-level activations across different layers. Based on experiments conducted across multiple datasets and BERT layers, we observe a steady progression in how features adapt to the task at hand: early layers primarily retain general representations, middle layers act as a transition between general and task-specific features, and later layers fully specialize in task adaptation. These findings provide key insights into the inner workings of fine-tuning and its impact on representation learning within transformer architectures.}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arXiv}
+      \field{month}{2}
+      \field{number}{arXiv:2502.16722}
+      \field{shorttitle}{Layer-{{Wise Evolution}} of {{Representations}} in {{Fine-Tuned Transformers}}}
+      \field{title}{Layer-{{Wise Evolution}} of {{Representations}} in {{Fine-Tuned Transformers}}: {{Insights}} from {{Sparse AutoEncoders}}}
+      \field{urlday}{20}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2502.16722
+      \endverb
+      \verb{eprint}
+      \verb 2502.16722
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/HY75N5R6/Nadipalli - 2025 - Layer-Wise Evolution of Representations in Fine-Tuned Transformers Insights from Sparse AutoEncoder.pdf;/Users/khali/Zotero/storage/8MFBAP3L/2502.html
+      \endverb
+      \keyw{Computer Science - Artificial Intelligence,Computer Science - Computation and Language}
+    \endentry
+    \entry{pecherComparingSpecialisedSmall2024}{misc}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=c13df1d8a91fc49d9d1f7762ad8152c0}{%
+           family={Pecher},
+           familyi={P\bibinitperiod},
+           given={Branislav},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1d3b9a3bf666ddd5cea39b2c667d8452}{%
+           family={Srba},
+           familyi={S\bibinitperiod},
+           given={Ivan},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1719ee77417b5e5b0bf7d84440ae0cae}{%
+           family={Bielikova},
+           familyi={B\bibinitperiod},
+           given={Maria},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{5d5c8e6e6f4b61373a7541af56f80256}
+      \strng{fullhash}{d692940d002e0704f93fee0df4c4727c}
+      \strng{fullhashraw}{d692940d002e0704f93fee0df4c4727c}
+      \strng{bibnamehash}{d692940d002e0704f93fee0df4c4727c}
+      \strng{authorbibnamehash}{d692940d002e0704f93fee0df4c4727c}
+      \strng{authornamehash}{5d5c8e6e6f4b61373a7541af56f80256}
+      \strng{authorfullhash}{d692940d002e0704f93fee0df4c4727c}
+      \strng{authorfullhashraw}{d692940d002e0704f93fee0df4c4727c}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{When solving NLP tasks with limited labelled data, researchers can either use a general large language model without further update, or use a small number of labelled examples to tune a specialised smaller model. In this work, we address the research gap of how many labelled samples are required for the specialised small models to outperform general large models, while taking the performance variance into consideration. By observing the behaviour of finetuning, instruction-tuning, prompting and incontext learning on 7 language models, we identify such performance break-even points across 8 representative text classification tasks of varying characteristics. We show that the specialised models often need only few samples (on average 10 - 1000) to be on par or better than the general ones. At the same time, the number of required labels strongly depends on the dataset or task characteristics, with this number being significantly lower on multi-class datasets (up to 100) than on binary datasets (up to 5000). When performance variance is taken into consideration, the number of required labels increases on average by 100 - 200\% and even up to 1500\% in specific cases.}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arXiv}
+      \field{langid}{english}
+      \field{month}{4}
+      \field{number}{arXiv:2402.12819}
+      \field{shorttitle}{Comparing {{Specialised Small}} and {{General Large Language Models}} on {{Text Classification}}}
+      \field{title}{Comparing {{Specialised Small}} and {{General Large Language Models}} on {{Text Classification}}: 100 {{Labelled Samples}} to {{Achieve Break-Even Performance}}}
+      \field{urlday}{27}
+      \field{urlmonth}{4}
+      \field{urlyear}{2025}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2402.12819
+      \endverb
+      \verb{eprint}
+      \verb 2402.12819
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/JUV3TPBQ/Pecher et al. - 2024 - Comparing Specialised Small and General Large Language Models on Text Classification 100 Labelled S.pdf
+      \endverb
+      \keyw{Computer Science - Artificial Intelligence,Computer Science - Computation and Language,Computer Science - Machine Learning}
+    \endentry
+    \entry{phuongFormalAlgorithmsTransformers2022}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=fc5630c498e4f6ea0932d7dacec44d85}{%
+           family={Phuong},
+           familyi={P\bibinitperiod},
+           given={Mary},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=da595386b0c32905953fa716d906652a}{%
+           family={Hutter},
+           familyi={H\bibinitperiod},
+           given={Marcus},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{0092704767f01654190c0f5dd1bdfc2b}
+      \strng{fullhash}{0092704767f01654190c0f5dd1bdfc2b}
+      \strng{fullhashraw}{0092704767f01654190c0f5dd1bdfc2b}
+      \strng{bibnamehash}{0092704767f01654190c0f5dd1bdfc2b}
+      \strng{authorbibnamehash}{0092704767f01654190c0f5dd1bdfc2b}
+      \strng{authornamehash}{0092704767f01654190c0f5dd1bdfc2b}
+      \strng{authorfullhash}{0092704767f01654190c0f5dd1bdfc2b}
+      \strng{authorfullhashraw}{0092704767f01654190c0f5dd1bdfc2b}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This document aims to be a self-contained, mathematically precise overview of transformer architectures and algorithms (*not* results). It covers what transformers are, how they are trained, what they are used for, their key architectural components, and a preview of the most prominent models. The reader is assumed to be familiar with basic ML terminology and simpler neural network architectures such as MLPs.}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arXiv}
+      \field{month}{7}
+      \field{number}{arXiv:2207.09238}
+      \field{title}{Formal {{Algorithms}} for {{Transformers}}}
+      \field{urlday}{4}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2207.09238
+      \endverb
+      \verb{eprint}
+      \verb 2207.09238
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/USRGCVXR/Phuong and Hutter - 2022 - Formal Algorithms for Transformers.pdf;/Users/khali/Zotero/storage/KI9QGYBP/2207.html
+      \endverb
+      \keyw{Computer Science - Artificial Intelligence,Computer Science - Computation and Language,Computer Science - Machine Learning,Computer Science - Neural and Evolutionary Computing}
+    \endentry
+    \entry{piresHowMultilingualMultilingual2019}{misc}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=76abc25c11a150f8ef7d480698ecf64b}{%
+           family={Pires},
+           familyi={P\bibinitperiod},
+           given={Telmo},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=319c0ae1daee376ff3ec688e62591bf3}{%
+           family={Schlinger},
+           familyi={S\bibinitperiod},
+           given={Eva},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1245f407feda6a1ff1dfff776cc5403b}{%
+           family={Garrette},
+           familyi={G\bibinitperiod},
+           given={Dan},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{93a9650d36ed2afcaa1f3149bc05497d}
+      \strng{fullhash}{d27a4ed5ef34b8ef01f219b18cbfd130}
+      \strng{fullhashraw}{d27a4ed5ef34b8ef01f219b18cbfd130}
+      \strng{bibnamehash}{d27a4ed5ef34b8ef01f219b18cbfd130}
+      \strng{authorbibnamehash}{d27a4ed5ef34b8ef01f219b18cbfd130}
+      \strng{authornamehash}{93a9650d36ed2afcaa1f3149bc05497d}
+      \strng{authorfullhash}{d27a4ed5ef34b8ef01f219b18cbfd130}
+      \strng{authorfullhashraw}{d27a4ed5ef34b8ef01f219b18cbfd130}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper, we show that Multilingual BERT (M-BERT), released by Devlin et al. (2018) as a single language model pre-trained from monolingual corpora in 104 languages, is surprisingly good at zero-shot cross-lingual model transfer, in which task-specific annotations in one language are used to fine-tune the model for evaluation in another language. To understand why, we present a large number of probing experiments, showing that transfer is possible even to languages in different scripts, that transfer works best between typologically similar languages, that monolingual corpora can train models for code-switching, and that the model can find translation pairs. From these results, we can conclude that M-BERT does create multilingual representations, but that these representations exhibit systematic deficiencies affecting certain language pairs.}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arXiv}
+      \field{month}{6}
+      \field{number}{arXiv:1906.01502}
+      \field{title}{How Multilingual Is {{Multilingual BERT}}?}
+      \field{urlday}{14}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.1906.01502
+      \endverb
+      \verb{eprint}
+      \verb 1906.01502
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/LKTEIRJW/Pires et al. - 2019 - How multilingual is Multilingual BERT.pdf;/Users/khali/Zotero/storage/42IS2T8R/1906.html
+      \endverb
+      \keyw{Computer Science - Artificial Intelligence,Computer Science - Computation and Language,Computer Science - Machine Learning}
+    \endentry
+    \entry{pratesAssessingGenderBias2019}{misc}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=25a1d08aa5f220fa5fc0e54aaf4b14e8}{%
+           family={Prates},
+           familyi={P\bibinitperiod},
+           given={Marcelo\bibnamedelimb O.\bibnamedelimi R.},
+           giveni={M\bibinitperiod\bibinitdelim O\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e6e28843f2c3f201e4f6990a8b1a03ba}{%
+           family={Avelar},
+           familyi={A\bibinitperiod},
+           given={Pedro\bibnamedelimb H.\bibnamedelimi C.},
+           giveni={P\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2f6f52ead3dcdd50dcc3ce487f6fa5e1}{%
+           family={Lamb},
+           familyi={L\bibinitperiod},
+           given={Luis},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{760a2fbcecb784092567af8c34adfee1}
+      \strng{fullhash}{c7c17d1a6c25ce99f051aeb7b879bb87}
+      \strng{fullhashraw}{c7c17d1a6c25ce99f051aeb7b879bb87}
+      \strng{bibnamehash}{c7c17d1a6c25ce99f051aeb7b879bb87}
+      \strng{authorbibnamehash}{c7c17d1a6c25ce99f051aeb7b879bb87}
+      \strng{authornamehash}{760a2fbcecb784092567af8c34adfee1}
+      \strng{authorfullhash}{c7c17d1a6c25ce99f051aeb7b879bb87}
+      \strng{authorfullhashraw}{c7c17d1a6c25ce99f051aeb7b879bb87}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This research paper, "Assessing Gender Bias in Machine Translation -- A Case Study with Google Translate", investigates the presence of gender bias within automated translation tools. The authors explore this by inputting gender-neutral sentences, specifically job titles and adjectives, in various languages into Google Translate and observing the gendered pronouns in the English output. Their findings reveal a strong tendency for Google Translate to default to male pronouns, particularly for professions stereotypically associated with men, and they demonstrate that this bias does not simply reflect real-world gender distributions in the workplace. Ultimately, the study highlights how machine learning systems can inadvertently perpetuate societal biases and calls for the development of debiasing techniques to ensure greater fairness in such technologies.}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arXiv}
+      \field{langid}{english}
+      \field{number}{arXiv:1809.02208}
+      \field{title}{Assessing {{Gender Bias}} in {{Machine Translation}} -- {{A Case Study}} with {{Google Translate}}}
+      \field{urlday}{3}
+      \field{urlmonth}{4}
+      \field{urlyear}{2025}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.1809.02208
+      \endverb
+      \verb{eprint}
+      \verb 1809.02208
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/5CDI4C3V/Prates et al. - 2019 - Assessing Gender Bias in Machine Translation -- A Case Study with Google Translate.pdf
+      \endverb
+      \keyw{Computer Science - Computation and Language,Computer Science - Computers and Society}
+    \endentry
+    \entry{quemyBinaryClassificationUnstructured2019}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f556172ef42fb6cfa004e5c9b48dcb28}{%
+           family={Quemy},
+           familyi={Q\bibinitperiod},
+           given={Alexandre},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{f556172ef42fb6cfa004e5c9b48dcb28}
+      \strng{fullhash}{f556172ef42fb6cfa004e5c9b48dcb28}
+      \strng{fullhashraw}{f556172ef42fb6cfa004e5c9b48dcb28}
+      \strng{bibnamehash}{f556172ef42fb6cfa004e5c9b48dcb28}
+      \strng{authorbibnamehash}{f556172ef42fb6cfa004e5c9b48dcb28}
+      \strng{authornamehash}{f556172ef42fb6cfa004e5c9b48dcb28}
+      \strng{authorfullhash}{f556172ef42fb6cfa004e5c9b48dcb28}
+      \strng{authorfullhashraw}{f556172ef42fb6cfa004e5c9b48dcb28}
+      \field{sortinit}{Q}
+      \field{sortinithash}{ce69a400a872ddd02ee7fdb3b38c6abd}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Binary classification is one of the most common problem in machine learning. It consists in predicting whether a given element belongs to a particular class. In this paper, a new algorithm for binary classification is proposed using a hypergraph representation. The method is agnostic to data representation, can work with multiple data sources or in non-metric spaces, and accommodates with missing values. As a result, it drastically reduces the need for data preprocessing or feature engineering. Each element to be classified is partitioned according to its interactions with the training set. For each class, a seminorm over the training set partition is learnt to represent the distribution of evidence supporting this class. Empirical validation demonstrates its high potential on a wide range of well-known datasets and the results are compared to the state-of-the-art. The time complexity is given and empirically validated. Its robustness with regard to hyperparameter sensitivity is studied and compared to standard classification methods. Finally, the limitation of the model space is discussed, and some potential solutions proposed.}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arXiv}
+      \field{month}{3}
+      \field{number}{arXiv:1806.06232}
+      \field{title}{Binary {{Classification}} in {{Unstructured Space With Hypergraph Case-Based Reasoning}}}
+      \field{urlday}{4}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.1806.06232
+      \endverb
+      \verb{eprint}
+      \verb 1806.06232
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/E3TAI2MT/Quemy - 2019 - Binary Classification in Unstructured Space With Hypergraph Case-Based Reasoning.pdf;/Users/khali/Zotero/storage/6FUMQPMA/1806.html
+      \endverb
+      \keyw{Computer Science - Artificial Intelligence,Computer Science - Machine Learning,Statistics - Machine Learning}
+    \endentry
+    \entry{rainioEvaluationMetricsStatistical2024}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=31eb6d9f894cdef018cd826123dfdcf7}{%
+           family={Rainio},
+           familyi={R\bibinitperiod},
+           given={Oona},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ce373b267ee77b68302d20ba348f955a}{%
+           family={Teuho},
+           familyi={T\bibinitperiod},
+           given={Jarmo},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a01a54ceb9135d767ef375cb1f0f3428}{%
+           family={Klén},
+           familyi={K\bibinitperiod},
+           given={Riku},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science and Business Media LLC}%
+      }
+      \strng{namehash}{cc273e57b213d824e77f7727659242ad}
+      \strng{fullhash}{0bcb0ea524f5e6331eb73589302a45e9}
+      \strng{fullhashraw}{0bcb0ea524f5e6331eb73589302a45e9}
+      \strng{bibnamehash}{0bcb0ea524f5e6331eb73589302a45e9}
+      \strng{authorbibnamehash}{0bcb0ea524f5e6331eb73589302a45e9}
+      \strng{authornamehash}{cc273e57b213d824e77f7727659242ad}
+      \strng{authorfullhash}{0bcb0ea524f5e6331eb73589302a45e9}
+      \strng{authorfullhashraw}{0bcb0ea524f5e6331eb73589302a45e9}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Research on different machine learning (ML) has become incredibly popular during the past few decades. However, for some researchers not familiar with statistics, it might be difficult to understand how to evaluate the performance of ML models and compare them with each other. Here, we introduce the most common evaluation metrics used for the typical supervised ML tasks including binary, multi-class, and multi-label classification, regression, image segmentation, object detection, and information retrieval. We explain how to choose a suitable statistical test for comparing models, how to obtain enough values of the metric for testing, and how to perform the test and interpret its results. We also present a few practical examples about comparing convolutional neural networks used to classify X-rays with different lung infections and detect cancer tumors in positron emission tomography images.}
+      \field{issn}{2045-2322}
+      \field{journaltitle}{Scientific Reports}
+      \field{langid}{english}
+      \field{month}{3}
+      \field{number}{1}
+      \field{title}{Evaluation Metrics and Statistical Tests for Machine Learning}
+      \field{urlday}{20}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{volume}{14}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.1038/s41598-024-56706-x
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/2VJIRRY6/Rainio et al. - 2024 - Evaluation metrics and statistical tests for machine learning.pdf
+      \endverb
+    \endentry
+    \entry{rescignoGenderBiasMachine2023}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=4b62c995bd6db3a97f82eced424766ac}{%
+           family={Rescigno},
+           familyi={R\bibinitperiod},
+           given={Argentina\bibnamedelima Anna},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c62226e98676b01bce72d0e3de37f41c}{%
+           family={Monti},
+           familyi={M\bibinitperiod},
+           given={Johanna},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {UNIOR NLP Research Group, University of Naples "L'Orientale", Naples, Italy}%
+      }
+      \list{publisher}{1}{%
+        {INCOMA Ltd., Shoumen, Bulgaria}%
+      }
+      \strng{namehash}{20e679186306365479fa0a1e279334fd}
+      \strng{fullhash}{20e679186306365479fa0a1e279334fd}
+      \strng{fullhashraw}{20e679186306365479fa0a1e279334fd}
+      \strng{bibnamehash}{20e679186306365479fa0a1e279334fd}
+      \strng{authorbibnamehash}{20e679186306365479fa0a1e279334fd}
+      \strng{authornamehash}{20e679186306365479fa0a1e279334fd}
+      \strng{authorfullhash}{20e679186306365479fa0a1e279334fd}
+      \strng{authorfullhashraw}{20e679186306365479fa0a1e279334fd}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Despite the significant advancements made in the field of Machine Translation (MT) technology, there are still some challenges that need to be addressed. One such challenge is represented by the issue of gender bias in machine translation systems. The main objective of this study is to examine and investigate the presence of gender bias in MT systems and identify any potential issues related to the use of sexist language. The research evaluates the performance of Google Translate and DeepL in terms of natural gender translation, particularly the frequency of male and female forms used in translating sentences that refer to professions without any other gender-specific words. The evaluation is carried out using the MT-GenEval corpus [2] contextual subset, for English-Italian and English-German language pairs. The paper presents the statistical findings obtained from the evaluation.}
+      \field{booktitle}{Proceedings of the {{International Conference}} on {{Human-informed Translation}} and {{Interpreting Technology}} 2023}
+      \field{langid}{english}
+      \field{shorttitle}{Gender {{Bias}} in {{Machine Translation}}}
+      \field{title}{Gender {{Bias}} in {{Machine Translation}}: A Statistical Evaluation of {{Google Translate}} and {{DeepL}} for {{English}}, {{Italian}} and {{German}}}
+      \field{urlday}{27}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \field{pages}{1\bibrangedash 11}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.26615/issn.2683-0078.2023_001
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/KRUC85NJ/UNIOR NLP Research Group, University of Naples et al. - 2023 - Gender Bias in Machine Translation a statistical evaluation of Google Translate and DeepL for Engli.pdf
+      \endverb
+    \endentry
+    \entry{savoldiDecadeGenderBias2025}{article}{}{}
+      \name{author}{4}{ul=2}{%
+        {{un=0,uniquepart=base,hash=47c5e4c5df5022876cf39130065553b5}{%
+           family={Savoldi},
+           familyi={S\bibinitperiod},
+           given={Beatrice},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=31bf8f4b7908bfb3307ac1daac6cc9f1}{%
+           family={Bastings},
+           familyi={B\bibinitperiod},
+           given={Jasmijn},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8c48509f759d854240e45b1340a37c6e}{%
+           family={Bentivogli},
+           familyi={B\bibinitperiod},
+           given={Luisa},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3726a5a1a3c36e39c46c9e6be5723f52}{%
+           family={Vanmassenhove},
+           familyi={V\bibinitperiod},
+           given={Eva},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7dca0b92a9f2fd3742c6def3c6461488}
+      \strng{fullhash}{87f81773d32076ae8a6b952184cf40a8}
+      \strng{fullhashraw}{87f81773d32076ae8a6b952184cf40a8}
+      \strng{bibnamehash}{7dca0b92a9f2fd3742c6def3c6461488}
+      \strng{authorbibnamehash}{7dca0b92a9f2fd3742c6def3c6461488}
+      \strng{authornamehash}{7dca0b92a9f2fd3742c6def3c6461488}
+      \strng{authorfullhash}{87f81773d32076ae8a6b952184cf40a8}
+      \strng{authorfullhashraw}{87f81773d32076ae8a6b952184cf40a8}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Gender bias in machine translation (MT) has been studied for over a decade, a time marked by societal, linguistic, and technological shifts. With the early optimism for a quick solution in mind, we review over 100 studies on the topic and uncover a more complex reality---one that resists a simple technical fix. While we identify key trends and advancements, persistent gaps remain. We argue that there is no simple technical solution to bias. Building on insights from our review, we examine the growing prominence of large language models and discuss the challenges and opportunities they present in the context of gender bias and translation. By doing so, we hope to inspire future work in the field to break with past limitations and to be less focused on a technical fix; more user-centric, multilingual, and multiculturally diverse; more personalized; and better grounded in real-world needs.}
+      \field{issn}{26663899}
+      \field{journaltitle}{Patterns}
+      \field{langid}{english}
+      \field{month}{5}
+      \field{title}{A Decade of Gender Bias in Machine Translation}
+      \field{urlday}{6}
+      \field{urlmonth}{6}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \field{pages}{101257}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.patter.2025.101257
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/IGP8BJEB/Savoldi et al. - 2025 - A decade of gender bias in machine translation.pdf
+      \endverb
+    \endentry
+    \entry{savoldiMGeNTEMultilingualResource2025}{misc}{}{}
+      \name{author}{7}{ul=2}{%
+        {{un=0,uniquepart=base,hash=47c5e4c5df5022876cf39130065553b5}{%
+           family={Savoldi},
+           familyi={S\bibinitperiod},
+           given={Beatrice},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9174f60ef41f1cf1b49ff2ffb5d27953}{%
+           family={Cupin},
+           familyi={C\bibinitperiod},
+           given={Eleonora},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2fe2e9058a839450dbaa7bd460c215c4}{%
+           family={Thind},
+           familyi={T\bibinitperiod},
+           given={Manjinder},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0ae99fcaf6da46c3cb4ddb8323c9daef}{%
+           family={Lauscher},
+           familyi={L\bibinitperiod},
+           given={Anne},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a680923d10497f2925a87bf0f51f895a}{%
+           family={Piergentili},
+           familyi={P\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0f16b299409e285e906d16569d6b44af}{%
+           family={Negri},
+           familyi={N\bibinitperiod},
+           given={Matteo},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8c48509f759d854240e45b1340a37c6e}{%
+           family={Bentivogli},
+           familyi={B\bibinitperiod},
+           given={Luisa},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{17e2c63dea209ba98652539d9d5854a1}
+      \strng{fullhash}{f176a5a816c424d915de44a6b9fe5adc}
+      \strng{fullhashraw}{f176a5a816c424d915de44a6b9fe5adc}
+      \strng{bibnamehash}{17e2c63dea209ba98652539d9d5854a1}
+      \strng{authorbibnamehash}{17e2c63dea209ba98652539d9d5854a1}
+      \strng{authornamehash}{17e2c63dea209ba98652539d9d5854a1}
+      \strng{authorfullhash}{f176a5a816c424d915de44a6b9fe5adc}
+      \strng{authorfullhashraw}{f176a5a816c424d915de44a6b9fe5adc}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Gender-neutral language reflects societal and linguistic shifts towards greater inclusivity by avoiding the implication that one gender is the norm over others. This is particularly relevant for grammatical gender languages, which heavily encode the gender of terms for human referents and over-relies on masculine forms, even when gender is unspecified or irrelevant. Language technologies are known to mirror these inequalities, being affected by a male bias and perpetuating stereotypical associations when translating into languages with extensive gendered morphology. In such cases, genderneutral language can help avoid undue binary assumptions. However, despite its importance for creating fairer multi- and cross-lingual technologies, inclusive language research remains scarce and insufficiently supported in current resources. To address this gap, we present the multilingual mGeNTe dataset. Derived from the bilingual GeNTE (Piergentili et al., 2023b), mGeNTE extends the original corpus to include the English-Italian/German/Spanish language pairs. Since each language pair is Englishaligned with gendered and neutral sentences in the target languages, mGeNTE enables research in both automatic Gender-Neutral Translation (GNT) and language modelling for three grammatical gender languages.}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arXiv}
+      \field{langid}{english}
+      \field{number}{arXiv:2501.09409}
+      \field{shorttitle}{{{mGeNTE}}}
+      \field{title}{{{mGeNTE}}: {{A Multilingual Resource}} for {{Gender-Neutral Language}} and {{Translation}}}
+      \field{urlday}{8}
+      \field{urlmonth}{4}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2501.09409
+      \endverb
+      \verb{eprint}
+      \verb 2501.09409
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/GHVZT88E/Savoldi et al. - 2025 - mGeNTE A Multilingual Resource for Gender-Neutral Language and Translation.pdf
+      \endverb
+      \keyw{Computer Science - Computation and Language}
+    \endentry
+    \entry{savoldiWhatHarmQuantifying2024}{inproceedings}{}{}
+      \name{author}{5}{ul=2}{%
+        {{un=0,uniquepart=base,hash=47c5e4c5df5022876cf39130065553b5}{%
+           family={Savoldi},
+           familyi={S\bibinitperiod},
+           given={Beatrice},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=86c9b2b56305c9d019ba32810adca944}{%
+           family={Papi},
+           familyi={P\bibinitperiod},
+           given={Sara},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0f16b299409e285e906d16569d6b44af}{%
+           family={Negri},
+           familyi={N\bibinitperiod},
+           given={Matteo},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=93d222e503181b19e1ddc6d83286ec42}{%
+           family={{Guerberof-Arenas}},
+           familyi={G\bibinitperiod},
+           given={Ana},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8c48509f759d854240e45b1340a37c6e}{%
+           family={Bentivogli},
+           familyi={B\bibinitperiod},
+           given={Luisa},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Miami, Florida, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computational Linguistics}%
+      }
+      \strng{namehash}{7056fdf20190324760fd1e71a24c520f}
+      \strng{fullhash}{ddeefd981b16a8b9cb80884928726b5b}
+      \strng{fullhashraw}{ddeefd981b16a8b9cb80884928726b5b}
+      \strng{bibnamehash}{7056fdf20190324760fd1e71a24c520f}
+      \strng{authorbibnamehash}{7056fdf20190324760fd1e71a24c520f}
+      \strng{authornamehash}{7056fdf20190324760fd1e71a24c520f}
+      \strng{authorfullhash}{ddeefd981b16a8b9cb80884928726b5b}
+      \strng{authorfullhashraw}{ddeefd981b16a8b9cb80884928726b5b}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Gender bias in machine translation (MT) is recognized as an issue that can harm people and society. And yet, advancements in the field rarely involve people, the final MT users, or inform how they might be impacted by biased technologies. Current evaluations are often restricted to automatic methods, which offer an opaque estimate of what the downstream impact of gender disparities might be. We conduct an extensive human-centered study to examine if and to what extent bias in MT brings harms with tangible costs, such as quality of service gaps across women and men. To this aim, we collect behavioral data from {$\sim$}90 participants, who post-edited MT outputs to ensure correct gender translation. Across multiple datasets, languages, and types of users, our study shows that feminine post-editing demands significantly more technical and temporal effort, also corresponding to higher financial costs. Existing bias measurements, however, fail to reflect the found disparities. Our findings advocate for human-centered approaches that can inform the societal impact of bias.}
+      \field{booktitle}{Proceedings of the 2024 {{Conference}} on {{Empirical Methods}} in {{Natural Language Processing}}}
+      \field{langid}{english}
+      \field{shorttitle}{What the {{Harm}}?}
+      \field{title}{What the {{Harm}}? {{Quantifying}} the {{Tangible Impact}} of {{Gender Bias}} in {{Machine Translation}} with a {{Human-centered Study}}}
+      \field{urlday}{6}
+      \field{urlmonth}{4}
+      \field{urlyear}{2025}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \field{pages}{18048\bibrangedash 18076}
+      \range{pages}{29}
+      \verb{doi}
+      \verb 10.18653/v1/2024.emnlp-main.1002
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/VIZLY5NZ/Savoldi et al. - 2024 - What the Harm Quantifying the Tangible Impact of Gender Bias in Machine Translation with a Human-ce.pdf
+      \endverb
+    \endentry
+    \entry{schiebingerScientificResearchMust2014}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5929428907147c0de5dc601c4a28a6ea}{%
+           family={Schiebinger},
+           familyi={S\bibinitperiod},
+           given={Londa},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{5929428907147c0de5dc601c4a28a6ea}
+      \strng{fullhash}{5929428907147c0de5dc601c4a28a6ea}
+      \strng{fullhashraw}{5929428907147c0de5dc601c4a28a6ea}
+      \strng{bibnamehash}{5929428907147c0de5dc601c4a28a6ea}
+      \strng{authorbibnamehash}{5929428907147c0de5dc601c4a28a6ea}
+      \strng{authornamehash}{5929428907147c0de5dc601c4a28a6ea}
+      \strng{authorfullhash}{5929428907147c0de5dc601c4a28a6ea}
+      \strng{authorfullhashraw}{5929428907147c0de5dc601c4a28a6ea}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{From car design to drug discovery, the failure to acknowledge sex differences can be costly and even lethal, argues Londa Schiebinger.}
+      \field{issn}{1476-4687}
+      \field{journaltitle}{Nature}
+      \field{langid}{english}
+      \field{month}{3}
+      \field{number}{7490}
+      \field{title}{Scientific Research Must Take Gender into Account}
+      \field{urlday}{6}
+      \field{urlmonth}{6}
+      \field{urlyear}{2025}
+      \field{volume}{507}
+      \field{year}{2014}
+      \field{urldateera}{ce}
+      \field{pages}{9\bibrangedash 9}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1038/507009a
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/3KYNRP4V/Schiebinger - 2014 - Scientific research must take gender into account.pdf
+      \endverb
+      \keyw{Ethics,Research management}
+    \endentry
+    \entry{schmitzGermanAllProfessors2022}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c63286ce5d0f6829c41936bf6b4555b8}{%
+           family={Schmitz},
+           familyi={S\bibinitperiod},
+           given={Dominic},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {PsyArXiv}%
+      }
+      \strng{namehash}{c63286ce5d0f6829c41936bf6b4555b8}
+      \strng{fullhash}{c63286ce5d0f6829c41936bf6b4555b8}
+      \strng{fullhashraw}{c63286ce5d0f6829c41936bf6b4555b8}
+      \strng{bibnamehash}{c63286ce5d0f6829c41936bf6b4555b8}
+      \strng{authorbibnamehash}{c63286ce5d0f6829c41936bf6b4555b8}
+      \strng{authornamehash}{c63286ce5d0f6829c41936bf6b4555b8}
+      \strng{authorfullhash}{c63286ce5d0f6829c41936bf6b4555b8}
+      \strng{authorfullhashraw}{c63286ce5d0f6829c41936bf6b4555b8}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Findings of previous behavioural studies suggest that the semantic nature of what is called the ``masculine generic'' in Modern Standard German is not generic but biased towards a masculine reading. Such findings run counter the traditional assumption of masculine generic forms to be gender-neutral and are the cause of debates within and outside the linguistic community. The present paper aims to explore the semantics of masculine generics by implementing ideas of discriminative learning; an approach that thus far has not yet been used in this matter. If the present results account for a male bias of the masculine generic, findings by previous studies, which relied on very different methodological approaches, are confirmed. Indeed, it is found that masculine generics are semantically much more similar to masculine explicits than to feminine explicits. This supports the notion of a male bias in masculine generics.}
+      \field{langid}{english}
+      \field{month}{8}
+      \field{title}{In {{German}}, All Professors Are Male}
+      \field{urlday}{6}
+      \field{urlmonth}{6}
+      \field{urlyear}{2025}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.31234/osf.io/yjuhc
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/GMSN5TLT/Schmitz - 2022 - In German, all professors are male.pdf
+      \endverb
+    \endentry
+    \entry{schryenWritingQualitativeLiterature2015}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a68cc6b0e31f8e3f5113fb99bccaa5fd}{%
+           family={Schryen},
+           familyi={S\bibinitperiod},
+           given={Guido},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a68cc6b0e31f8e3f5113fb99bccaa5fd}
+      \strng{fullhash}{a68cc6b0e31f8e3f5113fb99bccaa5fd}
+      \strng{fullhashraw}{a68cc6b0e31f8e3f5113fb99bccaa5fd}
+      \strng{bibnamehash}{a68cc6b0e31f8e3f5113fb99bccaa5fd}
+      \strng{authorbibnamehash}{a68cc6b0e31f8e3f5113fb99bccaa5fd}
+      \strng{authornamehash}{a68cc6b0e31f8e3f5113fb99bccaa5fd}
+      \strng{authorfullhash}{a68cc6b0e31f8e3f5113fb99bccaa5fd}
+      \strng{authorfullhashraw}{a68cc6b0e31f8e3f5113fb99bccaa5fd}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The literature review is an established research genre in many academic disciplines, including the IS discipline. Although many scholars agree that systematic literature reviews should be rigorous, few instructional texts for compiling a solid literature review, at least with regard to the IS discipline, exist. In response to this shortage, in this tutorial, I provide practical guidance for both students and researchers in the IS community who want to methodologically conduct qualitative literature reviews. The tutorial differs from other instructional texts in two regards. First, in contrast to most textbooks, I cover not only searching and synthesizing the literature but also the challenging tasks of framing the literature review, interpreting research findings, and proposing research paths. Second, I draw on other texts that provide guidelines for writing literature reviews in the IS discipline but use many examples of published literature reviews. I use an integrated example of a literature review, which guides the reader through the overall process of compiling a literature review.}
+      \field{issn}{15293181}
+      \field{journaltitle}{Communications of the Association for Information Systems}
+      \field{langid}{english}
+      \field{title}{Writing {{Qualitative IS Literature Reviews}}---{{Guidelines}} for {{Synthesis}}, {{Interpretation}}, and {{Guidance}} of {{Research}}}
+      \field{urlday}{9}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{volume}{37}
+      \field{year}{2015}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.17705/1CAIS.03712
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/JNZJRFZE/Schryen - 2015 - Writing Qualitative IS Literature Reviews—Guidelines for Synthesis, Interpretation, and Guidance of.pdf
+      \endverb
+    \endentry
+    \entry{schwemmerDiagnosingGenderBias2020}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=fedbea018faaabb8c4875af1d9119f73}{%
+           family={Schwemmer},
+           familyi={S\bibinitperiod},
+           given={Carsten},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=88b7fbdbc8a4ab61fbb68fb7c6678f57}{%
+           family={Knight},
+           familyi={K\bibinitperiod},
+           given={Carly},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fb7b4891e126dbb2427b70dd570fe458}{%
+           family={{Bello-Pardo}},
+           familyi={B\bibinitperiod},
+           given={Emily\bibnamedelima D.},
+           giveni={E\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d211a16050ad42fe099a12a1ed4ad861}{%
+           family={Oklobdzija},
+           familyi={O\bibinitperiod},
+           given={Stan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=af16ad305a10d46008de004c88aa7b38}{%
+           family={Schoonvelde},
+           familyi={S\bibinitperiod},
+           given={Martijn},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a0abe9091e51ff7f600bf19578bbcbf7}{%
+           family={Lockhart},
+           familyi={L\bibinitperiod},
+           given={Jeffrey\bibnamedelima W.},
+           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {SAGE Publications}%
+      }
+      \strng{namehash}{6561996a41460a8a30921254ea112ec8}
+      \strng{fullhash}{8102cc61b18dad54eddfe7eda7c879f9}
+      \strng{fullhashraw}{8102cc61b18dad54eddfe7eda7c879f9}
+      \strng{bibnamehash}{6561996a41460a8a30921254ea112ec8}
+      \strng{authorbibnamehash}{6561996a41460a8a30921254ea112ec8}
+      \strng{authornamehash}{6561996a41460a8a30921254ea112ec8}
+      \strng{authorfullhash}{8102cc61b18dad54eddfe7eda7c879f9}
+      \strng{authorfullhashraw}{8102cc61b18dad54eddfe7eda7c879f9}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Image recognition systems offer the promise to learn from images at scale without requiring expert knowledge. However, past research suggests that machine learning systems often produce biased output. In this article, we evaluate potential gender biases of commercial image recognition platforms using photographs of U.S. members of Congress and a large number of Twitter images posted by these politicians. Our crowdsourced validation shows that commercial image recognition systems can produce labels that are correct and biased at the same time as they selectively report a subset of many possible true labels. We find that images of women received three times more annotations related to physical appearance. Moreover, women in images are recognized at substantially lower rates in comparison with men. We discuss how encoded biases such as these affect the visibility of women, reinforce harmful gender stereotypes, and limit the validity of the insights that can be gathered from such data.}
+      \field{issn}{2378-0231}
+      \field{journaltitle}{Socius}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{title}{Diagnosing {{Gender Bias}} in {{Image Recognition Systems}}}
+      \field{urlday}{28}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{volume}{6}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \field{pages}{2378023120967171}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1177/2378023120967171
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/8Y9SFYN6/Schwemmer et al. - 2020 - Diagnosing Gender Bias in Image Recognition Systems.pdf
+      \endverb
+    \endentry
+    \entry{sczesnyCanGenderFairLanguage2016}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=a6c767410ddca10ad7b97b0f7169dd65}{%
+           family={Sczesny},
+           familyi={S\bibinitperiod},
+           given={Sabine},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7dedcd540165201c826285e35effb5a9}{%
+           family={Formanowicz},
+           familyi={F\bibinitperiod},
+           given={Magda},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5434241db670f40a9bbd343b9d970c7c}{%
+           family={Moser},
+           familyi={M\bibinitperiod},
+           given={Franziska},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2bf3ed5dd72d71e35020ac54d3f94db3}
+      \strng{fullhash}{16b89a2136bba0af71b0e3ff792e4286}
+      \strng{fullhashraw}{16b89a2136bba0af71b0e3ff792e4286}
+      \strng{bibnamehash}{16b89a2136bba0af71b0e3ff792e4286}
+      \strng{authorbibnamehash}{16b89a2136bba0af71b0e3ff792e4286}
+      \strng{authornamehash}{2bf3ed5dd72d71e35020ac54d3f94db3}
+      \strng{authorfullhash}{16b89a2136bba0af71b0e3ff792e4286}
+      \strng{authorfullhashraw}{16b89a2136bba0af71b0e3ff792e4286}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Gender-fair language (GFL) aims at reducing gender stereotyping and discrimination. Two principle strategies have been employed to make languages gender-fair and to treat women and men symmetrically: neutralization and feminization. Neutralization is achieved, for example, by replacing male-masculine forms (policeman) with genderunmarked forms (police officer), whereas feminization relies on the use of feminine forms to make female referents visible (i.e., the applicant... he or she instead of the applicant... he). By integrating research on (1) language structures, (2) language policies, and (3) individual language behavior, we provide a critical review of how GFL contributes to the reduction of gender stereotyping and discrimination. Our review provides a basis for future research and for scientifically based policy-making.}
+      \field{issn}{1664-1078}
+      \field{journaltitle}{Frontiers in Psychology}
+      \field{langid}{english}
+      \field{title}{Can {{Gender-Fair Language Reduce Gender Stereotyping}} and {{Discrimination}}?}
+      \field{urlday}{16}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{volume}{7}
+      \field{year}{2016}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.3389/fpsyg.2016.00025
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/69MY5UWT/Sczesny et al. - 2016 - Can Gender-Fair Language Reduce Gender Stereotyping and Discrimination.pdf
+      \endverb
+    \endentry
+    \entry{shahPredictiveBiasesNatural2020}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=0ec9b9047654b458edd393e6b4c39b11}{%
+           family={Shah},
+           familyi={S\bibinitperiod},
+           given={Deven},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=64a4bf990d011fb6dad8507460c90973}{%
+           family={Schwartz},
+           familyi={S\bibinitperiod},
+           given={H.\bibnamedelimi Andrew},
+           giveni={H\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=460909209014ce11714ba7d75523ebc8}{%
+           family={Hovy},
+           familyi={H\bibinitperiod},
+           given={Dirk},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{8343b64a39dfd442fb2e822c420a5e47}
+      \strng{fullhash}{55995dcd6d6c82681886edfdc970d2d1}
+      \strng{fullhashraw}{55995dcd6d6c82681886edfdc970d2d1}
+      \strng{bibnamehash}{55995dcd6d6c82681886edfdc970d2d1}
+      \strng{authorbibnamehash}{55995dcd6d6c82681886edfdc970d2d1}
+      \strng{authornamehash}{8343b64a39dfd442fb2e822c420a5e47}
+      \strng{authorfullhash}{55995dcd6d6c82681886edfdc970d2d1}
+      \strng{authorfullhashraw}{55995dcd6d6c82681886edfdc970d2d1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{An increasing number of works in natural language processing have addressed the effect of bias on the predicted outcomes, introducing mitigation techniques that act on different parts of the standard NLP pipeline (data and models). However, these works have been conducted in isolation, without a unifying framework to organize efforts within the field. This leads to repetitive approaches, and puts an undue focus on the effects of bias, rather than on their origins. Research focused on bias symptoms rather than the underlying origins could limit the development of effective countermeasures. In this paper, we propose a unifying conceptualization: the predictive bias framework for NLP. We summarize the NLP literature and propose a general mathematical definition of predictive bias in NLP along with a conceptual framework, differentiating four main origins of biases: label bias, selection bias, model overamplification, and semantic bias. We discuss how past work has countered each bias origin. Our framework serves to guide an introductory overview of predictive bias in NLP, integrating existing work into a single structure and opening avenues for future research.}
+      \field{booktitle}{Proceedings of the 58th {{Annual Meeting}} of the {{Association}} for {{Computational Linguistics}}}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arXiv}
+      \field{shorttitle}{Predictive {{Biases}} in {{Natural Language Processing Models}}}
+      \field{title}{Predictive {{Biases}} in {{Natural Language Processing Models}}: {{A Conceptual Framework}} and {{Overview}}}
+      \field{urlday}{13}
+      \field{urlmonth}{6}
+      \field{urlyear}{2025}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \field{pages}{5248\bibrangedash 5264}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.18653/v1/2020.acl-main.468
+      \endverb
+      \verb{eprint}
+      \verb 1912.11078
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/Z8YS2R86/Shah et al. - 2020 - Predictive Biases in Natural Language Processing Models A Conceptual Framework and Overview.pdf;/Users/khali/Zotero/storage/XEYMFDIX/1912.html
+      \endverb
+      \keyw{Computer Science - Artificial Intelligence,Computer Science - Computation and Language,Computer Science - Machine Learning}
+    \endentry
+    \entry{shresthaExploringGenderBiases2022}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=e868414e5a8ba16572fbf4fe2d7d73cd}{%
+           family={Shrestha},
+           familyi={S\bibinitperiod},
+           given={Sunny},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5a27683b68dea6ebce74a3cdce224a11}{%
+           family={Das},
+           familyi={D\bibinitperiod},
+           given={Sanchari},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{21d986ea0cae8a712743acbf80c964c1}
+      \strng{fullhash}{21d986ea0cae8a712743acbf80c964c1}
+      \strng{fullhashraw}{21d986ea0cae8a712743acbf80c964c1}
+      \strng{bibnamehash}{21d986ea0cae8a712743acbf80c964c1}
+      \strng{authorbibnamehash}{21d986ea0cae8a712743acbf80c964c1}
+      \strng{authornamehash}{21d986ea0cae8a712743acbf80c964c1}
+      \strng{authorfullhash}{21d986ea0cae8a712743acbf80c964c1}
+      \strng{authorfullhashraw}{21d986ea0cae8a712743acbf80c964c1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Automated systems that implement Machine learning (ML) and Artificial Intelligence (AI) algorithms present promising solutions to a variety of technological and non-technological issues. Although, industry leaders are rapidly adopting these systems for anything from marketing to national defense operations, these systems are not without flaws. Recently, many of these systems are found to inherit and propagate gender and racial biases that disadvantages the minority population. In this paper, we analyze academic publications in the area of gender biases in ML and AI algorithms thus outlining different themes, mitigation and detection methods explored through research in this topic. Through a detailed analysis of N = 120 papers, we map the current research landscape on gender specific biases present in ML and AI assisted automated systems. We further point out the aspects of ML/AI gender biases research that are less explored and require more attention. Mainly we focus on the lack of user studies and inclusivity in this field of study. We also shed some light into the gender bias issue as experienced by the algorithm designers. In conclusion, in this paper we provide a holistic view of the breadth of studies conducted in the field of exploring, detecting and mitigating gender biases in ML and AI systems and, a future direction for the studies to take in order to provide a fair and accessible ML and AI systems to all users.}
+      \field{issn}{2624-8212}
+      \field{journaltitle}{Frontiers in Artificial Intelligence}
+      \field{langid}{english}
+      \field{title}{Exploring Gender Biases in {{ML}} and {{AI}} Academic Research through Systematic Literature Review}
+      \field{urlday}{6}
+      \field{urlmonth}{4}
+      \field{urlyear}{2025}
+      \field{volume}{5}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \field{pages}{976838}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3389/frai.2022.976838
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/WRGK82UA/Shrestha and Das - 2022 - Exploring gender biases in ML and AI academic research through systematic literature review.pdf
+      \endverb
+    \endentry
+    \entry{sichlerGenderDifferencesGermanlanguage2014}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=69a24baa19799ebba408e236690e54f8}{%
+           family={Sichler},
+           familyi={S\bibinitperiod},
+           given={Almut},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bc2e69c080be4ba99ee005f0d850db87}{%
+           family={Prommer},
+           familyi={P\bibinitperiod},
+           given={Elizabeth},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a19522dd7d1a3a5e7cbb82813dac667d}
+      \strng{fullhash}{a19522dd7d1a3a5e7cbb82813dac667d}
+      \strng{fullhashraw}{a19522dd7d1a3a5e7cbb82813dac667d}
+      \strng{bibnamehash}{a19522dd7d1a3a5e7cbb82813dac667d}
+      \strng{authorbibnamehash}{a19522dd7d1a3a5e7cbb82813dac667d}
+      \strng{authornamehash}{a19522dd7d1a3a5e7cbb82813dac667d}
+      \strng{authorfullhash}{a19522dd7d1a3a5e7cbb82813dac667d}
+      \strng{authorfullhashraw}{a19522dd7d1a3a5e7cbb82813dac667d}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The Wikipedia project constitutes the currently most-used and most comprehensive online encyclopedia in the world (Schneider, 2008, p. 35) and is advertising itself as free and open for everyone, and in terms of an encyclopedia as diverse and balanced at all levels. But from a gender perspective there is a huge discrepancy in sex ratio within Wikipedia's community. In 2005, researchers at University of Würzburg found that women constitute only 10 \% of German-language Wikipedia authors (Schroer\&Hertel, 2009, p. 104). This fact leads to the presumption, that Wikipedia's reflection of the world mediates and interprets a mainly male conception of the world and thus displays an inequality with reference to modern society. Proceeding from the assumption that women and men have different communication behaviours as well as different perceptions and interpretations of communication in almost all aspects of social interaction including e.g. conversational strategies, conflict management and negotiation skills, we hypothesize that these different ways of communication significantly affect the motivation of female Wikipedia contributors.}
+      \field{issn}{1775-352X}
+      \field{journaltitle}{ESSACHESS - Journal for Communication Studies}
+      \field{langid}{english}
+      \field{number}{2}
+      \field{title}{Gender Differences within the {{German-language Wikipedia}}}
+      \field{volume}{7}
+      \field{year}{2014}
+      \field{pages}{77\bibrangedash 93}
+      \range{pages}{17}
+      \keyw{communication behavior,gender relations,gender-specific factors,Geschlechterverhaltnis,geschlechtsspezifische Faktoren,internet community,Kommunikationsverhalten,Netzgemeinschaft,web 2.0,Web 2.0,Wikipedia}
+    \endentry
+    \entry{skyquestMachineTranslationMT2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e3073d72621139926eb29293a37452fe}{%
+           family={SkyQuest},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{e3073d72621139926eb29293a37452fe}
+      \strng{fullhash}{e3073d72621139926eb29293a37452fe}
+      \strng{fullhashraw}{e3073d72621139926eb29293a37452fe}
+      \strng{bibnamehash}{e3073d72621139926eb29293a37452fe}
+      \strng{authorbibnamehash}{e3073d72621139926eb29293a37452fe}
+      \strng{authornamehash}{e3073d72621139926eb29293a37452fe}
+      \strng{authorfullhash}{e3073d72621139926eb29293a37452fe}
+      \strng{authorfullhashraw}{e3073d72621139926eb29293a37452fe}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Machine Translation (MT) Market By Technology(Statistical Machine Translation (SMT), Neural Machine Translation (NMT)), By Application(Automotive, Healthcare), By Type of MT System(Rule-Based Machine Translation (RBMT), Example-Based Machine Translation (EBMT)) and By Region.}
+      \field{howpublished}{https://www.skyquestt.com/report/machine-translation-market}
+      \field{langid}{english}
+      \field{title}{Machine {{Translation}} ({{MT}}) {{Market Size}}, {{Growth}} \& {{Trends Report}} {|} 2032}
+      \field{urlday}{23}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/K5CTD5KM/machine-translation-market.html
+      \endverb
+    \endentry
+    \entry{smacchiaDoesAIReflect2024}{incollection}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=f30d14f371a3375129a814d181673e83}{%
+           family={Smacchia},
+           familyi={S\bibinitperiod},
+           given={Marco},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=465eb58bcc277acf1680e1bf4075e94c}{%
+           family={Za},
+           familyi={Z\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b9e844032442ae63882bd5774d87f1de}{%
+           family={Arenas},
+           familyi={A\bibinitperiod},
+           given={Alvaro},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{3}{}{%
+        {{hash=c58e2a0dfc97fcfe5da63fd39b12d23c}{%
+           family={Braccini},
+           familyi={B\bibinitperiod},
+           given={Alessio\bibnamedelima Maria},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=01947af59da766a609e038b78a47dea2}{%
+           family={Ricciardi},
+           familyi={R\bibinitperiod},
+           given={Francesca},
+           giveni={F\bibinitperiod}}}%
+        {{hash=d45e2aabc4b3957b66ba4e13ae3a5a09}{%
+           family={Virili},
+           familyi={V\bibinitperiod},
+           given={Francesco},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer Nature Switzerland}%
+      }
+      \strng{namehash}{5d8b3d096a70c59bf830885ea01f60c2}
+      \strng{fullhash}{4402ce3f55c4755c8ea142b168a9fc15}
+      \strng{fullhashraw}{4402ce3f55c4755c8ea142b168a9fc15}
+      \strng{bibnamehash}{4402ce3f55c4755c8ea142b168a9fc15}
+      \strng{authorbibnamehash}{4402ce3f55c4755c8ea142b168a9fc15}
+      \strng{authornamehash}{5d8b3d096a70c59bf830885ea01f60c2}
+      \strng{authorfullhash}{4402ce3f55c4755c8ea142b168a9fc15}
+      \strng{authorfullhashraw}{4402ce3f55c4755c8ea142b168a9fc15}
+      \strng{editorbibnamehash}{3a6d8cf90afc20478f5d1c957431fbb5}
+      \strng{editornamehash}{c8ad30106cd99ab3d1235136577642d2}
+      \strng{editorfullhash}{3a6d8cf90afc20478f5d1c957431fbb5}
+      \strng{editorfullhashraw}{3a6d8cf90afc20478f5d1c957431fbb5}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Natural language processing tools are becoming more and more important in our daily life, enabling us to perform many tasks in a timely and efficient manner. However, as the utilisation of these tools growth, so does the risk of unexpected consequences due to the presence of bias. This study investigates the presence of gender bias within the most popular neural machine translation and large language model tools. We defined a set of Italian sentences concerning ten specific jobs, where the gender of the subjects is not explicitly mentioned. Employing those AI tools, we translated the sentences from Italian to English, requiring the gender to be explicitly mentioned. Afterwards, we developed a survey to obtain human translations for the same sentences, allowing us to compare the differences between the responses generated by the tools and those from individuals. Results show a high presence of gender bias especially for the jobs associated with a male gender and demonstrate a consistency between the outcome obtained by the tools and the results of the survey. These findings serve as a starting point for exploring the origins of gender bias within natural language processing tools and how they reflect gender distributions in our society and human behaviour regarding job occupations.}
+      \field{booktitle}{Digital ({{Eco}}) {{Systems}} and {{Societal Challenges}}}
+      \field{isbn}{978-3-031-75585-9 978-3-031-75586-6}
+      \field{langid}{english}
+      \field{shorttitle}{Does {{AI Reflect Human Behaviour}}?}
+      \field{title}{Does {{AI Reflect Human Behaviour}}? {{Exploring}} the {{Presence}} of {{Gender Bias}} in {{AI Translation Tools}}}
+      \field{urlday}{27}
+      \field{urlmonth}{2}
+      \field{urlyear}{2025}
+      \field{volume}{72}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \field{pages}{355\bibrangedash 373}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1007/978-3-031-75586-6_19
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/DQXYL28J/Smacchia et al. - 2024 - Does AI Reflect Human Behaviour Exploring the Presence of Gender Bias in AI Translation Tools.pdf
+      \endverb
+    \endentry
+    \entry{smithCompleteGuideBERT2024}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0e45745040f7e6fd8b53c7ed3dcbb229}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Bradney},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0e45745040f7e6fd8b53c7ed3dcbb229}
+      \strng{fullhash}{0e45745040f7e6fd8b53c7ed3dcbb229}
+      \strng{fullhashraw}{0e45745040f7e6fd8b53c7ed3dcbb229}
+      \strng{bibnamehash}{0e45745040f7e6fd8b53c7ed3dcbb229}
+      \strng{authorbibnamehash}{0e45745040f7e6fd8b53c7ed3dcbb229}
+      \strng{authornamehash}{0e45745040f7e6fd8b53c7ed3dcbb229}
+      \strng{authorfullhash}{0e45745040f7e6fd8b53c7ed3dcbb229}
+      \strng{authorfullhashraw}{0e45745040f7e6fd8b53c7ed3dcbb229}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{History, Architecture, Pre-training, and Fine-tuning}
+      \field{journaltitle}{Towards Data Science}
+      \field{langid}{american}
+      \field{month}{5}
+      \field{title}{A {{Complete Guide}} to {{BERT}} with {{Code}}}
+      \field{urlday}{11}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/VKGXS94T/a-complete-guide-to-bert-with-code-9f87602e4a11.html
+      \endverb
+    \endentry
+    \entry{sorrentiSelectiveFreezingEfficient2023}{inproceedings}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=aa7924857a901c29e8c1bbe21017ce6a}{%
+           family={Sorrenti},
+           familyi={S\bibinitperiod},
+           given={Amelia},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8830c4c13f6bf569811a22f07a168456}{%
+           family={Bellitto},
+           familyi={B\bibinitperiod},
+           given={Giovanni},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c8dc36e81efe49b8a589471d2aff2b22}{%
+           family={Salanitri},
+           familyi={S\bibinitperiod},
+           given={Federica\bibnamedelima Proietto},
+           giveni={F\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8c5a7fe351c28bb971a09cbede28c6dd}{%
+           family={Pennisi},
+           familyi={P\bibinitperiod},
+           given={Matteo},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=78357c6ae43db10fa76ba1284fdf1174}{%
+           family={Spampinato},
+           familyi={S\bibinitperiod},
+           given={Concetto},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=45cd463ae8826359cb4a5ed05d0b6151}{%
+           family={Palazzo},
+           familyi={P\bibinitperiod},
+           given={Simone},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Paris, France}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{a1f56ba72dc76e58fa664526ebdb6865}
+      \strng{fullhash}{7756be7532b22b460aec2263ac415692}
+      \strng{fullhashraw}{7756be7532b22b460aec2263ac415692}
+      \strng{bibnamehash}{a1f56ba72dc76e58fa664526ebdb6865}
+      \strng{authorbibnamehash}{a1f56ba72dc76e58fa664526ebdb6865}
+      \strng{authornamehash}{a1f56ba72dc76e58fa664526ebdb6865}
+      \strng{authorfullhash}{7756be7532b22b460aec2263ac415692}
+      \strng{authorfullhashraw}{7756be7532b22b460aec2263ac415692}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper aims to tackle the challenges of continual learning, where sequential learning from a stream of tasks can lead to catastrophic forgetting. Simultaneously, it addresses the need to reduce the computational demands of large-scale deep learning models to mitigate their environmental impact. To achieve this twofold objective, we propose a method that combines selective layer freezing with fast adaptation in a continual learning context. We begin by conducting an extensive analysis of layer freezing in continual learning, revealing that certain configurations allow for freezing a substantial portion of the model without significant accuracy degradation. Leveraging this insight, we introduce a novel approach that optimizes plasticity on new tasks while preserving stability on previous tasks by dynamically identifying a subset of layers to freeze during training. Experimental results demonstrate the effectiveness of our approach in achieving competitive performance with manually-tuned freezing strategies. Moreover, we quantitatively estimate the reduction in computation and energy requirements achieved through our freezing strategy by considering the number of parameters and updates required for model training.}
+      \field{booktitle}{2023 {{IEEE}}/{{CVF International Conference}} on {{Computer Vision Workshops}} ({{ICCVW}})}
+      \field{langid}{english}
+      \field{month}{10}
+      \field{title}{Selective {{Freezing}} for {{Efficient Continual Learning}}}
+      \field{urlday}{27}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \field{pages}{3542\bibrangedash 3551}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/iccvw60793.2023.00381
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/LNHKJBXA/Sorrenti et al. - 2023 - Selective Freezing for Efficient Continual Learning.pdf
+      \endverb
+    \endentry
+    \entry{soundararajanInvestigatingGenderBias2024}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=d24105709f8d773e5d07e38610ed3592}{%
+           family={Soundararajan},
+           familyi={S\bibinitperiod},
+           given={Shweta},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=acd23d68440c8f218c06e751ece47eda}{%
+           family={Delany},
+           familyi={D\bibinitperiod},
+           given={Sarah\bibnamedelima Jane},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{81c15dc75ffa19534ed906825c712986}
+      \strng{fullhash}{81c15dc75ffa19534ed906825c712986}
+      \strng{fullhashraw}{81c15dc75ffa19534ed906825c712986}
+      \strng{bibnamehash}{81c15dc75ffa19534ed906825c712986}
+      \strng{authorbibnamehash}{81c15dc75ffa19534ed906825c712986}
+      \strng{authornamehash}{81c15dc75ffa19534ed906825c712986}
+      \strng{authorfullhash}{81c15dc75ffa19534ed906825c712986}
+      \strng{authorfullhashraw}{81c15dc75ffa19534ed906825c712986}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Large Language Models (LLMs) have swiftly become essential tools across diverse text generation applications. However, LLMs also raise significant ethical and societal concerns, particularly regarding potential gender biases in the text they produce. This study investigates the presence of gender bias in four LLMs: ChatGPT 3.5, ChatGPT 4, Llama 2 7B, and Llama 2 13B. By generating a gendered language dataset using these LLMs, focusing on sentences about men and women, we analyze the extent of gender bias in their outputs. Our evaluation is two-fold: we use the generated dataset to train a gender stereotype detection task and measure gender bias in the classifier, and we perform a comprehensive analysis of the LLM-generated text at both the sentence and word levels. Gender bias evaluations in classification tasks and lexical content reveal that all the LLMs demonstrate significant gender bias. ChatGPT 4 and Llama 2 13B exhibit the least gender bias, with weak associations between gendered adjectives used and the gender of the person described in the sentence. In contrast, ChatGPT 3.5 and Llama 2 7B exhibit the most gender bias, showing strong associations between the gendered adjectives used and the gender of the person described in the sentence.}
+      \field{journaltitle}{Association for Computational Linguistics}
+      \field{langid}{english}
+      \field{title}{Investigating {{Gender Bias}} in {{Large Language Models Through Text Generation}}}
+      \field{volume}{Proceedings of the 7th International Conference on Natural Language and Speech Processing (ICNLSP 2024)}
+      \field{year}{2024}
+      \field{pages}{410\bibrangedash 424}
+      \range{pages}{15}
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/7IN955FN/Soundararajan and Delany - Investigating Gender Bias in Large Language Models Through Text Generation.pdf
+      \endverb
+    \endentry
+    \entry{stanczakSurveyGenderBias2021}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=f10d701229e9db310b1f5f5b76bea050}{%
+           family={Stanczak},
+           familyi={S\bibinitperiod},
+           given={Karolina},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=501fda621b3a249bc03e442c4f256d6f}{%
+           family={Augenstein},
+           familyi={A\bibinitperiod},
+           given={Isabelle},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{a2f4cc9d4fd9ddb57516929b258b7706}
+      \strng{fullhash}{a2f4cc9d4fd9ddb57516929b258b7706}
+      \strng{fullhashraw}{a2f4cc9d4fd9ddb57516929b258b7706}
+      \strng{bibnamehash}{a2f4cc9d4fd9ddb57516929b258b7706}
+      \strng{authorbibnamehash}{a2f4cc9d4fd9ddb57516929b258b7706}
+      \strng{authornamehash}{a2f4cc9d4fd9ddb57516929b258b7706}
+      \strng{authorfullhash}{a2f4cc9d4fd9ddb57516929b258b7706}
+      \strng{authorfullhashraw}{a2f4cc9d4fd9ddb57516929b258b7706}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Language can be used as a means of reproducing and enforcing harmful stereotypes and biases and has been analysed as such in numerous research. In this paper, we present a survey of 304 papers on gender bias in natural language processing. We analyse definitions of gender and its categories within social sciences and connect them to formal definitions of gender bias in NLP research. We survey lexica and datasets applied in research on gender bias and then compare and contrast approaches to detecting and mitigating gender bias. We find that research on gender bias suffers from four core limitations. 1) Most research treats gender as a binary variable neglecting its fluidity and continuity. 2) Most of the work has been conducted in monolingual setups for English or other high-resource languages. 3) Despite a myriad of papers on gender bias in NLP methods, we find that most of the newly developed algorithms do not test their models for bias and disregard possible ethical considerations of their work. 4) Finally, methodologies developed in this line of research are fundamentally flawed covering very limited definitions of gender bias and lacking evaluation baselines and pipelines. We see overcoming these limitations as a necessary development in future research. CCS Concepts: {$\bullet$} Computing methodologies {$\rightarrow$} Natural language processing; Machine Learning; {$\bullet$} Computing methodologies {$\rightarrow$} Language resources.}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arXiv}
+      \field{langid}{english}
+      \field{month}{12}
+      \field{number}{arXiv:2112.14168}
+      \field{title}{A {{Survey}} on {{Gender Bias}} in {{Natural Language Processing}}}
+      \field{urlday}{13}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2112.14168
+      \endverb
+      \verb{eprint}
+      \verb 2112.14168
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/F9ZEUDCP/Stanczak and Augenstein - 2021 - A Survey on Gender Bias in Natural Language Processing.pdf
+      \endverb
+      \keyw{Computer Science - Computation and Language,Computer Science - Computers and Society}
+    \endentry
+    \entry{stanovskyEvaluatingGenderBias2019}{misc}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=a747070be9f1da4e4acaa97ce51eae18}{%
+           family={Stanovsky},
+           familyi={S\bibinitperiod},
+           given={Gabriel},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=76caee508bed7d0995f7c21cc5e6208c}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Noah\bibnamedelima A.},
+           giveni={N\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1dbd3a5b42828fb2cebd7786488ba425}{%
+           family={Zettlemoyer},
+           familyi={Z\bibinitperiod},
+           given={Luke},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{9ae2cf97713eba2ddb6688742c369e26}
+      \strng{fullhash}{bfe90843dbeb3029c1932352efa5bf21}
+      \strng{fullhashraw}{bfe90843dbeb3029c1932352efa5bf21}
+      \strng{bibnamehash}{bfe90843dbeb3029c1932352efa5bf21}
+      \strng{authorbibnamehash}{bfe90843dbeb3029c1932352efa5bf21}
+      \strng{authornamehash}{9ae2cf97713eba2ddb6688742c369e26}
+      \strng{authorfullhash}{bfe90843dbeb3029c1932352efa5bf21}
+      \strng{authorfullhashraw}{bfe90843dbeb3029c1932352efa5bf21}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We present the first challenge set and evaluation protocol for the analysis of gender bias in machine translation (MT). Our approach uses two recent coreference resolution datasets composed of English sentences which cast participants into non-stereotypical gender roles (e.g., ``The doctor asked the nurse to help her in the operation''). We devise an automatic gender bias evaluation method for eight target languages with grammatical gender, based on morphological analysis (e.g., the use of female inflection for the word ``doctor''). Our analyses show that four popular industrial MT systems and two recent state-of-the-art academic MT models are significantly prone to genderbiased translation errors for all tested target languages. Our data and code are publicly available at shorturl.at/dimuD.}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arXiv}
+      \field{langid}{english}
+      \field{number}{arXiv:1906.00591}
+      \field{title}{Evaluating {{Gender Bias}} in {{Machine Translation}}}
+      \field{urlday}{3}
+      \field{urlmonth}{4}
+      \field{urlyear}{2025}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.1906.00591
+      \endverb
+      \verb{eprint}
+      \verb 1906.00591
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/GNSTFCIL/Stanovsky et al. - 2019 - Evaluating Gender Bias in Machine Translation.pdf
+      \endverb
+      \keyw{Computer Science - Computation and Language}
+    \endentry
+    \entry{stellaDatasetStudyingGender2021}{misc}{}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=5a7b1d7c78a4d328a391e4c004a48bda}{%
+           family={Stella},
+           familyi={S\bibinitperiod},
+           given={Romina},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=abd6f8995e3fd9748f334205adb7d33a}{%
+           family={Austermann},
+           familyi={A\bibinitperiod},
+           given={Anja},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b76c4102bf39f677ea9c0f7c2a5f236a}{%
+           family={Johnson},
+           familyi={J\bibinitperiod},
+           given={Melvin},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=db72877218219f83fc0ee840069655d8}{%
+           family={Linch},
+           familyi={L\bibinitperiod},
+           given={Michelle},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ed0065395d7f6b7ca43978956a91f553}{%
+           family={Niu},
+           familyi={N\bibinitperiod},
+           given={Mengmeng},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4af870c8657cd89d3933ffc863832518}{%
+           family={Pushkarna},
+           familyi={P\bibinitperiod},
+           given={Mahima},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a3c8f09eabde9391ff96f021c74c2bb3}{%
+           family={Shah},
+           familyi={S\bibinitperiod},
+           given={Apu},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3bbcc2ef69a0be0d0298998d6b8e8efc}{%
+           family={Webster},
+           familyi={W\bibinitperiod},
+           given={Kellie},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7f840fd18a8f828954d45648d234847e}
+      \strng{fullhash}{cbbb7d6881b6845fb64bdf9eff3dc842}
+      \strng{fullhashraw}{cbbb7d6881b6845fb64bdf9eff3dc842}
+      \strng{bibnamehash}{7f840fd18a8f828954d45648d234847e}
+      \strng{authorbibnamehash}{7f840fd18a8f828954d45648d234847e}
+      \strng{authornamehash}{7f840fd18a8f828954d45648d234847e}
+      \strng{authorfullhash}{cbbb7d6881b6845fb64bdf9eff3dc842}
+      \strng{authorfullhashraw}{cbbb7d6881b6845fb64bdf9eff3dc842}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Posted by Romina Stella, Product Manager, Google Translate Advances on neural machine translation (NMT) have enabled more natural and fluid transla...}
+      \field{howpublished}{https://research.google/blog/a-dataset-for-studying-gender-bias-in-translation/}
+      \field{langid}{english}
+      \field{title}{A {{Dataset}} for {{Studying Gender Bias}} in {{Translation}}}
+      \field{urlday}{10}
+      \field{urlmonth}{4}
+      \field{urlyear}{2025}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/4E6IHKL2/a-dataset-for-studying-gender-bias-in-translation.html
+      \endverb
+    \endentry
+    \entry{tiedemannOPUSMTBuildingOpen2020}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=4617efbcd848eb57fdaeedb766893fd9}{%
+           family={Tiedemann},
+           familyi={T\bibinitperiod},
+           given={Jorg},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=75ca490dd8835d6ea020693354083c43}{%
+           family={Thottingal},
+           familyi={T\bibinitperiod},
+           given={Santhosh},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{fff553f747755c97272051c68f0b903f}
+      \strng{fullhash}{fff553f747755c97272051c68f0b903f}
+      \strng{fullhashraw}{fff553f747755c97272051c68f0b903f}
+      \strng{bibnamehash}{fff553f747755c97272051c68f0b903f}
+      \strng{authorbibnamehash}{fff553f747755c97272051c68f0b903f}
+      \strng{authornamehash}{fff553f747755c97272051c68f0b903f}
+      \strng{authorfullhash}{fff553f747755c97272051c68f0b903f}
+      \strng{authorfullhashraw}{fff553f747755c97272051c68f0b903f}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{European Association for Machine Translation}
+      \field{langid}{english}
+      \field{title}{{{OPUS-MT}} -- {{Building}} Open Translation Services for the {{World}}}
+      \field{volume}{Proceedings of the 22nd Annual Conference of the European Association for Machine Translation}
+      \field{year}{2020}
+      \field{pages}{479\bibrangedash 480}
+      \range{pages}{2}
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/63AA5VDK/Tiedemann and Thottingal - OPUS-MT – Building open translation services for the World.pdf
+      \endverb
+    \endentry
+    \entry{ullmannGenderBiasMachine2022}{incollection}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=99e7881aa0329d39922815e2ba83779a}{%
+           family={Ullmann},
+           familyi={U\bibinitperiod},
+           given={Stefanie},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=60e11bebbae41b8779fd1d5a6dc6fdec}{%
+           family={Hanemaayer},
+           familyi={H\bibinitperiod},
+           given={Ariane},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{99e7881aa0329d39922815e2ba83779a}
+      \strng{fullhash}{99e7881aa0329d39922815e2ba83779a}
+      \strng{fullhashraw}{99e7881aa0329d39922815e2ba83779a}
+      \strng{bibnamehash}{99e7881aa0329d39922815e2ba83779a}
+      \strng{authorbibnamehash}{99e7881aa0329d39922815e2ba83779a}
+      \strng{authornamehash}{99e7881aa0329d39922815e2ba83779a}
+      \strng{authorfullhash}{99e7881aa0329d39922815e2ba83779a}
+      \strng{authorfullhashraw}{99e7881aa0329d39922815e2ba83779a}
+      \strng{editorbibnamehash}{60e11bebbae41b8779fd1d5a6dc6fdec}
+      \strng{editornamehash}{60e11bebbae41b8779fd1d5a6dc6fdec}
+      \strng{editorfullhash}{60e11bebbae41b8779fd1d5a6dc6fdec}
+      \strng{editorfullhashraw}{60e11bebbae41b8779fd1d5a6dc6fdec}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Artificial {{Intelligence}} and {{Its Discontents}}}
+      \field{isbn}{978-3-030-88614-1 978-3-030-88615-8}
+      \field{langid}{english}
+      \field{title}{Gender {{Bias}} in {{Machine Translation Systems}}}
+      \field{urlday}{16}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2022}
+      \field{urldateera}{ce}
+      \field{pages}{123\bibrangedash 144}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.1007/978-3-030-88615-8_7
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/2CJDXUME/Ullmann - 2022 - Gender Bias in Machine Translation Systems.pdf
+      \endverb
+    \endentry
+    \entry{unitednationsAchieveGenderEquality2023}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3cc54e2c0d69c1b76b4d49edb22dd6d1}{%
+           family={{United Nations}},
+           familyi={U\bibinitperiod}}}%
+      }
+      \strng{namehash}{3cc54e2c0d69c1b76b4d49edb22dd6d1}
+      \strng{fullhash}{3cc54e2c0d69c1b76b4d49edb22dd6d1}
+      \strng{fullhashraw}{3cc54e2c0d69c1b76b4d49edb22dd6d1}
+      \strng{bibnamehash}{3cc54e2c0d69c1b76b4d49edb22dd6d1}
+      \strng{authorbibnamehash}{3cc54e2c0d69c1b76b4d49edb22dd6d1}
+      \strng{authornamehash}{3cc54e2c0d69c1b76b4d49edb22dd6d1}
+      \strng{authorfullhash}{3cc54e2c0d69c1b76b4d49edb22dd6d1}
+      \strng{authorfullhashraw}{3cc54e2c0d69c1b76b4d49edb22dd6d1}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://sdgs.un.org/goals/goal5}
+      \field{title}{Achieve {{Gender Equality And Empower All Women}} and {{Girls}}}
+      \field{urlday}{28}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/K8LZ2XM3/goal5.html
+      \endverb
+    \endentry
+    \entry{waldendorfWordsChangeIncrease2024}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=23ae0bbe04c52dd225d939d8e7d9a1e9}{%
+           family={Waldendorf},
+           familyi={W\bibinitperiod},
+           given={Anica},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{23ae0bbe04c52dd225d939d8e7d9a1e9}
+      \strng{fullhash}{23ae0bbe04c52dd225d939d8e7d9a1e9}
+      \strng{fullhashraw}{23ae0bbe04c52dd225d939d8e7d9a1e9}
+      \strng{bibnamehash}{23ae0bbe04c52dd225d939d8e7d9a1e9}
+      \strng{authorbibnamehash}{23ae0bbe04c52dd225d939d8e7d9a1e9}
+      \strng{authornamehash}{23ae0bbe04c52dd225d939d8e7d9a1e9}
+      \strng{authorfullhash}{23ae0bbe04c52dd225d939d8e7d9a1e9}
+      \strng{authorfullhashraw}{23ae0bbe04c52dd225d939d8e7d9a1e9}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Everyday observations seem to indicate an increase in gender-inclusive language (GIL) in Germany; however, previous research on the prevalence of GIL suggests that it is a marginal phenomenon. Moreover, from a theoretical side, an increase in GIL seems unlikely because of the cognitive challenge language change holds, the existence of multiple GIL variants, and the antagonistic environment that Germany poses for language change. This study empirically measures the use of GIL in five media sources in Germany. Over four million articles from 2000 to 2021 are analysed using the IDS Deutscher Referenzkorpus (DeReKo), supplemented by an in-depth analysis of 500 newspaper articles scraped in 2021. A fine-grained analysis along the dimensions of political orientation of the outlet, type of GIL, and author's gender is conducted. In addition to observing an unexpectedly rapid increase in GIL, two different trends are identified: whilst non-binary inclusive forms of GIL are increasingly used in the left-leaning newspaper, GIL that adheres to a binary notion of gender is favoured in the mainstream and right-leaning media. This sheds light on how difficult behavioural change can occur.}
+      \field{issn}{0266-7215}
+      \field{journaltitle}{European Sociological Review}
+      \field{month}{4}
+      \field{number}{2}
+      \field{shorttitle}{Words of Change}
+      \field{title}{Words of Change: {{The}} Increase of Gender-Inclusive Language in {{German}} Media}
+      \field{urlday}{8}
+      \field{urlmonth}{6}
+      \field{urlyear}{2025}
+      \field{volume}{40}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \field{pages}{357\bibrangedash 374}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1093/esr/jcad044
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/Z6NC8CQG/Waldendorf - 2024 - Words of change The increase of gender-inclusive language in German media.pdf;/Users/khali/Zotero/storage/WWHVZ7QI/7275733.html
+      \endverb
+    \endentry
+    \entry{wuBetoBentzBecas2019}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{un=1,uniquepart=given,hash=fb80d96e155e352dd84c97ff1f129460}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Shijie},
+           giveni={S\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=fad798cd3972b70e217b653e07abc99d}{%
+           family={Dredze},
+           familyi={D\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{4}{}{%
+        {{hash=8db8ce939f6707d15a65c68fb7eb7fce}{%
+           family={Inui},
+           familyi={I\bibinitperiod},
+           given={Kentaro},
+           giveni={K\bibinitperiod}}}%
+        {{hash=78f8ffda028131a2ad3f19fb3e42cdb7}{%
+           family={Jiang},
+           familyi={J\bibinitperiod},
+           given={Jing},
+           giveni={J\bibinitperiod}}}%
+        {{hash=800a361562c5521177148c8fa518b0da}{%
+           family={Ng},
+           familyi={N\bibinitperiod},
+           given={Vincent},
+           giveni={V\bibinitperiod}}}%
+        {{hash=099b49eba881fb48d8a736fb9873c0e6}{%
+           family={Wan},
+           familyi={W\bibinitperiod},
+           given={Xiaojun},
+           giveni={X\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Hong Kong, China}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computational Linguistics}%
+      }
+      \strng{namehash}{8b788e7963f2d3dfc9dfcb540752b64b}
+      \strng{fullhash}{8b788e7963f2d3dfc9dfcb540752b64b}
+      \strng{fullhashraw}{8b788e7963f2d3dfc9dfcb540752b64b}
+      \strng{bibnamehash}{8b788e7963f2d3dfc9dfcb540752b64b}
+      \strng{authorbibnamehash}{8b788e7963f2d3dfc9dfcb540752b64b}
+      \strng{authornamehash}{8b788e7963f2d3dfc9dfcb540752b64b}
+      \strng{authorfullhash}{8b788e7963f2d3dfc9dfcb540752b64b}
+      \strng{authorfullhashraw}{8b788e7963f2d3dfc9dfcb540752b64b}
+      \strng{editorbibnamehash}{50a493d0885b78a76247a8faab26ce57}
+      \strng{editornamehash}{50a493d0885b78a76247a8faab26ce57}
+      \strng{editorfullhash}{6f401db5289f8ba6e23209eef52e0ad3}
+      \strng{editorfullhashraw}{6f401db5289f8ba6e23209eef52e0ad3}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Pretrained contextual representation models (Peters et al., 2018; Devlin et al., 2018) have pushed forward the state-of-the-art on many NLP tasks. A new release of BERT (Devlin, 2018) includes a model simultaneously pretrained on 104 languages with impressive performance for zero-shot cross-lingual transfer on a natural language inference task. This paper explores the broader cross-lingual potential of mBERT (multilingual) as a zero shot language transfer model on 5 NLP tasks covering a total of 39 languages from various language families: NLI, document classification, NER, POS tagging, and dependency parsing. We compare mBERT with the best-published methods for zero-shot cross-lingual transfer and find mBERT competitive on each task. Additionally, we investigate the most effective strategy for utilizing mBERT in this manner, determine to what extent mBERT generalizes away from language specific features, and measure factors that influence cross-lingual transfer.}
+      \field{booktitle}{Proceedings of the 2019 {{Conference}} on {{Empirical Methods}} in {{Natural Language Processing}} and the 9th {{International Joint Conference}} on {{Natural Language Processing}} ({{EMNLP-IJCNLP}})}
+      \field{month}{11}
+      \field{shorttitle}{Beto, {{Bentz}}, {{Becas}}}
+      \field{title}{Beto, {{Bentz}}, {{Becas}}: {{The Surprising Cross-Lingual Effectiveness}} of {{BERT}}}
+      \field{urlday}{27}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \field{pages}{833\bibrangedash 844}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.18653/v1/D19-1077
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/JS6UCAK9/Wu and Dredze - 2019 - Beto, Bentz, Becas The Surprising Cross-Lingual Effectiveness of BERT.pdf
+      \endverb
+    \endentry
+    \entry{wuGooglesNeuralMachine2016}{misc}{}{}
+      \name{author}{31}{}{%
+        {{un=1,uniquepart=given,hash=1fc7a40d6072b1bb1d4e56d14ef88e2f}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Yonghui},
+           giveni={Y\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=29ea22df63f174ac629e9ef100b40484}{%
+           family={Schuster},
+           familyi={S\bibinitperiod},
+           given={Mike},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c0d10aaf985cebf8d0497e1828f9313f}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Zhifeng},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c636f146591d51579a8119b777394878}{%
+           family={Le},
+           familyi={L\bibinitperiod},
+           given={Quoc\bibnamedelima V.},
+           giveni={Q\bibinitperiod\bibinitdelim V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e34c5aa67281924804d54d88e58ca38a}{%
+           family={Norouzi},
+           familyi={N\bibinitperiod},
+           given={Mohammad},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3e02b95f1e35ef8d397835766063a915}{%
+           family={Macherey},
+           familyi={M\bibinitperiod},
+           given={Wolfgang},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8c2ce3e06666676855e01e5bb2466d92}{%
+           family={Krikun},
+           familyi={K\bibinitperiod},
+           given={Maxim},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2923de2da7f9b32b957552e414b6bc16}{%
+           family={Cao},
+           familyi={C\bibinitperiod},
+           given={Yuan},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=841cd6340c46b48aff116aaace5177f6}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Qin},
+           giveni={Q\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=15662c2bdf7c38938fe27c84d2f821fe}{%
+           family={Macherey},
+           familyi={M\bibinitperiod},
+           given={Klaus},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=76d78fa8d6bcc0a03c768f284b7445b2}{%
+           family={Klingner},
+           familyi={K\bibinitperiod},
+           given={Jeff},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2f77a417cb674d5f294913225ae20e42}{%
+           family={Shah},
+           familyi={S\bibinitperiod},
+           given={Apurva},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b76c4102bf39f677ea9c0f7c2a5f236a}{%
+           family={Johnson},
+           familyi={J\bibinitperiod},
+           given={Melvin},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6026405c5af9112230e8ff8bf18dd043}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Xiaobing},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=540fcd72e1fa4bbed46604f4e6cff817}{%
+           family={Kaiser},
+           familyi={K\bibinitperiod},
+           given={{Ł}ukasz},
+           giveni={Ł\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=353c4a3aa4878af27170be1cfd53bd8a}{%
+           family={Gouws},
+           familyi={G\bibinitperiod},
+           given={Stephan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cc6590b280716ad064718f8d18f2a53f}{%
+           family={Kato},
+           familyi={K\bibinitperiod},
+           given={Yoshikiyo},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ea1d04e9781edc1ab4ccafb0d8ff5179}{%
+           family={Kudo},
+           familyi={K\bibinitperiod},
+           given={Taku},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fc6dcce1f2845b14d1315cb56f430b85}{%
+           family={Kazawa},
+           familyi={K\bibinitperiod},
+           given={Hideto},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7970dc920ecd23f635158e89bed903aa}{%
+           family={Stevens},
+           familyi={S\bibinitperiod},
+           given={Keith},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d115e2de1127519c117a7252205efcdb}{%
+           family={Kurian},
+           familyi={K\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=98e48fd2ef83c15cb4e696e6243eef05}{%
+           family={Patil},
+           familyi={P\bibinitperiod},
+           given={Nishant},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f27ec46ccd272a021fd78bdac92dd490}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Wei},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2b3412c48bab46f41faab78455fce0e1}{%
+           family={Young},
+           familyi={Y\bibinitperiod},
+           given={Cliff},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dd794e3fc42625216f13506936f9efea}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Jason},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b137e608b42835dfb224061b97b8aba4}{%
+           family={Riesa},
+           familyi={R\bibinitperiod},
+           given={Jason},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fbb9f043628eafbecb00f2bfc6ae71bf}{%
+           family={Rudnick},
+           familyi={R\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=494b568c5dc85ba8f3f409635f9c5f25}{%
+           family={Vinyals},
+           familyi={V\bibinitperiod},
+           given={Oriol},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3d11e6f2a0d0a1183b2cf62996525afc}{%
+           family={Corrado},
+           familyi={C\bibinitperiod},
+           given={Greg},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cc840f3c806989f01823d8e1ef19c2e7}{%
+           family={Hughes},
+           familyi={H\bibinitperiod},
+           given={Macduff},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4aecfb0cc2e1e3b7899129fa2a94e2b8}{%
+           family={Dean},
+           familyi={D\bibinitperiod},
+           given={Jeffrey},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{5e7ea1b72e68507bb740c6a9bec1477a}
+      \strng{fullhash}{60578079489d2f4fd3110ab834fa69f3}
+      \strng{fullhashraw}{60578079489d2f4fd3110ab834fa69f3}
+      \strng{bibnamehash}{5e7ea1b72e68507bb740c6a9bec1477a}
+      \strng{authorbibnamehash}{5e7ea1b72e68507bb740c6a9bec1477a}
+      \strng{authornamehash}{5e7ea1b72e68507bb740c6a9bec1477a}
+      \strng{authorfullhash}{60578079489d2f4fd3110ab834fa69f3}
+      \strng{authorfullhashraw}{60578079489d2f4fd3110ab834fa69f3}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Neural Machine Translation (NMT) is an end-to-end learning approach for automated translation, with the potential to overcome many of the weaknesses of conventional phrase-based translation systems. Unfortunately, NMT systems are known to be computationally expensive both in training and in translation inference. Also, most NMT systems have difficulty with rare words. These issues have hindered NMT's use in practical deployments and services, where both accuracy and speed are essential. In this work, we present GNMT, Google's Neural Machine Translation system, which attempts to address many of these issues. Our model consists of a deep LSTM network with 8 encoder and 8 decoder layers using attention and residual connections. To improve parallelism and therefore decrease training time, our attention mechanism connects the bottom layer of the decoder to the top layer of the encoder. To accelerate the final translation speed, we employ low-precision arithmetic during inference computations. To improve handling of rare words, we divide words into a limited set of common sub-word units ("wordpieces") for both input and output. This method provides a good balance between the flexibility of "character"-delimited models and the efficiency of "word"-delimited models, naturally handles translation of rare words, and ultimately improves the overall accuracy of the system. Our beam search technique employs a length-normalization procedure and uses a coverage penalty, which encourages generation of an output sentence that is most likely to cover all the words in the source sentence. On the WMT'14 English-to-French and English-to-German benchmarks, GNMT achieves competitive results to state-of-the-art. Using a human side-by-side evaluation on a set of isolated simple sentences, it reduces translation errors by an average of 60\% compared to Google's phrase-based production system.}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arXiv}
+      \field{month}{10}
+      \field{number}{arXiv:1609.08144}
+      \field{shorttitle}{Google's {{Neural Machine Translation System}}}
+      \field{title}{Google's {{Neural Machine Translation System}}: {{Bridging}} the {{Gap}} between {{Human}} and {{Machine Translation}}}
+      \field{urlday}{29}
+      \field{urlmonth}{6}
+      \field{urlyear}{2025}
+      \field{year}{2016}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.1609.08144
+      \endverb
+      \verb{eprint}
+      \verb 1609.08144
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/KAYLETGF/Wu et al. - 2016 - Google's Neural Machine Translation System Bridging the Gap between Human and Machine Translation.pdf;/Users/khali/Zotero/storage/ZEF6B6QF/1609.html
+      \endverb
+      \keyw{Computer Science - Artificial Intelligence,Computer Science - Computation and Language,Computer Science - Machine Learning}
+    \endentry
+    \entry{xiaoIntroductionTransformersNLP2023}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=41028368e6169b6177f4b66947f5eed0}{%
+           family={Xiao},
+           familyi={X\bibinitperiod},
+           given={Tong},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=82cda4d98e48a61bccb0fdf27e3c0b92}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Jingbo},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{ceb863673c97634498db3ff3c6ab25be}
+      \strng{fullhash}{ceb863673c97634498db3ff3c6ab25be}
+      \strng{fullhashraw}{ceb863673c97634498db3ff3c6ab25be}
+      \strng{bibnamehash}{ceb863673c97634498db3ff3c6ab25be}
+      \strng{authorbibnamehash}{ceb863673c97634498db3ff3c6ab25be}
+      \strng{authornamehash}{ceb863673c97634498db3ff3c6ab25be}
+      \strng{authorfullhash}{ceb863673c97634498db3ff3c6ab25be}
+      \strng{authorfullhashraw}{ceb863673c97634498db3ff3c6ab25be}
+      \field{sortinit}{X}
+      \field{sortinithash}{1965c258adceecf23ce3d67b05113442}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Transformers have dominated empirical machine learning models of natural language processing. In this paper, we introduce basic concepts of Transformers and present key techniques that form the recent advances of these models. This includes a description of the standard Transformer architecture, a series of model refinements, and common applications. Given that Transformers and related deep learning techniques might be evolving in ways we have never seen, we cannot dive into all the model details or cover all the technical areas. Instead, we focus on just those concepts that are helpful for gaining a good understanding of Transformers and their variants. We also summarize the key ideas that impact this field, thereby yielding some insights into the strengths and limitations of these models.}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arXiv}
+      \field{month}{11}
+      \field{number}{arXiv:2311.17633}
+      \field{shorttitle}{Introduction to {{Transformers}}}
+      \field{title}{Introduction to {{Transformers}}: An {{NLP Perspective}}}
+      \field{urlday}{10}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2311.17633
+      \endverb
+      \verb{eprint}
+      \verb 2311.17633
+      \endverb
+      \verb{file}
+      \verb /Users/khali/Zotero/storage/6DQIX6M9/Xiao and Zhu - 2023 - Introduction to Transformers an NLP Perspective.pdf;/Users/khali/Zotero/storage/3PG57A39/2311.html
+      \endverb
+      \keyw{Computer Science - Artificial Intelligence,Computer Science - Computation and Language,Computer Science - Machine Learning}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
