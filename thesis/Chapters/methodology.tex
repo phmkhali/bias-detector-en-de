@@ -116,12 +116,12 @@ Further data preprocessing was not necessary since I concatenated already clean 
     Input features and labels (0 for neutral, 1 for biased) are converted to PyTorch tensors for training. The model runs on GPU if available to speed up processing. For classification, the output vector of the [CLS] token is used as a representation of the full input.
 
 \section{Training Pipeline}
-\subsection{{Fine‑Tuning with the Trainer API.}}
+\subsection{{Fine‑Tuning with the Trainer API}}
     I fine-tuned the model using the Hugging Face \href{https://huggingface.co/docs/transformers/en/main_classes/trainer}{\texttt{Trainer} API}. This library takes care of most of the training process. It handles evaluation, logging, and saving model checkpoints. It also supports automatic early stopping and loading the best model at the end.
 
     Compared to writing a manual PyTorch training loop, \texttt{Trainer} is easier to use and requires less code. It also includes standard features like tracking metrics and scheduling learning rates. For my use case, this made it a better choice. I did not need custom loss functions or multi-GPU setups, so the added complexity of other frameworks (like PyTorch Lightning) was not necessary.
 
-    \subsection{Layer Freezing.}
+    \subsection{Layer Freezing}
     I fine-tuned only the last two encoder layers (10 and 11), the pooler, and the classifier, about 25-30\% of the model. Later layers specialize in the fine-tuning task by focusing on features relevant to it. Freezing earlier layers keeps the general language knowledge unchanged. This reduces overfitting by limiting changes to the most task-relevant parts and speeds up training because fewer parameters are updated \parencite{nadipalliLayerWiseEvolutionRepresentations2025}. This is helpful since the task is very specific and resources are limited.
 
 \section{Evaluation Strategy}
@@ -212,7 +212,7 @@ The demo application comprises three modules: the Streamlit interface, the bias 
 \begin{figure}[htb]
     \centering
     \scalebox{0.8}{\input{./Bilder/demo_workflow.tex}}
-    \caption{Workflow of the bias detection application. Automatic translation and manual sentence pairs follow the same prediction steps.}
+    \caption[Workflow of the bias detection application]{Workflow of the bias detection application. Automatic translation and manual sentence pairs follow the same prediction steps.}
     \label{fig:demo_workflow}
 \end{figure}
 
