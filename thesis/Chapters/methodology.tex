@@ -1,13 +1,8 @@
 \chapter{Methodology}
-This chapter explains the overall approach and structure of the project. It covers how data is handled, how the model is built and trained, and how the demo application is designed.
-
-\section{Goal of the project}
-The goal is to build a gender bias detection model for real-world MT scenarios. This includes cases like translating everyday sentences or job descriptions. The focus is to flag bias at the sentence level, so users do not have to find the specific sentences causing bias themselves.
-
-Thus, the model processes each sentence independently. If multiple sentences are inputted, bias is evaluated for each one separately. Context across sentences is not considered, as it does not reflect the intended use case. This approach is also reflected in the design of the training data, where each sentence pair is treated as a standalone instance.
+The goal of this project is to develop a gender bias detection model tailored for practical, real-world MT scenarios. It targets common use cases like translating everyday sentences or job descriptions, focusing on flagging biased language at the sentence level. This means the model evaluates each sentence independently, without considering context from surrounding sentences. This approach guides both the model’s design and the preparation of the training data, where each translation pair is treated as a separate example. The following sections explain the methods used to achieve this.
 
 \section{Workflow}
-The project begins by selecting and combining datasets from previous work (see \autoref{fig:workflow}). The model building phase then follows, as shown in the purple boxes. It starts with cleaning and preparing the data, followed by extracting features for training. A pre-trained multilingual BERT model is then fine-tuned for the classification task. Its performance is measured using standard evaluation metrics. In the final step, the trained model is integrated  into the demo application.
+The project begins by selecting and combining datasets from previous work (see \autoref{fig:workflow}). The model building phase then follows, as shown in the purple boxes. It starts with cleaning and preparing the data, followed by extracting features for training. A pre-trained \texttt{mBERT} model is then fine-tuned for the classification task. Its performance is measured using standard evaluation metrics. In the final step, the trained model is integrated  into the demo application.
 
 \vspace{1cm} 
 \begin{figure}[htb]
@@ -25,7 +20,7 @@ The project begins by selecting and combining datasets from previous work (see \
 Since there was no ready-to-use dataset for this task and no prior work that built a similar model, I first had to define: \textbf{(1)} the number of samples required,  and \textbf{(2)} the desired content of my dataset.
 
 \subsection{Number of Samples}
-For a binary classification task of detecting gender bias using \texttt{mBERT}, general guidelines suggest between 100 and 5000 labeled samples for fine-tuning \parencite{pecherComparingSpecialisedSmall2024}, while multi-class tasks need fewer samples (around 100). However, the complex nature of gender bias often requires a larger dataset for robust detection since the number of samples depends mainly on the task type. 
+For a binary classification task of detecting gender bias using \texttt{mBERT}, general guidelines suggest between 100 and 5,000 labeled samples for fine-tuning \parencite{pecherComparingSpecialisedSmall2024}, while multi-class tasks need fewer samples (around 100). However, the complex nature of gender bias often requires a larger dataset for robust detection since the number of samples depends mainly on the task type. For the final dataset, 2,000 to 5,000 samples were selected to provide enough data for effective training while staying within resource limits.
 
 \subsection{Dataset Composition}
 Ideally, I wanted to make use of past EN-DE datasets to minimize manual labour. My options were \texttt{\href{https://huggingface.co/datasets/FBK-MT/mGeNTE}{mGeNTE en-de}} \parencite{savoldiMGeNTEMultilingualResource2025}, \texttt{\href{https://github.com/g8a9/building-bridges-gender-fair-german-mt}{Building Bridges Dictionary}} \parencite{lardelliBuildingBridgesDataset2024}, and \texttt{\href{https://research.google/blog/a-dataset-for-studying-gender-bias-in-translation/}{Translated Wikipedia Biographies}} \parencite{stellaDatasetStudyingGender2021}. 
@@ -102,43 +97,45 @@ Since no suitable dataset for this category was readily available, a supplementa
 The number of samples selected from each dataset was determined through iterative testing. Multiple dataset variants were created by upsampling or downsampling specific groups. The documentation of this process is discussed in \autoref{subsection:training_dataset_tuning}.
 
 \section{Data Pre-processing}
-    I load and split the dataset into three parts: training (80\%), validation (10\%), and test sets (10\%). This ratio is a common split ratio to work with \parencite{bahetiTrainTestValidation2021}. It provides enough samples for the model to learn general patterns while reserving separate subsets for tuning and final evaluation. I used stratified sampling for this. That means the label distribution (biased vs. neutral) stays the same across all three sets, avoiding skewed splits. For example, if 30\% of the full dataset is biased, each split will also have 30\% biased samples. This helps the model learn from both classes equally and avoids misleading results in validation or testing.
+    The dataset is partitioned into training (80\%), validation (10\%), and test (10\%) subsets. This splitting ratio follows established practices commonly employed in ML experiments \parencite{bahetiTrainTestValidation2021}. It provides enough samples for the model to learn general patterns while reserving separate subsets for tuning and final evaluation. Stratified sampling was used to maintain consistent label distribution (biased vs. neutral) across all three sets. For example, if 30\% of the full dataset is biased, each split will also have 30\% biased samples. 
 
-    I did not apply advanced text cleaning such as removing punctuation, lowercasing, or stemming because I use \href{https://huggingface.co/google-bert/bert-base-multilingual-cased}{\texttt{bert-base-multilingual-cased}}. This tokenizer is designed to handle raw, unmodified text and preserves casing. The model has been trained on large corpora containing natural language in its original form \parencite{devlinBERTPretrainingDeep2019}. Altering the input, such as converting "Doctor" to "doctor", could remove distinctions the model has learned. Therefore, advanced preprocessing might reduce performance by disrupting patterns the tokenizer expects.
+    No advanced text cleaning steps, such as punctuation removal, lowercasing, or stemming, were applied due to the use of \href{https://huggingface.co/google-bert/bert-base-multilingual-cased}{\texttt{bert-base-multilingual-cased}}. This tokenizer processes raw, unaltered text and retains case information. The model was pretrained on large corpora containing natural language in its original form \parencite{devlinBERTPretrainingDeep2019}. Modifying input text by lowercasing or removing punctuation could eliminate meaningful distinctions learned by the model. 
 
-Further data preprocessing was not necessary since I concatenated already clean datasets and manually reviewed them.
+    No further data preprocessing was required, given that the merged datasets were pre-cleaned and verified through manual inspection.
 
-\section{Model Initialization}
+\section{Model and Device Initialization}
+% device
     \texttt{mBERT} with a binary classification head is used to predict whether a translation is \textit{biased} or \textit{neutral}.
 
-    The tokenizer from the same model source encodes input pairs into token IDs and applies segment embeddings to distinguish between source and target sentences. All sequences are padded or truncated to a fixed length of 256 tokens. This length was chosen after tests with 128 tokens led to truncation warnings and content loss. With 256 tokens, most pairs remained complete while keeping memory use efficient.
+    The tokenizer encodes input pairs into token IDs and applies segment embeddings to distinguish between source and target sentences. All sequences are padded or truncated to a fixed length of 256 tokens. This length was chosen after tests with 128 tokens led to truncation warnings and content loss. With 256 tokens, most pairs remained complete while keeping memory use efficient.
 
     Input features and labels (0 for neutral, 1 for biased) are converted to PyTorch tensors for training. The model runs on GPU if available to speed up processing. For classification, the output vector of the [CLS] token is used as a representation of the full input.
 
-\section{Training Pipeline}
-\subsection{{Fine‑Tuning with the Trainer API}}
-    I fine-tuned the model using the Hugging Face \href{https://huggingface.co/docs/transformers/en/main_classes/trainer}{\texttt{Trainer} API}. This library takes care of most of the training process. It handles evaluation, logging, and saving model checkpoints. It also supports automatic early stopping and loading the best model at the end.
+\subsection{Training Procedure}
+    Each dataset is instantiated using a custom \texttt{BiasDataset} class, which receives a dataframe and a tokenizer. This class encodes EN-DE sentence pairs and their corresponding labels into tensors suitable for model input.
 
-    Compared to writing a manual PyTorch training loop, \texttt{Trainer} is easier to use and requires less code. It also includes standard features like tracking metrics and scheduling learning rates. For my use case, this made it a better choice. I did not need custom loss functions or multi-GPU setups, so the added complexity of other frameworks (like PyTorch Lightning) was not necessary.
+    Training hyperparameters were established through tuning, as detailed in \autoref{subsection:hyperparameter_tuning_methodology}. The training configuration is set using \texttt{TrainingArguments}, specifying evaluation and checkpoint saving strategies at each epoch.
 
-    \subsection{Layer Freezing}
-    I fine-tuned only the last two encoder layers (10 and 11), the pooler, and the classifier, about 25-30\% of the model. Later layers specialize in the fine-tuning task by focusing on features relevant to it. Freezing earlier layers keeps the general language knowledge unchanged. This reduces overfitting by limiting changes to the most task-relevant parts and speeds up training because fewer parameters are updated \parencite{nadipalliLayerWiseEvolutionRepresentations2025}. This is helpful since the task is very specific and resources are limited.
+    A \texttt{Trainer} object is then initialized with the pretrained model, training arguments, training and validation datasets, and a metric computation function. The training process is started by invoking the trainer's \texttt{train()} method, which iteratively feeds batches from the training dataset to the model, updates the model weights based on the loss, and evaluates performance on the validation set at the end of each epoch.
+
+    The trainer automatically saves the best-performing model based on validation metrics for subsequent use in bias detection.
 
 \section{Evaluation Strategy}
-    I evaluated the model during training using the validation set and after training using two separate test sets. As described in \autoref{subsection:hyperparameters_explained}, I used the macro F1 score to measure model performance. The validation set helped track progress across epochs. I saved the checkpoint with the highest validation F1 score.
+    Model evaluation was performed during training using the validation set and after training using two distinct test sets. As detailed in \autoref{subsection:hyperparameters_explained}, the macro F1 score was employed as the primary metric to assess model performance. The validation set served to monitor training progress across epochs, and the checkpoint with the highest validation F1 score was saved.
 
-    However, since the joined training dataset was handcrafted and had known weaknesses, I did not rely on the validation set alone to judge final performance. To get a clearer picture of how well the model generalizes outside of that dataset, I created a separate handcrafted test set. This set includes EN-DE sentence pairs with manually added bias labels.
-    
-    Based on those two evaluation strategies, I adapted the fine-tuning as well as the joined training dataset. 
+    The combined training dataset was handcrafted and had known limitations, so relying solely on the validation set was insufficient to assess final model performance. To better evaluate generalization, a separate handcrafted test set was created. This set contains EN-DE sentence pairs with manually assigned bias labels.
+
+    Using these two evaluation strategies, both the fine-tuning process and the composition of the combined training dataset were iteratively adjusted to improve model robustness and generalization.
 
 \subsection{Handcrafted Test Set Construction} \label{subsection:eval_dataset}
-    I approached the manual test set creation from the perspective of a user testing the tool. I asked what types of input would reveal different failure cases or edge cases. I grouped the examples into categories: neutral sentences, neutral sentences with gendered roles, biased translations, and translations using German GFL. These groupings helped ensure coverage of both obvious and subtle cases.
+    The manual test set was developed from a user-centered perspective, focusing on identifying inputs that expose various failure and edge cases. Examples were organized into categories: neutral sentences, neutral sentences containing gendered roles, biased translations, and translations featuring German gender-fair language (GFL). 
 
-    The set includes simple synthetic sentences I wrote myself, as well as real-world examples taken from job postings. I added the latter to reflect how the tool might be used in practice, for example, when checking a translated job ad for gender bias.
+    The test set comprises simple synthetic sentences written specifically for this purpose, as well as authentic examples extracted from job postings. The inclusion of real-world data aims to simulate practical use cases, such as evaluating translated job advertisements for gender bias.
 
-    I focused on diversity in sentence structure and content rather than label balance. Some cases were meant to test whether the model wrongly flags neutral sentences that happen to contain gendered words. Others tested its ability to recognize different GFL forms in German, such as “Lehrende” or the colon form “Lehrer:innen.” Bias labels were assigned manually based on the definition discussed in Chapter 2. The full handcrafted test set consisting of 25 labeled translation pairs is listed in the Appendix.
+    Emphasis was placed on diversity in sentence structure and content rather than maintaining label balance. Certain examples tested the model’s tendency to incorrectly flag neutral sentences containing gendered terms, while others assessed its capacity to detect various GFL forms in German, including terms like “Lehrende” and the colon notation “Lehrer:innen.” Bias labels were assigned manually according to the criteria established in Chapter 2. The complete handcrafted test set, containing 25 labeled translation pairs, is provided in the Appendix.
 
-\subsection{Hyperparameter Selection and Tuning}
+
+\subsection{Hyperparameter Selection and Tuning} \label{subsection:hyperparameter_tuning_methodology}
      While I tested a few standard hyperparameters, I focused more on tuning the dataset composition and the number of frozen layers. These changes had a much stronger impact on performance in my experiments. Since my training data came from a mix of external sources with varying quality, I saw more value in adjusting how the data was used rather than spending time on extensive hyperparameter tuning. The recommended defaults from prior work already performed well enough, so I treated them as a reasonable starting point.
 
     \paragraph{Epochs.} I trained the model for up to 8 epochs, with early stopping enabled using a patience of two epochs. This means that training stopped if the F1 score did not improve for two consecutive epochs. The setup follows the recommendation by \textcite{pecherComparingSpecialisedSmall2024}, who advise training until convergence with a maximum of 10 epochs and early stopping. In my case, the validation loss typically began to increase after 8 epochs, with no further gains in performance. Reducing the maximum to 8 epochs helped avoid overfitting and shortened training time.
