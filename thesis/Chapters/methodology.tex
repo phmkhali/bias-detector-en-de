@@ -222,10 +222,5 @@ The interface has two tabs:
 \subsubsection{Bias Detection Pipeline} 
     Sentence pairs are processed in batches to reduce overhead and speed up analysis. Each sentence pair is first encoded with the tokenizer of the fine‑tuned BERT model. The encoded input is then processed by the trained classifier, which produces raw bias scores. These scores are normalized into probabilities using softmax. The bias label corresponding to the highest probability is selected, and its confidence value is reported.
 
-\subsubsection{Results Presentation} 
-The application displays a table of results. Each row contains:
-\begin{itemize}
-  \item Original English sentence
-  \item Corresponding German sentence
-  \item Bias prediction with confidence score
-\end{itemize}
+\subsubsection{Results presentation}
+    For each translation pair, the application shows the original English sentence and the corresponding German sentence. It then presents the model's prediction. If bias is detected and the confidence score exceeds a defined threshold, a warning is displayed with the confidence value. Otherwise, a success message indicates that no bias was detected, along with the confidence score. Each result is separated to keep the output readable.
