@@ -14,20 +14,17 @@ The project begins by selecting and combining datasets from previous work (see \
 \vspace{1cm} 
 
 \section{Dataset Handling}
-% thought process for selecting datasets from prior works
-% experimental joining and testing of datasets
+    Since no ready-to-use dataset existed for this task and no prior work had developed a comparable model, it was necessary to define: \textbf{(1)} the required number of samples, and \textbf{(2)} the desired content of the dataset.
 
-Since there was no ready-to-use dataset for this task and no prior work that built a similar model, I first had to define: \textbf{(1)} the number of samples required,  and \textbf{(2)} the desired content of my dataset.
+    \subsection{Number of Samples}
+    For a binary classification task of detecting gender bias using \texttt{mBERT}, general guidelines suggest between 100 and 5,000 labeled samples for fine-tuning \parencite{pecherComparingSpecialisedSmall2024}, while multi-class tasks need fewer samples (around 100). However, the complex nature of gender bias often requires a larger dataset for robust detection since the number of samples depends mainly on the task type. For the final dataset, 2,000 to 5,000 samples were selected to provide enough data for effective training while staying within resource limits.
 
-\subsection{Number of Samples}
-For a binary classification task of detecting gender bias using \texttt{mBERT}, general guidelines suggest between 100 and 5,000 labeled samples for fine-tuning \parencite{pecherComparingSpecialisedSmall2024}, while multi-class tasks need fewer samples (around 100). However, the complex nature of gender bias often requires a larger dataset for robust detection since the number of samples depends mainly on the task type. For the final dataset, 2,000 to 5,000 samples were selected to provide enough data for effective training while staying within resource limits.
+    \subsection{Dataset Composition}
+    Existing EN-DE datasets were reviewed to reduce the need for manual data creation. The following sources were considered: \texttt{\href{https://huggingface.co/datasets/FBK-MT/mGeNTE}{mGeNTE en-de}} \parencite{savoldiMGeNTEMultilingualResource2025}, \texttt{\href{https://github.com/g8a9/building-bridges-gender-fair-german-mt}{Building Bridges Dictionary}} \parencite{lardelliBuildingBridgesDataset2024}, and \texttt{\href{https://research.google/blog/a-dataset-for-studying-gender-bias-in-translation/}{Translated Wikipedia Biographies}} \parencite{stellaDatasetStudyingGender2021}.
 
-\subsection{Dataset Composition}
-Ideally, I wanted to make use of past EN-DE datasets to minimize manual labour. My options were \texttt{\href{https://huggingface.co/datasets/FBK-MT/mGeNTE}{mGeNTE en-de}} \parencite{savoldiMGeNTEMultilingualResource2025}, \texttt{\href{https://github.com/g8a9/building-bridges-gender-fair-german-mt}{Building Bridges Dictionary}} \parencite{lardelliBuildingBridgesDataset2024}, and \texttt{\href{https://research.google/blog/a-dataset-for-studying-gender-bias-in-translation/}{Translated Wikipedia Biographies}} \parencite{stellaDatasetStudyingGender2021}. 
+    Analysis of the \texttt{Translated Wikipedia Biographies} dataset revealed several issues that prevented direct reuse. In many instances, the \texttt{perceivedGender} column contained subject names instead of expected labels such as \texttt{Male}, \texttt{Female}, or \texttt{Neutral}, making manual verification necessary. Additionally, all examples were labeled as neutral (0), as the dataset was designed around correctly gendered references. Since the remaining two datasets were already balanced and contained a sufficient number of neutrally gendered examples, the Wikipedia Biographies dataset was excluded from the final training data.
 
-During analysis of the \texttt{Translated Wikipedia Biographies} dataset, I identified issues that prevented automatic reuse. For instance, the \texttt{perceivedGender} column sometimes contained subject names instead of expected labels such as Male, Female, or Neutral, necessitating manual review. Additionally, the dataset only included neutral labels (0) since the phrases were correctly gendered. Because my other two datasets are already balanced and include enough neutrally gendered examples, I decided to exclude this dataset.
-
-\texttt{mGeNTE} contains naturally occurring sentences with gendered entities, while \texttt{Building Bridges} focuses on German GFL entries for explicitly gendered nouns such as professions. 
+    \texttt{mGeNTE} contains naturally occurring sentences with gendered entities, while \texttt{Building Bridges} focuses on German GFL entries for explicitly gendered nouns such as professions. 
 
 \begin{table}[ht!]
     \centering
@@ -52,7 +49,7 @@ During analysis of the \texttt{Translated Wikipedia Biographies} dataset, I iden
 \end{itemize}  
 
 \noindent
-The bias definition used in this study classifies translations that omit the original gender as neutral since it does not rely on a male default or stereotype. While gender‑neutral translations may be imperfect, they are not considered "biased" under this framework. Initial experiments showed that including \texttt{REF-N} pairs during training overly penalized neutral outputs. Given the scarcity of neutral examples, I chose not to penalize neutral translations. 
+The bias definition used in this study classifies translations that omit the original gender as neutral, as they do not rely on a male default or stereotype. Although gender-neutral translations may be imperfect, they are not considered biased within this framework. Initial experiments indicated that including \texttt{REF-N} pairs during training led to over-penalization of neutral outputs. Due to the limited availability of neutral examples, such outputs were not penalized in the final training setup.
 
 Each original entry was split into two paired examples and labeled as follows:  
 \[
@@ -66,7 +63,9 @@ Each original entry was split into two paired examples and labeled as follows:
 This procedure yields 3,000 total instances, of which 750 are labeled biased (1) and 2,250 are labeled neutral (0). \footnote{The transformed dataset can be found in \texttt{/datasets/mgente\_final.csv}.} 
 
 \subsubsection{Building Bridges Dictionary} 
-This dataset did not contain full sentences but rather a gender-fair dictionary of nouns. While this made it a valuable resource for studying gender-fair language, I needed full sentences for my task. To address this, I used prompt engineering with Google Gemini 2.5 Flash to synthetically expand the dataset. The prompt used for generation is included in the appendix. The generated sentences can be found in the code files. I used the nouns from the original dataset to create multiple grammatically correct sentence variations, covering singular, plural, gender-neutral, and gender-inclusive forms. The dataset uses the star form (e.g., \textit{Lehrer*innen}) as its gender-inclusive format. Since the colon form (e.g., \textit{Lehrer:innen}) is also widely used, I added it manually via a script. The script duplicated all entries with stars and replaced the star with a colon to create additional variants.
+This dataset consisted of a GFL dictionary of nouns, not full sentences. That made it useful for studying GFL, but not suitable for this task, which requires sentence-level context. To address this, prompt engineering was used with Google Gemini 2.5 Flash to synthetically expand the dataset. The prompt is included in the appendix; the generated sentences are available in the code files.
+
+Nouns from the original dataset were used to create multiple grammatically correct sentence variations, covering singular, plural, gender-neutral, and gender-inclusive forms. The dataset uses the star form (e.g., \textit{Lehrer*innen}) as its inclusive format. Since the colon form (e.g., \textit{Lehrer:innen}) is also common in practice, a script was used to duplicate all entries with stars and replace the star with a colon to generate additional variants.
 
 This resulted in 3,381 total entries: 2,001 labeled as 0 (neutral) and 1,380 labeled as 1 (biased). \footnote{The transformed dataset can be found in \texttt{/datasets/lardelli\_final.csv}.}
 
@@ -134,24 +133,21 @@ The number of samples selected from each dataset was determined through iterativ
 
     Emphasis was placed on diversity in sentence structure and content rather than maintaining label balance. Certain examples tested the model’s tendency to incorrectly flag neutral sentences containing gendered terms, while others assessed its capacity to detect various GFL forms in German, including terms like “Lehrende” and the colon notation “Lehrer:innen.” Bias labels were assigned manually according to the criteria established in Chapter 2. The complete handcrafted test set, containing 25 labeled translation pairs, is provided in the Appendix.
 
-
 \subsection{Hyperparameter Selection and Tuning} \label{subsection:hyperparameter_tuning_methodology}
-     While I tested a few standard hyperparameters, I focused more on tuning the dataset composition and the number of frozen layers. These changes had a much stronger impact on performance in my experiments. Since my training data came from a mix of external sources with varying quality, I saw more value in adjusting how the data was used rather than spending time on extensive hyperparameter tuning. The recommended defaults from prior work already performed well enough, so I treated them as a reasonable starting point.
+     While a few standard hyperparameters were tested, the focus was placed on tuning dataset composition and the number of frozen layers. These factors showed a significantly stronger influence on model performance during experimentation. Since the training data originated from a mix of external sources with varying quality, adjusting the use and structure of the data was considered more effective than extensive hyperparameter optimization. Recommended default values from prior work provided sufficiently strong baselines and were therefore used as the starting point.
 
-    \paragraph{Epochs.} I trained the model for up to 8 epochs, with early stopping enabled using a patience of two epochs. This means that training stopped if the F1 score did not improve for two consecutive epochs. The setup follows the recommendation by \textcite{pecherComparingSpecialisedSmall2024}, who advise training until convergence with a maximum of 10 epochs and early stopping. In my case, the validation loss typically began to increase after 8 epochs, with no further gains in performance. Reducing the maximum to 8 epochs helped avoid overfitting and shortened training time.
+    \paragraph{Epochs} The model was trained for a maximum of 8 epochs, with early stopping enabled using a patience of two epochs. This setup halted training if the macro F1 score did not improve over two consecutive epochs. The approach follows the recommendation by \textcite{pecherComparingSpecialisedSmall2024}, who suggest training until convergence, with a cap of 10 epochs and early stopping. In this case, validation loss typically increased after 8 epochs, with no further improvements observed. Limiting the training to 8 epochs helped mitigate overfitting and reduced training time.
 
-    \paragraph{Batch size.} I used a batch size of 16. This is a common choice for fine-tuning on small datasets, offering a good balance between memory usage and training stability. I tested smaller batch sizes with lower learning rates, but these combinations led to worse performance and less effective training early on. Since existing literature, such as \textcite{mosbachStabilityFinetuningBERT2021}, already supports using a batch size of 16, I did not run any additional experiments with smaller values.
+    \paragraph{Batch size} A batch size of 16 was used. This value is commonly applied in fine-tuning scenarios involving small datasets, offering a reasonable balance between memory efficiency and training stability. Smaller batch sizes paired with lower learning rates were tested but led to reduced performance and less effective learning in early epochs. Existing literature, including \textcite{mosbachStabilityFinetuningBERT2021}, supports the use of a batch size of 16; no further experiments with smaller values were conducted.
 
-    \paragraph{Learning rate.} I set the learning rate to 2e-5. This value comes from the original BERT paper \parencite{devlinBERTPretrainingDeep2019} and is still widely used. I also tested 1e-5 and 3e-5, but both showed slightly worse results on the validation set. The 2e-5 setting gave the most stable and reliable performance in my runs, so I kept it for all final training runs.
+    \paragraph{Learning rate} The learning rate was set to 2e-5. This value, originally proposed in \textcite{devlinBERTPretrainingDeep2019}, remains widely used for fine-tuning transformer models. Alternatives such as 1e-5 and 3e-5 were evaluated but yielded slightly lower validation scores. The 2e-5 setting showed the most stable and consistent results and was therefore applied in all final training runs.
 
-    \paragraph{Optimizer and scheduler.} The \texttt{Trainer} API uses the AdamW optimizer by default. The scheduler here uses a warmup-linear schedule: the learning rate starts low and increases gradually during the first 10\% of training (warmup), then decreases linearly until the end. This helps the model learn smoothly and prevents unstable training.
+    \paragraph{Optimizer and scheduler} The \texttt{Trainer} API employed the AdamW optimizer by default. A warmup-linear learning rate schedule was used: the rate gradually increased during the first 10\% of training steps (warmup) and then decreased linearly until completion. This schedule supports smooth learning and helps prevent instability during early training.
 
-    These were the values I used for the following experiments described in the \textit{Training Dataset Tuning} and \textit{Layer Freezing Tuning} sections.
+    These hyperparameter values were used in all subsequent experiments described in the \textit{Training Dataset Tuning} and \textit{Layer Freezing Tuning} sections.
 
 \subsection{Training Dataset Tuning} \label{subsection:training_dataset_tuning}
-    This section summarizes the process of tuning the training dataset composition for the classifier. The detailed documentation of each iteration is included in the appendix. Here, the focus is on the process and rationale rather than on numeric results.
-
-    Since the F1 scores were similar across dataset versions, the main evaluation was performed my handcrafted test set of 25 sentences. This small test set does not provide a full indication of model quality, but it offers insight into practical usability. When mentioning better or worse performance, this limitation should be kept in mind.
+    Since the F1 scores were similar across dataset versions, the main evaluation was based on the handcrafted test set of 25 sentences.\footnote{The detailed documentation of each iteration is included in the appendix. The focus in this section is on the process and rationale rather than on numeric results.} This small test set does not provide a complete indication of overall model quality, but it offers insight into practical usability. Any statements regarding better or worse performance should be considered in light of this limitation.
 
     The dataset \texttt{mgente\_final} was considered the best source because its samples are natural sentences. All 750 biased samples from \texttt{mgente\_final} were included, along with exactly 750 neutral samples. The tuning process aimed to adjust the remaining datasets to maintain a maximum ratio of 60\% neutral to 40\% biased samples.
 
@@ -159,7 +155,7 @@ The number of samples selected from each dataset was determined through iterativ
 
     The Baseline dataset already achieved strong performance, with a test F1 score of 0.975 and 84.6\% accuracy on the handcrafted test set. However, it failed on some neutral examples such as \textit{"My mother is an engineer." / "Meine Mutter ist Ingenieurin."} (predicted biased with confidence 0.55) and on certain German GFL patterns (e.g., double naming and the colon notation).
 
-    Tweaking the dataset composition in Datasets B through E occasionally improved specific issues. For example, Dataset E correctly classified the neutral gendered sentence that the Baseline missed. However, these improvements came at the cost of worse performance elsewhere, such as failing on some job advertisements. Overall, these adjustments did not lead to consistent practical gains on the handcrafted test set and sometimes reduced accuracy. Therefore, the Baseline dataset composition was retained for final training, as it provided the best overall balance and practical usability based on the evaluation.
+    Adjustments made to the dataset composition in Datasets B through E occasionally improved specific weaknesses. In one case, Dataset E succeeded in correctly classifying a neutral gendered sentence that the Baseline had misclassified. At the same time, these targeted improvements often introduced new issues, such as misclassifications in job advertisement examples. The changes did not produce consistent gains on the handcrafted test set and in some cases reduced overall accuracy. As a result, the Baseline dataset composition was used for final training, as it offered the most reliable balance between targeted performance and general usability.
 
 \vspace{0.8em}
 \begin{table}[ht]
@@ -175,7 +171,7 @@ The number of samples selected from each dataset was determined through iterativ
     E & Built on A and C. Increased \texttt{mgente\_final} neutral data to raise diversity from naturalistic examples. & mgente 750 / 1,250, lardelli 750 / 750, tatoeba 0 / 250 \\
     \bottomrule
     \end{tabularx}
-    \caption{Dataset iterations with rationale and composition. Each version builds on the Baseline and previous adjustments. Format: source biased / neutral.}
+    \caption[Dataset iterations with rationale and composition]{Dataset iterations with rationale and composition. Each version builds on the Baseline and previous adjustments. Format: source biased / neutral.}
     \label{tab:dataset_versions}
 \end{table}
 
@@ -200,11 +196,10 @@ The number of samples selected from each dataset was determined through iterativ
         \caption{Comparison of layer freezing settings}
     \end{table}
 
-    Although freezing fewer layers yielded slightly higher F1 scores on the test set, the model trained with $n=8$ performed best on the handcrafted test sentences, which were designed to assess real-world usability. Given that the F1 differences were small and that freezing more layers leads to a simpler and more efficient model, $n=8$ was selected as the final setting.
+    Freezing fewer layers led to slightly higher F1 scores on the test set, but the model with $n=8$ frozen layers achieved the best results on the handcrafted test sentences, which were designed to reflect real-world usability. Since the F1 differences were minor and freezing more layers results in a simpler and more efficient model, $n=8$ was chosen as the final setting.
 
 \section{Demo Application Design}
-
-The demo application comprises three modules: the Streamlit interface, the bias detection model with its prediction functions, and the translation component. \autoref{fig:demo_workflow} illustrates the workflow. Both input modes converge on a common prediction pipeline.
+    The demo application comprises three modules: the Streamlit interface, the bias detection model with its prediction functions, and the translation component. \autoref{fig:demo_workflow} illustrates the workflow. Both input modes converge on a common prediction pipeline.
 
 \begin{figure}[htb]
     \centering
@@ -214,7 +209,7 @@ The demo application comprises three modules: the Streamlit interface, the bias 
 \end{figure}
 
 \subsubsection{Initialization} 
-On launch, the application loads the fine‑tuned BERT bias detection model and its tokenizer from a local directory. These objects are cached in memory to avoid repeated loading. The model and tokenizer move to the available device, either CPU or GPU.
+    On launch, the application loads the fine‑tuned BERT bias detection model and its tokenizer from a local directory. These objects are cached in memory to avoid repeated loading. The model and tokenizer move to the available device, either CPU or GPU.
 
 \subsubsection{User Interface} 
 The interface has two tabs:
@@ -224,7 +219,7 @@ The interface has two tabs:
 \end{enumerate}
 
 \subsubsection{Bias Detection Pipeline} 
-Sentence pairs are processed in batches to reduce overhead and speed up analysis. Each sentence pair is first encoded with the tokenizer of the fine‑tuned BERT model. The encoded input is then processed by the trained classifier, which produces raw bias scores. These scores are normalized into probabilities using softmax. The bias label corresponding to the highest probability is selected, and its confidence value is reported.
+    Sentence pairs are processed in batches to reduce overhead and speed up analysis. Each sentence pair is first encoded with the tokenizer of the fine‑tuned BERT model. The encoded input is then processed by the trained classifier, which produces raw bias scores. These scores are normalized into probabilities using softmax. The bias label corresponding to the highest probability is selected, and its confidence value is reported.
 
 \subsubsection{Results Presentation} 
 The application displays a table of results. Each row contains:
@@ -233,6 +228,3 @@ The application displays a table of results. Each row contains:
   \item Corresponding German sentence
   \item Bias prediction with confidence score
 \end{itemize}
-
-\subsubsection{Chapter Summary}
-This chapter outlined the full process of building a bias detection system, from dataset selection and preprocessing to fine-tuning a multilingual BERT model, and presenting the demo interface. While key hyperparameters were tuned to improve training stability and performance, the main focus was on practical usability. To reflect this, I crafted a second test set with edge cases that better represent real-world bias scenarios. Alongside hyperparameter tuning, most effort went into dataset construction and adjustment. This focus on data, rather than model complexity, was key to achieving stable F1 scores and making the system more useful in practice. These decisions provide a solid foundation for evaluating how well the model performs in practice, as detailed in the next chapter.
