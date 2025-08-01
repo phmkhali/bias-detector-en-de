@@ -60,7 +60,7 @@ Each original entry was split into two paired examples and labeled as follows:
 \texttt{SET\!-\!N} + \texttt{REF\!-\!G} &\;\rightarrow\; 1 \quad(\text{biased})
 \end{aligned}
 \]  
-This procedure yields 3,000 total instances, of which 750 are labeled biased (1) and 2,250 are labeled neutral (0). \footnote{The transformed dataset can be found in \texttt{/datasets/mgente\_final.csv}.} 
+This procedure yields 3,000 total instances, of which 750 are labeled biased (1) and 2,250 are labeled neutral (0).\footnote{The transformed dataset can be found in \texttt{/datasets/mgente\_final.csv}.} 
 
 \subsubsection{Building Bridges Dictionary} 
 This dataset consisted of a GFL dictionary of nouns, not full sentences. That made it useful for studying GFL, but not suitable for this task, which requires sentence-level context. To address this, prompt engineering was used with Google Gemini 2.5 Flash to synthetically expand the dataset. The prompt is included in the appendix; the generated sentences are available in the code files.
@@ -98,17 +98,18 @@ The number of samples selected from each dataset was determined through iterativ
 \section{Data Pre-processing}
     The dataset is partitioned into training (80\%), validation (10\%), and test (10\%) subsets. This splitting ratio follows established practices commonly employed in ML experiments \parencite{bahetiTrainTestValidation2021}. It provides enough samples for the model to learn general patterns while reserving separate subsets for tuning and final evaluation. Stratified sampling was used to maintain consistent label distribution (biased vs. neutral) across all three sets. For example, if 30\% of the full dataset is biased, each split will also have 30\% biased samples. 
 
-    No advanced text cleaning steps, such as punctuation removal, lowercasing, or stemming, were applied due to the use of \href{https://huggingface.co/google-bert/bert-base-multilingual-cased}{\texttt{bert-base-multilingual-cased}}. This tokenizer processes raw, unaltered text and retains case information. The model was pretrained on large corpora containing natural language in its original form \parencite{devlinBERTPretrainingDeep2019}. Modifying input text by lowercasing or removing punctuation could eliminate meaningful distinctions learned by the model. 
+    Advanced text cleaning steps—such as punctuation removal, lowercasing, or stemming—were not applied due to the use of \href{https://huggingface.co/google-bert/bert-base-multilingual-cased}{\texttt{bert-base-multilingual-cased}}. This tokenizer handles raw, unaltered text and retains case distinctions. The model was pretrained on large corpora containing natural language in its original form \parencite{devlinBERTPretrainingDeep2019}, so modifying the input by lowercasing or stripping punctuation could remove meaningful patterns the model has learned to recognize.
 
-    No further data preprocessing was required, given that the merged datasets were pre-cleaned and verified through manual inspection.
+    Additional preprocessing was unnecessary, as the merged datasets were already cleaned and manually verified.
 
-\section{Model and Device Initialization}
-% device
+\section{Model Initialization and Hardware Configuration}
     \texttt{mBERT} with a binary classification head is used to predict whether a translation is \textit{biased} or \textit{neutral}.
 
-    The tokenizer encodes input pairs into token IDs and applies segment embeddings to distinguish between source and target sentences. All sequences are padded or truncated to a fixed length of 256 tokens. This length was chosen after tests with 128 tokens led to truncation warnings and content loss. With 256 tokens, most pairs remained complete while keeping memory use efficient.
+    The tokenizer encodes input pairs into token IDs and applies segment embeddings to distinguish between source and target sentences. All sequences are padded or truncated to a fixed length of 256 tokens. This value was selected after experiments with 128 tokens triggered truncation warnings and led to content loss. A length of 256 preserved most sentence pairs while maintaining efficient memory usage.
 
-    Input features and labels (0 for neutral, 1 for biased) are converted to PyTorch tensors for training. The model runs on GPU if available to speed up processing. For classification, the output vector of the [CLS] token is used as a representation of the full input.
+    Input features and labels (0 for neutral, 1 for biased) are converted to PyTorch tensors for training. The model uses the output vector of the [CLS] token to represent the full input for classification.
+
+    During development, both GPU and CPU environments were used to test training and inference performance. Device selection was handled dynamically using PyTorch’s \texttt{torch.device()} method. The final model used for the demo application and evaluation was trained on CPU to ensure full compatibility and reproducibility without GPU dependency.
 
 \subsection{Training Procedure}
     Each dataset is instantiated using a custom \texttt{BiasDataset} class, which receives a dataframe and a tokenizer. This class encodes EN-DE sentence pairs and their corresponding labels into tensors suitable for model input.

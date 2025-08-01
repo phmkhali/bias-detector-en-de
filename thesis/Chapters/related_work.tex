@@ -261,7 +261,7 @@ The decoder generates the output sentence one word at a time by using the inform
     There are multiple variants of the original BERT model. It was originally released in two sizes: \texttt{BERT-Base} and \texttt{BERT-Large}, which differ in the number of layers, attention heads, and overall model capacity \parencite{devlinBERTPretrainingDeep2019}. Since then, many other versions have been developed. Most of them modify either BERT’s pre-training objectives or the underlying Transformer architecture \parencite{libovickyHowLanguageNeutralMultilingual2019}.
 
 \subsection{Multilingual BERT (mBERT)}
-    For this thesis, I use multilingual BERT \textbf{\href{https://huggingface.co/google-bert/bert-base-multilingual-cased}{(\texttt{mBERT})}} \parencite{devlinBERTPretrainingDeep2019}. \texttt{mBERT} uses the same configuration as \texttt{BERT-Base}, but it is pretrained on Wikipedia data from 104 languages, including both English and German. 
+    In this thesis, the model used is multilingual BERT \textbf{\href{https://huggingface.co/google-bert/bert-base-multilingual-cased}{(\texttt{mBERT})}} \parencite{devlinBERTPretrainingDeep2019}. \texttt{mBERT} has the same architecture as \texttt{BERT-Base} but was pretrained on Wikipedia data from 104 languages, including English and German.
     
     The model does not receive any explicit signal about which language it is processing. It is also not trained to align translations across languages. Instead, its multilingual ability emerges from shared patterns it learns across the multilingual corpus \parencite{piresHowMultilingualMultilingual2019}. Despite the lack of cross-lingual supervision, the model develops internal representations that support tasks in multiple languages.
 
