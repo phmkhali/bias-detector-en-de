@@ -1,20 +1,37 @@
 \chapter{Implementation}
+The system includes the bias detection model, the Streamlit app, the translation helper, and dataset management. The following sections describe the primary files and classes and outline the sequence of steps required to execute the system.
 
-\section{Project Structure}
-% overview of main folders and files
-% how the project is organized
+\section{Project Structure and Environment Setup}
+%combine overview of folders and files with environment tools
+%mention main dependencies and hardware briefly
+%explain project organization and how to prepare the environment to run the code
+    
+\subsection{Directory Layout}
 
-\section{Environment Setup}
-% tools, libraries, and hardware used
-% how to set up the environment
+\autoref{fig:file_tree} shows the directory structure with the relevant files for the final implementation. The folder contains additional files related to the original datasets and scripts used for data conversion. These supplementary files are intended for comprehension and reproducibility purposes but are not required for the final model.\footnote{The complete project repository is available at \url{https://github.com/phmkhali/bias-detector-en-de}, including all datasets and scripts.}
 
-\section{Core components and their interaction}
-% high-level description of main modules (data pipeline, model, demo)
-% how data flows between them
+\vspace{1cm} 
+\begin{figure}[htb]
+    \centering
+    \scalebox{0.8}{\input{./Bilder/file_tree.tex}}
+    \caption[Relevant files of the final implementation]{Relevant files of the final implementation.}
+    \label{fig:file_tree}
+\end{figure}
+\vspace{1cm} 
+
+\subsection{Environment Details}
+    The project was developed on macOS using Python 3.12. A virtual environment was used, and all dependencies were installed via the \texttt{requirements.txt} file using \texttt{pip3}. No manual installation steps were needed beyond this. The implementation supports GPU usage, but all evaluations and screenshots in this thesis were produced using CPU. To ensure reproducibility, random seeds were fixed across all libraries and backends, including Python, NumPy, and PyTorch. This setup guarantees that training and evaluation results remain consistent across runs.
+
+    The application is started via Streamlit. Further usage instructions are provided in \autoref{section:reproduction_guide}.
+
+\section{Core Components and Data Flow}
+%describe key modules (data pipeline, model, demo app)
+%explain how data moves between components
+%keep this high-level, avoid code details
 
 \section{Demo Result}
 % screenshots and notes
 
-\section{Reproduction Guide}
+\section{Reproduction Guide} \label{section:reproduction_guide}
 % step-by-step from scratch
 % link to code

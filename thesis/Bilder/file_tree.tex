@@ -1,0 +1,36 @@
+\begin{forest}
+  for tree={
+    font=\ttfamily,
+    grow'=0,
+    child anchor=west,
+    parent anchor=south,
+    anchor=west,
+    calign=first,
+    edge path={
+      \noexpand\path [draw, \forestoption{edge}]
+      (!u.south west) +(7.5pt,0) |- (.child anchor) \forestoption{edge label};
+    },
+    before typesetting nodes={
+      if n=1
+        {insert before={[,phantom]}}
+        {}
+    },
+    fit=band,
+    before computing xy={l=15pt},
+  }
+[bias-detector-en-de
+    [datasets
+      [dataset.csv]
+      [join\_datasets.py]
+      [lardelli\_final.csv]
+      [mgente\_final.csv]
+      [tatoeba\_final.csv]
+    ]
+    [model\_output]
+    [app.py]
+    [fine-tuning.ipynb]
+    [translate.py]
+    [utils.py]
+  ]
+\end{forest}
+

@@ -93,7 +93,7 @@ Since no suitable dataset for this category was readily available, a supplementa
 \label{tab:data-summary}
 \end{table}
 
-The number of samples selected from each dataset was determined through iterative testing. Multiple dataset variants were created by upsampling or downsampling specific groups. The documentation of this process is discussed in \autoref{subsection:training_dataset_tuning}.
+The number of samples selected from each dataset was determined through iterative testing. Multiple dataset variants were created by upsampling or downsampling specific groups. The documentation of this process is discussed in \autoref{subsection:hyperparameter_tuning_methodology}.
 
 \section{Data Pre-processing}
     The dataset is partitioned into training (80\%), validation (10\%), and test (10\%) subsets. This splitting ratio follows established practices commonly employed in ML experiments \parencite{bahetiTrainTestValidation2021}. It provides enough samples for the model to learn general patterns while reserving separate subsets for tuning and final evaluation. Stratified sampling was used to maintain consistent label distribution (biased vs. neutral) across all three sets. For example, if 30\% of the full dataset is biased, each split will also have 30\% biased samples. 
@@ -114,7 +114,7 @@ The number of samples selected from each dataset was determined through iterativ
 \subsection{Training Procedure}
     Each dataset is instantiated using a custom \texttt{BiasDataset} class, which receives a dataframe and a tokenizer. This class encodes EN-DE sentence pairs and their corresponding labels into tensors suitable for model input.
 
-    Training hyperparameters were established through tuning, as detailed in \autoref{subsection:hyperparameter_tuning_methodology}. The training configuration is set using \texttt{TrainingArguments}, specifying evaluation and checkpoint saving strategies at each epoch.
+    Training hyperparameters were established through tuning, as detailed in \autoref{subsection:hyperparameters_explained}. The training configuration is set using \texttt{TrainingArguments}, specifying evaluation and checkpoint saving strategies at each epoch.
 
     A \texttt{Trainer} object is then initialized with the pretrained model, training arguments, training and validation datasets, and a metric computation function. The training process is started by invoking the trainer's \texttt{train()} method, which iteratively feeds batches from the training dataset to the model, updates the model weights based on the loss, and evaluates performance on the validation set at the end of each epoch.
 
