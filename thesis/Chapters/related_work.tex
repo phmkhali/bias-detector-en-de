@@ -5,7 +5,7 @@ Detecting gender bias in English-German (EN-DE) translations using Natural Langu
 \begin{figure}[htb]
     \centering
     \scalebox{0.8}{\input{./Bilder/theory_workflow.tex}}
-    \caption{Overview of Chapter 2 Structure.}
+    \caption{Overview of Chapter 2 Structure}
     \label{fig:workflow_theory}
 \end{figure}
 \vspace{1cm} 
@@ -74,7 +74,7 @@ Detecting gender bias in English-German (EN-DE) translations using Natural Langu
         Use of gender-fair language alternatives (see \autoref{subsection:german_gfl}). \\
         \bottomrule
     \end{tabularx}
-    \caption[Summary of gender bias scenarios in translation]{Summary of gender bias scenarios in translation (original compilation).}
+    \caption[Summary of gender bias scenarios in translation]{Summary of gender bias scenarios in translation (original compilation)}
     \label{tab:overview_bias_neutral}
     \end{table}
 
@@ -111,7 +111,7 @@ While gender bias in MT has received increasing attention, research on the EN-DE
 
             \bottomrule
             \end{tabularx}
-            \caption{Key concepts relevant to this thesis.}
+            \caption{Key concepts relevant to this thesis}
             \label{tab:key-concepts}
         \end{table}
 
@@ -135,7 +135,7 @@ While gender bias in MT has received increasing attention, research on the EN-DE
             Available in full text without access restrictions & Redundant or not contributing new perspectives \\
             \bottomrule
             \end{tabularx}
-            \caption{Selection criteria for literature review.}
+            \caption{Selection criteria for literature review}
         \end{table}
 
     \subsection{Foundational studies}
@@ -156,7 +156,7 @@ While gender bias in MT has received increasing attention, research on the EN-DE
         \begin{figure}[htb]
             \centering
             \scalebox{0.8}{\input{./Bilder/regressive_feedback_loop.tex}}
-            \caption{Regressive feedback loop of gender bias in MT.}
+            \caption{Regressive feedback loop of gender bias in MT}
             \label{fig:regressive_feedback_loop}
         \end{figure}
         \vspace{0.8em} 
@@ -172,12 +172,12 @@ While gender bias in MT has received increasing attention, research on the EN-DE
         As a result, biased translations lead to higher economic costs and a quality gap that disproportionately affects women. \textcite{savoldiWhatHarmQuantifying2024} argued that current automatic bias metrics miss these human impacts. They called for better evaluation methods that reflect what users actually experience.
 
     \subsection{Linguistic Challenges in English-German Translation}
-        Although both English and German originate from the Indo-European language family \parencite{baldiEnglishIndoEuropeanLanguage2008}, they have different characteristcs. English does not assign grammatical gender to nouns. The article "the" is used universally, independent of what it refers to. On the contrary, German assigns one of three grammatical gendered articles to nouns: "der" (m), "die" (f) and "das" (n). The form or ending of a noun may also change depending on its grammatical gender. While English has a few gendered word pairs, such as "actor" (m) and "actress" (f), gender distinctions in German apply broadly across the entire noun system. "Der Student" refers to a male student, whereas "die Studentin" refers to a female student. 
+        Although both English and German originate from the Indo-European language family \parencite{baldiEnglishIndoEuropeanLanguage2008}, they have different liguistic characteristcs. English does not assign grammatical gender to nouns. The article "the" is used universally, independent of what it refers to. On the contrary, German assigns one of three grammatical gendered articles to nouns: "der" (m), "die" (f) and "das" (n). The form or ending of a noun may also change depending on its grammatical gender. While English has a few gendered word pairs, such as "actor" (m) and "actress" (f), gender distinctions in German apply broadly across the entire noun system. "Der Student" refers to a male student, whereas "die Studentin" refers to a female student. 
 
         Note that grammatical gender has no connection to societal or biological gender. It is a rule of the language rather than a reflection of identity. For example, the German word Mädchen (girl) is grammatically neuter and takes the article "das". This is not because the referent lacks gender, but because the suffix "-chen" automatically assigns neuter gender. Grammatical gender in German follows structural rules, even when they contradict real-world gender associations.
 
     \subsection{German Gender-Fair Language} \label{subsection:german_gfl}
-    GFL refers to the use of language that treats all genders equally and aims to reduce stereotyping and discrimination \parencite{sczesnyCanGenderFairLanguage2016}. Three common approaches to plural mentionings in German are: 
+    GFL is the use of language that treats all genders equally and aims to reduce stereotyping and discrimination. \parencite{sczesnyCanGenderFairLanguage2016}. Three common approaches to plural mentionings in German are: 
 
     \begin{itemize}
         \item \textbf{Gender-neutral rewording:}  
@@ -195,7 +195,7 @@ While gender bias in MT has received increasing attention, research on the EN-DE
     \begin{figure}
         \centering
             \includegraphics[width=1\textwidth]{gfl_types_frequency.png}
-        \caption[Frequency of different types of gender-inclusive language]{Frequency of different types of gender-inclusive language. Source: \textcite{waldendorfWordsChangeIncrease2024} p. 367.}
+        \caption[Frequency of different types of gender-inclusive language]{Frequency of different types of gender-inclusive language. Source: \textcite{waldendorfWordsChangeIncrease2024} p. 367}
         \label{fig:gfl_types_frequency}
     \end{figure}
 
@@ -249,7 +249,7 @@ While gender bias in MT has received increasing attention, research on the EN-DE
 \begin{figure}[ht]
     \centering
 	\includegraphics[width=\textwidth,height=0.45\textheight,keepaspectratio]{transformer_architecture.png}	
-        \caption[Transformer encoder-decoder architecture overview]{Transformer encoder-decoder architecture. The encoder (left) processes input tokens \(x_1,\dots,x_m\) through: (1) a self-attention layer for contextual relationships, (2) a feed-forward network for feature transformation, and (3) residual connections with layer normalization. The decoder (right) generates outputs by attending to both the encoder's representations and its previous outputs ($y_0$ to $y_{n-1}$), producing the next-token probability distribution. Figure and description adapted from \textcite{xiaoIntroductionTransformersNLP2023}, p. 6.}
+        \caption[Transformer encoder-decoder architecture overview]{Transformer encoder-decoder architecture. The encoder (left) processes input tokens \(x_1,\dots,x_m\) through: (1) a self-attention layer for contextual relationships, (2) a feed-forward network for feature transformation, and (3) residual connections with layer normalization. The decoder (right) generates outputs by attending to both the encoder's representations and its previous outputs ($y_0$ to $y_{n-1}$), producing the next-token probability distribution. Figure and description adapted from \textcite{xiaoIntroductionTransformersNLP2023}, p. 6}
     \label{fig:transformer_architecture}
 \end{figure}
 
@@ -270,7 +270,7 @@ The decoder generates the output sentence one word at a time by using the inform
 \begin{figure}
     \centering
 	\includegraphics[width=\textwidth,height=0.45\textheight,keepaspectratio]{BERT_architecture.png}	
-    \caption[BERT's encoder-only architecture].{BERT's encoder-only architecture Figure by \textcite{smithCompleteGuideBERT2024}.}
+    \caption[BERT's encoder-only architecture]{BERT's encoder-only architecture Figure by \textcite{smithCompleteGuideBERT2024}}
     \label{fig:bert_arch}
 \end{figure}
 
@@ -342,7 +342,7 @@ Special tokens are reserved units added to the input text to mark structure. The
         Optimizer & Algorithm for updating weights; AdamW is standard, with adaptive rates and weight decay. \\
         \bottomrule
         \end{tabularx}
-        \caption{Summary of key hyperparameters used during fine-tuning.}
+        \caption{Summary of key hyperparameters used during fine-tuning}
     \end{table}
 
 
