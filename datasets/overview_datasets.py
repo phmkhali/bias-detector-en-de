@@ -38,7 +38,7 @@ def check_csv(input_file):
         print('No invalid labels found.')
 
 if __name__ == "__main__":
-    for filename in ['lardelli_final.csv', 'mgente_final.csv', 'deu_final.csv']:
+    for filename in ['lardelli_final.csv', 'mgente_final.csv', 'tatoeba_final.csv','dataset.csv']:
         print(f'Checking file: {filename}')
         check_csv(filename)
         print()
