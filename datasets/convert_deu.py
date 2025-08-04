@@ -40,7 +40,7 @@ def tsv_to_csv_processed_sample(input_filepath, output_filepath, sample_size, se
 
 # Usage
 input_file = 'deu.txt'
-output_file = 'deu_final.csv'
+output_file = 'tatoeba_final.csv'
 sample_count = 550
 random_seed = 10
 
