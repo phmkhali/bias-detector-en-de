@@ -2494,6 +2494,7 @@
     <bcf:citekey order="103" intorder="1">pecherComparingSpecialisedSmall2024</bcf:citekey>
     <bcf:citekey order="104" intorder="1">mosbachStabilityFinetuningBERT2021</bcf:citekey>
     <bcf:citekey order="105" intorder="1">devlinBERTPretrainingDeep2019</bcf:citekey>
+    <bcf:citekey order="106" intorder="1">kroeberItsLongWay2022</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

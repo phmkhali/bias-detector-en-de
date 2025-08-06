@@ -2,7 +2,7 @@
     The fine-tuned classification model is evaluated using standard performance metrics on the reserved test set. To assess generalization, a small handcrafted dataset (see \autoref{subsection:eval_dataset}) is included to reflect real-world variation. Results are reported and analyzed with a focus on metric interpretation, dataset variation, and typical error patterns.
 
 \section{Model Performance}
-    The model’s overall F1 score on the test set is 0.966, with matching macro and weighted averages. This shows the model performs evenly across both classes. Precision and recall reveal it detects biased cases very well (recall 0.993) but is less precise (precision 0.937), meaning it tends to label some neutral cases as biased. The confusion matrix confirms this with 10 false positives and only 1 false negative in 325 examples. The false positive rate is 0.057 and the false negative rate is 0.007. Overall accuracy is 0.966. Overall, this suggests the model favors detecting bias at the risk of some over-flagging, which fits typical needs for bias detection where missing bias is costlier than false alarms.
+    The model’s overall accuracy on the test set is 0.966, with matching macro F1 and weighted average. This shows the model performs evenly across both classes. Precision and recall reveal it detects biased cases very well (recall 0.993) but with some false alarms (precision 0.937), meaning a small portion of neutral cases are incorrectly labeled as biased. The confusion matrix confirms this with 10 false positives and only 1 false negative in 325 examples. The false positive rate is 0.057 and the false negative rate is 0.007. Overall, this suggests the model favors detecting bias at the risk of some over-flagging, which fits typical needs for bias detection where missing bias is costlier than false alarms.
 
         \vspace{0.8em}
         \begin{table}[H]
@@ -44,26 +44,47 @@
 
 
 \section{Analysis of False Positives and False Negatives}
+    False positives and false negatives make up only a small share of the total predictions, but they point to recurring patterns in the model’s errors. These cases were grouped by shared features to enable a structured analysis of likely causes.\footnote{Refer to the appendix for all misclassified examples, including English source texts and German translations.}
 
-Although false positives and false negatives constitute only a fraction of total predictions, they reveal patterns that need closer attention.\footnote{See \autoref{appendix:fp_fn_table} for all misclassified examples, including English source texts and German translations.}
+    \paragraph{State and Governance Entity Terms}
 
-\paragraph{State and Governance Entity Terms}
+    Sentences containing political, legal, or governance-related terminology were misclassified the most (6/10 cases). Terms such as president, police officers, heads of state and government, and political leaders were flagged as biased, despite the absence of gendered language in the German translation. These cases suggest that the model may struggle to distinguish between genuinely biased constructions and content related to institutional or geopolitical domains. Another possible explanation is the strong male association of such terms in real-world data, which may influence model behavior through learned co-occurrence patterns \parencite{kroeberItsLongWay2022}.
 
-Sentences containing political, legal, or governance-related terminology were frequently misclassified. Terms such as president, police officers, heads of state and government, and political leaders were flagged as biased, despite the absence of gendered language in the German translation. These cases suggest that the model may struggle to distinguish between genuinely biased constructions and content related to institutional or geopolitical domains. One possible explanation is the strong male association of such terms in real-world data, which may influence model behavior through learned co-occurrence patterns. \textbf{add source}
+    \paragraph{Training Dataset Error Causing a False Positive}
 
-One false negative involved a sentence concerning immigration, Muslims, and the military. The term Muslims was translated using the generic masculine form Muslime, yet the model failed to flag this instance as biased. This may be attributed to the model’s insufficient sensitivity to gendered plural forms. A more neutral alternative, such as Moslems, could have avoided masculine connotations. The model’s misclassification implies that such morphological nuances are not consistently recognized.
+    One false positive appears to stem from an inconsistency within the training dataset. The English sentence "[...] or would you go to a surgeon?" was translated as "[...] oder von einem Menschen, der als Chirurg ausgebildet wurde, operieren lassen?". This example originates from the mGeNTE dataset and is labeled as unbiased. The German translation attempts to avoid using "der Chirurg" (m.) by phrasing it as "a person trained as a surgeon," presumably to circumvent the generic masculine form. However, the word "Chirurg" still appears in the translation in its masculine form. The model correctly identified this gendered term and flagged it, despite the label indicating neutrality. From a bilingual perspective, this suggests the model’s detection is valid and points to a labeling inconsistency in the dataset.
 
-\paragraph{Training Dataset Error Causing a False Positive}
+    \paragraph{Religious identities}
+    
+    One false negative involved a sentence concerning the immigration of muslims. "Muslims" was translated using the generic masculine form "Muslime", yet the model failed to flag this instance as biased. 
 
-One false positive appears to stem from an inconsistency within the training dataset. The English sentence "[...] or would you go to a surgeon?" was translated as "[...] oder von einem Menschen, der als Chirurg ausgebildet wurde, operieren lassen?". This example originates from the mGeNTE dataset and is labeled as unbiased. The German translation avoids direct use of Der Chirurg (m.) by using the phrase a person trained as a surgeon, presumably to prevent the generic masculine. However, the term Chirurg still appears within the sentence. The model correctly identified this as a gendered term and flagged it, despite the label suggesting neutrality. From a bilingual perspective, this example illustrates a valid detection by the model, possibly exposing a labeling inconsistency in the dataset.
+    To further investigate this issue, the demo was used to test additional cases by replacing the term "Muslims" with other words, summarized in the table below. The evaluation began with other religious terms, followed by "soldiers" to represent a non-religious but contextually relevant group, and concluded with "doctors," a typical example of a generic masculine translation.
 
-\paragraph{Issues with GFL and Semantically Gendered Terms}
+        \vspace{0.8em}
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{lc}
+            \toprule
+            \textbf{Replacement Term} & \textbf{Bias Flag} \\
+            \midrule
+            Christians & No bias detected (confidence: 0.89) \\
+            Jews & No bias detected (confidence: 0.93) \\
+            Soldiers & No bias detected (confidence: 0.79) \\
+            Doctors & No bias detected (confidence: 0.64) \\
+            \bottomrule
+            \end{tabular}
+            \caption[Bias detection for replacement terms testing religious identity misclassification]{Summary of bias detection results for various replacement terms, showing confidence scores and absence of bias flags.}
+        \end{table}
+    
+    The consistent failure to detect bias across these terms, all translated using the generic masculine form, suggests the issue may stem from the grammatical structure of the sentence or the surrounding military context. Such cases reveal that the model sometimes misses bias for unclear reasons in complex or context-heavy sentences.
 
-Two instances were incorrectly flagged as biased due to the use of gender-fair language (GFL). The words specialists and recipient were translated as Sachkundigen and Rezipierende, respectively—both of which are GFL-compliant and neutral. The source sentences in English were gender-ambiguous, and the German translations used participial constructions that avoid gender marking. The model’s false bias detection in these cases reflects insufficient understanding of GFL forms.
+    \paragraph{Issues with GFL and Semantically Gendered Terms}
 
-Additionally, one semantically gendered term—uncle, translated as Onkel—was flagged as biased, even though the gendered reference is inherent to the original English meaning. In such cases, gender is semantically encoded rather than introduced by translation. This suggests a challenge in distinguishing semantically gendered terms from translation-induced gender bias.
+    Two instances were incorrectly flagged as biased due to the use of GFL. The gender-ambiguous terms "specialists" and "recipient" were translated as "Sachkundigen" and "Rezipierende," respectively, both using participial constructions that avoid explicit gender marking. The false detection here reflects insufficient understanding of GFL forms.
 
-These issues are further examined in \autoref{subsection:generalization_performance_on_unseen}.
+    Additionally, one semantically gendered term, "uncle," translated as "Onkel," was flagged as biased, even though the gendered reference is inherent to the original English meaning. In such cases, gender is semantically encoded rather than introduced by translation. The model appears to have difficulty distinguishing inherently gendered terms from translation-induced gender bias.
+
+    These issues are further examined in \autoref{subsection:generalization_performance_on_unseen}.
 
 \section{Generalization performance on unseen data} \label{subsection:generalization_performance_on_unseen}
 % eg performance on handcrafted data is lower, likely due to its lexical variation..
