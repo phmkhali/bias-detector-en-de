@@ -1,5 +1,5 @@
 \chapter{Evaluation and Findings}
-    The fine-tuned classification model is evaluated using standard performance metrics on the reserved test set. To assess generalization, a small handcrafted dataset (see \autoref{subsection:eval_dataset}) is included to reflect real-world variation. Results are reported and analyzed with a focus on metric interpretation, dataset variation, and typical error patterns.
+    The fine-tuned classification model is evaluated using standard performance metrics on the reserved test set. To assess generalization, the performance of the handcrafted dataset (see \autoref{subsection:eval_dataset}) is analysed in detail. Results are reported and analysed with a focus on metric interpretation, dataset variation, and typical error patterns.
 
 \section{Model Performance}
     The model’s overall accuracy on the test set is 0.966, with matching macro F1 and weighted average. This shows the model performs evenly across both classes. Precision and recall reveal it detects biased cases very well (recall 0.993) but with some false alarms (precision 0.937), meaning a small portion of neutral cases are incorrectly labeled as biased. The confusion matrix confirms this with 10 false positives and only 1 false negative in 325 examples. The false positive rate is 0.057 and the false negative rate is 0.007. Overall, this suggests the model favors detecting bias at the risk of some over-flagging, which fits typical needs for bias detection where missing bias is costlier than false alarms.
@@ -52,13 +52,49 @@
 
     \paragraph{Training Dataset Error Causing a False Positive}
 
-    One false positive appears to stem from an inconsistency within the training dataset. The English sentence "[...] or would you go to a surgeon?" was translated as "[...] oder von einem Menschen, der als Chirurg ausgebildet wurde, operieren lassen?". This example originates from the mGeNTE dataset and is labeled as unbiased. The German translation attempts to avoid using "der Chirurg" (m.) by phrasing it as "a person trained as a surgeon," presumably to circumvent the generic masculine form. However, the word "Chirurg" still appears in the translation in its masculine form. The model correctly identified this gendered term and flagged it, despite the label indicating neutrality. From a bilingual perspective, this suggests the model’s detection is valid and points to a labeling inconsistency in the dataset.
+    One false positive appears to stem from an inconsistency within the training dataset. The English sentence "[...] or would you go to a surgeon?" was translated as "[...] oder von einem Menschen, der als Chirurg ausgebildet wurde, operieren lassen?". This example originates from the mGeNTE dataset and is labeled as unbiased. The German translation attempts to avoid using "der Chirurg" (m.) by phrasing it as "a person trained as a surgeon," presumably to circumvent the generic masculine form. However, the word "Chirurg" still appears in the translation in its masculine form. The model correctly identified this gendered term and flagged it, despite the label indicating neutrality. From a bilingual perspective, this suggests the model’s detection is a true positive and points to a labeling inconsistency in the dataset.
 
     \paragraph{Religious identities}
     
-    One false negative involved a sentence concerning the immigration of muslims. "Muslims" was translated using the generic masculine form "Muslime", yet the model failed to flag this instance as biased. 
+    One false negative involved a sentence concerning the immigration of muslims. "Muslims" was translated using the generic masculine form "Muslime", yet the model failed to flag this instance as biased. Since the sentence does not provide a clear reason for why it was misclassified, this issue will be further analysed in \autoref{subsection:generalization_performance_on_unseen}.
 
-    To further investigate this issue, the demo was used to test additional cases by replacing the term "Muslims" with other words, summarized in the table below. The evaluation began with other religious terms, followed by "soldiers" to represent a non-religious but contextually relevant group, and concluded with "doctors," a typical example of a generic masculine translation.
+    \paragraph{Issues with GFL and Semantically Gendered Terms}
+
+    Two instances were incorrectly flagged as biased due to the use of GFL. The gender-ambiguous terms "specialists" and "recipient" were translated as "Sachkundigen" and "Rezipierende," respectively, both using participial constructions that avoid explicit gender marking. The false detection here reflects insufficient understanding of GFL forms.
+
+    Additionally, one semantically gendered term, "uncle," translated as "Onkel," was flagged as biased, even though the gendered reference is inherent to the original English meaning. The model appears to have difficulty distinguishing inherently gendered terms from translation-induced gender bias. This assumption will also be tested for consistency in \autoref{subsection:generalization_performance_on_unseen}.
+
+\section{Generalization performance on unseen data} \label{subsection:generalization_performance_on_unseen}
+
+    To assess how well these findings generalize, the handcrafted test set is now applied.
+
+    \subsection{Analysis of handcrafted test set results}
+    As explained in \autoref{subsection:eval_dataset}, the handcrafted test set was curated to expose potential failure modes and edge cases that may not be captured by standard evaluation.\footnote{Refer to the appendix for the handcrafted test results and confidence scores.}
+
+    \vspace{0.8em}
+        \begin{table}[ht]
+        \centering
+        \begin{tabular}{|c|p{5.5cm}|p{5.5cm}|c|c|}
+        \hline
+        \textbf{Index} & \textbf{English} & \textbf{German} & \makecell[c]{Neutral \\ Prob \%} & \makecell[c]{Biased \\ Prob \%} \\
+        \hline
+        5 & My mother is an engineer. & Meine Mutter ist Ingenieurin. & 44.1 & 55.9 \\
+        16 & Engineers are kind and hard-working & Ingenieure und Ingenieurinnen sind lieb und fleißig & 0.08 & 99.92 \\
+        18 & Teachers are kind and hard-working & Lehrer:innen sind lieb und fleißig & 3.1 & 96.9 \\
+        19 & Teachers are kind and hard-working & Lehrerinnen und Lehrer sind lieb und fleißig & 0.05 & 99.95 \\
+        \hline
+        \end{tabular}
+        \caption{Handcrafted test sentences with incorrect model predictions and confidence scores (percent)}
+        \label{tab:false_positives_with_conf}
+        \end{table}
+
+    \autoref{tab:false_positives_with_conf} shows all false predictions from the handcrafted test set. Consistent with the results from the held-out test set, these errors involve semantic gender distinctions and GFL variants. It is important to note that the test set did include more semantic gender examples, such as “sister,” “boy,” and “father” in ambiguous contexts, which the model did not flag. Sentence 5 with “mother” was flagged, but with low confidence. It can be concluded that the model’s limitation stems from insufficient training data for semantically gendered words. The model recognizes a pattern but lacks enough instances to confidently classify.
+
+    The other three cases share the same sentence structure but use different GFL forms. The model flagged these sentences with the pair form and gender-inclusive characters (the colon) as biased, with over 95\% confidence. This aligns with the known limitations from the dataset, where limited high-quality natural GFL data required adding synthetic examples of lower quality. These synthetic samples caused over-flagging, which led to their downsampling during training. Further research and better datasets remain necessary to improve detection quality for GFL.
+
+    \subsection{Exploratory Testing}
+
+    To further investigate the religious identity issue, the demo was used to test additional cases by replacing the term "Muslims" with other words, summarized in the table below. The evaluation began with other religious terms, followed by "soldiers" to represent a non-religious but contextually relevant group, and concluded with "doctors," a typical example of a generic masculine translation.
 
         \vspace{0.8em}
         \begin{table}[H]
@@ -76,20 +112,40 @@
             \caption[Bias detection for replacement terms testing religious identity misclassification]{Summary of bias detection results for various replacement terms, showing confidence scores and absence of bias flags.}
         \end{table}
     
-    The consistent failure to detect bias across these terms, all translated using the generic masculine form, suggests the issue may stem from the grammatical structure of the sentence or the surrounding military context. Such cases reveal that the model sometimes misses bias for unclear reasons in complex or context-heavy sentences.
+    The consistent failure to detect bias across these terms, all translated using the generic masculine form, suggests the issue may stem from the grammatical structure of the sentence and not the religious context. 
 
-    \paragraph{Issues with GFL and Semantically Gendered Terms}
+    Testing formal features like punctuation and casing showed a clearer impact on accuracy. Removing the period dropped accuracy to 0.84. Lowercasing "Muslims" lowered it to 0.83. Doing both together caused accuracy to fall to 0.58. Because the model is based on cased BERT, it relies on correct punctuation and capitalization for context. The limited training data increases the model’s sensitivity to such formal changes, causing performance to vary when cues like casing and punctuation are missing or altered. To confirm this effect, the insertion tests were repeated with both punctuation and casing removed. In these modified cases, "christians" was flagged as biased (confidence: 0.98), "soldiers" was not flagged (confidence: 0.63), and "doctors" was again flagged (confidence: 0.76).
 
-    Two instances were incorrectly flagged as biased due to the use of GFL. The gender-ambiguous terms "specialists" and "recipient" were translated as "Sachkundigen" and "Rezipierende," respectively, both using participial constructions that avoid explicit gender marking. The false detection here reflects insufficient understanding of GFL forms.
+    \vspace{0.8em}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{lcc}
+        \toprule
+        \textbf{Replacement Term} & \textbf{Original} & \textbf{No Punctuation, Lowercase} \\
+        \midrule
+        Christians & No bias (confidence: 0.89) & Bias (confidence: 0.98) \\
+        Jews & No bias (confidence: 0.93) & No bias (confidence: 0.51) \\
+        Soldiers & No bias (confidence: 0.79) & No bias (confidence: 0.63) \\
+        Doctors & No bias (confidence: 0.64) & Bias (confidence: 0.76) \\
+        \bottomrule
+        \end{tabular}
+        \caption[Bias detection for replacement terms with and without formal cues]{Bias detection results for various replacement terms, comparing original inputs with versions lacking punctuation and casing}
+    \end{table}
 
-    Additionally, one semantically gendered term, "uncle," translated as "Onkel," was flagged as biased, even though the gendered reference is inherent to the original English meaning. In such cases, gender is semantically encoded rather than introduced by translation. The model appears to have difficulty distinguishing inherently gendered terms from translation-induced gender bias.
+    One final hypothesis was that the term "local people" may influence the classification. In the original translation, OpusMT rendered it as "die Einheimischen"; a neutral term that may give the impression of a gender-neutral subject. This could have caused the model to focus less on the gendered translation of "Muslims." 
+    
+    To explore this, the term "local" was removed from the original sentence, changing the translation from "Auch hier sind die Einheimischen durch die Einwanderung von Muslimen und die harte Linie des Militärs frustriert." to "Auch hier sind die Menschen durch die Einwanderung von Muslimen und die harte Linie des Militärs frustriert." The model correctly flagged this version as biased (confidence: 0.97).
 
-    These issues are further examined in \autoref{subsection:generalization_performance_on_unseen}.
+    Edge cases like this are difficult to test because multiple subtle factors often overlap. Altering a sentence step by step may help isolate potential causes for misclassification, but drawing definitive conclusions remains challenging.
 
-\section{Generalization performance on unseen data} \label{subsection:generalization_performance_on_unseen}
-% eg performance on handcrafted data is lower, likely due to its lexical variation..
-% mark any generalizability or consistency issues
+    \subsection{Summary of Classification Challenges}
+    Based on the findings of this chapter, the following cases influence the model's ability to reliably detect gender bias:
 
-    \subsection{Sample Cases}
-    % concrete examples of wrong and correct bias flags
+    \begin{itemize}
+        \item GFL forms are not recognized as neutral
+        \item Political and government terms are not flagged as biased when translated using generic masculine
+        \item The model shows excessive sensitivity to punctuation and capitalization
+        \item Classification reliability decreases when both neutral and gendered subject options are available
+    \end{itemize}
 
+ 
