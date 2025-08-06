@@ -1,5 +1,5 @@
 \chapter{Theoretical Background and Related Work}
-Detecting gender bias in EN-DE translations using NLP requires an understanding of what gender bias means in this context, how it appears in MT, and how it has been studied so far. To build this foundation, this chapter (1) defines the concept of gender bias in machine translation, (2) outlines its relevance, (3) identifies gaps in current research, and (4) justifies the technical design decisions made in this project.
+Detecting gender bias in EN-DE translations using NLP requires an understanding of what gender bias means in this context, how it appears in MT, and how it has been studied so far. To build this foundation, this chapter (1) defines the concept of gender bias in MT, (2) outlines its relevance, (3) identifies gaps in current research, and (4) justifies the technical design decisions made in this project.
 
 \vspace{1cm} 
 \begin{figure}[htb]
@@ -14,25 +14,25 @@ Detecting gender bias in EN-DE translations using NLP requires an understanding 
 
 \section{Definitions}
 \subsection{Natural Language Processing vs. Machine Translation}
-    \textbf{NLP} enables machine systems to process and generate human language. The goal is to mimic and understand it as fluently as possible \parencite{smacchiaDoesAIReflect2024,ullmannGenderBiasMachine2022}. Common applications are chatbots, translation tools, speech recognition, and image captioning.
+    \textbf{NLP} enables machine systems to process human language. The goal is to mimic and understand it as fluently as possible \parencite{smacchiaDoesAIReflect2024,ullmannGenderBiasMachine2022}. Common applications are chatbots, translation tools, speech recognition, and image captioning.
 
-    \textbf{MT} is a direct application of NLP. It performs automatic translation of text from one language to another \parencite{linMachineTranslationAcademic2009}. Over time, MT systems have developed from rule-based and statistical approaches, which depend on hand-crafted grammar rules or aligned sentence data, into more adaptable neural models \parencite{chakravarthiSurveyOrthographicInformation2021}.
+    \textbf{MT} is a direct application of NLP. It performs automatic translation of text from one language to another \parencite{linMachineTranslationAcademic2009}. Over time, MT systems have developed from rule-based approaches, which depend on hand-crafted grammar rules or aligned sentence data, into more adaptable neural models \parencite{chakravarthiSurveyOrthographicInformation2021}.
 
     Most modern systems, such as Google Translate and DeepL, rely on neural machine translation (NMT) \parencite{wuGooglesNeuralMachine2016,deeplHowDoesDeepL2021}. These models are trained on large collections of translated texts. They learn to represent the meaning of entire sentences as mathematical structures, enabling more fluent and accurate translations. Unlike earlier approaches, NMT systems take the full sentence context into account, which helps reduce errors and improves the handling of ambiguous or idiomatic language \parencite{wuGooglesNeuralMachine2016}. Throughout this work, all MT systems referenced or applied are neural models.
 
 \subsection{Bias in Society and its Manifestations}
 \label{subsection:manifestations_of_gb}
-    Bias refers to a tendency to favour or disadvantage certain individuals or groups based on preconceived ideas. It often comes from stereotypes, which are fixed and oversimplified ideas about a group. While stereotypes describe assumptions about people, bias influences actual behavior and treatment.
+    Bias refers to a tendency to favour or disadvantage certain individuals or groups based on preconceived ideas. It often comes from stereotypes, which are fixed and oversimplified ideas about a group. In short, stereotypes shape assumptions, while bias influences actual behavior and treatment.
 
-    Bias takes many forms and can be based on characteristics such as age, disability, gender, ethnicity, religion, or sexual orientation \parencite{ullmannGenderBiasMachine2022}. These biases often originate from longstanding cultural and historical beliefs about the expected behavior of different groups.
+    Bias takes many forms and can be based on characteristics such as age, disability, gender, ethnicity, religion, or sexual orientation \parencite{ullmannGenderBiasMachine2022}. These biases frequently originate from longstanding cultural and historical beliefs about the expected behavior of different groups.
 
-    This study focuses specifically on gender bias. It is particularly prominent in machine translation due to the influence of gendered language. Elements such as gendered terms, occupational roles, and grammatical patterns can affect translations and often perpetuate stereotypes.
+    This study focuses specifically on gender bias. It is particularly prominent in MT due to the influence of gendered language. Elements such as gendered terms, occupational roles, and grammatical patterns can affect translations and often perpetuate stereotypes.
     
     Drawing on key studies that examine gender bias in EN-DE MT \parencite{ullmannGenderBiasMachine2022,rescignoGenderBiasMachine2023,lardelliBuildingBridgesDataset2024,kapplAreAllSpanish2025}, such bias typically manifests in the following forms:
 
     \subsubsection{Defaulting to Masculine Forms}
         In both singular and plural contexts, the \textit{generic masculine} uses the masculine grammatical gender as the default.
-        For example, the sentence "Die Studenten sind im Hörsaal" (translation: "The students are in the lecture hall") uses the masculine plural form to refer to a group of students regardless of their gender.
+        For example, the sentence "Die Studenten sind im Hörsaal" (The students are in the lecture hall) uses the masculine plural form to refer to a group of students regardless of their gender.
 
         It is commonly used in spoken German and other gendered languages \parencite{lardelliBuildingBridgesDataset2024,schmitzGermanAllProfessors2022}, although research has consistently shown that the generic masculine creates a male bias in mental representations, leading readers or listeners to think more of male than female examples \parencite{sczesnyCanGenderFairLanguage2016}. 
 
@@ -81,10 +81,10 @@ Detecting gender bias in EN-DE translations using NLP requires an understanding 
 % --------------------------------------------------------------------------------
 
 \section{Related Works}
-While gender bias in MT has received increasing attention, research on the EN-DE language pair remains limited. Building on the earlier definitions, this part reviews relevant research to show how the field has approached the problem and where important gaps remain.
+While this topic has received increasing attention, research on the EN-DE language pair remains limited. Building on the earlier definitions, this part reviews relevant research to show how the field has approached the problem and where important gaps remain.
 
     \subsection{Literature Search Process}
-        For the literature review I combined incremental and conceptual literature review methods, where each source led to the identification of next. Based on this progression, I identified key concepts and used them to organize and interpret the literature, aligning with a conceptual approach. The structure followed the qualitative Information Systems framework by \textcite{schryenWritingQualitativeLiterature2015} and was further informed by \textcite{shresthaExploringGenderBiases2022} and \textcite{savoldiDecadeGenderBias2025}, who both conducted systematic reviews on gender bias in ML and MT respectively. 
+        For the literature review, incremental and conceptual methods were combined, with each source leading to the identification of subsequent ones. Based on this progression, key concepts were identified and used to organize and interpret the literature, aligning with a conceptual approach. The structure followed the qualitative Information Systems framework by \textcite{schryenWritingQualitativeLiterature2015} and was further informed by \textcite{shresthaExploringGenderBiases2022} and \textcite{savoldiDecadeGenderBias2025}, both of whom conducted systematic reviews on gender bias in ML and MT respectively.
 
         \subsubsection{Search Sources and Tools}
         Sources were primarily searched on \href{https://scholar.google.com/}{Google Scholar} and \href{https://www.perplexity.ai/}{Perplexity}, which served as an additional search engine. Prompts and outputs from Perplexity have been saved and are included in the appendix. To organize and manage the collected sources, \href{https://www.zotero.org/}{Zotero} was used throughout the process.
@@ -141,13 +141,37 @@ While gender bias in MT has received increasing attention, research on the EN-DE
     \subsection{Foundational studies}
         First mentions of this issue date back to over a decade ago, having been recognized by a paper by \textcite{schiebingerScientificResearchMust2014}. Since then, there has been a general increase in research papers focusing on this topic, especially between 2019 and 2023 \parencite{savoldiDecadeGenderBias2025}. 
 
-        \textcite{pratesAssessingGenderBias2019} conducted a large-scale study using Google Translate to translate sentences like "[Gender-neutral pronoun] is an engineer" from twelve gender-neutral languages into English. The results showed a strong bias toward male pronouns, especially in STEM occupations. This could not be explained by real-world labour statistics, pointing instead to imbalances in the system's training data. The study received wide media attention, leading \citeauthor{googleReducingGenderBias2018} to change their translation policy: Google Translate began showing both feminine and masculine forms for ambiguous inputs \parencite{googleReducingGenderBias2018} (see \autoref{fig:gt_prates_example}).
+        \textcite{pratesAssessingGenderBias2019} conducted a large-scale study using Google Translate to translate sentences like "[Gender-neutral pronoun] is an engineer" from twelve gender-neutral languages into English. The results showed a strong bias toward male pronouns, especially in STEM occupations (see \autoref{fig:gt_surgeon_example} and \ref{fig:deepL_surgeon_example}). This could not be explained by real-world labour statistics, pointing instead to imbalances in the system's training data. The study received wide media attention, leading \citeauthor{googleReducingGenderBias2018} to change their translation policy: Google Translate began showing both feminine and masculine forms for ambiguous inputs \parencite{googleReducingGenderBias2018} (see \autoref{fig:gt_prates_example}).
+
+        \vspace{0.8em}
+        \begin{figure}[htb]
+            \centering
+            \includegraphics[width=1\textwidth]{gt_surgeon_example.png}
+            \caption[Example of Google Translate's biased translation]{Google Translate translates an occupational term with a gender stereotype, using the masculine form for "surgeon"}
+            \label{fig:gt_surgeon_example}
+        \end{figure}
+
+        \vspace{0.8em}
+        \begin{figure}[htb]
+            \centering
+            \includegraphics[width=1\textwidth]{deepL_surgeon_example.png}
+            \caption[Example of DeepL's biased translation]{DeepL translates the same occupational term with a gender bias, mirroring Google Translate's masculine default for "surgeon"}
+            \label{fig:deepL_surgeon_example}
+        \end{figure}
+
+        \vspace{0.8em}
+        \begin{figure}[htb]
+            \centering
+            \includegraphics[width=1\textwidth]{gt_prates_example.png}
+            \caption[Google Translate Gendered Pronoun Suggestions]{Google Translate assigns gendered pronouns in translation for an originally gender-ambiguous subject}
+            \label{fig:gt_prates_example}
+        \end{figure}
 
         Building on this, \textcite{stanovskyEvaluatingGenderBias2019} created WinoMT, a benchmark for evaluating gender bias in English-to-multilingual translations. It focused on occupations in contexts designed to challenge stereotypes. The study found that systems were more accurate for stereotypical gender roles but struggled in non-stereotypical cases, confirming the trends observed by \citeauthor{pratesAssessingGenderBias2019}.
         Together, these studies helped spark the ongoing research interest in gender bias in MT.
 
         \subsection{Biased Data Leading to Gender Errors}
-        According to \textcite{ullmannGenderBiasMachine2022}, translation errors often stem from biases present in the training data. The MT systems learns gender associations from word co-occurrences, such as “doctor” with masculine pronouns, causing incorrect or inserted gender in translations. It also amplifies existing biases during training like linking cooking predominantly with women, which leads to gendered outputs not supported by the input. The large size of training corpora increases the challenge of controlling data quality. Manual inspection becomes impractical when models are trained on hundreds of billions of tokens. Consequently, the model can unintentionally absorb and reproduce harmful or biased content, reinforcing patterns that lead to biased translations \citep{ullmannGenderBiasMachine2022}.
+        According to \textcite{ullmannGenderBiasMachine2022}, translation errors stem from biases present in the training data. The MT systems learns gender associations from word co-occurrences, such as “doctor” with masculine pronouns, causing incorrect or inserted gender in translations. It also amplifies existing biases during training like linking cooking predominantly with women, which leads to gendered outputs not supported by the input. The large size of training corpora increases the challenge of controlling data quality. Manual inspection becomes impractical when models are trained on hundreds of billions of tokens. Consequently, the model can unintentionally absorb and reproduce harmful or biased content, reinforcing patterns that lead to biased translations \citep{ullmannGenderBiasMachine2022}.
 
     \subsection{Ongoing Impact of Gender Bias in Machine Translation}
         These biases do not only cause translation errors but also have wider social consequences. They can lead to representational harm by repeatedly portraying certain genders in limiting or stereotypical ways \parencite{stanczakSurveyGenderBias2021}. Since these biased outputs can re-enter the training data and influence future MT models, the cycle of biased representation continues and reinforces itself in society, creating a regressive feedback loop.
