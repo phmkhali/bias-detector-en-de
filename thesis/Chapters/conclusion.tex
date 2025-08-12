@@ -1,0 +1,30 @@
+\chapter{Conclusion and Discussion}
+   Without a doubt, MT systems and their accessibility drastically improve our ability to communicate with one another. While modern NMT provides semantically accurate translations for high-resource languages, they often introduce gender bias when translating between languages with and without grammatical gender.
+
+   %RQ1 How accurately does fine-tuning mBERT detect gender bias in EN-DE translations?
+   This thesis attempted to create an application to detect gender bias in EN-DE translations in real-time. The findings show that an mBERT model fine-tuned for this binary classification task can detect gender bias with an accuracy of 96.6\% on the held-out test dataset and 84.6\% on a handcrafted dataset used to test edge cases. The model shows strong performance in identifying generic masculines and the assignment of stereotypical roles, which make up the majority of gender biases found in MT systems \parencite{lardelliBuildingBridgesDataset2024,stanovskyEvaluatingGenderBias2019,pratesAssessingGenderBias2019}.
+
+   %RQ2 What limitations arise in this detection system?
+   Despite its high accuracy, there are recurring error patterns that affect the model’s reliability. The error analysis revealed four sources of incorrect predictions: (1) misclassifying German GFL forms as biased, (2) failing to detect bias in political and government terms translated using the generic masculine, (3) showing sensitivity to punctuation and capitalization, and (4) reduced confidence in classification decisions on sentences that contain both neutral and gendered subjects.
+
+   Taking everything into account, detecting gender bias in MT remains a challenging task. In morphologically rich languages like German, the subtle linguistic patterns are particularly difficult for a model to learn. Nonetheless, the model's strong performance in practical scenarios, including the recognition of generic masculines and stereotypical role assignments in job postings, demonstrates its efficacy in flagging potential bias for users. This establishes the model as a crucial intermediary layer. It raises awareness by preventing bias from going unnoticed, providing a practical step toward mitigating the representational harm that biased translations can reinforce.
+
+\section{Limitations of this work}
+\textbf{IDEAS DRAFT}
+\begin{enumerate}
+   \item model doesnt consider context. sentence by sentence analysis
+   \item limited datasets to work with, had to use synthetic data. evaluation was used on handcrafted datasets, leaves room for error 
+   \item use of standard opus-mt, not the best translator but serves a good purpose bc it produces many biased outputs. eg deepl translations are much better but its not open source
+   \item 
+\end{enumerate}
+
+\section{Future Work}
+\textbf{IDEAS DRAFT}
+\begin{enumerate}
+   \item better gfl research needed. more of a societal issue. difficult to fix in MT when there isnt even established definitions and widely accepted forms
+   \item more samples and high quality labeled natural data would likely flesh out the model a lot more. covering more domains and also semantic language
+   \item granular bias classification, not just binary. pointing towards the specfic error (token level)
+\end{enumerate}
+
+% suggest practical next steps for improving the system
+% include ideas for better data, model changes, or future directions
