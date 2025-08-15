@@ -2,7 +2,7 @@
     This chapter focuses on the interpretation of performance metrics and typical error patterns by analysing typical error patterns in the test sets and conducting exploratory tests to validate initial assumptions.
 
 \section{Model Performance}
-    The model’s overall accuracy on the test set is 0.966, with matching macro F1 and weighted average. This shows it performs evenly across both classes. Precision and recall reveal biased cases are detected very well (recall 0.993) with some false alarms (precision 0.937), meaning a small portion of neutral cases are incorrectly labeled as biased. The confusion matrix confirms this with 10 false positives and only 1 false negative in 325 examples. The false positive rate is 0.057 and the false negative rate is 0.007. Overall, this suggests the model favors detecting bias at the risk of some over-flagging, which fits typical needs for bias detection where missing bias is costlier than false alarms.
+    The model’s overall accuracy on the held-out test set is 0.966, with matching macro F1 and weighted average. This shows it performs evenly across both classes. Precision and recall reveal biased cases are detected very well (recall 0.993) with some false alarms (precision 0.937), meaning a small portion of neutral cases are incorrectly labeled as biased. The confusion matrix confirms this with 10 false positives and only 1 false negative in 325 examples. The false positive rate is 0.057 and the false negative rate is 0.007. Overall, this suggests the model favors detecting bias at the risk of some over-flagging, which fits typical needs for bias detection where missing bias is costlier than false alarms.
 
         \vspace{0.8em}
         \begin{table}[H]
@@ -42,8 +42,6 @@
             \label{fig:test_confusion_matrix}
         \end{figure}
 
-
-\section{Analysis of False Positives and False Negatives on Held-Out Test Set}
     False positives and false negatives make up only a small share of the total predictions, but they point to recurring patterns in the model’s errors. These cases were grouped by shared features to enable a structured analysis of likely causes.\footnote{Refer to the appendix for all misclassified examples, including English source texts and German translations.}
 
     \paragraph{State and Governance Entity Terms}
@@ -72,7 +70,7 @@
 
     The other three cases share the same sentence structure but use different GFL forms. The model flagged some sentences using the pair form and gender-inclusive characters (the colon) as biased, with over 95\% confidence. It did however correctly identify the user of the gender star and neutral rewording of "teacher" to "Lehrende" as unbiased, also with a confidence of over 95\%.
     
-    This aligns with the known limitations from the dataset, where the lack of high-quality natural GFL data required adding lower-quality synthetic examples. Still, the correct classification in some cases suggests that the model may be capable of handling GFL more reliably if more representative data were available.
+    This reflects the known limitation of the dataset, where the limited availability of high-quality natural GFL data required supplementing it with lower-quality synthetic examples. Still, the correct classification in some cases suggests that the model may be capable of handling GFL more reliably if more representative data were available.
 
     \vspace{0.8em}
         \begin{table}[ht]
@@ -125,7 +123,7 @@ The model also demonstrates the ability to distinguish between clearly gendered 
     
     The consistent failure to detect bias across these terms, all translated using the generic masculine, suggests the issue may stem from the grammatical structure of the sentence instead of the religious context. 
 
-    Testing formal features like punctuation and casing showed a clearer impact on accuracy. Removing the period dropped accuracy to 0.84. Lowercasing "Muslims" lowered it to 0.83. Doing both together caused accuracy to fall to 0.58. Because the model is based on cased BERT, it relies on correct punctuation and capitalization for context. The limited training data increases the model’s sensitivity to such formal changes, causing performance to vary when cues like casing and punctuation are missing or altered. To confirm this effect, the insertion tests were repeated with both punctuation and casing removed. In these modified cases, "christians" was flagged as biased (confidence: 0.98), "soldiers" was not flagged (confidence: 0.63), and "doctors" was again flagged (confidence: 0.76).
+    Testing formal features like punctuation and casing showed a clearer impact on the confidence. Removing the period dropped confidence to 0.84. Lowercasing "Muslims" lowered it to 0.83. Doing both together caused the confidence to fall to 0.58. Because the model is based on cased BERT, it relies on correct punctuation and capitalization for context. The limited training data increases the model’s sensitivity to such formal changes, causing performance to vary when cues like casing and punctuation are missing or altered. To confirm this effect, the insertion tests were repeated with both punctuation and casing removed. In these modified cases, "christians" was flagged as biased (confidence: 0.98), "soldiers" was not flagged (confidence: 0.63), and "doctors" was again flagged (confidence: 0.76).
 
     \vspace{0.8em}
     \begin{table}[H]
@@ -143,11 +141,9 @@ The model also demonstrates the ability to distinguish between clearly gendered 
         \caption[Bias detection for replacement terms with and without formal cues]{Bias detection results for various replacement terms, comparing original inputs with versions lacking punctuation and casing}
     \end{table}
 
-    One final hypothesis was that the term "local people" may influence the classification. In the original translation, it was rendered as "lokale Bevölkerung"; a neutral term that may give the impression of a gender-neutral subject. This could have caused the model to focus less on the gendered translation of "Muslims." 
-    
-    To explore this, the term "local" was removed from the original sentence, changing the translation to "Auch hier sind die Menschen durch die Einwanderung von Muslimen und die harte Linie des Militärs frustriert."\footnote{This translation slightly differs in wording because it was generated using OpusMT. The version in the test set was likely manually translated by the mGeNTE creators.} The model correctly flagged this version as biased (confidence: 0.97).
+    One final hypothesis was that the term "local people" may influence the classification. In the original translation, it was rendered as "lokale Bevölkerung"; a neutral term that may give the impression of a gender-neutral subject. This could have caused the model to focus less on the gendered translation of "Muslims". To explore this, the term "local" was removed from the original sentence, changing the translation to "Auch hier sind die Menschen durch die Einwanderung von Muslimen und die harte Linie des Militärs frustriert."\footnote{This translation slightly differs in wording because it was generated using OpusMT. The version in the test set was likely manually translated by the mGeNTE creators.} The model correctly flagged this version as biased (confidence: 0.97). The presence of both a neutral and a gendered subject within the same sentence should be considered a factor that may reduce the model’s classification accuracy. At the same time, testing edge cases is inherently challenging due to the interaction of multiple subtle influences. While stepwise sentence modifications can help identify possible sources of misclassification, definitive conclusions remain difficult to establish.
 
-    The presence of both a neutral and a gendered subject within the same sentence should be considered a factor that may reduce the model’s classification accuracy. At the same time, testing edge cases is inherently challenging due to the interaction of multiple subtle influences. While stepwise sentence modifications can help identify possible sources of misclassification, definitive conclusions remain difficult to establish.
+    In this chapter, the model was evaluated in view of the research question. Its performance was analyzed on both a held-out dataset and a handcrafted dataset of unseen examples. Real-world texts, such as job postings, were used to test how the model performs in practice. Common error patterns were identified and grouped to better understand factors that influence misclassification, providing a basis for the conclusions in the next chapter.
 
 
  

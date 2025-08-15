@@ -1,25 +1,22 @@
 \chapter{Methodology}
-The goal of this project is to develop a gender bias detection model tailored for practical, real-world MT scenarios. It targets common use cases like translating everyday sentences or job descriptions, focusing on flagging biased language at the sentence level. This means the model evaluates each sentence independently, without considering context from surrounding sentences. This approach guides both the model’s design and the preparation of the training data, where each translation pair is treated as a separate example. The following sections explain the methods used to achieve this.
+The goal of this project is to develop a practical gender bias detection model tailored for real-world MT scenarios. It targets common use cases like translating everyday sentences or job descriptions, focusing on flagging biased language at the sentence level. This means the model evaluates each sentence independently, without considering context from surrounding sentences. This approach guides both the model’s design and the preparation of the training data, where each translation pair is treated as a separate example. 
 
-\section{Workflow}
 The project begins by selecting and combining datasets from previous work (see \autoref{fig:workflow}). The model building phase then follows, as shown in the purple boxes. It starts with cleaning and preparing the data, followed by extracting features for training. A pre-trained \texttt{mBERT} model is then fine-tuned for the classification task. Its performance is measured using standard evaluation metrics. In the final step, the trained model is integrated  into the demo application.
 
 \vspace{1cm} 
 \begin{figure}[htb]
     \centering
     \scalebox{0.8}{\input{./Bilder/methodology_workflow.tex}}
-    \caption{Workflow of the project}
+    \caption{Methodology Overview}
     \label{fig:workflow}
 \end{figure}
 \vspace{1cm} 
 
-\section{Dataset Handling}
+\section{Dataset}
     Since no ready-to-use dataset existed for this task and no prior work had developed a comparable model, it was necessary to define: \textbf{(1)} the required number of samples, and \textbf{(2)} the desired content of the dataset.
 
-    \subsection{Number of Samples}
     For a binary classification task of detecting gender bias using \texttt{mBERT}, general guidelines suggest between 100 and 5,000 labeled samples for fine-tuning \parencite{pecherComparingSpecialisedSmall2024}, while multi-class tasks need fewer samples (around 100). However, the complex nature of gender bias often requires a larger dataset for robust detection since the number of samples depends mainly on the task type. For the final dataset, 2,000 to 5,000 samples were selected to provide enough data for effective training while staying within resource limits.
 
-    \subsection{Dataset Composition}
     Existing EN-DE datasets were reviewed to reduce the need for manual data creation. The following sources were considered: \texttt{\href{https://huggingface.co/datasets/FBK-MT/mGeNTE}{mGeNTE en-de}} \parencite{savoldiMGeNTEMultilingualResource2025}, \texttt{\href{https://github.com/g8a9/building-bridges-gender-fair-german-mt}{Building Bridges Dictionary}} \parencite{lardelliBuildingBridgesDataset2024}, and \texttt{\href{https://research.google/blog/a-dataset-for-studying-gender-bias-in-translation/}{Translated Wikipedia Biographies}} \parencite{stellaDatasetStudyingGender2021}.
 
     Analysis of the \texttt{Translated Wikipedia Biographies} dataset revealed several issues that prevented direct reuse. In many instances, the \texttt{perceivedGender} column contained subject names instead of expected labels such as \texttt{Male}, \texttt{Female}, or \texttt{Neutral}, making manual verification necessary. Additionally, all examples were labeled as neutral (0), as the dataset was designed around correctly gendered references. Since the remaining two datasets were already balanced and contained a sufficient number of neutrally gendered examples, the Wikipedia Biographies dataset was excluded from the final training data.
@@ -39,7 +36,10 @@ The project begins by selecting and combining datasets from previous work (see \
     \label{tab:available_datasets}
 \end{table}
 
-\subsubsection{mGeNTE en-de} The mGeNTE dataset contained the following relevant information:  
+\subsection{Pre-processing}
+
+\subsubsection{mGeNTE en-de} 
+The mGeNTE dataset contained the following relevant information:  
 
 \begin{itemize}  
   \item \texttt{SET-G}: English sentences with a clearly gendered subject.  
@@ -67,14 +67,14 @@ This dataset consisted of a GFL dictionary of nouns, not full sentences. That ma
 
 Nouns from the original dataset were used to create multiple grammatically correct sentence variations, covering singular, plural, gender-neutral, and gender-inclusive forms. The dataset uses the star form (e.g., \textit{Lehrer*innen}) as its inclusive format. Since the colon form (e.g., \textit{Lehrer:innen}) is also common in practice, a script was used to duplicate all entries with stars and replace the star with a colon to generate additional variants.
 
-This resulted in 3,381 total entries: 2,001 labeled as 0 (neutral) and 1,380 labeled as 1 (biased). \footnote{The transformed dataset can be found in \texttt{/datasets/lardelli\_final.csv}.}
-
-However, this setup lacked genuinely neutral examples; sentences that do not involve any gendered subject at all, such as \textit{"The weather is nice"} or \textit{"How are you"}. Including such sentences is important to help the model learn that not all translations are relevant for gender bias detection and that many ordinary sentences should be classified as neutral.
+This resulted in 3,381 total entries: 2,001 labeled as 0 (neutral) and 1,380 labeled as 1 (biased).\footnote{The transformed dataset can be found in \texttt{/datasets/lardelli\_final.csv}.}
 
 \subsubsection{Tatoeba} 
-Since no suitable dataset for this category was readily available, a supplementary set was created using random EN-DE sentence pairs from the \href{https://tatoeba.org/en/}{\texttt{Tatoeba}} corpus. A sample of 550 sentence pairs was selected. Manual filtering was applied to remove any pairs with incorrect or stereotypically gendered translations, as public contributions often default to male forms. The resulting subset consisted of 532 clearly neutral sentence pairs, all labeled with 0. \footnote{The transformed dataset can be found in \texttt{/datasets/tatoeba\_final.csv}.} 
 
-\subsection{Available Data Summary}
+The aforementioned setup lacked genuinely neutral examples, defined as sentences without any gendered subject, such as "The weather is nice" or "How are you". Including such cases is important for training the model to recognise that not all translations are relevant for gender bias detection, and that many sentences should be classified as neutral. As no suitable dataset for this category was available, a supplementary set was created from random EN–DE sentence pairs drawn from the \texttt{\href{https://tatoeba.org/en/}{Tatoeba}} corpus. A total of 550 sentence pairs was sampled. Manual filtering was applied to remove any pairs containing incorrect translations or stereotypical gendering, as public contributions often default to male forms. The final subset contained 532 clearly neutral sentence pairs, all labelled with 0.\footnote{The transformed dataset can be found in \texttt{/datasets/tatoeba\_final.csv}.}
+
+
+\subsubsection{Available Data Summary}
 
 \autoref{tab:data-summary} shows an overview of the labeled data from the three available sources. 
 
@@ -95,30 +95,15 @@ Since no suitable dataset for this category was readily available, a supplementa
 
 The number of samples selected from each dataset was determined through iterative testing. Multiple dataset variants were created by upsampling or downsampling specific groups. The documentation of this process is discussed in \autoref{subsection:hyperparameter_tuning_methodology}.
 
-\section{Data Pre-processing}
+\subsection{Data Splitting and Cleaning}
     The dataset is partitioned into training (80\%), validation (10\%), and test (10\%) subsets. This splitting ratio follows established practices commonly employed in ML experiments \parencite{bahetiTrainTestValidation2021}. It provides enough samples for the model to learn general patterns while reserving separate subsets for tuning and final evaluation. Stratified sampling was used to maintain consistent label distribution (biased vs. neutral) across all three sets. For example, if 30\% of the full dataset is biased, each split will also have 30\% biased samples. 
 
-    Advanced text cleaning steps—such as punctuation removal, lowercasing, or stemming—were not applied due to the use of \href{https://huggingface.co/google-bert/bert-base-multilingual-cased}{\texttt{bert-base-multilingual-cased}}. This tokenizer handles raw, unaltered text and retains case distinctions. The model was pretrained on large corpora containing natural language in its original form \parencite{devlinBERTPretrainingDeep2019}, so modifying the input by lowercasing or stripping punctuation could remove meaningful patterns the model has learned to recognize.
+    Advanced text cleaning steps (punctuation removal, lowercasing, or stemming) were not applied due to the use of \href{https://huggingface.co/google-bert/bert-base-multilingual-cased}{\texttt{bert-base-multilingual-cased}}. This tokenizer handles raw, unaltered text and retains case distinctions. The model was pretrained on large corpora containing natural language in its original form \parencite{devlinBERTPretrainingDeep2019}, so modifying the input by lowercasing or stripping punctuation could remove meaningful patterns the model has learned to recognize. Steps to handle missing values or invalid entries were already performed in the individual datasets, so they did not need to be repeated when creating the final merged dataset.
 
-    Additional preprocessing was unnecessary, as the merged datasets were already cleaned and manually verified.
+\section{Training Pipeline}
+    \texttt{mBERT} with a binary classification head is used to predict whether a translation is \textit{biased} or \textit{neutral}. The tokenizer encodes input sentence pairs into numerical representations and distinguishes between source and target sentences. All sequences are padded or truncated to a fixed length of 256 tokens, which preserves most content while keeping processing efficient. The model represents each input pair with a summary vector of the entire sequence, which is then used for classification into the two categories.
 
-\section{Model Initialization and Hardware Configuration}
-    \texttt{mBERT} with a binary classification head is used to predict whether a translation is \textit{biased} or \textit{neutral}.
-
-    The tokenizer encodes input pairs into token IDs and applies segment embeddings to distinguish between source and target sentences. All sequences are padded or truncated to a fixed length of 256 tokens. This value was selected after experiments with 128 tokens triggered truncation warnings and led to content loss. A length of 256 preserved most sentence pairs while maintaining efficient memory usage.
-
-    Input features and labels (0 for neutral, 1 for biased) are converted to PyTorch tensors for training. The model uses the output vector of the [CLS] token to represent the full input for classification.
-
-    During development, both GPU and CPU environments were used to test training and inference performance. Device selection was handled dynamically using PyTorch’s \texttt{torch.device()} method. The final model used for the demo application and evaluation was trained on CPU to ensure full compatibility and reproducibility without GPU dependency.
-
-\subsection{Training Procedure}
-    Each dataset is instantiated using a custom \texttt{BiasDataset} class, which receives a dataframe and a tokenizer. This class encodes EN-DE sentence pairs and their corresponding labels into tensors suitable for model input.
-
-    Training hyperparameters were established through tuning, as detailed in \autoref{subsection:hyperparameters_explained}. The training configuration is set using \texttt{TrainingArguments}, specifying evaluation and checkpoint saving strategies at each epoch.
-
-    A \texttt{Trainer} object is then initialized with the pretrained model, training arguments, training and validation datasets, and a metric computation function. The training process is started by invoking the trainer's \texttt{train()} method, which iteratively feeds batches from the training dataset to the model, updates the model weights based on the loss, and evaluates performance on the validation set at the end of each epoch.
-
-    The trainer automatically saves the best-performing model based on validation metrics for subsequent use in bias detection.
+    Each dataset is instantiated and encoded into a format suitable for model input, including the EN–DE sentence pairs and their corresponding labels. Training hyperparameters are established through tuning. The model iteratively learns from the training data by adjusting its parameters to minimize classification errors, with validation performance guiding the process and helping prevent overfitting. At the end of training, the best-performing model is selected based on validation metrics and used for subsequent gender bias detection.
 
 \section{Evaluation Strategy}
     Model evaluation was performed during training using the validation set and after training using two distinct test sets. As detailed in \autoref{subsection:hyperparameters_explained}, the macro F1 score was employed as the primary metric to assess model performance. The validation set served to monitor training progress across epochs, and the checkpoint with the highest validation F1 score was saved.
@@ -200,27 +185,15 @@ The number of samples selected from each dataset was determined through iterativ
     Freezing fewer layers led to slightly higher F1 scores on the test set, but the model with $n=8$ frozen layers achieved the best results on the handcrafted test sentences, which were designed to reflect real-world usability. Since the F1 differences were minor and freezing more layers results in a simpler and more efficient model, $n=8$ was chosen as the final setting.
 
 \section{Demo Application Design}
-    The demo application comprises three modules: the Streamlit interface, the bias detection model with its prediction functions, and the translation component. \autoref{fig:demo_workflow} illustrates the workflow. Both input modes converge on a common prediction pipeline.
+    The demo application comprises three modules: the user interface, the bias detection model, and the translation component. \autoref{fig:demo_workflow} illustrates the workflow. Both input modes converge on a common prediction pipeline.
 
 \begin{figure}[htb]
     \centering
     \scalebox{0.8}{\input{./Bilder/demo_workflow.tex}}
-    \caption[Workflow of the bias detection application]{Workflow of the bias detection application. Automatic translation and manual sentence pairs follow the same prediction steps}
+    \caption[Process of the bias detection application]{Process of the bias detection application. Automatic translation and manual sentence pairs follow the same prediction steps}
     \label{fig:demo_workflow}
 \end{figure}
 
-\subsubsection{Initialization} 
-    On launch, the application loads the fine‑tuned BERT bias detection model and its tokenizer from a local directory. These objects are cached in memory to avoid repeated loading. The model and tokenizer move to the available device, either CPU or GPU.
+    On launch, the application loads the trained model and its encoding mechanism into memory. Users can either input raw English text, which is split into sentences and translated into German, or provide aligned En-DE sentence pairs. Both approaches result in a set of sentence pairs ready for bias analysis. The bias detection pipeline processes these sentence pairs by converting each pair into a representation suitable for the model. The model then predicts whether a translation is biased or neutral. Predictions are accompanied by a confidence score, which is the probability assigned by mBERT to the predicted label. Results are displayed alongside the original and translated sentences. If bias is detected above a defined threshold, a warning is shown; otherwise, the sentence pair is marked as neutral. Each result is separated to maintain readability.
 
-\subsubsection{User Interface} 
-The interface has two tabs:
-\begin{enumerate}
-  \item \textbf{Automatic Translation.} The user inputs raw English text. The application splits the text into sentences and sends them in batches to the translation module. The module returns German translations. Each English sentence is paired with its translation before bias analysis.
-  \item \textbf{Manual Pairing.} The user supplies parallel English–German sentence pairs. After splitting and pairing, the application bypasses translation and proceeds directly to bias analysis.
-\end{enumerate}
-
-\subsubsection{Bias Detection Pipeline} 
-    Sentence pairs are processed in batches to reduce overhead and speed up analysis. Each sentence pair is first encoded with the tokenizer of the fine‑tuned BERT model. The encoded input is then processed by the trained classifier, which produces raw bias scores. These scores are normalized into probabilities using softmax. The bias label corresponding to the highest probability is selected, and its confidence value is reported.
-
-\subsubsection{Results presentation}
-    For each translation pair, the application shows the original English sentence and the corresponding German sentence. It then presents the model's prediction. If bias is detected and the confidence score exceeds a defined threshold, a warning is displayed with the confidence value. Otherwise, a success message indicates that no bias was detected, along with the confidence score. Each result is separated to keep the output readable.
+    The interface has two main modes. In automatic translation, raw English text is submitted, segmented into sentences, and translated. Each sentence is paired with its translation before analysis. In manual pairing, users provide EN-DE sentence pairs directly, which bypasses translation and proceeds to bias evaluation. The system is designed to demonstrate the end-to-end process of bias detection independently of implementation details. The methodology allows the translation component or model representation to be replaced with alternative approaches. The focus is on showing how input sentences are converted into pairs, analyzed for bias, and presented in a user-friendly way. 

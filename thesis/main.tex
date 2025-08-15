@@ -39,7 +39,7 @@ bibliography=totoc,listof=totoc,appendixprefix,paper=a4,headings=small]{scrbook}
 \graphicspath{{./Bilder/}}          % Pfad zu den Bildern
 \usepackage{enumitem}
 \usepackage{tikz}
-\usetikzlibrary{shapes, arrows.meta, positioning,calc}
+\usetikzlibrary{shapes, arrows.meta, positioning, calc, shapes.geometric, shadows}
 \usepackage{tcolorbox}
 \tcbuselibrary{listings, breakable}
 
@@ -117,6 +117,8 @@ bibliography=totoc,listof=totoc,appendixprefix,paper=a4,headings=small]{scrbook}
 % -----------------------------------
 \mainmatter 							% die einzelnen Kapitel
     \input{./Chapters/introduction}
+    \clearpage{\pagestyle{empty}\cleardoublepage}		
+    \input{./Chapters/theoretical_background}
     \clearpage{\pagestyle{empty}\cleardoublepage}		
     \input{./Chapters/related_work}
     \clearpage{\pagestyle{empty}\cleardoublepage}		
