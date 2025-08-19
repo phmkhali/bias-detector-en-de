@@ -3,9 +3,7 @@ The implementation includes the gender bias detection model, a Streamlit demo in
 
 \section{Environment Setup and Project Structure}
     \subsection{System Environment and Hardware}
-    The project was developed on macOS using Python 3.12. A virtual environment was used, and all dependencies were installed via the \texttt{requirements.txt} file using \texttt{pip3}. No manual installation steps were needed beyond this.
-
-    During development, both GPU and CPU were used to test training and inference performance, with device selection handled dynamically. The final model for the demo and evaluation was trained on the CPU to ensure full compatibility and reproducibility without relying on a GPU. To ensure reproducibility, random seeds were fixed across all libraries and backends. The application is started via Streamlit. Further usage instructions are provided in \autoref{section:reproduction_guide}.
+    The project was developed on macOS using Python 3.12. A virtual environment was used, and all dependencies were installed via the \texttt{requirements.txt} file using \texttt{pip3}. No manual installation steps were needed beyond this. During development, both GPU and CPU were used to test training and inference performance, with device selection handled dynamically. The final model for the demo and evaluation was trained on the CPU to ensure full compatibility and reproducibility without relying on a GPU. To ensure reproducibility, random seeds were fixed across all libraries and backends. The application is started via Streamlit. Further usage instructions are provided in \autoref{section:reproduction_guide}.
 
 \subsection{Directory Layout}
     \autoref{fig:file_tree} shows the directory structure with the relevant files for the final implementation. The folder contains additional files related to the original datasets and scripts used for data conversion. These supplementary files are intended for comprehension and reproducibility purposes but are not required for the final model.
@@ -30,11 +28,7 @@ The implementation includes the gender bias detection model, a Streamlit demo in
         The \texttt{fine-tuning.ipynb} notebook performs model initialization, training, evaluation, and testing. It loads the \texttt{mBERT} model and trains it on \texttt{dataset.csv}. Training artifacts are saved in the \texttt{model\_output} folder with checkpoints, configuration files, tokenizer files, and training metadata. The training process ran for six epochs due to early stopping and took approximately 18 minutes and 32 seconds on the development machine. 
 
     \subsection{Streamlit Application}
-        The \texttt{app.py} file is the main entry point for the Streamlit interface. It loads the fine-tuned model and tokenizer from the \texttt{model\_output} directory and sets up the classification pipeline. In the automatic tab, users enter English text, which is translated using \texttt{translate.py}. In the manual tab, users enter both the original and translated sentences directly.\footnote{Screenshots of these tabs are shown in Figures~\ref{fig:demo_tab_1}, \ref{fig:demo_tab_2}, and \ref{fig:demo_multi_sentence}.}
-
-        \texttt{translate.py} wraps the pre-trained OpusMT EN-DE model from Hugging Face. The main function, \texttt{translate\_batch}, takes a list of English sentences, tokenizes them, and uses the model’s \texttt{generate} method to return a list of decoded German translations.
-
-        The resulting sentence pairs from both tabs are passed to functions in \texttt{utils.py}. This module handles sentence splitting, optional translation, and model inference. It processes each sentence pair, predicts whether it contains gender bias, and formats the output with confidence scores for display in the interface.
+        The \texttt{app.py} file is the main entry point for the Streamlit interface. It loads the fine-tuned model and tokenizer from the \texttt{model\_output} directory and sets up the classification pipeline. In the automatic tab, users enter English text, which is translated using \texttt{translate.py}. In the manual tab, users enter both the original and translated sentences directly.\footnote{Screenshots of these tabs are shown in Figures~\ref{fig:demo_tab_1}, \ref{fig:demo_tab_2}, and \ref{fig:demo_multi_sentence}.}\texttt{translate.py} wraps the pre-trained OpusMT EN-DE model from Hugging Face. The main function, \texttt{translate\_batch}, takes a list of English sentences, tokenizes them, and uses the model’s \texttt{generate} method to return a list of decoded German translations. The resulting sentence pairs from both tabs are passed to functions in \texttt{utils.py}. This module handles sentence splitting, optional translation, and model inference. It processes each sentence pair, predicts whether it contains gender bias, and formats the output with confidence scores for display in the interface.
 
         \vspace{0.8em}
         \begin{figure}[H]
@@ -62,9 +56,7 @@ The implementation includes the gender bias detection model, a Streamlit demo in
         \vspace{0.8em}
 
 \section{Reproduction Guide} \label{section:reproduction_guide}
-   The setup process for the Streamlit demo app includes creating a Python virtual environment, installing required packages, and running the application. This guide covers these steps for macOS/Linux and Windows. 
-   
-   \textbf{Note:} The pre-trained model is not included in the GitHub repository due to size restrictions. It can be downloaded separately via the provided Google Drive link. If the pre-trained model is not present, the \texttt{fine-tuning.ipynb} notebook must be executed first to train and save the model before launching the demo.
+   The setup process for the Streamlit demo app includes creating a Python virtual environment, installing required packages, and running the application. This guide covers these steps for macOS/Linux and Windows. \textbf{Note:} The pre-trained model is not included in the GitHub repository due to size restrictions. It can be downloaded separately via the provided Google Drive link. If the pre-trained model is not present, the \texttt{fine-tuning.ipynb} notebook must be executed first to train and save the model before launching the demo.
    
 \paragraph{Installation Steps}
 
