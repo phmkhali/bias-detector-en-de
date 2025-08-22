@@ -24,12 +24,73 @@
 \section{Use of Artificial Intelligence}\label{appendix:artificial_intelligece}
 
 \subsection{Perplexity.ai for Literature Research}
-Prompting perplexity.ai for further sources on Gender Bias in English to German Machine Translation and LLMs. 
+Used Perplexity.ai to find additional sources and references on gender bias in EN-DE MT.
 
 \includepdf[pages=-]{./Literatur/Key Sources on Gender Bias in Machine Translation 21-may-2025.pdf}
 
+\subsection{Gemini for Synthetic Data Generation}\label{appendix:gemini_prompt}
+Prompting Gemini to generate full sentences from the existing Building Bridges dataset \parencite{lardelliBuildingBridgesDataset2024}, which contained only nouns. I provided the lardelli\_singular.csv and lardelli\_plural.csv files as input. Manual sentence creation would have been too resource intensive. GPT and Deepseek were also tested, but they did not handle large amounts of data efficiently and only produced output in small batches. The final output was a singular output.csv, which I subsequently reviewed and corrected through additional manual rounds to fix errors.
+\subsubsection{Prompt: } 
+
+\begin{lstlisting}
+Your Role: You are an expert linguist and data generation specialist. Your task is to create a high-quality structured dataset for ML by generating English sentences and their German translations based on two CSV files.
+
+Goal: Process lardelli_singular.csv and lardelli_plural.csv to produce a final CSV with columns: english,german,label. Generate multiple variations per English sentence using different German translation rules.
+
+Input Data:
+lardelli_singular.csv: ID,German_MS,German_FS,Gender-Neutral,Gender-Inclusive,English,English_P
+lardelli_plural.csv: ID,German_MP,German_FP,Gender-Neutral,Gender-Inclusive,English
+
+Instructions:
+1. Iterate through lardelli_singular.csv.
+2. Generate 3-5 simple, correct English sentences for the singular noun (English) and plural noun (English_P). Create singular and plural versions.
+Example: "The deputy is having a great day." / "The deputies are having a great day."
+3. Generate German translations:
+  - Singular: use current row.
+    - Label 1: German_MS, German_FS
+    - Label 0: Gender-Neutral, Gender-Inclusive
+  - Plural: match ID in lardelli_plural.csv
+    - Label 1: German_MP, German_FP
+    - Label 0: Gender-Neutral, Gender-Inclusive
+4. Quality rules:
+  - Ensure grammatical correctness (articles, adjectives, verbs, case, number).
+  - Skip missing values.
+  - Generate all possible variants for balance.
+  - English sentences should be varied.
+  - Final CSV: english,german,label (use quotes if commas appear).
+
+Example Output:
+english,german,label
+"The deputy is having a great day","Der Stellvertreter hat einen tollen Tag",1
+"The deputy is having a great day","Die Stellvertreterin hat einen tollen Tag",1
+"The deputy is having a great day","die Stellvertretung hat einen tollen Tag",0
+"The deputy is having a great day","der*die Stellvertreter*in hat einen tollen Tag",0
+"The deputies are having a great day","Die Stellvertreter haben einen tollen Tag",1
+"The deputies are having a great day","Die Stellvertreterinnen haben einen tollen Tag",1
+"The deputies are having a great day","Die Stellvertretung hat einen tollen Tag",0
+"The deputies are having a great day","die Stellvertreter*innen haben einen tollen Tag",0
+
+Begin generation now. If output is too large, produce in batches.
+
+\end{lstlisting}
+
+\subsubsection{Output: } 
+\begin{lstlisting}
+The data generation is complete, and the output has been saved to output_translations.csv. Overview of the process:
+
+Loaded Data: The lardelli_singular.csv and lardelli_plural.csv files were loaded into DataFrames.
+
+Sentence Generation: For each noun in lardelli_singular.csv, 3 singular and 3 plural English sentences were generated using simple, grammatically correct templates.
+
+German Translation Generation: For each singular English sentence, corresponding German translations were generated using German_MS, German_FS, Gender-Neutral, and Gender-Inclusive columns from lardelli_singular.csv. For each plural English sentence, matching rows were found in lardelli_plural.csv using the ID, and German translations were generated using German_MP, German_FP, Gender-Neutral, and Gender-Inclusive columns. Translations were labeled as 1 (gendered) or 0 (neutral/inclusive). Rows with missing German translation values were skipped.
+
+Output: All generated sentences and their translations were compiled into a single CSV file named output_translations.csv with columns english,german,label. Please find the generated CSV file below.
+
+\end{lstlisting}
+
 \subsection{Use of AI for Code Generation}\label{appendix:ai_code}
-During the development of the practical part, ChatGPT and DeepSeek were used to assist in generating portions of the implementation surrounding the demo, specifically in \texttt{app.py}, \texttt{utils.py}, and \texttt{translate.py}. The process was iterative, involving multiple rounds of suggestions and refinements. All AI-generated code was reviewed, adapted, and integrated by the author to ensure correctness and suitability for the project. AI assistance was limited to supporting implementation and did not replace the author’s own programming work or design decisions. In the following, one example of AI-assisted code generation is provided. Due to the iterative nature of the process, not all intermediate outputs can be shown. This example is intended to give a general sense of how AI was used to support the implementation.
+During the development of the practical part, I used ChatGPT and DeepSeek to assist in generating portions of the implementation for the demo, specifically in \texttt{app.py}, \texttt{utils.py}, and \texttt{translate.py}. The process involved multiple rounds of suggestions and refinements. All AI-generated code was reviewed, adapted, and integrated to ensure correctness and suitability for the project. AI assistance supported implementation but did not replace my own programming work or design decisions. Below is one example of AI-assisted code generation. Due to the iterative nature of the process, not all intermediate outputs can be shown. This example illustrates how AI was used to support the implementation.
+
 
 \subsubsection{Prompt: } 
 

@@ -2496,6 +2496,7 @@
     <bcf:citekey order="105" intorder="1">lardelliBuildingBridgesDataset2024</bcf:citekey>
     <bcf:citekey order="105" intorder="2">stanovskyEvaluatingGenderBias2019</bcf:citekey>
     <bcf:citekey order="105" intorder="3">pratesAssessingGenderBias2019</bcf:citekey>
+    <bcf:citekey order="106" intorder="1">lardelliBuildingBridgesDataset2024</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">
