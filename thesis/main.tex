@@ -140,8 +140,11 @@ bibliography=totoc,listof=totoc,appendixprefix,paper=a4,headings=small]{scrbook}
 \backmatter 
 \printbibliography
 \clearpage{\pagestyle{empty}\cleardoublepage}
+\begingroup
+\setcounter{tocdepth}{1}
 \addcontentsline{toc}{chapter}{Appendices}		
 \input{./Chapters/appendix}
+\endgroup
 \input{./Chapters/erklaerung} 			% Eidesstattliche Erklärung (nicht bei Seminararb.)
 
 \end{document}
