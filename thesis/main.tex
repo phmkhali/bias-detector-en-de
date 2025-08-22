@@ -29,11 +29,17 @@ bibliography=totoc,listof=totoc,appendixprefix,paper=a4,headings=small]{scrbook}
 \usepackage{chngcntr}
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
+\usepackage[titletoc]{appendix}
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}				% Schriftfamilie
 \setkomafont{disposition}{\bfseries}
-
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  columns=fullflexible
+}
 \usepackage{graphicx} 				% Grafiken einfügen (pdf,png - aber jpg vermeiden)
 \usepackage{subcaption}
 \graphicspath{{./Bilder/}}          % Pfad zu den Bildern
@@ -133,7 +139,8 @@ bibliography=totoc,listof=totoc,appendixprefix,paper=a4,headings=small]{scrbook}
 % -----------------------------------
 \backmatter 
 \printbibliography
-\clearpage{\pagestyle{empty}\cleardoublepage}		
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\addcontentsline{toc}{chapter}{Appendices}		
 \input{./Chapters/appendix}
 \input{./Chapters/erklaerung} 			% Eidesstattliche Erklärung (nicht bei Seminararb.)
 

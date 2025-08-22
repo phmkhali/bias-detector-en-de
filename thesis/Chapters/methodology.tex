@@ -11,7 +11,7 @@ The goal of this project is to develop a practical gender bias detection model t
 \vspace{1cm} 
 
 \section{Dataset}
-    Since no ready-to-use dataset existed for this task and no prior work had developed a comparable model, it was necessary to define: \textbf{(1)} the required number of samples, and \textbf{(2)} the desired content of the dataset. For a binary classification task of detecting gender bias using \texttt{mBERT}, general guidelines suggest between 100 and 5,000 labeled samples for fine-tuning \parencite{pecherComparingSpecialisedSmall2024}, while multi-class tasks need fewer samples (around 100). However, the complex nature of gender bias often requires a larger dataset for robust detection since the number of samples depends mainly on the task type. For the final dataset, 2,000 to 5,000 samples were selected to provide enough data for effective training while staying within resource limits.
+    Since no ready-to-use dataset existed for this task and no prior work had developed a comparable model, it was necessary to define: (1) the required number of samples, and (2) the desired content of the dataset. For a binary classification task of detecting gender bias using \texttt{mBERT}, general guidelines suggest between 100 and 5,000 labeled samples for fine-tuning \parencite{pecherComparingSpecialisedSmall2024}, while multi-class tasks need fewer samples (around 100). However, the complex nature of gender bias often requires a larger dataset for robust detection since the number of samples depends mainly on the task type. For the final dataset, 2,000 to 5,000 samples were selected to provide enough data for effective training while staying within resource limits.
 
     Existing EN-DE datasets were reviewed to reduce the need for manual data creation. The following sources were considered: \texttt{\href{https://huggingface.co/datasets/FBK-MT/mGeNTE}{mGeNTE en-de}} \parencite{savoldiMGeNTEMultilingualResource2025}, \texttt{\href{https://github.com/g8a9/building-bridges-gender-fair-german-mt}{Building Bridges Dictionary}} \parencite{lardelliBuildingBridgesDataset2024}, and \texttt{\href{https://research.google/blog/a-dataset-for-studying-gender-bias-in-translation/}{Translated Wikipedia Biographies}} \parencite{stellaDatasetStudyingGender2021}.
 
@@ -111,7 +111,7 @@ The number of samples selected from each dataset was determined through iterativ
     \paragraph{Optimizer and scheduler} The \texttt{Trainer} API employed the AdamW optimizer by default. A warmup-linear learning rate schedule was used: the rate gradually increased during the first 10\% of training steps (warmup) and then decreased linearly until completion. This schedule supports smooth learning and helps prevent instability during early training.
 
 \subsection{Training Dataset Tuning} \label{subsection:training_dataset_tuning}
-    Since the F1 scores were similar across dataset versions, the main evaluation was based on the handcrafted test set of 25 sentences.\footnote{The detailed documentation of each iteration is included in the appendix. The focus in this section is on the process and rationale rather than on numeric results.} This small test set does not provide a complete indication of overall model quality, but it offers insight into practical usability. Any statements regarding better or worse performance should be considered in light of this limitation.
+    Since the F1 scores were similar across dataset versions, the main evaluation was based on the handcrafted test set of 26 sentences.\footnote{The detailed documentation of each iteration is included in Appendix \ref{appendix:dataset_tuning_table}. The focus in this section is on the process and rationale rather than on numeric results.} This small test set does not provide a complete indication of overall model quality, but it offers insight into practical usability. Any statements regarding better or worse performance should be considered in light of this limitation.
 
     The dataset \texttt{mgente\_final} was considered the best source because its samples are natural sentences. All 750 biased samples from \texttt{mgente\_final} were included, along with exactly 750 neutral samples. The tuning process aimed to adjust the remaining datasets to maintain a maximum ratio of 60\% neutral to 40\% biased samples. Sampling was performed using the \texttt{join\_datasets.py} script, which loads the labeled datasets, samples a fixed number of biased and neutral entries per dataset using a fixed random seed (10), and combines them into a single training set. The script also checks for missing values and label integrity before saving the final CSV file. The tuning process across dataset versions, including their composition and rationale, is summarized in \autoref{tab:dataset_versions}.
 
@@ -146,9 +146,9 @@ The number of samples selected from each dataset was determined through iterativ
         \toprule
         \textbf{Frozen Layers} & \textbf{Test F1 (weighted)} & \textbf{Handcrafted Test Set Accuracy} \\
         \midrule
-        $n=6$ (layers 0--5 frozen) & 0.981 & 80.8\% \\
-        $n=7$ (layers 0--6 frozen) & 0.979 & 80.8\% \\
-        $n=8$ (layers 0--7 frozen) & 0.966 & 84.6\% \\
+        $n=6$ (layers 0--5 frozen) & 0.981 & 0.808 \\
+        $n=7$ (layers 0--6 frozen) & 0.979 & 0.808 \\
+        $n=8$ (layers 0--7 frozen) & 0.966 & 0.846 \\
         \bottomrule
         \end{tabularx}
         \caption{Comparison of layer freezing settings}
@@ -157,13 +157,29 @@ The number of samples selected from each dataset was determined through iterativ
     Freezing fewer layers led to slightly higher F1 scores on the test set, but the model with $n=8$ frozen layers achieved the best results on the handcrafted test sentences, which were designed to reflect real-world usability. Since the F1 differences were minor and freezing more layers results in a simpler and more efficient model, $n=8$ was chosen as the final setting.
 
 \section{Demo Application Design}
-    The demo application comprises three modules: the user interface, the bias detection model, and the translation component (see \autoref{fig:demo_workflow}). Both input modes converge on a common prediction pipeline. On launch, the application loads the trained model and its encoding mechanism into memory. Users can either input raw English text, which is split into sentences and translated into German, or provide aligned EN-DE sentence pairs. Both approaches result in a set of sentence pairs ready for bias analysis. The bias detection pipeline processes these sentence pairs by converting each pair into a representation suitable for the model. The model then predicts whether a translation is biased or neutral. Predictions are accompanied by a confidence score, which is the probability assigned by mBERT to the predicted label. Results are displayed alongside the original and translated sentences. If bias is detected above a defined threshold, a warning is shown; otherwise, the sentence pair is marked as neutral. Each result is separated to maintain readability.
+    The demo application comprises three modules: the user interface, the bias detection model, and the translation component (see \autoref{fig:component_diagram}). Both input modes converge on a common prediction pipeline. On launch, the application loads the trained model and its encoding mechanism into memory. Users can either input raw English text, which is split into sentences and translated into German, or provide aligned EN-DE sentence pairs. Both approaches result in a set of sentence pairs ready for bias analysis. The bias detection pipeline processes these sentence pairs by converting each pair into a representation suitable for the model. The model then predicts whether a translation is biased or neutral. Predictions are accompanied by a confidence score, which is the probability assigned by mBERT to the predicted label. Results are displayed alongside the original and translated sentences. If bias is detected above a defined threshold, a warning is shown; otherwise, the sentence pair is marked as neutral. Each result is separated to maintain readability.
 
-    The interface has two main modes. In automatic translation, raw English text is submitted, segmented into sentences, and translated. Each sentence is paired with its translation before analysis. In manual pairing, users provide EN-DE sentence pairs directly, which bypasses translation and proceeds to bias evaluation. The system is designed to demonstrate the end-to-end process of bias detection independently of implementation details. The methodology allows the translation component or model representation to be replaced with alternative approaches. The focus is on showing how input sentences are converted into pairs, analyzed for bias, and presented in a user-friendly way. 
-
+    \vspace{0.8em}
     \begin{figure}[htb]
     \centering
-    \scalebox{0.8}{\input{./Bilder/demo_workflow.tex}}
-    \caption[Process of the bias detection application]{Process of the bias detection application. Automatic translation and manual sentence pairs follow the same prediction steps}
-    \label{fig:demo_workflow}
-\end{figure}
+    \includegraphics[width=1\textwidth]{modules.png}
+    \caption[Component Diagram]{Component Diagram. High-level architecture of the bias detection demo app showing components, their relationships, and data flow}
+    \label{fig:component_diagram}
+    \end{figure}
+
+    The interface has two main modes (see Figures~\ref{fig:sequence_diagram_1}, \ref{fig:sequence_diagram_2}). In automatic translation, raw English text is submitted, segmented into sentences, and translated. Each sentence is paired with its translation before analysis. In manual pairing, users provide EN-DE sentence pairs directly, which bypasses translation and proceeds to bias evaluation. The system is designed to demonstrate the end-to-end process of bias detection independently of implementation details. The methodology allows the translation component or model representation to be replaced with alternative approaches. The focus is on showing how input sentences are converted into pairs, analyzed for bias, and presented in a user-friendly way. 
+
+    \vspace{0.8em}
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{modules_001.png}
+    \caption[Sequence Diagram – Tab 1 (with translation)]{Sequence Diagram – Tab 1 (with translation). Step-by-step flow for Tab 1, showing how user input is translated, tokenized, and processed by the bias detection model}
+    \label{fig:sequence_diagram_1}
+    \end{figure}
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{modules_002.png}
+    \caption[Sequence Diagram – Tab 2 (manual input)]{Sequence Diagram – Tab 2 (manual input). Step-by-step flow for Tab 2, showing how manually entered English and German sentences are tokenized and processed by the bias detection model}
+    \label{fig:sequence_diagram_2}
+    \end{figure}

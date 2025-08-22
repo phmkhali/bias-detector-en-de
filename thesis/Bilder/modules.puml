@@ -1,0 +1,199 @@
+@startuml
+
+
+
+' Title for the Component Diagram
+
+title Bias Detection Demo App - Component Diagram
+
+
+
+' Define the components and their vertical arrangement
+
+component "User Interface" as UI
+
+component "Translation Component" as TC
+
+component "Bias Detection Model" as BDM
+
+component "Utils Module" as Utils
+
+
+
+' Define the relationships and dependencies, flowing vertically
+
+UI --> TC : (Tab 1) sends text to translate
+
+TC --> UI : returns translation
+
+
+
+UI --> Utils : sends inputs for processing
+
+Utils --> BDM : tokenizes pairs
+
+
+
+UI ..> BDM : loads at startup
+
+BDM --> UI : returns prediction results
+
+
+
+' Notes about the tokenizer and utils
+
+note "The tokenizer is a dependency\nof the Bias Detection Model.\nTokenization logic is handled\nby the Utils Module." as N1
+
+Utils .. N1
+
+
+
+' End of the component diagram
+
+@enduml
+
+
+
+@startuml
+
+
+
+' Title for the Sequence Diagram (Tab 1)
+
+title Tab 1: Bias Detection with Translation
+
+
+
+' Define the participants
+
+participant User
+
+participant "User Interface" as UI
+
+participant "Translation Component" as TC
+
+participant "Utils Module" as Utils
+
+participant "Bias Detection Model" as BDM
+
+
+
+' Define the sequence of events for Tab 1
+
+User -> UI : Enters English text
+
+activate UI
+
+
+
+UI -> TC : Sends English sentence
+
+activate TC
+
+TC -> TC : Translates to German
+
+TC -> UI : Returns German translation
+
+deactivate TC
+
+
+
+UI -> Utils : Sends English & German sentences
+
+activate Utils
+
+Utils -> Utils : Splits and tokenizes pairs
+
+Utils -> UI : Returns tokenized pairs
+
+deactivate Utils
+
+
+
+UI -> BDM : Sends tokenized pairs
+
+activate BDM
+
+BDM -> BDM : Predicts bias
+
+BDM -> UI : Returns "biased" or "neutral"
+
+deactivate BDM
+
+
+
+UI -> User : Displays bias detection result
+
+deactivate UI
+
+
+
+' End of the sequence diagram for Tab 1
+
+@enduml
+
+
+
+@startuml
+
+
+
+' Title for the Sequence Diagram (Tab 2)
+
+title Tab 2: Bias Detection with Manual Input
+
+
+
+' Define the participants
+
+participant User
+
+participant "User Interface" as UI
+
+participant "Utils Module" as Utils
+
+participant "Bias Detection Model" as BDM
+
+
+
+' Define the sequence of events for Tab 2
+
+User -> UI : Enters English and German text
+
+activate UI
+
+
+
+UI -> Utils : Sends English & German sentences
+
+activate Utils
+
+Utils -> Utils : Splits and tokenizes pairs
+
+Utils -> UI : Returns tokenized pairs
+
+deactivate Utils
+
+
+
+UI -> BDM : Sends tokenized pairs
+
+activate BDM
+
+BDM -> BDM : Predicts bias
+
+BDM -> UI : Returns "biased" or "neutral"
+
+deactivate BDM
+
+
+
+UI -> User : Displays bias detection result
+
+deactivate UI
+
+
+
+' End of the sequence diagram for Tab 2
+
+@enduml
