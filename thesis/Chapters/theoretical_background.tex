@@ -11,9 +11,7 @@ This chapter introduces the fundamental concepts used throughout this thesis. It
 
 \subsection{Bias and its Manifestations}
 \label{subsection:manifestations_of_gb}
-    Bias refers to a tendency to favour or disadvantage certain individuals or groups based on preconceived ideas. It often comes from stereotypes, which are fixed and oversimplified ideas about a social group. In short, stereotypes shape assumptions, while bias influences actual behavior and treatment.
-
-    Bias takes many forms and can be based on characteristics such as age, disability, gender, ethnicity, religion, or sexual orientation \parencite{ullmannGenderBiasMachine2022}. These biases frequently originate from longstanding cultural and historical beliefs about the expected behavior of different groups. This thesis focuses specifically on gender bias, which is particularly prominent in MT due to the influence of gendered language. Elements such as gendered terms, occupational roles, and grammatical patterns can affect translations and often perpetuate stereotypes because language is closely tied to our thoughts and beliefs. Drawing on key studies that examine gender bias in EN-DE MT \parencite{ullmannGenderBiasMachine2022,rescignoGenderBiasMachine2023,lardelliBuildingBridgesDataset2024,kapplAreAllSpanish2025}, such bias typically manifests in the following forms:
+    Bias refers to a tendency to favour or disadvantage certain individuals or groups based on preconceived ideas. It often comes from stereotypes, which are fixed and oversimplified ideas about a social group. In short, stereotypes shape assumptions, while bias influences actual behavior and treatment. Bias takes many forms and can be based on characteristics such as age, disability, gender, ethnicity, religion, or sexual orientation \parencite{ullmannGenderBiasMachine2022}. These biases frequently originate from longstanding cultural and historical beliefs about the expected behavior of different groups. This thesis focuses specifically on gender bias, which is particularly prominent in MT due to the influence of gendered language. Elements such as gendered terms, occupational roles, and grammatical patterns can affect translations and often perpetuate stereotypes because language is closely tied to our thoughts and beliefs. Drawing on key studies that examine gender bias in EN-DE MT \parencite{ullmannGenderBiasMachine2022,rescignoGenderBiasMachine2023,lardelliBuildingBridgesDataset2024,kapplAreAllSpanish2025}, such bias typically manifests in the following forms:
 
     \subsubsection{Defaulting to Masculine Forms}
         In both singular and plural contexts, the \textit{generic masculine} uses the masculine grammatical gender as the default.
@@ -31,7 +29,7 @@ This chapter introduces the fundamental concepts used throughout this thesis. It
         \item A gendered subject in the source text is assigned an incorrect gender in the translation, leading to semantic inconsistency (e.g., my mother is an engineer → meine Mutter ist ein Ingenieur).
         \end{itemize}
 
-    This does not mean that all other cases are truly "unbiased". I will refer to anything that does not fall under these two cases as "neutral". This includes, but is not limited to:
+    \noindent This does not mean that all other cases are truly "unbiased". I will refer to anything that does not fall under these two cases as "neutral". This includes, but is not limited to:
 
         \begin{itemize}
         \item Sentences with no gendered terms, like "The weather is nice".
@@ -106,9 +104,7 @@ The decoder generates the output sentence one word at a time by using the inform
 \end{figure}
 
 \subsection{Tokenization}
-\texttt{mBERT} processes input by splitting words or subword units into \textit{tokens} (tokenization)\footnote{This tokenization process applies to both BERT and mBERT.}. It uses the WordPiece algorithm with a shared vocabulary of 110,000 tokens \parencite{devlinMultilingualBERTGitHub2018}. To balance the training data, languages with large Wikipedia corpora are downsampled, while those with fewer resources are oversampled. Pre-processing is the same for all supported languages: (1) converting text to lowercase and removing accents, (2) splitting punctuation, and (3) tokenizing based on whitespace. Removing accents helps reduce the vocabulary size, even though it can introduce ambiguity in languages where accents carry meaning. This trade-off is accepted because \texttt{mBERT's} contextual embeddings usually resolve such ambiguities during training and inference.
-
-Special tokens are reserved units added to the input text to mark structure. They are not real words but placeholders that tell the model how to interpret different parts of the input.
+\texttt{mBERT} processes input by splitting words or subword units into \textit{tokens} (tokenization)\footnote{This tokenization process applies to both BERT and mBERT.}. It uses the WordPiece algorithm with a shared vocabulary of 110,000 tokens \parencite{devlinMultilingualBERTGitHub2018}. To balance the training data, languages with large Wikipedia corpora are downsampled, while those with fewer resources are oversampled. Pre-processing is the same for all supported languages: (1) converting text to lowercase and removing accents, (2) splitting punctuation, and (3) tokenizing based on whitespace. Removing accents helps reduce the vocabulary size, even though it can introduce ambiguity in languages where accents carry meaning. This trade-off is accepted because \texttt{mBERT's} contextual embeddings usually resolve such ambiguities during training and inference. \textit{Special tokens} are reserved units added to the input text to mark structure. They are not real words but placeholders that tell the model how to interpret different parts of the input.
 
 \begin{itemize}
 	\item \texttt{[CLS]} (classification) marks the start of the sequence,
@@ -126,9 +122,7 @@ Special tokens are reserved units added to the input text to mark structure. The
 \end{quote}
 
 \subsection{Fine-Tuning}
-    Fine-tuning adjusts the base model for a specific task, in this case, detecting gender bias in translations.\footnote{This fine-tuning process applies to both BERT and mBERT.} To do so, a new labeled dataset is used to continue training the model, allowing it to adapt its weights to task-specific patterns. A classification head is an additional layer added to the top of the model to turn its general language understanding into task-specific predictions. It usually consists of a linear layer, which transforms the model’s output into a set of scores, followed by a softmax function, which converts these scores into probabilities for each class.
-
-    In this case, the classification head uses the final hidden state of the \texttt{[CLS]} as the input. The linear layer maps this vector to two values (biased or not biased), and the softmax function outputs the probability for each class.
+    Fine-tuning adjusts the base model for a specific task, in this case, detecting gender bias in translations.\footnote{This fine-tuning process applies to both BERT and mBERT.} To do so, a new labeled dataset is used to continue training the model, allowing it to adapt its weights to task-specific patterns. A classification head is an additional layer added to the top of the model to turn its general language understanding into task-specific predictions. It usually consists of a linear layer, which transforms the model’s output into a set of scores, followed by a softmax function, which converts these scores into probabilities for each class. In this case, the classification head uses the final hidden state of the \texttt{[CLS]} as the input. The linear layer maps this vector to two values (biased or not biased), and the softmax function outputs the probability for each class.
 
     \[
     z = Wx + b
