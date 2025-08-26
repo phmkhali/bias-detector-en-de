@@ -43,7 +43,7 @@ cd bias-detector-en-de
 
 3. Download the model
 
-Manually download from Google Drive and place the `model_output` folder into the project directory: [Google Drive link](https://drive.google.com/drive/u/1/folders/11WMb0od_U_sQsUGD0t4DjQwcefI3r_kK)
+Manually download from Google Drive and place the `model_output` folder into the project directory: [Google Drive link.](https://drive.google.com/drive/u/1/folders/11WMb0od_U_sQsUGD0t4DjQwcefI3r_kK)
 
 
 4. Create and activate a Python virtual environment.
