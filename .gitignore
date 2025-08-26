@@ -11,3 +11,8 @@
 *.lof
 *.lot
 *.toc
+thesis-env*
+model_output*
+best_model/
+__pycache__/
+.DS_Store
