@@ -59,7 +59,7 @@ source venv/bin/activate
 
 ```bash
 python -m venv venv
-.\venv\Scripts\Activate.ps1
+.\venv\Scripts\activate
 ```
 
 5. Install required packages
