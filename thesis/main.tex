@@ -95,7 +95,7 @@ bibliography=totoc,listof=totoc,appendixprefix,paper=a4,headings=small]{scrbook}
 % Document
 % -----------------------------------
 \begin{document}
-
+%TC:ignore
 \frontmatter 
     \include{./Titel/titel} 			% Titelblatt
     \clearpage{\pagestyle{empty}\cleardoublepage}
@@ -119,9 +119,11 @@ bibliography=totoc,listof=totoc,appendixprefix,paper=a4,headings=small]{scrbook}
 
     \input{./Titel/listofabbreviations}
     \clearpage{\pagestyle{empty}\cleardoublepage}
+%TC:endignore
 
 % -----------------------------------
-\mainmatter 							% die einzelnen Kapitel
+%TC:include
+\mainmatter 							
     \input{./Chapters/introduction}
     \clearpage{\pagestyle{empty}\cleardoublepage}		
     \input{./Chapters/theoretical_background}
@@ -135,9 +137,10 @@ bibliography=totoc,listof=totoc,appendixprefix,paper=a4,headings=small]{scrbook}
     \input{./Chapters/evaluation_findings.tex}
     \clearpage{\pagestyle{empty}\cleardoublepage}		
     \input{./Chapters/conclusion.tex}
-
+%TC:endinclude
 % -----------------------------------
 \backmatter 
+%TC:ignore
 \printbibliography
 \clearpage{\pagestyle{empty}\cleardoublepage}
 \begingroup
@@ -146,5 +149,6 @@ bibliography=totoc,listof=totoc,appendixprefix,paper=a4,headings=small]{scrbook}
 \input{./Chapters/appendix}
 \endgroup
 \input{./Chapters/erklaerung} 			% Eidesstattliche Erklärung (nicht bei Seminararb.)
+%TC:endignore
 
 \end{document}

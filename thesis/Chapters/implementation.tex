@@ -20,9 +20,7 @@ The implementation includes the gender bias detection model, a Streamlit demo in
 
 \section{Core Components and Data Flow}
     \subsection{Datasets Folder}
-        The \texttt{datasets} folder contains the processed datasets used for training and evaluation of the bias detection model. It includes the final combined dataset \texttt{dataset.csv} as well as intermediate datasets derived from individual sources: \texttt{lardelli\_final}, \texttt{mgente\_final}, and \texttt{tatoeba\_final}.
-
-        The \texttt{join\_datasets} script facilitates the concatenation of these datasets into a unified dataset. The script is designed to support iterative sampling by specifying sample sizes for biased and neutral classes with a fixed random seed. It merges the sampled subsets, shuffles the combined data, and performs data integrity checks. 
+        The \texttt{datasets} folder contains the processed datasets used for training and evaluation of the bias detection model. It includes the final combined dataset \texttt{dataset.csv} as well as intermediate datasets derived from individual sources: \texttt{lardelli\_final}, \texttt{mgente\_final}, and \texttt{tatoeba\_final}. The \texttt{join\_datasets} script facilitates the concatenation of these datasets into a unified dataset. The script is designed to support iterative sampling by specifying sample sizes for biased and neutral classes with a fixed random seed. It merges the sampled subsets, shuffles the combined data, and performs data integrity checks. 
 
     \subsection{Fine-tuning Notebook and Model Output}
         The \texttt{fine-tuning.ipynb} notebook performs model initialization, training, evaluation, and testing. It loads the \texttt{mBERT} model and trains it on \texttt{dataset.csv}. Training artifacts are saved in the \texttt{model\_output} folder with checkpoints, configuration files, tokenizer files, and training metadata. The training process ran for six epochs due to early stopping and took approximately 18 minutes and 32 seconds on the development machine. 
@@ -57,8 +55,7 @@ The implementation includes the gender bias detection model, a Streamlit demo in
         \vspace{0.8em}
 
 \section{Reproduction Guide} \label{section:reproduction_guide}
-   The setup process for the Streamlit demo app includes creating a Python virtual environment, installing required packages, and running the application. This guide covers these steps for macOS/Linux and Windows. \textbf{Note:} The pre-trained model is not included in the GitHub repository due to size restrictions. It can be downloaded separately via the provided Google Drive link. If the pre-trained model is not present, the \texttt{fine-tuning.ipynb} notebook must be executed first to train and save the model before launching the demo.
-   
+   The setup process for the Streamlit demo app includes creating a Python virtual environment, installing required packages, and running the application. This guide covers these steps for macOS/Linux and Windows. \textbf{Note:} The pre-trained model is not included in the GitHub repository due to size restrictions. It can be downloaded separately via the provided Google Drive link.\footnote{ \href{https://drive.google.com/drive/folders/11WMb0od_U_sQsUGD0t4DjQwcefI3r_kK?usp=sharing}{Google Drive link} for the model.} If the pre-trained model is not present, the \texttt{fine-tuning.ipynb} notebook must be executed first to train and save the model before launching the demo.
 \paragraph{Installation Steps}
 
 \begin{enumerate}
@@ -77,7 +74,7 @@ cd bias-detector-en-de
     
     \begin{tcolorbox}[colback=gray!10, colframe=gray!50, breakable, boxrule=0.4pt, sharp corners]
 \begin{verbatim}
-# Manually download from the provided Google Drive link
+# Manually download from the provided Google Drive link above
 # and place the model_output folder into the directory
 \end{verbatim}
     \end{tcolorbox}
