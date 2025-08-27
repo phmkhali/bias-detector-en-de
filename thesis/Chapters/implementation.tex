@@ -3,7 +3,7 @@ The implementation includes the gender bias detection model, a Streamlit demo in
 
 \section{Environment Setup and Project Structure}
     \subsection{System Environment and Hardware}
-    The project was developed on macOS using Python 3.12. A virtual environment was used, and all dependencies were installed via the \texttt{requirements.txt} file using \texttt{pip3}. No manual installation steps were needed beyond this. During development, both GPU and CPU were used to test training and inference performance, with device selection handled dynamically. The final model for the demo and evaluation was trained on the CPU to ensure full compatibility and reproducibility without relying on a GPU. To ensure reproducibility, random seeds were fixed across all libraries and backends. The application is started via Streamlit. Further usage instructions are provided in \autoref{section:reproduction_guide}.
+    The project was developed on macOS using Python 3.12.4. A virtual environment was used, and all dependencies were installed via the \texttt{requirements.txt} file using \texttt{pip3}. No manual installation steps were needed beyond this. During development, both GPU and CPU were used to test training and inference performance, with device selection handled dynamically. The final model for the demo and evaluation was trained on the CPU to ensure full compatibility and reproducibility without relying on a GPU. To ensure reproducibility, random seeds were fixed across all libraries and backends. The application is started via Streamlit. Further usage instructions are provided in \autoref{section:reproduction_guide}.
 
 \subsection{Directory Layout}
     \autoref{fig:file_tree} shows the directory structure with the relevant files for the final implementation. The folder contains additional files related to the original datasets and scripts used for data conversion. These supplementary files are intended for comprehension and reproducibility purposes but are not required for the final model.
@@ -95,7 +95,7 @@ source venv/bin/activate
     \begin{tcolorbox}[colback=gray!10, colframe=gray!50, breakable, boxrule=0.4pt, sharp corners]
 \begin{verbatim}
 python -m venv venv
-.\venv\Scripts\Activate.ps1
+.\venv\Scripts\activate
 \end{verbatim}
     \end{tcolorbox}
     

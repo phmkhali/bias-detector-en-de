@@ -119,10 +119,10 @@ The decoder generates the output sentence one word at a time by using the inform
 \end{quote}
 
 \subsection{Fine-Tuning}
-    Fine-tuning adjusts the base model for a specific task, in this case, detecting gender bias in translations. To do so, a new labeled dataset is used to continue training the model, allowing it to adapt its weights to task-specific patterns.\footnote{This fine-tuning process applies to both BERT and mBERT.} A \textit{classification head} is an additional layer added to the top of the model to turn its general language understanding into task-specific predictions. It usually consists of a \textit{linear layer}, which transforms the model’s output into a set of scores, followed by a \textit{softmax function}, which converts these scores into probabilities for each class. Here, the classification head uses the final hidden state of the \texttt{[CLS]} as the input. The linear layer maps this vector to two values (biased or not biased), and the softmax function outputs the probability for each class.
+    Fine-tuning adjusts the base model for a specific task, in this case, detecting gender bias in translations. To do so, a new labeled dataset is used to continue training the model, allowing it to adapt its weights to task-specific patterns.\footnote{This fine-tuning process applies to both BERT and mBERT.} A \textit{classification head} is an additional layer added to the top of the model to turn its general language understanding into task-specific predictions. It usually consists of a \textit{linear layer}, which transforms the model’s output into a set of scores, followed by a \textit{softmax function}, which converts these scores into probabilities for each class. Here, the classification head uses the final hidden state of the \texttt{[CLS]} as the input. The linear layer maps this vector to two values (biased or not biased), and the softmax function outputs the probability for each class.\footnote{The following formulas are adapted from \textcite{devlinBERTPretrainingDeep2019} and \textcite{xiaoIntroductionTransformersNLP2023}}
 
     \[
-    z = Wx + b
+    z = Wx + b 
     \]
 
    \(x\) is the \texttt{[CLS]} embedding, \(W\) is the weight matrix, and \(b\) is the bias vector. Both \(W\) and \(b\) are parameters learned during training to help map \texttt{mBERT’s} output to the task labels. This changes the output into two numbers (logits), one for each class: biased or neutral. Then, the softmax function turns these numbers into probabilities \parencite{devlinBERTPretrainingDeep2019,xiaoIntroductionTransformersNLP2023}. Short for "soft maximum," it maps raw scores to a probability distribution, emphasizing the highest values while still giving smaller ones some weight.
@@ -130,7 +130,7 @@ The decoder generates the output sentence one word at a time by using the inform
     \[
     \text{softmax}(z_i) = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_j}}
     \]
-
+    
     Each logit \( z_i \) is exponentiated to ensure positivity. The result is then normalized by dividing by the sum of all exponentials, producing the probability distributions. \( K \) is the number of possible classes. The class with the highest probability is selected as the model’s prediction. For example, suppose the model outputs logits $[1.5, 0.5]$ for biased and neutral respectively. Exponentiating gives $[e^{1.5}, e^{0.5}] \approx [4.48, 1.65]$. Normalizing by the sum $4.48 + 1.65 = 6.13$ gives probabilities $[0.73, 0.27]$. The model would predict biased since it has the higher probability, with a confidence of 73\%.
 
     
