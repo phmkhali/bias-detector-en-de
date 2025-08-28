@@ -3,6 +3,32 @@
 \begin{appendices}
 \chapter*{Appendices}
 
+% Mini TOC for appendix only
+\section*{Appendix Overview}
+
+\begin{itemize}
+\item[] \textbf{A Analysis Summary Table of Core Research Papers}
+\item[] \textbf{B Datasets and Evaluation Tables}
+\begin{itemize}
+    \item[] B.1 Handcrafted Test Set Sentences
+    \item[] B.2 Performance of Dataset Tuning Test Runs
+    \item[] B.3 False Positives and False Negatives from Held-out Test Set
+    \item[] B.4 Handcrafted Test Set Results
+\end{itemize}
+
+\item[] \textbf{C Use of Artificial Intelligence}
+\begin{itemize}
+    \item[] C.1 Perplexity.ai for Literature Research
+    \item[] C.2 Gemini for Synthetic Data Generation
+    \item[] C.3 Use of AI for Code Generation
+    \item[] C.4 Use of ChatGPT for Formulation and Language
+\end{itemize}
+\end{itemize}
+
+
+
+
+
 \renewcommand{\thesection}{\Alph{section}}
 
 \includepdf[pages=1,pagecommand={\section{Analysis Summary Table of Core Research Papers}\label{appendix:analysis_papers}}]{./Literatur/analysis_papers.pdf}
@@ -13,7 +39,7 @@
 \section{Datasets and Evaluation Tables}\label{appendix:datasets}
 
 \subsection{Handcrafted Test Set Sentences}
-\label{tab:handcrafted_testset}
+\label{appendix:handcrafted_testset}
 \input{./Bilder/handcrafted_test_sentences.tex}
 
 \subsection{Performance of Dataset Tuning Test Runs}
@@ -91,7 +117,7 @@ Loaded Data: The lardelli_singular.csv and lardelli_plural.csv files were loaded
 
 Sentence Generation: For each noun in lardelli_singular.csv, 3 singular and 3 plural English sentences were generated using simple, grammatically correct templates.
 
-German Translation Generation: For each singular English sentence, corresponding German translations were generated using German_MS, German_FS, Gender-Neutral, and Gender-Inclusive columns from lardelli_singular.csv. For each plural English sentence, matching rows were found in lardelli_plural.csv using the ID, and German translations were generated using German_MP, German_FP, Gender-Neutral, and Gender-Inclusive columns. Translations were labeled as 1 (gendered) or 0 (neutral/inclusive). Rows with missing German translation values were skipped.
+German Translation Generation: For each singular English sentence, corresponding German translations were generated using German_MS, German_FS, Gender-Neutral, and Gender-Inclusive columns from lardelli_singular.csv. For each plural English sentence, matching rows were found in lardelli_plural.csv using the ID, and German translations were generated using German_MP, German_FP, Gender-Neutral, and Gender-Inclusive columns. Translations were labelled as 1 (gendered) or 0 (neutral/inclusive). Rows with missing German translation values were skipped.
 
 Output: All generated sentences and their translations were compiled into a single CSV file named output_translations.csv with columns english,german,label. Please find the generated CSV file below.
 
