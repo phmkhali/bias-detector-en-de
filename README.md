@@ -1,4 +1,4 @@
-# Bias-Marker-EN-DE  
+# Bias-Detector-EN-DE  
 **Detecting Gender Bias in English-German Translations using Natural Language Processing**  
 
 ![Python](https://img.shields.io/badge/Python-3.12%2B-blue)
