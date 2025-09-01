@@ -56,144 +56,73 @@ Utils .. N1
 
 @startuml
 
-
-
 ' Title for the Sequence Diagram (Tab 1)
-
 title Tab 1: Bias Detection with Translation
 
-
-
 ' Define the participants
-
 participant User
-
 participant "User Interface" as UI
-
 participant "Translation Component" as TC
-
 participant "Utils Module" as Utils
-
 participant "Bias Detection Model" as BDM
 
-
-
 ' Define the sequence of events for Tab 1
-
 User -> UI : Enters English text
-
 activate UI
 
-
-
 UI -> TC : Sends English sentence
-
 activate TC
-
 TC -> TC : Translates to German
-
 TC -> UI : Returns German translation
-
 deactivate TC
 
-
-
 UI -> Utils : Sends English & German sentences
-
 activate Utils
-
 Utils -> Utils : Splits and tokenizes pairs
-
-Utils -> UI : Returns tokenized pairs
-
+Utils -> BDM : Sends tokenized pairs
+activate BDM
+BDM -> BDM : Predicts bias
+BDM -> Utils : Returns prediction
+deactivate BDM
+Utils -> UI : Returns bias results
 deactivate Utils
 
-
-
-UI -> BDM : Sends tokenized pairs
-
-activate BDM
-
-BDM -> BDM : Predicts bias
-
-BDM -> UI : Returns "biased" or "neutral"
-
-deactivate BDM
-
-
-
 UI -> User : Displays bias detection result
-
 deactivate UI
 
-
-
 ' End of the sequence diagram for Tab 1
-
 @enduml
 
 
 
 @startuml
 
-
-
 ' Title for the Sequence Diagram (Tab 2)
-
 title Tab 2: Bias Detection with Manual Input
 
-
-
 ' Define the participants
-
 participant User
-
 participant "User Interface" as UI
-
 participant "Utils Module" as Utils
-
 participant "Bias Detection Model" as BDM
 
-
-
 ' Define the sequence of events for Tab 2
-
 User -> UI : Enters English and German text
-
 activate UI
 
-
-
 UI -> Utils : Sends English & German sentences
-
 activate Utils
-
 Utils -> Utils : Splits and tokenizes pairs
-
-Utils -> UI : Returns tokenized pairs
-
+Utils -> BDM : Sends tokenized pairs
+activate BDM
+BDM -> BDM : Predicts bias
+BDM -> Utils : Returns prediction
+deactivate BDM
+Utils -> UI : Returns bias results
 deactivate Utils
 
-
-
-UI -> BDM : Sends tokenized pairs
-
-activate BDM
-
-BDM -> BDM : Predicts bias
-
-BDM -> UI : Returns "biased" or "neutral"
-
-deactivate BDM
-
-
-
 UI -> User : Displays bias detection result
-
 deactivate UI
 
-
-
 ' End of the sequence diagram for Tab 2
-
 @enduml
