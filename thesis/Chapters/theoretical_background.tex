@@ -73,10 +73,10 @@ BERT, which stands for Bidirectional Encoder Representations from Transformers, 
     \begin{enumerate}
         \item It receives input embeddings, which represent the words, and positional encodings, which tell the model the order of the words.
         
-        \item The data then passes through several identical layers. Each layer has two main components. Each of these is followed by an \textbf{Add \& Layer Norm} step, which helps stabilize and preserve useful information:
+        \item The data then passes through several identical layers. Each layer has two main components. Each of these is followed by an \textit{Add \& Layer Norm} step, which helps stabilize and preserve useful information:
         \begin{enumerate}[label=\alph*.]
-            \item \textbf{Multi-head self-attention} runs several self-attention processes in parallel. Each attention head focuses on different details to help the model understand the sentence better.
-            \item A \textbf{Feed-forward network} processes each word vector separately, refining the information like a small filter.
+            \item \textit{Multi-head self-attention} runs several self-attention processes in parallel. Each attention head focuses on different details to help the model understand the sentence better.
+            \item A \textit{Feed-forward network} processes each word vector separately, refining the information like a small filter.
     \end{enumerate}
     
     \item Each layer builds on the output of the previous one, helping the model form more complex and abstract ideas about the input sentence.
